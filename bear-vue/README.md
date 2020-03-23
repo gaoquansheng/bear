@@ -18,3 +18,7 @@ npm run lint
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
+### 引入elementUI
+vue add element
+### 引入videojs
+npm install video.js
