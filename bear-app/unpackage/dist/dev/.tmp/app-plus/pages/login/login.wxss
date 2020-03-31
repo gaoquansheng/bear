@@ -1,0 +1,116 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*背景图片未设置 */
+.loginForm {
+	width: 80%;
+	margin-left: 10%;
+	border: solid 1rpx grey;
+	margin-top: 40%;
+	border-radius: 10rpx;
+}
+.loginButton {
+	margin-left: 10%;
+	margin-top: 20rpx;
+	width: 80%;
+}
+.loginuserTel {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	height: 60rpx;
+}
+.loginPwd {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	height: 60rpx;
+}
+input {
+	-webkit-box-flex: 1;
+	-webkit-flex: 1;
+	    -ms-flex: 1;
+	        flex: 1;
+	height: 50rpx;
+}
+image {
+	width: 50rpx;
+	height: 50rpx;
+	margin-right: 10rpx;
+}
+

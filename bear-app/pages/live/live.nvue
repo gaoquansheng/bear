@@ -1,0 +1,96 @@
+<template>
+    <view>
+        <live-pusher id='livePusher' ref="livePusher" class="livePusher" :url="rtmpUrl"
+        mode="SD" :muted="true" :enable-camera="true" :auto-focus="true" :beauty="1" whiteness="2"
+        aspect="9:16"
+        ></live-pusher>
+        <button class="btn" @click="start">开始推流</button>      
+        <button class="btn" @click="stop">停止推流</button>
+        <button class="btn" @click="switchCamera">切换摄像头</button>
+    </view>
+</template>
+
+<script>
+    export default {
+       data() {
+       	return {
+       		
+       	}
+       },
+	   computed:{
+		 rtmpUrl(){
+			 return "rtmp://192.168.1.18:1935/live/"+this.$store.state.userName
+		 }  
+	   },
+        onReady() {
+            // 注意：需要在onReady中 或 onLoad 延时
+            this.context = uni.createLivePusherContext("livePusher", this);
+        },
+        methods: {
+            start: function() {
+				//判断用户是否登录，未登录提示用户进行登录
+				if(this.$store.state.login){
+					if (this.$store.state.userName != ""){
+						
+						this.context.start({
+						    success: (a) => {
+						        console.log("livePusher.start:" + JSON.stringify(a));
+						    }
+						});
+					}else{
+						//点击确定跳转到完善用户名页面
+						uni.showModal({
+							title:'提示',
+							content:'请完善用户名',
+							success(res) {
+								if(res.confirm){
+									uni.navigateTo({
+										url:"../me/info/info"
+									})
+								}
+							}
+						})
+					}
+				}else{
+					//点击确定跳转到登录页面
+					uni.showModal({
+					    title: '提示',
+					    content: '请登录',
+					    success: function (res) {
+							console.log(res)
+					        if (res.confirm) {
+								//跳转到登录页面
+								uni.navigateTo({
+									url:"../login/login"
+								})
+					        } else if (res.cancel) {
+					           
+					        }
+					    }
+					});
+				}
+				//已登录的判断用户名是否已完善，若没有提示完善用户名，
+				
+              
+            },         
+            stop: function() {
+                this.context.stop({
+                    success: (a) => {
+                        console.log(JSON.stringify(a));
+                    }
+                });
+            },
+            switchCamera: function() {
+                this.context.switchCamera({
+                    success: (a) => {
+                        console.log("livePusher.switchCamera:" + JSON.stringify(a));
+                    }
+                });
+            }
+        }
+    }
+</script>
+
+<style>
+
+</style>
