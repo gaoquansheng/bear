@@ -24,6 +24,10 @@
             "style" : {}
         }
         
+        ,{
+            "path" : "pages/register/register",
+            "style" : {}
+        }
     ],
 	//设置应用的状态栏、导航条、标题、窗口背景色等
 	"globalStyle": {

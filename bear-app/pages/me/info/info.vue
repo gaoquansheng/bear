@@ -17,7 +17,8 @@
 	export default {
 		data() {
 			return {
-				userName:this.$store.state.userName
+				userName: this.$store.state.userName,
+				userId: this.$store.state.userId
 			}
 		},
 		// computed: {
@@ -28,23 +29,33 @@
 		methods: {
 			update() {
 				var user = {
-					userName:this.userName
+					userName:this.userName,
+					userId: this.userId
 				}
 				var _this = this;
 				uni.request({
-					url: "http://192.168.1.18:8080/update",
+					url: "http://192.168.1.18:8080/app/update",
 					data: user,
 					dataType: "json",
-					method: "POST",
+					method: "PUT",
 					success(data) {
-						if (data.statusCode == 200) {
+						console.log(data.data)
+						if (data.data.statusCode == 200) {
 							//登录成功之后，将后端返回的用户名赋值
 							_this.$store.commit("updateUserName", {
 								userName: _this.userName
 							})
-							console.log("修改成功")
+							uni.showModal({
+								title: "提示",
+								content: data.data.msg
+							})
+							uni.navigateBack({
+							})
 						} else {
-							console.log("错误")
+							uni.showModal({
+								title: "提示",
+								content: data.data.msg
+							})
 						}
 
 					},

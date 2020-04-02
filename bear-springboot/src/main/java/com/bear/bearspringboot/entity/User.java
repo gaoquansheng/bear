@@ -13,6 +13,6 @@ public class User {
     private String userPwd;
     private int isAdmin;
 //    频道名
-    private String applicationName;
+    private int userId;
 
 }

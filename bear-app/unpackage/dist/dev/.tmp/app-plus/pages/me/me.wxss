@@ -61,6 +61,22 @@ box-sizing: border-box; */
 
 .logoutInfo{
 	text-align: center;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: row;
+	    -ms-flex-direction: row;
+	        flex-direction: row;
+	-webkit-justify-content:space-around;
+	    -ms-flex-pack:distribute;
+	        justify-content:space-around;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
 }
 .loginInfoTop,.logoutInfo{
 	height: 200rpx;

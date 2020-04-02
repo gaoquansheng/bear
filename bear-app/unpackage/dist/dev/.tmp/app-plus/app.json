@@ -3,7 +3,8 @@
     "pages/me/me",
     "pages/me/info/info",
     "components/infoList/infoList",
-    "pages/login/login"
+    "pages/login/login",
+    "pages/register/register"
   ],
   "window": {
     "navigationBarTextStyle": "black",

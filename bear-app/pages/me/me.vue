@@ -2,7 +2,10 @@
 	<view>
 		<view class="logoutInfo" v-if="!isLogin">
 			<navigator url="../login/login" hover-class="navigator-hover">
-				<button type="primary">注册/登录</button>
+				<button type="primary" >登录</button>
+			</navigator>
+			<navigator url="../register/register" hover-class="navigator-hover">
+				<button type="primary" >注册</button>
 			</navigator>
 		</view>
 		
@@ -11,7 +14,7 @@
 				<view class="photoInfo"></view>
 				<view class="nameInfo">
 					<view class="name"><text>{{userName}}</text></view>
-					<view><text>手机号：15516392395</text></view>
+					<!-- <view><text>手机号：15516392395</text></view> -->
 				</view>
 			</view>
 			<view class="loginInfoBody">
@@ -79,6 +82,10 @@
 <style>
 	.logoutInfo{
 		text-align: center;
+		display: flex;
+		flex-direction: row;
+		justify-content:space-around;
+		align-items: center;
 	}
 	.loginInfoTop,.logoutInfo{
 		height: 200rpx;

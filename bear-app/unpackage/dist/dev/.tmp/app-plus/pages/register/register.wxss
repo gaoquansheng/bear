@@ -1,0 +1,21 @@
+
+.topInfo {
+	height: 200rpx;
+	border-bottom: #464E52 5rpx solid;
+	text-align: center;
+	line-height: 200rpx;
+	font-size: 60rpx;
+}
+.registerForm {
+	width: 70%;
+	margin: 100rpx auto;
+}
+input {
+	border-bottom: #000000 1rpx solid;
+	margin-top: 50rpx;
+	height: 50rpx;
+}
+button {
+	margin-top: 100rpx;
+}
+

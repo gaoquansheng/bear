@@ -6,7 +6,11 @@ import com.bear.bearspringboot.entity.User;
 import org.springframework.stereotype.Service;
 
 @Service
-public interface LoginService {
+public interface AppService {
 
-    public RespBean login(User user);
+    public RespBean register(User user);
+
+    public User login(User user);
+
+    public RespBean updateUserNameById(User user);
 }

@@ -36,31 +36,40 @@
 					}
 					//手机号登录，将applicationName返回
 					uni.request({
-						url:"http://192.168.1.18:8080/login",
+						url:"http://192.168.1.18:8080/app/login",
 						data:user,
 						dataType:"json",
 						method: "POST",
 						success(data){
-							if(data.statusCode == 200){
+							if(data.data != ""){
 								//登录成功之后，将后端返回的用户名赋值
 								_this.$store.commit("login",{
-									userName:data.data
+									userName: data.data.userName,
+									userId: data.data.userId
 								})
-								
 								uni.reLaunch({
 									url:"../me/me"
 								})
 							}else{
-								console.log("错误")
+								uni.showModal({
+									title:"提示",
+									content: "用户名或密码错误"
+								})
 							}
 							
 						},
 						fail() {
-							return "网络错误";
+							uni.showModal({
+								title:"提示",
+								content: "网络错误"
+							})
 						}
 					})
 				}else{
-					return "手机号输入错误"
+					uni.showModal({
+						title:"提示",
+						content: "手机号输入错误"
+					})
 				}
 				
 			}
