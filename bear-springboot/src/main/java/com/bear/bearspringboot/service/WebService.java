@@ -14,4 +14,5 @@ public interface WebService {
     public RespBean save(User user);
     public RespBean update(User user);
     public RespBean deleteByUserId(int userId);
+    public RespBean login(User user);
 }

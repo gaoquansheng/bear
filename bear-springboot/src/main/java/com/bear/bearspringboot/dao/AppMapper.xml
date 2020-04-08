@@ -4,7 +4,7 @@
 <mapper namespace="com.bear.bearspringboot.dao.AppMapper">
 
     <select id="isOldUserName" parameterType="String" resultType="int">
-        select count(*) from user where userName = #{userName}
+        select count(*) from user where userName = #{userName} and isAdmin = 0;
     </select>
     <select id="isOldUserTel" parameterType="String" resultType="int">
         select count(*) from user where userTel = #{userTel}

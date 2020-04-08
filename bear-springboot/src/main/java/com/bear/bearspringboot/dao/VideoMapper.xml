@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bear.bearspringboot.dao.VideoMapper">
+    <insert id="startLive" parameterType="Video">
+        insert into video (userName,url,lat,lng,startTime,flag) values (#{userName},#{url},#{lat},#{lng},#{startTime},#{flag})
+    </insert>
+    <!--<update id="endLive" parameterType="String">-->
+        <!--update video set flag = 0 where userName = #{userName} and flag = 1;-->
+    <!--</update>-->
+    <update id="recordDone" parameterType="String">
+        update video set fileName = #{param1},flag = 0 where userName = #{param2} and flag = 1;
+    </update>
+    <select id="live" resultType="Video">
+        select * from video where flag = 1;
+    </select>
+    <select id="record" resultType="Video">
+        select * from video where flag = 0;
+    </select>
+</mapper>

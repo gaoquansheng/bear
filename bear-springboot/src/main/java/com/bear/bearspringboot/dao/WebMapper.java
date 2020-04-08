@@ -12,4 +12,5 @@ public interface WebMapper {
     public int save(User user);
     public int update(User user);
     public int deleteByUserId(int userId);
+    public int login(User user);
 }

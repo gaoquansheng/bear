@@ -9,3 +9,5 @@ spring:
 mybatis:
 #  mapper-locations: classpath:mapping/*.xml
   type-aliases-package: com.bear.bearspringboot.entity # 提取公共包名
+server:
+  port: 8899

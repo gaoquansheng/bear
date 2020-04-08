@@ -18,4 +18,7 @@
     <update id="update" parameterType="User">
         update user set userName = #{userName},userPwd = #{userPwd},isAdmin=#{isAdmin},userTel= #{userTel}
     </update>
+    <select id="login" parameterType="User" resultType="int">
+        select count(*) from user where userName = #{userName} and userPwd = #{userPwd} and isAdmin = 1;
+    </select>
 </mapper>

@@ -3,10 +3,10 @@
            label-width="0px" v-loading="loading" ref="loginForm">
     <h3 class="login_title">系统登录</h3>
     <el-form-item prop="account">
-      <el-input type="text" v-model="loginForm.username" auto-complete="off" placeholder="账号"></el-input>
+      <el-input type="text" v-model="loginForm.userName" auto-complete="off" placeholder="账号"></el-input>
     </el-form-item>
     <el-form-item prop="checkPass">
-      <el-input type="password" v-model="loginForm.password" auto-complete="off" placeholder="密码"></el-input>
+      <el-input type="password" v-model="loginForm.userPwd" auto-complete="off" placeholder="密码"></el-input>
     </el-form-item>
     <el-checkbox class="login_remember" v-model="checked" label-position="left">记住密码</el-checkbox>
     <el-form-item style="width: 100%">
@@ -16,6 +16,7 @@
 </template>
 
 <script>
+import{postRequest} from '../../utils/api'
 export default {
  data(){
       return {
@@ -25,15 +26,32 @@ export default {
         },
         checked: true,
         loginForm: {
-          username: '',
-          password: ''
+          userName: '',
+          userPwd: ''
         },
         loading: false
       }
     },
     methods: {
         submitClick(){
-            this.$router.push("/home")
+          var _this = this;
+          this.loading = true;
+          postRequest("/web/login",{
+            userName: this.userName,
+            userPwd: this.userPwd
+          }).then(resp =>{
+            _this.loading = false;
+            if(resp.data.statusCode == 200){
+              _this.$router.replace({path: '/home'})
+            }else{
+              _this.$alert('登录失败!', '失败!');
+            }
+            
+          },resp =>{
+            console.log(resp);
+            _this.loading = false;
+            _this.$alert('找不到服务器⊙﹏⊙∥!', '失败!');
+          })
         }
     }
     

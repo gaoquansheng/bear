@@ -40,9 +40,9 @@ public class WebServiceImpl implements WebService {
     public RespBean update(User user) {
         int line = webMapper.update(user);
         if (line == 1){
-            return new RespBean("修改用户成功",200);
+            return new RespBean("修改用户信息成功",200);
         }else{
-            return new RespBean("修改用户失败",400);
+            return new RespBean("修改用户信息失败",400);
         }
     }
 
@@ -53,6 +53,16 @@ public class WebServiceImpl implements WebService {
             return new RespBean("删除用户成功",200);
         }else{
             return new RespBean("删除用户失败",400);
+        }
+    }
+
+    @Override
+    public RespBean login(User user) {
+        int line = webMapper.login(user);
+        if (line == 1){
+            return new RespBean("登录成功",200);
+        }else{
+            return new RespBean("账号或密码错误",400);
         }
     }
 }

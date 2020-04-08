@@ -1,12 +1,13 @@
 <template>
   <div class="videoPlayer">
-    <video ref="videoPlayer" class="video-js"></video>
+    <video  ref="videoPlayer" class="video-js"></video>
   </div>
 </template>
 
 <script>
 import videojs from "video.js";
 import "video.js/dist/video-js.css";
+import  "videojs-flash"
 
 export default {
   name: "VideoPlayer",

@@ -24,25 +24,33 @@ const routes = [
   },
   {
     path: "/home",
-    name: "直播管理",
+    // name: "直播管理",
     component: Home,
     iconCls: 'fa fa-file-text-o',
     children: [
       {
         path: "/live",
-        name: "直播",
+        name: "直播管理",
         component:Live
-      },
+      }
+    ]
+  },
+  {
+    path: "/home",
+    // name: "录播管理",
+    component: Home,
+    iconCls: 'fa fa-file-text-o',
+    children: [
       {
         path: "/record",
-        name: "录播",
+        name: "录播管理",
         component: Record
       }
     ]
   },
   {
     path: "/home",
-    name: "用户管理",
+    // name: "用户管理",
     component: Home,
     children:[
       {
