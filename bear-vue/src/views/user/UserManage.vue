@@ -276,6 +276,7 @@ export default {
           //验证通过，这时将验证通过的信息传给后台
           _this.editUserDiaLog = false;
           //1.将整个用户信息传递给后台
+          //判断用户数据是否发生了改变
           putRequest("http://localhost:8080/web/users", _this.editUserForm).then(
             resp => {
               //2.根据后台返回的信息进行输出

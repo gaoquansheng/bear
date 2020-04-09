@@ -2,31 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="45c587ad-6309-4849-a2a5-9fe19f0c196a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/controller/AppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/controller/AppController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/controller/VideoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/controller/VideoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/controller/WebController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/controller/WebController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/dao/WebMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/dao/WebMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/dao/WebMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/dao/WebMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/service/WebService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/service/WebService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/service/impl/WebServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/service/impl/WebServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/bear/bearspringboot/BearSpringbootApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/bear/bearspringboot/BearSpringbootApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/controller/AppController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/controller/AppController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/controller/VideoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/controller/VideoController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/controller/WebController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/controller/WebController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/dao/WebMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/dao/WebMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/dao/WebMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/dao/WebMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/service/impl/WebServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/service/impl/WebServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-vue/.eslintrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-vue/.eslintrc.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-vue/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-vue/src/App.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-vue/src/components/VideoPlayer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-vue/src/components/VideoPlayer.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-vue/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-vue/src/router/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-vue/src/utils/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-vue/src/utils/api.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-vue/src/views/home/Home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-vue/src/views/home/Home.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-vue/src/views/live/Live.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-vue/src/views/live/Live.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-vue/src/views/login/Login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-vue/src/views/login/Login.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-vue/src/views/record/Record.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-vue/src/views/record/Record.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../bear-vue/src/views/user/UserManage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-vue/src/views/user/UserManage.vue" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -281,7 +256,7 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1382" />
@@ -465,7 +440,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1586399070957" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1586400700714" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../vb/VBlog/vueblog" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -535,12 +510,12 @@
       <workItem from="1585720915144" duration="732000" />
       <workItem from="1585721946538" duration="32559000" />
       <workItem from="1586241845614" duration="17438000" />
-      <workItem from="1586333958546" duration="8227000" />
+      <workItem from="1586333958546" duration="9265000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="75342000" />
+    <option name="totallyTimeSpent" value="76380000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="0" />
