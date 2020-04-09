@@ -1,13 +1,8 @@
 /* eslint-disable */
 <template>
   <div>
-    <!-- <el-row>
-      <el-col :span="6">
-        <VideoPlayer :options="videoOptions"></VideoPlayer>
-      </el-col>
-    </el-row> -->
-    <el-row :gutter="20" v-for="(video, key) in videoOptions" :key="key">
-      <el-col :span="6">
+    <el-row :gutter="20">
+      <el-col :span="8" v-for="(video, key) in videoOptions" :key="key">
         <VideoPlayer :options="video"></VideoPlayer>
       </el-col>
     </el-row>
@@ -55,4 +50,9 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+  .el-col {
+    border-radius: 20px;
+    margin-bottom: 20px;
+  }
+</style>

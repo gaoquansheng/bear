@@ -12,21 +12,35 @@
 	export default {
 		data() {
 			return {
-
+				lat: "",
+				lng: ""
 			}
 		},
 		computed: {
 			rtmpUrl() {
-				return "rtmp://192.168.1.18:1935/live/" + this.$store.state.userName
+				console.log("我是计算数学")
+				console.log(this.lat)
+				return "rtmp://192.168.1.18:1935/live/" + this.$store.state.userName+"?lat="+this.lat+"&lng="+this.lng;
 			}
 		},
 		onReady() {
 			// 注意：需要在onReady中 或 onLoad 延时
+			var _this = this;
 			this.context = uni.createLivePusherContext("livePusher", this);
+			uni.getLocation({
+				success(data) {
+					console.log(data);
+					console.log(data.latitude)
+					_this.lat = data.latitude;
+					_this.lng = data.longitude;
+				}
+			})
 		},
 		methods: {
 			start: function() {
 				//判断用户是否登录，未登录提示用户进行登录
+				console.log(this.rtmpUrl)
+				console.log("lat="+this.lat)
 				if (this.$store.state.login) {
 					// if (this.$store.state.userName != ""){
 					this.context.start({
