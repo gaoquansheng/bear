@@ -4,9 +4,13 @@
 # 项目效果图
 ## WEB
 ### 登录页面
+![image](https://github.com/gaoquansheng/bear/blob/master/config/images/login.png)
 ### 用户管理页面
+![image](https://github.com/gaoquansheng/bear/blob/master/config/images/userManage.png)
 ### 直播管理页面
+![image](https://github.com/gaoquansheng/bear/blob/master/config/images/live.png)
 ### 录播管理页面
+![image](https://github.com/gaoquansheng/bear/blob/master/config/images/record.png)
 ## APP
 
 ## 技术栈
