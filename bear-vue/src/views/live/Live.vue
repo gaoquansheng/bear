@@ -6,7 +6,7 @@
         <VideoPlayer :options="videoOptions"></VideoPlayer>
       </el-col>
     </el-row> -->
-    <el-row  :gutter="20" v-for="(video,key) in videoOptions" :key="key">
+    <el-row :gutter="20" v-for="(video, key) in videoOptions" :key="key">
       <el-col :span="6">
         <VideoPlayer :options="video"></VideoPlayer>
       </el-col>
@@ -15,23 +15,13 @@
 </template>
 
 <script>
-import {getRequest} from "../../utils/api"
+import { getRequest } from "../../utils/api";
 import VideoPlayer from "@/components/VideoPlayer.vue";
 export default {
   data() {
     return {
-      videoOptions: [{
-        // autoplay: true,
-        controls: true,
-        height: "200px",
-        sources: [
-          {
-            src: "rtmp://localhost:1935/vod/meng-1585885739.flv",
-            type: "rtmp/flv"
-          }
-        ]
-      }],
-
+      videoOptions: [],
+      liveVideoList: ""
     };
   },
   components: {
@@ -39,14 +29,30 @@ export default {
   },
   mounted() {
     var _this = this;
-    // getRequest("/video/live").then{
-    //   resp => {
-    //     _this
-    //   }
-    // }
+    getRequest("http://localhost:8080/video/live").then(
+      resp => {
+        _this.liveVideoList = resp.data;
+        //这里遍历循环,
+        for (let item of resp.data) {
+          _this.videoOptions.push({
+            controls: true,
+            height: "200px",
+            sources: [
+              {
+                src: item.url,
+                type: "rtmp/flv"
+              }
+            ]
+          });
+        }
+        console.log(_this.videoOptions)
+      },
+      resp => {
+        console.log(resp.data);
+      }
+    );
   }
 };
 </script>
 
-<style>
-</style>
+<style></style>

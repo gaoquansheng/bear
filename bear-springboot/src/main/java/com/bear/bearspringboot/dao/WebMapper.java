@@ -13,4 +13,7 @@ public interface WebMapper {
     public int update(User user);
     public int deleteByUserId(int userId);
     public int login(User user);
+    public int isOldUserName(User user);
+    public int isOldUserTel(User user);
+    public int batchDeleteUsers(List<Integer> userList);
 }

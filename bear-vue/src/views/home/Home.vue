@@ -1,3 +1,4 @@
+/* eslint-disable */
 <template>
   <el-container class="home_container">
     <el-header>
@@ -11,23 +12,31 @@
           style="background-color:  #ececec"
           router
         >
-          <template v-for="(item,index) in this.$router.options.routes">
+          <template v-for="(item, index) in this.$router.options.routes">
             <template v-if="!item.hidden">
-              <el-submenu :index="index+''" v-if="item.children.length>1" :key="index">
+              <el-submenu
+                :index="index + ''"
+                v-if="item.children.length > 1"
+                :key="index"
+              >
                 <template slot="title">
                   <i :class="item.iconCls"></i>
-                  <span>{{item.name}}</span>
+                  <span>{{ item.name }}</span>
                 </template>
                 <el-menu-item
                   v-for="child in item.children"
                   :index="child.path"
                   :key="child.path"
-                >{{child.name}}</el-menu-item>
+                  >{{ child.name }}</el-menu-item
+                >
               </el-submenu>
               <template v-else>
-                <el-menu-item :index="item.children[0].path" :key="item.children[0].path">
+                <el-menu-item
+                  :index="item.children[0].path"
+                  :key="item.children[0].path"
+                >
                   <i :class="item.children[0].iconCls"></i>
-                  <span slot="title">{{item.children[0].name}}</span>
+                  <span slot="title">{{ item.children[0].name }}</span>
                 </el-menu-item>
               </template>
             </template>
@@ -36,7 +45,7 @@
       </el-aside>
       <el-container>
         <el-main>
-          <router-view/>
+          <router-view />
         </el-main>
         <el-footer>Footer</el-footer>
       </el-container>

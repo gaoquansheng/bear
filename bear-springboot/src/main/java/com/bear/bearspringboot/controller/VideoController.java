@@ -4,6 +4,7 @@ package com.bear.bearspringboot.controller;
 import com.bear.bearspringboot.entity.Video;
 import com.bear.bearspringboot.service.VideoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,6 +17,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/video")
+@CrossOrigin
 public class VideoController {
     
     @Autowired
@@ -23,7 +25,6 @@ public class VideoController {
 
     @RequestMapping("/publish")
     public void startLive(HttpServletRequest request) {
-
 //        传递&的时候需要用双引号裹起来
         String userName = request.getParameter("name");
         String tcurl = request.getParameter("tcurl");
@@ -45,9 +46,11 @@ public class VideoController {
     public void recordDone(HttpServletRequest request){
         String fileName = request.getParameter("path");
         String userName = request.getParameter("name");
-//        String tcurl = request.getParameter("tcurl");
-////        String fileUrl = tcurl.split("/");
-        videoService.recordDone(fileName,userName);
+        String tcurl = request.getParameter("tcurl");
+        String[] fileUrl = tcurl.split("/");
+        String path = fileUrl[0]+"//"+fileUrl[2]+fileName;
+        System.out.println(path);
+        videoService.recordDone(path,userName);
     }
 
     @GetMapping("/live")

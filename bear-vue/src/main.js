@@ -4,6 +4,7 @@ import router from "./router";
 import store from "./store";
 import "./plugins/element.js";
 
+window.eventBus = new Vue();
 Vue.config.productionTip = false;
 
 new Vue({

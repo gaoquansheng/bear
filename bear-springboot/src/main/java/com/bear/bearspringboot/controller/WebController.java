@@ -7,11 +7,14 @@ import com.bear.bearspringboot.service.WebService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
 @RestController
 @RequestMapping("/web")
+@CrossOrigin
 public class WebController {
 
     @Autowired
@@ -41,9 +44,17 @@ public class WebController {
     public void batchDeleteUsers(@RequestParam("ids") String ids){
         // TODO: 2020/4/7 批量删除用户 
         System.out.println(ids);
+        String[] split = ids.split(",");
+        List<Integer> userList = new LinkedList<>();
+        for (String i : split){
+            userList.add(Integer.parseInt(i));
+        }
+        webService.batchDeleteUsers(userList);
+
     }
     @PostMapping("/login")
     public RespBean login(@RequestBody User user){
+        System.out.println("请求到了login");
         return webService.login(user);
     }
 }

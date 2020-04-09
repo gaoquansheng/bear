@@ -15,4 +15,5 @@ public interface WebService {
     public RespBean update(User user);
     public RespBean deleteByUserId(int userId);
     public RespBean login(User user);
+    public void batchDeleteUsers(List<Integer> userList);
 }

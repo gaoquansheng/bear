@@ -1,11 +1,11 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 
-import Login from "../views/login/Login"
-import Home from "../views/home/Home"
-import Live from "../views/live/Live"
-import Record from "../views/record/Record"
-import UserManage from "../views/user/UserManage"
+import Login from "../views/login/Login";
+import Home from "../views/home/Home";
+import Live from "../views/live/Live";
+import Record from "../views/record/Record";
+import UserManage from "../views/user/UserManage";
 
 Vue.use(VueRouter);
 
@@ -26,12 +26,12 @@ const routes = [
     path: "/home",
     // name: "直播管理",
     component: Home,
-    iconCls: 'fa fa-file-text-o',
+    iconCls: "fa fa-file-text-o",
     children: [
       {
         path: "/live",
         name: "直播管理",
-        component:Live
+        component: Live
       }
     ]
   },
@@ -39,7 +39,7 @@ const routes = [
     path: "/home",
     // name: "录播管理",
     component: Home,
-    iconCls: 'fa fa-file-text-o',
+    iconCls: "fa fa-file-text-o",
     children: [
       {
         path: "/record",
@@ -52,11 +52,11 @@ const routes = [
     path: "/home",
     // name: "用户管理",
     component: Home,
-    children:[
+    children: [
       {
         path: "/user",
         name: "用户管理",
-        iconCls: 'fa fa-user-o',
+        iconCls: "fa fa-user-o",
         component: UserManage
       }
     ]

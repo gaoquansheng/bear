@@ -1,13 +1,13 @@
 <template>
   <div class="videoPlayer">
-    <video  ref="videoPlayer" class="video-js"></video>
+    <video ref="videoPlayer" class="video-js vjs-big-play-centered"></video>
   </div>
 </template>
 
 <script>
 import videojs from "video.js";
 import "video.js/dist/video-js.css";
-import  "videojs-flash"
+import "videojs-flash";
 
 export default {
   name: "VideoPlayer",
@@ -15,9 +15,7 @@ export default {
     options: {
       type: Object,
       default() {
-        return {
-          
-        };
+        return {};
       }
     }
   },
@@ -47,4 +45,5 @@ export default {
   width: 200px;
   height: 200px;
 }
+
 </style>

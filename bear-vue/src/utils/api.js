@@ -1,71 +1,80 @@
-import axios from 'axios'
+import axios from "axios";
 
-let base = '';
+let base = "";
 export const postRequest = (url, params) => {
   return axios({
-    method: 'post',
+    method: "post",
     url: `${base}${url}`,
     data: params,
-    transformRequest: [function (data) {
-      // Do whatever you want to transform the data
-      let ret = ''
-      for (let it in data) {
-        ret += encodeURIComponent(it) + '=' + encodeURIComponent(data[it]) + '&'
-      }
-      return ret
-    }],
+    // transformRequest: [
+    //   function(data) {
+    //     // Do whatever you want to transform the data
+    //     let ret = "";
+    //     for (let it in data) {
+    //       ret +=
+    //         encodeURIComponent(it) + "=" + encodeURIComponent(data[it]) + "&";
+    //     }
+    //     return ret;
+    //   }
+    // ],
     headers: {
-      'Content-Type': 'application/x-www-form-urlencoded'
+      "Content-Type": "application/json"
     }
   });
-}
+};
 export const uploadFileRequest = (url, params) => {
   return axios({
-    method: 'post',
+    method: "post",
     url: `${base}${url}`,
     data: params,
     headers: {
-      'Content-Type': 'multipart/form-data'
+      "Content-Type": "multipart/form-data"
     }
   });
-}
+};
 export const putRequest = (url, params) => {
   return axios({
-    method: 'put',
+    method: "put",
     url: `${base}${url}`,
     data: params,
-    transformRequest: [function (data) {
-      let ret = ''
-      for (let it in data) {
-        ret += encodeURIComponent(it) + '=' + encodeURIComponent(data[it]) + '&'
-      }
-      return ret
-    }],
+    // transformRequest: [
+    //   function(data) {
+    //     let ret = "";
+    //     for (let it in data) {
+    //       ret +=
+    //         encodeURIComponent(it) + "=" + encodeURIComponent(data[it]) + "&";
+    //     }
+    //     return ret;
+    //   }
+    // ],
     headers: {
-      'Content-Type': 'application/x-www-form-urlencoded'
+      "Content-Type": "application/json"
     }
   });
-}
-export const deleteRequest = (url) => {
+};
+export const deleteRequest = url => {
   return axios({
-    method: 'delete',
+    method: "delete",
     url: `${base}${url}`
   });
-}
-export const getRequest = (url,params) => {
+};
+export const getRequest = (url, params) => {
   return axios({
-    method: 'get',
-    data:params,
-    transformRequest: [function (data) {
-      let ret = ''
-      for (let it in data) {
-        ret += encodeURIComponent(it) + '=' + encodeURIComponent(data[it]) + '&'
-      }
-      return ret
-    }],
+    method: "get",
+    params: params,
+    // transformRequest: [
+    //   function(data) {
+    //     let ret = "";
+    //     for (let it in data) {
+    //       ret +=
+    //         encodeURIComponent(it) + "=" + encodeURIComponent(data[it]) + "&";
+    //     }
+    //     return ret;
+    //   }
+    // ],
     headers: {
-      'Content-Type': 'application/x-www-form-urlencoded'
+      "Content-Type": "application/x-www-form-urlencoded"
     },
     url: `${base}${url}`
   });
-}
+};
