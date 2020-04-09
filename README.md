@@ -12,6 +12,14 @@
 ### 录播管理页面
 ![image](https://github.com/gaoquansheng/bear/blob/master/config/images/record.png)
 ## APP
+### 注册页面
+![image](https://github.com/gaoquansheng/bear/blob/master/config/images/appRegesiter.jpg)
+### 登录页面
+![image](https://github.com/gaoquansheng/bear/blob/master/config/images/appLogin.jpg)
+### 我的页面
+![image](https://github.com/gaoquansheng/bear/blob/master/config/images/appMe.jpg)
+### 直播页面
+![image](https://github.com/gaoquansheng/bear/blob/master/config/images/appLive.jpg)
 
 ## 技术栈
 ### 后端技术栈
