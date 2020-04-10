@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bear.bearspringboot.dao.WebMapper">
+
+    <select id="findAll" resultType="User">
+        SELECT * FROM USER
+    </select>
+    <select id="findByUserId" resultType="User" parameterType="int">
+        SELECT * FROM USER WHERE userId = #{userId}
+    </select>
+    <insert id="save" parameterType="User">
+        insert into user (userName,userPwd,isAdmin,userTel) values (#{userName},#{userPwd},#{isAdmin},#{userTel})
+    </insert>
+    <delete id="deleteByUserId" parameterType="int">
+        delete from user where userId = #{userId}
+    </delete>
+    <update id="update" parameterType="User">
+        update user set userName = #{userName},userPwd = #{userPwd},isAdmin=#{isAdmin},userTel= #{userTel} where userId = #{userId};
+    </update>
+    <select id="login" parameterType="User" resultType="int">
+        select count(*) from user where userName = #{userName} and userPwd = #{userPwd} and isAdmin = 1;
+    </select>
+    <select id="isOldUserName" resultType="int" parameterType="User">
+        select count(*) from user where userName = #{userName} and isAdmin = #{isAdmin};
+    </select>
+    <select id="isOldUserTel" resultType="int" parameterType="User">
+       select count(*) from user where userTel = #{userTel} and isAdmin = #{isAdmin};
+    </select>
+    <delete id="batchDeleteUsers" parameterType="list">
+        delete from user where userId in
+        <foreach collection="list" item="userId" open="(" close=")" separator=",">
+            #{userId}
+        </foreach>
+    </delete>
+</mapper>

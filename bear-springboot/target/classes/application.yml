@@ -1,0 +1,13 @@
+
+spring:
+  datasource:
+    username: root
+    password: aiqinmeng
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/bear?serverTimezone=CTT&useUnicode=true&characterEncoding=UTF-8
+
+mybatis:
+#  mapper-locations: classpath:mapping/*.xml
+  type-aliases-package: com.bear.bearspringboot.entity # 提取公共包名
+server:
+  port: 8080
