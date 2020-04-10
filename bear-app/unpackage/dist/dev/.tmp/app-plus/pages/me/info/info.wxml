@@ -1,0 +1,1 @@
+<view><view class="updateForm"><view class="updateInput"><text>用户名：</text><input data-event-opts="{{[['input',[['__set_model',['','userName','$event',[]]]]]]}}" value="{{userName}}" bindinput="__e"/></view></view><view class="updateButton"><button data-event-opts="{{[['tap',[['update',['$event']]]]]}}" bindtap="__e">确认修改</button></view></view>
