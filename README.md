@@ -47,7 +47,7 @@
 
 ## 快速运行
 1,克隆此项目到本地
-`git clone https://github.com/gaoquansheng/bear.git`
+`git clone http://www.mygit.com:9988/bear/graduation.git`
 
 2,找到bear-springboot项目resources目录下的bear.sql文件，在mysql数据库中执行
 
