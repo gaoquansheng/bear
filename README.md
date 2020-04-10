@@ -29,6 +29,7 @@
 - MySQL
 - RESTFUL接口风格
 - NGINX-RTMP
+
 ### 前端（WEB）技术栈
 前端主要采用了：
 - Vue
@@ -37,6 +38,7 @@
 - Vue-router
 - Video.js
 - Videojs-flash
+
 ### 移动端（APP）技术栈
 移动端主要采用了：
 - uni-app
