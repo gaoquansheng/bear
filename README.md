@@ -4,7 +4,7 @@
 # 项目效果图
 ## WEB
 ### 登录页面
-![image](http://www.mygit.com:9988/bear/graduation/tree/master/config/images/login.png)
+![image](http://www.mygit.com:9988/bear/graduation/blob/master/config/images/login.png)
 ### 用户管理页面
 ![image](http://www.mygit.com:9988/bear/graduation/tree/master/config/images/userManage.png)
 ### 直播管理页面
