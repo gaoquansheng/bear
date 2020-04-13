@@ -4,22 +4,22 @@
 # 项目效果图
 ## WEB
 ### 登录页面
-![image](https://github.com/gaoquansheng/bear/blob/master/config/images/login.png)
+![image](http://www.mygit.com:9988/bear/graduation/blob/master/config/images/login.png)
 ### 用户管理页面
-![image](https://github.com/gaoquansheng/bear/blob/master/config/images/userManage.png)
+![image](http://www.mygit.com:9988/bear/graduation/tree/master/config/images/userManage.png)
 ### 直播管理页面
-![image](https://github.com/gaoquansheng/bear/blob/master/config/images/live.png)
+![image](http://www.mygit.com:9988/bear/graduation/tree/master/config/images/live.png)
 ### 录播管理页面
-![image](https://github.com/gaoquansheng/bear/blob/master/config/images/record.png)
+![image](http://www.mygit.com:9988/bear/graduation/tree/master/config/images/record.png)
 ## APP
 ### 注册页面
-![image](https://github.com/gaoquansheng/bear/blob/master/config/images/appRegesiter.jpg)
+![image](http://www.mygit.com:9988/bear/graduation/tree/master/config/images/appRegesiter.jpg)
 ### 登录页面
-![image](https://github.com/gaoquansheng/bear/blob/master/config/images/appLogin.jpg)
+![image](http://www.mygit.com:9988/bear/graduation/tree/master/config/images/appLogin.jpg)
 ### 我的页面
-![image](https://github.com/gaoquansheng/bear/blob/master/config/images/appMe.jpg)
+![image](http://www.mygit.com:9988/bear/graduation/tree/master/config/images/appMe.jpg)
 ### 直播页面
-![image](https://github.com/gaoquansheng/bear/blob/master/config/images/appLive.jpg)
+![image](http://www.mygit.com:9988/bear/graduation/tree/master/config/images/appLive.jpg)
 
 ## 技术栈
 ### 后端技术栈
@@ -29,6 +29,7 @@
 - MySQL
 - RESTFUL接口风格
 - NGINX-RTMP
+
 ### 前端（WEB）技术栈
 前端主要采用了：
 - Vue
@@ -37,14 +38,16 @@
 - Vue-router
 - Video.js
 - Videojs-flash
+
 ### 移动端（APP）技术栈
 移动端主要采用了：
 - uni-app
 - Vue
 - Vuex
+
 ## 快速运行
 1,克隆此项目到本地
-`git clone https://github.com/gaoquansheng/bear.git`
+`git clone http://www.mygit.com:9988/bear/graduation.git`
 
 2,找到bear-springboot项目resources目录下的bear.sql文件，在mysql数据库中执行
 
@@ -67,12 +70,4 @@ npm run serve
 `npm run build`
 
 该命令执行成功之后，bear-vue目录下回生成一个dist文件夹，将该项目下的所有文件拷贝至bear-springboot项目中的resources/static/目录下，然后就可以像第四步那样直接访问了。
-## NGINX-RTMP流媒体服务器
-nginx的配置文件在conf目录下的nginx.conf,其中的rtmp块为主要的流媒体配置
-config目录下的nginx目录中,有一个nginx.exe,双击之后就会打开nginx服务.也可以在nginx目录下使用命令:
-```java
-#重新加载Nginx配置文件(nginx.conf)，然后以优雅的方式重启Nginx
-nginx -s reload
-#强制停止Nginx服务
-nginx -s stop
-```
+
