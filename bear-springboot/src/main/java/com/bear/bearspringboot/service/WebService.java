@@ -9,7 +9,8 @@ import java.util.List;
 @Service
 public interface WebService {
 
-    public List<User> findAll();
+    public List<User> findAll(int limit,int offset);
+    public int countUsers();
     public User findByUserId(int userId);
     public RespBean save(User user);
     public RespBean update(User user);

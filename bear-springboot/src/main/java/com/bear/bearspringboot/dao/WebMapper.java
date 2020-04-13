@@ -7,7 +7,8 @@ import java.util.List;
 @Mapper
 public interface WebMapper {
 
-    public List<User> findAll();
+    public List<User> findAll(int limit,int offset);
+    public int countUsers();
     public User findByUserId(int userId);
     public int save(User user);
     public int update(User user);

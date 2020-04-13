@@ -63,7 +63,6 @@ export default {
       postRequest("http://localhost:8080/web/login", _this.loginForm).then(
         resp => {
           _this.loading = false;
-          console.log(resp);
           if (resp.data.statusCode == 200) {
             _this.$router.replace({ path: "/home" });
           } else {

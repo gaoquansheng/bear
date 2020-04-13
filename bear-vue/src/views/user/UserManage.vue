@@ -54,6 +54,16 @@
         </template>
       </el-table-column>
     </el-table>
+    <el-pagination
+    background
+    layout="total, sizes, prev, pager, next, jumper"
+    :page-sizes="page.pageSizes"
+    :page-size="page.limit"
+    :total="page.total"
+    :current-page = "page.currentPage"
+    @current-change = "currentChange"
+    @size-change = "limitChange">
+    </el-pagination>
 
     <el-dialog title="新增用户" :visible.sync="addUserDiaLog" width="30%">
       <el-form
@@ -148,7 +158,6 @@ import { putRequest } from "../../utils/api";
 export default {
   data() {
     let checkUserName = (rule, value, callback) => {
-      console.log("这里是checkUserName" + value);
       let reg = /[0-9a-zA-Z]{2,10}/;
       if (!reg.test(value)) {
         callback(new Error("用户名必须由2-10位数字和字母组合"));
@@ -157,7 +166,6 @@ export default {
       }
     };
     let checkUserTel = (rule, value, callback) => {
-      console.log("这里是手机号验证");
       let reg = /^1[3-578]\d{9}$/;
       if (!reg.test(value)) {
         callback(new Error("请输入正确格式的手机号"));
@@ -185,11 +193,19 @@ export default {
       }
     };
     return {
+      //分页部分
+      page: {
+        paginationFlag: false,
+        pageSizes: [6,10,20],
+        total: 0,
+        limit: 6,    //limit
+        currentPage:1  //offset = (currentpage-1)*offset
+      },
       search: "",
       deleteUsers: [],
       editUserDiaLog: false,
       addUserDiaLog: false,
-      editUserForm: "",
+      editUserForm: [],
       userTelShow: false,
       addUserForm: {
         userName: "",
@@ -222,7 +238,6 @@ export default {
     handleEdit(index, row) {
       this.editUserDiaLog = true;
       this.editUserForm = row;
-      console.log(this.editUserForm);
       this.userTelShow = this.editUserForm.isAdmin == 0? true:false;
     },
     handleAddUser() {
@@ -252,19 +267,17 @@ export default {
                   checkUserPwd: ""
                 };
                 //刷新页面
-                window.eventBus.$emit("userManage","test")
+                window.eventBus.$emit("userManage")
               } else if (resp.data.statusCode == 400) {
                 _this.$message.error(resp.data.msg);
               }
             },
-            resp => {
-              console.log(resp);
+            () => {
               this.$message.error("网络出错");
             }
           );
           // 3.刷新表格
         } else {
-          console.log("error submit!!");
           return false;
         }
       });
@@ -286,19 +299,18 @@ export default {
                   type: "success"
                 });
                 //刷新页面
-                window.eventBus.$emit("userManage","test")
+                window.eventBus.$emit("userManage")
               } else if (resp.data.statusCode == 400) {
                 _this.$message.error(resp.data.msg);
+                window.eventBus.$emit("userManage")
               }
             },
-            resp => {
-              console.log(resp);
+            () => {
               _this.$message.error("网络出错");
             }
           );
           //3.刷新表格
         } else {
-          console.log("error submit!!");
           return false;
         }
       });
@@ -324,8 +336,7 @@ export default {
               }
               //3.删除成功之后更新页面
             },
-            resp => {
-              console.log(resp);
+            () => {
               _this.$message.error("网络出错");
             }
           );
@@ -339,7 +350,6 @@ export default {
     },
     // eslint-disable-next-line
     isAdmin(row, column, cellValue, index) {
-      console.log(row,column,index);
       if (cellValue == "1") {
         return "管理员";
       } else if (cellValue == "0") {
@@ -360,17 +370,15 @@ export default {
           //2.
           let ids = _this.deleteUsers.map(item => item.userId).join();
           getRequest("http://localhost:8080/web/deleteUserList", { ids: ids }).then(
-            resp => {
-              console.log(resp);
+            () => {
               _this.$message({
                 type: "success",
                 message: "删除成功!"
               });
               //3.
-              window.eventBus.$emit("userManage","test");
+              window.eventBus.$emit("userManage");
             },
-            resp => {
-              console.log(resp);
+            () => {
               _this.$message.error("网络出错");
             }
           );
@@ -382,27 +390,43 @@ export default {
           });
         });
     },
-    loadingUsers(){
+    loadingUsers(limit,offset){
       var _this = this;
-      getRequest("http://localhost:8080/web/users").then(
+      var url = "http://localhost:8080/web/users?limit="+limit+"&offset="+offset
+      getRequest(url).then(
       resp => {
-        console.log(resp);
-        _this.tableData = resp.data;
-      },
-      resp => {
-          console.log(resp);
+        _this.tableData = resp.data.users;
+        _this.page.total = resp.data.total;
       })
-      }
+      },
+    limitChange(limit){
+      this.page.limit = limit;
+      //改变每页显示的数据后,重新获取数据
+      var offset = (this.page.currentPage - 1)*limit
+      this.loadingUsers(limit,offset);
+    },
+    //翻页,手动填写页码也会调用这里
+    currentChange(page){
+      this.page.currentPage = page;
+      var offset = (page-1)*this.page.limit;
+      this.loadingUsers(this.page.limit,offset);
+    },
   },
   mounted() {
     var _this = this;
-    this.loadingUsers();
-    window.eventBus.$on("userManage",(data) =>{
-      console.log("这里是接受事件"+data);
-      _this.loadingUsers()
+    this.loadingUsers(this.page.limit,0);
+    window.eventBus.$on("userManage",() =>{
+      var offset = (_this.page.currentPage - 1)*_this.page.limit;
+      console.log(_this.page.limit);
+      console.log(offset)
+      _this.loadingUsers(_this.page.limit,offset)
     });
   }
 }
 </script>
 
-<style></style>
+<style>
+.el-pagination{
+  margin-top:2px;
+}
+</style>

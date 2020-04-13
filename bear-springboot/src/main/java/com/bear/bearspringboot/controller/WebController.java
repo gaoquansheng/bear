@@ -7,10 +7,8 @@ import com.bear.bearspringboot.service.WebService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
+import javax.servlet.http.HttpServletRequest;
+import java.util.*;
 
 @RestController
 @RequestMapping("/web")
@@ -21,12 +19,20 @@ public class WebController {
     WebService webService;
 
     @GetMapping("/users")
-    public List<User> findAll(){
-        return webService.findAll();
+    public Map<String,Object> findAll(HttpServletRequest request){
+        String limit= request.getParameter("limit");
+        String offset = request.getParameter("offset");
+        int total = webService.countUsers();
+        List<User> users = webService.findAll(Integer.parseInt(limit), Integer.parseInt(offset));
+        Map<String,Object> map = new HashMap<>();
+        map.put("users",users);
+        map.put("total",total);
+        return map;
     }
     @GetMapping("/users/{userId}")
     public User findByUserId(@PathVariable("userId") int userId){
         return webService.findByUserId(userId);
+
     }
     @PostMapping("/users")
     public RespBean save(@RequestBody User user){
@@ -42,7 +48,6 @@ public class WebController {
     }
     @RequestMapping("/deleteUserList")
     public void batchDeleteUsers(@RequestParam("ids") String ids){
-        // TODO: 2020/4/7 批量删除用户 
         System.out.println(ids);
         String[] split = ids.split(",");
         List<Integer> userList = new LinkedList<>();
@@ -54,7 +59,6 @@ public class WebController {
     }
     @PostMapping("/login")
     public RespBean login(@RequestBody User user){
-        System.out.println("请求到了login");
         return webService.login(user);
     }
 }
