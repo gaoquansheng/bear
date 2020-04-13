@@ -18,9 +18,13 @@ public class WebServiceImpl implements WebService {
     AppMapper appMapper;
 
     @Override
-    public List<User> findAll() {
+    public List<User> findAll(int limit,int offset) {
 
-        return webMapper.findAll();
+        return webMapper.findAll(limit,offset);
+    }
+    @Override
+    public int countUsers(){
+        return webMapper.countUsers();
     }
     @Override
     public User findByUserId(int userId) {
@@ -62,6 +66,7 @@ public class WebServiceImpl implements WebService {
 
     @Override
     public RespBean update(User user) {
+        //
         if (webMapper.isOldUserName(user) == 1){
             return new RespBean("用户名已存在",400);
         }else if (webMapper.isOldUserTel(user) == 1){
@@ -77,8 +82,7 @@ public class WebServiceImpl implements WebService {
 
     @Override
     public RespBean deleteByUserId(int userId) {
-        int line = webMapper.deleteByUserId(userId);
-        if (line == 1){
+        if (webMapper.deleteByUserId(userId) == 1){
             return new RespBean("删除用户成功",200);
         }else{
             return new RespBean("删除用户失败",400);
@@ -87,7 +91,6 @@ public class WebServiceImpl implements WebService {
 
     @Override
     public RespBean login(User user) {
-
         int line = webMapper.login(user);
         if (line == 1){
             return new RespBean("登录成功",200);

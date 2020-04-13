@@ -3,8 +3,11 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.bear.bearspringboot.dao.WebMapper">
 
-    <select id="findAll" resultType="User">
-        SELECT * FROM USER
+    <select id="findAll" parameterType="int" resultType="User">
+        SELECT * FROM USER limit #{param2},#{param1}
+    </select>
+    <select id="countUsers" resultType="int">
+        select count(*) from user
     </select>
     <select id="findByUserId" resultType="User" parameterType="int">
         SELECT * FROM USER WHERE userId = #{userId}
@@ -22,10 +25,10 @@
         select count(*) from user where userName = #{userName} and userPwd = #{userPwd} and isAdmin = 1;
     </select>
     <select id="isOldUserName" resultType="int" parameterType="User">
-        select count(*) from user where userName = #{userName} and isAdmin = #{isAdmin};
+        select count(*) from user where userName = #{userName} and isAdmin = #{isAdmin} and userId != #{userId};
     </select>
     <select id="isOldUserTel" resultType="int" parameterType="User">
-       select count(*) from user where userTel = #{userTel} and isAdmin = #{isAdmin};
+       select count(*) from user where userTel = #{userTel} and isAdmin = #{isAdmin} and userId != #{userId};
     </select>
     <delete id="batchDeleteUsers" parameterType="list">
         delete from user where userId in
