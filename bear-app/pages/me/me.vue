@@ -38,9 +38,18 @@
 						<image src="../../static/image/arrow.png" mode=""></image>
 					</template>
 				</info-list>
+				<info-list>
+					<template #icon>
+						<image src="../../static/image/setting.png"></image>
+					</template>
+					<template #content>设置</template>
+					<template #right>
+						<image src="../../static/image/arrow.png" mode=""></image>
+					</template>
+				</info-list>
 			</view>
 		</view>
-		<button @click="logout">注销</button>
+		<!-- <button @click="logout">注销</button> -->
 	</view>
 </template>
 
@@ -108,8 +117,8 @@
 		font-weight: bold;
 	}
 	image{
-		width:50rpx;
-		height:50rpx;
-		margin-top: 25rpx;
+		width:40rpx;
+		height:40rpx;
+		margin-top: 40rpx;
 	}
 </style>

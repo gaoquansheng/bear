@@ -12,5 +12,5 @@ public interface AppService {
 
     public User login(User user);
 
-    public RespBean updateUserNameById(User user);
+    public RespBean updateUserNameByUserTel(User user);
 }

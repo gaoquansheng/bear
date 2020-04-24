@@ -12,9 +12,9 @@
     <el-form-item prop="account">
       <el-input
         type="text"
-        v-model="loginForm.userName"
+        v-model="loginForm.userTel"
         auto-complete="off"
-        placeholder="账号"
+        placeholder="手机号"
       ></el-input>
     </el-form-item>
     <el-form-item prop="checkPass">
@@ -50,8 +50,8 @@ export default {
       },
       checked: true,
       loginForm: {
-        userName: "admin",
-        userPwd: "123456"
+        userTel: "15516392395",
+        userPwd: "123123"
       },
       loading: false
     };

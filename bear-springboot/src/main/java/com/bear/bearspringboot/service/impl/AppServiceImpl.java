@@ -15,19 +15,13 @@ public class AppServiceImpl implements AppService {
 
     @Override
     public RespBean register(User user) {
-
-        if (appMapper.isOldUserName(user.getUserName()) == 1){
-            return new RespBean("姓名已注册",400);
+        if(appMapper.isOldUserTel(user.getUserTel()) == 1){
+            return new RespBean("手机号已注册",400);
         }else {
-            if(appMapper.isOldUserTel(user.getUserTel()) == 1){
-                return new RespBean("手机号已注册",400);
+            if (appMapper.register(user) == 1){
+                return new RespBean("注册成功",200);
             }else {
-                int line = appMapper.register(user);
-                if (line == 1){
-                    return new RespBean("注册成功",200);
-                }else {
-                    return new RespBean("注册失败",400);
-                }
+                return new RespBean("注册失败",400);
             }
         }
 
@@ -39,18 +33,11 @@ public class AppServiceImpl implements AppService {
     }
 
     @Override
-    public RespBean updateUserNameById(User user) {
-        int oldUserName = appMapper.isOldUserName(user.getUserName());
-        if (oldUserName == 1){
-            return new RespBean("修改失败,用户名已存在",400);
+    public RespBean updateUserNameByUserTel(User user) {
+        if (appMapper.updateUserNameByUserTel(user) == 1){
+            return new RespBean("修改成功",200);
         }else{
-            int line = appMapper.updateUserNameById(user);
-            if (line == 1){
-                return new RespBean("修改成功",200);
-            }else{
-                return new RespBean("修改失败",400);
-            }
+            return new RespBean("修改失败",400);
         }
-
     }
 }

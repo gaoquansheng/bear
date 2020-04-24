@@ -26,9 +26,8 @@ public class AppController {
         //1.接收到app的手机号和密码
         return appService.login(user);
     }
-
     @PutMapping("/update")
-    public RespBean updateUserNameById(@RequestBody User user){
-        return appService.updateUserNameById(user);
+    public RespBean updateUserNameByUserTel(@RequestBody User user){
+        return appService.updateUserNameByUserTel(user);
     }
 }

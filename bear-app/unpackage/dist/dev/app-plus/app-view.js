@@ -1061,18 +1061,18 @@ function gz$gwx_1(){
 if( __WXML_GLOBAL__.ops_cached.$gwx_1)return __WXML_GLOBAL__.ops_cached.$gwx_1
 __WXML_GLOBAL__.ops_cached.$gwx_1=[];
 (function(z){var a=11;function Z(ops){z.push(ops)}
-Z([3,'data-v-10f8fd83'])
-Z([3,'info data-v-10f8fd83'])
-Z([3,'left data-v-10f8fd83'])
-Z([3,'icon data-v-10f8fd83'])
+Z([3,'data-v-ce7e7ec2'])
+Z([3,'info data-v-ce7e7ec2'])
+Z([3,'left data-v-ce7e7ec2'])
 Z([[6],[[7],[3,'$slots']],[3,'icon']])
 Z([3,'icon'])
 Z([3,'图标'])
-Z([3,'content data-v-10f8fd83'])
+Z([3,'right data-v-ce7e7ec2'])
+Z([3,'content data-v-ce7e7ec2'])
 Z([[6],[[7],[3,'$slots']],[3,'content']])
 Z([3,'content'])
 Z([3,'内容'])
-Z([3,'right data-v-10f8fd83'])
+Z(z[0])
 Z([[6],[[7],[3,'$slots']],[3,'right']])
 Z([3,'right'])
 Z([3,'右'])
@@ -1162,9 +1162,15 @@ Z(z[23])
 Z([3,'历史记录'])
 Z(z[25])
 Z(z[26])
-Z([3,'__e'])
-Z([[4],[[5],[[4],[[5],[[5],[1,'tap']],[[4],[[5],[[4],[[5],[[5],[1,'logout']],[[4],[[5],[1,'$event']]]]]]]]]]])
-Z([3,'注销'])
+Z(z[18])
+Z([3,'3'])
+Z(z[20])
+Z(z[21])
+Z([3,'../../static/image/setting.png'])
+Z(z[23])
+Z([3,'设置'])
+Z(z[25])
+Z(z[26])
 })(__WXML_GLOBAL__.ops_cached.$gwx_4);return __WXML_GLOBAL__.ops_cached.$gwx_4
 }
 function gz$gwx_5(){
@@ -1213,21 +1219,21 @@ var xC=_n('view')
 _rz(z,xC,'class',1,e,s,gg)
 var oD=_n('view')
 _rz(z,oD,'class',2,e,s,gg)
-var fE=_n('view')
-_rz(z,fE,'class',3,e,s,gg)
-var cF=_v()
-_(fE,cF)
-if(_oz(z,4,e,s,gg)){cF.wxVkey=1
-var hG=_n('slot')
-_rz(z,hG,'name',5,e,s,gg)
-_(cF,hG)
-}
-else{cF.wxVkey=2
-var oH=_oz(z,6,e,s,gg)
-_(cF,oH)
-}
-cF.wxXCkey=1
+var fE=_v()
 _(oD,fE)
+if(_oz(z,3,e,s,gg)){fE.wxVkey=1
+var cF=_n('slot')
+_rz(z,cF,'name',4,e,s,gg)
+_(fE,cF)
+}
+else{fE.wxVkey=2
+var hG=_oz(z,5,e,s,gg)
+_(fE,hG)
+}
+fE.wxXCkey=1
+_(xC,oD)
+var oH=_n('view')
+_rz(z,oH,'class',6,e,s,gg)
 var cI=_n('view')
 _rz(z,cI,'class',7,e,s,gg)
 var oJ=_v()
@@ -1242,8 +1248,7 @@ var aL=_oz(z,10,e,s,gg)
 _(oJ,aL)
 }
 oJ.wxXCkey=1
-_(oD,cI)
-_(xC,oD)
+_(oH,cI)
 var tM=_n('view')
 _rz(z,tM,'class',11,e,s,gg)
 var eN=_v()
@@ -1258,7 +1263,8 @@ var oP=_oz(z,14,e,s,gg)
 _(eN,oP)
 }
 eN.wxXCkey=1
-_(xC,tM)
+_(oH,tM)
+_(xC,oH)
 _(oB,xC)
 _(r,oB)
 return r
@@ -1411,13 +1417,27 @@ var b9B=_mz(z,'image',['mode',-1,'src',35],[],e,s,gg)
 _(e8B,b9B)
 _(c3B,e8B)
 _(eTB,c3B)
+var o0B=_mz(z,'info-list',['bind:__l',36,'vueId',1,'vueSlots',2],[],e,s,gg)
+var xAC=_n('view')
+_rz(z,xAC,'slot',39,e,s,gg)
+var oBC=_n('image')
+_rz(z,oBC,'src',40,e,s,gg)
+_(xAC,oBC)
+_(o0B,xAC)
+var fCC=_n('view')
+_rz(z,fCC,'slot',41,e,s,gg)
+var cDC=_oz(z,42,e,s,gg)
+_(fCC,cDC)
+_(o0B,fCC)
+var hEC=_n('view')
+_rz(z,hEC,'slot',43,e,s,gg)
+var oFC=_mz(z,'image',['mode',-1,'src',44],[],e,s,gg)
+_(hEC,oFC)
+_(o0B,hEC)
+_(eTB,o0B)
 _(hMB,eTB)
 _(tEB,hMB)
 }
-var o0B=_mz(z,'button',['bindtap',36,'data-event-opts',1],[],e,s,gg)
-var xAC=_oz(z,38,e,s,gg)
-_(o0B,xAC)
-_(aDB,o0B)
 tEB.wxXCkey=1
 tEB.wxXCkey=3
 _(r,aDB)
@@ -1427,32 +1447,32 @@ e_[x[3]]={f:m3,j:[],i:[],ti:[],ic:[]}
 d_[x[4]]={}
 var m4=function(e,s,r,gg){
 var z=gz$gwx_5()
-var fCC=_n('view')
-var cDC=_n('view')
-var hEC=_n('view')
-_rz(z,hEC,'class',0,e,s,gg)
-var oFC=_n('text')
-var cGC=_oz(z,1,e,s,gg)
-_(oFC,cGC)
-_(hEC,oFC)
-_(cDC,hEC)
 var oHC=_n('view')
-_rz(z,oHC,'class',2,e,s,gg)
-var lIC=_mz(z,'input',['focus',-1,'bindinput',3,'data-event-opts',1,'placeholder',2,'type',3,'value',4],[],e,s,gg)
-_(oHC,lIC)
-var aJC=_mz(z,'input',['bindinput',8,'data-event-opts',1,'placeholder',2,'type',3,'value',4],[],e,s,gg)
-_(oHC,aJC)
-var tKC=_mz(z,'input',['bindinput',13,'data-event-opts',1,'placeholder',2,'type',3,'value',4],[],e,s,gg)
-_(oHC,tKC)
-var eLC=_mz(z,'input',['bindinput',18,'data-event-opts',1,'placeholder',2,'type',3,'value',4],[],e,s,gg)
-_(oHC,eLC)
-var bMC=_mz(z,'button',['bindtap',23,'data-event-opts',1,'type',2],[],e,s,gg)
-var oNC=_oz(z,26,e,s,gg)
+var lIC=_n('view')
+var aJC=_n('view')
+_rz(z,aJC,'class',0,e,s,gg)
+var tKC=_n('text')
+var eLC=_oz(z,1,e,s,gg)
+_(tKC,eLC)
+_(aJC,tKC)
+_(lIC,aJC)
+var bMC=_n('view')
+_rz(z,bMC,'class',2,e,s,gg)
+var oNC=_mz(z,'input',['focus',-1,'bindinput',3,'data-event-opts',1,'placeholder',2,'type',3,'value',4],[],e,s,gg)
 _(bMC,oNC)
-_(oHC,bMC)
-_(cDC,oHC)
-_(fCC,cDC)
-_(r,fCC)
+var xOC=_mz(z,'input',['bindinput',8,'data-event-opts',1,'placeholder',2,'type',3,'value',4],[],e,s,gg)
+_(bMC,xOC)
+var oPC=_mz(z,'input',['bindinput',13,'data-event-opts',1,'placeholder',2,'type',3,'value',4],[],e,s,gg)
+_(bMC,oPC)
+var fQC=_mz(z,'input',['bindinput',18,'data-event-opts',1,'placeholder',2,'type',3,'value',4],[],e,s,gg)
+_(bMC,fQC)
+var cRC=_mz(z,'button',['bindtap',23,'data-event-opts',1,'type',2],[],e,s,gg)
+var hSC=_oz(z,26,e,s,gg)
+_(cRC,hSC)
+_(bMC,cRC)
+_(lIC,bMC)
+_(oHC,lIC)
+_(r,oHC)
 return r
 }
 e_[x[4]]={f:m4,j:[],i:[],ti:[],ic:[]}
@@ -1580,7 +1600,7 @@ setCssToHead([])();setCssToHead([[2,0]],undefined,{path:"./app.wxss"})();
 __wxAppCode__['app.wxss']=setCssToHead([[2,0]],undefined,{path:"./app.wxss"});    
 __wxAppCode__['app.wxml']=$gwx('./app.wxml');
 
-__wxAppCode__['components/infoList/infoList.wxss']=setCssToHead([".",[1],"info.",[1],"data-v-10f8fd83 { width: 100%; height: ",[0,100],"; line-height: ",[0,100],"; display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -webkit-flex-direction: row; -ms-flex-direction: row; flex-direction: row; font-size: ",[0,30],"; border-bottom: #464E52 solid ",[0,1],"; }\n.",[1],"left.",[1],"data-v-10f8fd83 { display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -webkit-flex-direction: row; -ms-flex-direction: row; flex-direction: row; -webkit-box-flex: 1; -webkit-flex: 1; -ms-flex: 1; flex: 1; -webkit-box-align: center; -webkit-align-items: center; -ms-flex-align: center; align-items: center; -webkit-box-pack: center; -webkit-justify-content: center; -ms-flex-pack: center; justify-content: center; }\n.",[1],"right.",[1],"data-v-10f8fd83 { height: ",[0,60],"; width: ",[0,60],"; }\n.",[1],"icon.",[1],"data-v-10f8fd83 { text-align: center; width: ",[0,100],"; height: ",[0,100],"; }\n.",[1],"content.",[1],"data-v-10f8fd83 { -webkit-box-flex: 1; -webkit-flex: 1; -ms-flex: 1; flex: 1; }\n",],undefined,{path:"./components/infoList/infoList.wxss"});    
+__wxAppCode__['components/infoList/infoList.wxss']=setCssToHead([".",[1],"info.",[1],"data-v-ce7e7ec2 { width: 100%; height: ",[0,100],"; line-height: ",[0,100],"; display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; font-size: ",[0,30],"; font-family:\x22Microsoft YaHei\x22,微软雅黑,\x22MicrosoftJhengHei\x22,华文细黑,STHeiti,MingLiu; }\n.",[1],"left.",[1],"data-v-ce7e7ec2 { width: ",[0,100],"; display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -webkit-justify-content: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -webkit-align-items: center; -ms-flex-align: center; align-items: center; }\n.",[1],"right.",[1],"data-v-ce7e7ec2 { display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-box-flex: 1; -webkit-flex: 1; -ms-flex: 1; flex: 1; border-bottom: #999999 solid ",[0,1],"; -webkit-box-pack: justify; -webkit-justify-content: space-between; -ms-flex-pack: justify; justify-content: space-between; }\n",],undefined,{path:"./components/infoList/infoList.wxss"});    
 __wxAppCode__['components/infoList/infoList.wxml']=$gwx('./components/infoList/infoList.wxml');
 
 __wxAppCode__['pages/login/login.wxss']=setCssToHead([".",[1],"loginForm { width: 80%; margin-left: 10%; border: solid ",[0,1]," grey; margin-top: 40%; border-radius: ",[0,10],"; }\n.",[1],"loginButton { margin-left: 10%; margin-top: ",[0,20],"; width: 80%; }\n.",[1],"loginuserTel { display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; height: ",[0,60],"; }\n.",[1],"loginPwd { display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; height: ",[0,60],"; }\nwx-input { -webkit-box-flex: 1; -webkit-flex: 1; -ms-flex: 1; flex: 1; height: ",[0,50],"; }\nwx-image { width: ",[0,50],"; height: ",[0,50],"; margin-right: ",[0,10],"; }\n",],undefined,{path:"./pages/login/login.wxss"});    
@@ -1589,7 +1609,7 @@ __wxAppCode__['pages/login/login.wxml']=$gwx('./pages/login/login.wxml');
 __wxAppCode__['pages/me/info/info.wxss']=setCssToHead([".",[1],"updateForm { width: 90%; height: ",[0,500],"; margin: ",[0,200]," auto; }\n.",[1],"updateButton { margin-bottom: ",[0,20],"; }\n.",[1],"updateInput { display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -webkit-flex-direction: row; -ms-flex-direction: row; flex-direction: row; border-bottom: solid ",[0,1]," #000000; }\n",],undefined,{path:"./pages/me/info/info.wxss"});    
 __wxAppCode__['pages/me/info/info.wxml']=$gwx('./pages/me/info/info.wxml');
 
-__wxAppCode__['pages/me/me.wxss']=setCssToHead([".",[1],"info.",[1],"data-v-10f8fd83 { width: 100%; height: ",[0,100],"; line-height: ",[0,100],"; display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -webkit-flex-direction: row; -ms-flex-direction: row; flex-direction: row; font-size: ",[0,30],"; border-bottom: #464E52 solid ",[0,1],"; }\n.",[1],"left.",[1],"data-v-10f8fd83 { display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -webkit-flex-direction: row; -ms-flex-direction: row; flex-direction: row; -webkit-box-flex: 1; -webkit-flex: 1; -ms-flex: 1; flex: 1; -webkit-box-align: center; -webkit-align-items: center; -ms-flex-align: center; align-items: center; -webkit-box-pack: center; -webkit-justify-content: center; -ms-flex-pack: center; justify-content: center; }\n.",[1],"right.",[1],"data-v-10f8fd83 { height: ",[0,60],"; width: ",[0,60],"; }\n.",[1],"icon.",[1],"data-v-10f8fd83 { text-align: center; width: ",[0,100],"; height: ",[0,100],"; }\n.",[1],"content.",[1],"data-v-10f8fd83 { -webkit-box-flex: 1; -webkit-flex: 1; -ms-flex: 1; flex: 1; }\n.",[1],"logoutInfo{ text-align: center; display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -webkit-flex-direction: row; -ms-flex-direction: row; flex-direction: row; -webkit-justify-content:space-around; -ms-flex-pack:distribute; justify-content:space-around; -webkit-box-align: center; -webkit-align-items: center; -ms-flex-align: center; align-items: center; }\n.",[1],"loginInfoTop,.",[1],"logoutInfo{ height: ",[0,200],"; display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-box-sizing: border-box; box-sizing: border-box; padding-top: ",[0,70],"; border-bottom: #999999 ",[0,10]," solid; }\n.",[1],"photoInfo { width: ",[0,100],"; height: ",[0,100],"; border-radius: 10%; margin: 0 ",[0,20],"; }\n.",[1],"nameInfo{ height: ",[0,100],"; }\n.",[1],"name wx-text{ font-weight: bold; }\nwx-image{ width:",[0,50],"; height:",[0,50],"; margin-top: ",[0,25],"; }\n",],undefined,{path:"./pages/me/me.wxss"});    
+__wxAppCode__['pages/me/me.wxss']=setCssToHead([".",[1],"info.",[1],"data-v-ce7e7ec2 { width: 100%; height: ",[0,100],"; line-height: ",[0,100],"; display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; font-size: ",[0,30],"; font-family:\x22Microsoft YaHei\x22,微软雅黑,\x22MicrosoftJhengHei\x22,华文细黑,STHeiti,MingLiu; }\n.",[1],"left.",[1],"data-v-ce7e7ec2 { width: ",[0,100],"; display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -webkit-justify-content: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -webkit-align-items: center; -ms-flex-align: center; align-items: center; }\n.",[1],"right.",[1],"data-v-ce7e7ec2 { display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-box-flex: 1; -webkit-flex: 1; -ms-flex: 1; flex: 1; border-bottom: #999999 solid ",[0,1],"; -webkit-box-pack: justify; -webkit-justify-content: space-between; -ms-flex-pack: justify; justify-content: space-between; }\n.",[1],"logoutInfo{ text-align: center; display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -webkit-flex-direction: row; -ms-flex-direction: row; flex-direction: row; -webkit-justify-content:space-around; -ms-flex-pack:distribute; justify-content:space-around; -webkit-box-align: center; -webkit-align-items: center; -ms-flex-align: center; align-items: center; }\n.",[1],"loginInfoTop,.",[1],"logoutInfo{ height: ",[0,200],"; display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-box-sizing: border-box; box-sizing: border-box; padding-top: ",[0,70],"; border-bottom: #999999 ",[0,10]," solid; }\n.",[1],"photoInfo { width: ",[0,100],"; height: ",[0,100],"; border-radius: 10%; margin: 0 ",[0,20],"; }\n.",[1],"nameInfo{ height: ",[0,100],"; }\n.",[1],"name wx-text{ font-weight: bold; }\nwx-image{ width:",[0,40],"; height:",[0,40],"; margin-top: ",[0,40],"; }\n",],undefined,{path:"./pages/me/me.wxss"});    
 __wxAppCode__['pages/me/me.wxml']=$gwx('./pages/me/me.wxml');
 
 __wxAppCode__['pages/register/register.wxss']=setCssToHead([".",[1],"topInfo { height: ",[0,200],"; border-bottom: #464E52 ",[0,5]," solid; text-align: center; line-height: ",[0,200],"; font-size: ",[0,60],"; }\n.",[1],"registerForm { width: 70%; margin: ",[0,100]," auto; }\nwx-input { border-bottom: #000000 ",[0,1]," solid; margin-top: ",[0,50],"; height: ",[0,50],"; }\nwx-button { margin-top: ",[0,100],"; }\n",],undefined,{path:"./pages/register/register.wxss"});    

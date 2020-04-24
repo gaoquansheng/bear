@@ -1,6 +1,7 @@
 <template>
   <div class="videoPlayer">
     <video ref="videoPlayer" class="video-js vjs-big-play-centered"></video>
+    <!-- <div class="time">时间</div> -->
   </div>
 </template>
 
@@ -21,29 +22,49 @@ export default {
   },
   data() {
     return {
-      player: null
+      player: null,
     };
   },
   mounted() {
-    this.player = videojs(
-      this.$refs.videoPlayer,
-      this.options,
-      function onPlayerReady() {
-        console.log("onPlayerReady", this);
-      }
-    );
+    this.init();
   },
   beforeDestroy() {
     if (this.player) {
       this.player.dispose();
     }
+  },
+  methods: {
+    init(){
+      this.player = videojs(
+      this.$refs.videoPlayer,
+      this.options
+      // function onPlayerReady() {
+      //   console.log("onPlayerReady", this);
+      // }
+    );
+    }
   }
 };
 </script>
 <style scoped>
-.videoPlayer {
-  width: 200px;
-  height: 200px;
-}
 
+/* .time{
+  position: relative;
+  font-size: 30px;
+  top: 160px;
+} */
+.info{
+  /* width: 300px; */
+  /* background-color: red; */
+}
+.title{
+  text-align: left;
+  font-size:20px;
+}
+.infoBody{
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color: grey;
+}
 </style>

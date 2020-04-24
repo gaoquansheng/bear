@@ -9,7 +9,6 @@ import java.util.List;
 public interface VideoMapper {
 
     public int startLive(Video video);
-    public int recordDone(String fileName,String userName);
-    public List<Video> live();
-    public List<Video> record();
+    public int recordDone(Video video);
+
 }

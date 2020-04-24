@@ -9,8 +9,5 @@
         <module name="bear-springboot" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="bear-springboot" target="1.8" />
-    </bytecodeTargetLevel>
   </component>
 </project>

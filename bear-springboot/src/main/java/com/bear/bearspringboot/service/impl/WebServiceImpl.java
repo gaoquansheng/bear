@@ -4,10 +4,13 @@ import com.bear.bearspringboot.dao.AppMapper;
 import com.bear.bearspringboot.dao.WebMapper;
 import com.bear.bearspringboot.entity.RespBean;
 import com.bear.bearspringboot.entity.User;
+import com.bear.bearspringboot.entity.Video;
 import com.bear.bearspringboot.service.WebService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 
 @Service
@@ -27,17 +30,25 @@ public class WebServiceImpl implements WebService {
         return webMapper.countUsers();
     }
     @Override
-    public User findByUserId(int userId) {
+    public User findByUserTel(String userTel) {
 
-        return webMapper.findByUserId(userId);
+        return webMapper.findByUserTel(userTel);
     }
     @Override
     public RespBean save(User user) {
         if (user.getIsAdmin() == 1){
             //管理员用户注册
             //判断用户名是否已存在
-            if (webMapper.isOldUserName(user) == 1){
-                return new RespBean("用户名已存在",400);
+            if (webMapper.save(user) == 1){
+                return new RespBean("新增用户成功",200);
+            }else{
+                return new RespBean("新增用户失败",400);
+            }
+
+        }else{
+            //普通用户注册
+            if (webMapper.isOldUserTel(user) == 1){
+                return new RespBean("手机号已存在",400);
             }else{
                 if (webMapper.save(user) == 1){
                     return new RespBean("新增用户成功",200);
@@ -45,44 +56,36 @@ public class WebServiceImpl implements WebService {
                     return new RespBean("新增用户失败",400);
                 }
             }
-        }else{
-            //普通用户注册
-            if (webMapper.isOldUserName(user) == 1){
-                return new RespBean("用户名已存在",400);
-            }else{
-                if (webMapper.isOldUserTel(user) == 1){
-                    return new RespBean("手机号已存在",400);
-                }else{
-                    if (webMapper.save(user) == 1){
-                        return new RespBean("新增用户成功",200);
-                    }else{
-                        return new RespBean("新增用户失败",400);
-                    }
-                }
-            }
+
         }
 
     }
 
     @Override
-    public RespBean update(User user) {
+    public RespBean update(User user,String oldUserTel) {
         //
-        if (webMapper.isOldUserName(user) == 1){
-            return new RespBean("用户名已存在",400);
-        }else if (webMapper.isOldUserTel(user) == 1){
-            return new RespBean("手机号已存在",400);
-        }else{
-            if (webMapper.update(user) == 1){
+        if (oldUserTel.equals(user.getUserTel())){
+            if (webMapper.update(user,oldUserTel) == 1){
                 return new RespBean("修改用户信息成功",200);
             }else{
                 return new RespBean("修改用户信息失败",400);
             }
+        }else{
+            if (webMapper.isOldUserTel(user) == 1){
+                return new RespBean("手机号已存在",400);
+            }else{
+                if (webMapper.update(user,oldUserTel) == 1){
+                    return new RespBean("修改用户信息成功",200);
+                }else{
+                    return new RespBean("修改用户信息失败",400);
+                }
+            }
         }
     }
 
     @Override
-    public RespBean deleteByUserId(int userId) {
-        if (webMapper.deleteByUserId(userId) == 1){
+    public RespBean deleteByUserTel(String userTel) {
+        if (webMapper.deleteByUserTel(userTel) == 1){
             return new RespBean("删除用户成功",200);
         }else{
             return new RespBean("删除用户失败",400);
@@ -91,8 +94,7 @@ public class WebServiceImpl implements WebService {
 
     @Override
     public RespBean login(User user) {
-        int line = webMapper.login(user);
-        if (line == 1){
+        if (webMapper.login(user) == 1){
             return new RespBean("登录成功",200);
         }else{
             return new RespBean("账号或密码错误",400);
@@ -100,7 +102,14 @@ public class WebServiceImpl implements WebService {
     }
 
     @Override
-    public void batchDeleteUsers(List<Integer> userList) {
-        webMapper.batchDeleteUsers(userList);
+    public void batchDeleteUsers(List<String> userTelList) {
+        webMapper.batchDeleteUsers(userTelList);
+    }
+
+    @Override
+    public List<Video> findAllVideos(Video video) {
+        //通过返回的所有的手机号,匹配手机号对应的用户名
+        return webMapper.findAllVideos(video);
+
     }
 }

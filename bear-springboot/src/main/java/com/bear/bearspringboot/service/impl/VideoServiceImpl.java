@@ -23,22 +23,13 @@ public class VideoServiceImpl implements VideoService {
     }
 
     @Override
-    public void recordDone(String fileName,String userName) {
-        int line = videoMapper.recordDone(fileName,userName);
-        if (line == 1){
+    public void recordDone(Video video) {
+        if (videoMapper.recordDone(video) == 1){
             System.out.println("修改成功");
         }else {
             System.out.println("修改失败");
         }
     }
 
-    @Override
-    public List<Video> live() {
-        return videoMapper.live();
-    }
 
-    @Override
-    public List<Video> record() {
-        return videoMapper.record();
-    }
 }

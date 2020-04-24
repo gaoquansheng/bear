@@ -6,6 +6,7 @@ import Home from "../views/home/Home";
 import Live from "../views/live/Live";
 import Record from "../views/record/Record";
 import UserManage from "../views/user/UserManage";
+import Map from "../views/map/Map"
 
 Vue.use(VueRouter);
 
@@ -58,6 +59,19 @@ const routes = [
         name: "用户管理",
         iconCls: "fa fa-user-o",
         component: UserManage
+      }
+    ]
+  },
+  {
+    path: "/home",
+    // name: "用户管理",
+    component: Home,
+    children: [
+      {
+        path: "/map",
+        name: "地图管理",
+        iconCls: "fa fa-user-o",
+        component: Map
       }
     ]
   }

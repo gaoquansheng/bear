@@ -4,36 +4,59 @@
 <mapper namespace="com.bear.bearspringboot.dao.WebMapper">
 
     <select id="findAll" parameterType="int" resultType="User">
-        SELECT * FROM USER limit #{param2},#{param1}
+        select * from users limit #{param2},#{param1}
     </select>
     <select id="countUsers" resultType="int">
-        select count(*) from user
+        select count(*) from users
     </select>
-    <select id="findByUserId" resultType="User" parameterType="int">
-        SELECT * FROM USER WHERE userId = #{userId}
+    <select id="findByUserTel" resultType="User" parameterType="String">
+        select * from users where userTel = #{userTel}
     </select>
     <insert id="save" parameterType="User">
-        insert into user (userName,userPwd,isAdmin,userTel) values (#{userName},#{userPwd},#{isAdmin},#{userTel})
+        insert into users (userName,userPwd,isAdmin,userTel) values (#{userName},#{userPwd},#{isAdmin},#{userTel})
     </insert>
-    <delete id="deleteByUserId" parameterType="int">
-        delete from user where userId = #{userId}
+    <delete id="deleteByUserTel" parameterType="String">
+        delete from users where userTel = #{userTel}
     </delete>
-    <update id="update" parameterType="User">
-        update user set userName = #{userName},userPwd = #{userPwd},isAdmin=#{isAdmin},userTel= #{userTel} where userId = #{userId};
+    <update id="update" >
+        update users set userName = #{param1.userName},userPwd = #{param1.userPwd},isAdmin=#{param1.isAdmin},userTel= #{param1.userTel} where userTel = #{param2};
     </update>
     <select id="login" parameterType="User" resultType="int">
-        select count(*) from user where userName = #{userName} and userPwd = #{userPwd} and isAdmin = 1;
-    </select>
-    <select id="isOldUserName" resultType="int" parameterType="User">
-        select count(*) from user where userName = #{userName} and isAdmin = #{isAdmin} and userId != #{userId};
+        select count(*) from users where userTel = #{userTel} and userPwd = #{userPwd} and isAdmin = 1;
     </select>
     <select id="isOldUserTel" resultType="int" parameterType="User">
-       select count(*) from user where userTel = #{userTel} and isAdmin = #{isAdmin} and userId != #{userId};
+       select count(*) from users where userTel = #{userTel};
     </select>
     <delete id="batchDeleteUsers" parameterType="list">
-        delete from user where userId in
-        <foreach collection="list" item="userId" open="(" close=")" separator=",">
-            #{userId}
+        delete from users where userTel in
+        <foreach collection="list" item="userTel" open="(" close=")" separator=",">
+            #{userTel}
         </foreach>
     </delete>
+    <select id="findAllVideos" resultMap="findAllVideos" parameterType="Video">
+        select * from video v left outer join users u on v.userTel = u.userTel where v.flag=#{flag}
+        <if test="title != null">
+            and title like concat('%',#{title},'%')
+        </if>
+        <if test="startTime != null">
+            and (startTime between #{startTime} and #{endTime}) and (endTime between #{startTime} and #{endTime})
+        </if>
+
+    </select>
+    <resultMap id="findAllVideos" type="Video">
+        <id property="videoId" column="videoId"></id>
+        <result column="title" property="title"></result>
+        <result column="userTel" property="userTel"></result>
+        <result column="url" property="url"></result>
+        <result column="lat" property="lat"></result>
+        <result column="lng" property="lng"></result>
+        <result column="startTime" property="startTime"></result>
+        <result column="endTime" property="endTime"></result>
+        <result column="flag" property="flag"></result>
+        <result column="videoUrl" property="videoUrl"></result>
+        <association property="user" javaType="com.bear.bearspringboot.entity.User">
+            <id column="userTel" property="userTel"></id>
+            <result property="userName" column="userName"></result>
+        </association>
+    </resultMap>
 </mapper>

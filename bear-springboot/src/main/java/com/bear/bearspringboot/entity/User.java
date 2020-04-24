@@ -9,10 +9,11 @@ import org.springframework.beans.factory.annotation.Value;
 public class User {
 
     private String userName;
+    //频道名默认使用userTel
     private String userTel;
     private String userPwd;
     private int isAdmin;
 //    频道名
-    private int userId;
+//    private int userId;
 
 }

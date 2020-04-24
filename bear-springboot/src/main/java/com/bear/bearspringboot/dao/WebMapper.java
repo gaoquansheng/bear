@@ -1,20 +1,24 @@
 package com.bear.bearspringboot.dao;
 
 import com.bear.bearspringboot.entity.User;
+import com.bear.bearspringboot.entity.Video;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
+import java.util.HashMap;
 import java.util.List;
 @Mapper
 public interface WebMapper {
 
     public List<User> findAll(int limit,int offset);
     public int countUsers();
-    public User findByUserId(int userId);
+    public User findByUserTel(String userTel);
     public int save(User user);
-    public int update(User user);
-    public int deleteByUserId(int userId);
+    public int update(User user, String oldUserTel);
+    public int deleteByUserTel(String userTel);
     public int login(User user);
-    public int isOldUserName(User user);
     public int isOldUserTel(User user);
-    public int batchDeleteUsers(List<Integer> userList);
+    public int batchDeleteUsers(List<String> userTelList);
+    public List<Video> findAllVideos(Video video);
+
 }

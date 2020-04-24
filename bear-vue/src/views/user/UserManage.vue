@@ -78,7 +78,7 @@
             <el-option label="管理员用户" value="1"></el-option>
           </el-select>
         </el-form-item>
-        <el-form-item label="用户名" prop="userName">
+        <el-form-item label="姓名" prop="userName">
           <el-input
             v-model="addUserForm.userName"
             :disabled="addUserForm.isAdmin == ''"
@@ -87,12 +87,10 @@
         <!-- 这为当上面选择为管理员用户的时候，不绑定prop属性，不然validate不通过 -->
         <el-form-item
           label="手机号"
-          :prop="addUserForm.isAdmin == 1 ? '' : 'userTel'"
-          v-show="addUserForm.isAdmin == 0"
+          prop="userTel"
         >
           <el-input
             v-model="addUserForm.userTel"
-            v-show="addUserForm.isAdmin == 0"
             :disabled="addUserForm.isAdmin == ''"
           ></el-input>
         </el-form-item>
@@ -126,17 +124,16 @@
         :rules="editUserDiaLogRules"
         ref="editUserForm"
       >
-        <el-form-item label="用户名" prop="userName">
+        <el-form-item label="姓名" prop="userName">
           <el-input
-            placeholder="用户名"
+            placeholder="姓名"
             v-model="editUserForm.userName"
           ></el-input>
         </el-form-item>
-        <el-form-item label="手机号" v-show="userTelShow"  :prop="userTelShow?'userTel':''">
+        <el-form-item label="手机号" prop="userTel">
           <el-input
             placeholder="手机号"
             v-model="editUserForm.userTel"
-            v-show="userTelShow"
           ></el-input>
         </el-form-item>
       </el-form>
@@ -158,9 +155,9 @@ import { putRequest } from "../../utils/api";
 export default {
   data() {
     let checkUserName = (rule, value, callback) => {
-      let reg = /[0-9a-zA-Z]{2,10}/;
+      let reg = /^[\u4E00-\u9FA5]{2,4}$/;
       if (!reg.test(value)) {
-        callback(new Error("用户名必须由2-10位数字和字母组合"));
+        callback(new Error("姓名格式不正确"));
       } else {
         callback();
       }
@@ -206,6 +203,7 @@ export default {
       editUserDiaLog: false,
       addUserDiaLog: false,
       editUserForm: [],
+      oldUserTel: "",
       userTelShow: false,
       addUserForm: {
         userName: "",
@@ -238,12 +236,13 @@ export default {
     handleEdit(index, row) {
       this.editUserDiaLog = true;
       this.editUserForm = row;
-      this.userTelShow = this.editUserForm.isAdmin == 0? true:false;
+      this.oldUserTel = row.userTel;
+      // this.userTelShow = this.editUserForm.isAdmin == 0? true:false;
     },
     handleAddUser() {
       this.addUserDiaLog = true;
     },
-    addUser(formName) {
+    addUser(formName) {  
       var _this = this;
       this.$refs[formName].validate(valid => {
         if (valid) {
@@ -290,7 +289,7 @@ export default {
           _this.editUserDiaLog = false;
           //1.将整个用户信息传递给后台
           //判断用户数据是否发生了改变
-          putRequest("http://localhost:8080/web/users", _this.editUserForm).then(
+          putRequest("http://localhost:8080/web/users?oldUserTel="+_this.oldUserTel, _this.editUserForm).then(
             resp => {
               //2.根据后台返回的信息进行输出
               if (resp.data.statusCode == 200) {
@@ -325,12 +324,12 @@ export default {
       })
         .then(() => {
           //2.确定则通过用户id删除
-          deleteRequest("http://localhost:8080/web/users/" + row.userId).then(
+          deleteRequest("http://localhost:8080/web/users/" + row.userTel).then(
             resp => {
               if (resp.data.statusCode == 200) {
                 _this.$message.success(resp.data.msg);
                 //刷新页面
-                window.eventBus.$emit("userManage","test")
+                window.eventBus.$emit("userManage")
               } else {
                 _this.$message.error(resp.data.msg);
               }
@@ -368,8 +367,8 @@ export default {
       })
         .then(() => {
           //2.
-          let ids = _this.deleteUsers.map(item => item.userId).join();
-          getRequest("http://localhost:8080/web/deleteUserList", { ids: ids }).then(
+          let userTels = _this.deleteUsers.map(item => item.userTel).join();
+          getRequest("http://localhost:8080/web/deleteUserList", { userTels: userTels }).then(
             () => {
               _this.$message({
                 type: "success",

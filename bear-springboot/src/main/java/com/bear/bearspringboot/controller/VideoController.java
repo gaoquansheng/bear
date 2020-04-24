@@ -26,14 +26,14 @@ public class VideoController {
     @RequestMapping("/publish")
     public void startLive(HttpServletRequest request) {
 //        传递&的时候需要用双引号裹起来
-        String userName = request.getParameter("name");
+        String userTel = request.getParameter("name");
         String tcurl = request.getParameter("tcurl");
-        String url =tcurl+"/"+userName;
-        float lat = Float.parseFloat(request.getParameter("lat"));
-        float lng = Float.parseFloat(request.getParameter("lng"));
+        String url =tcurl+"/"+userTel;
+        String lat = request.getParameter("lat");
+        String lng = request.getParameter("lng");
         Date startTime = new Date();
         Video video = new Video();
-        video.setUserName(userName);
+        video.setUserTel(userTel);
         video.setLat(lat);
         video.setLng(lng);
         video.setFlag(1);
@@ -45,21 +45,18 @@ public class VideoController {
     @RequestMapping("/record_done")
     public void recordDone(HttpServletRequest request){
         String fileName = request.getParameter("path");
-        String userName = request.getParameter("name");
+        String userTel = request.getParameter("name");
         String tcurl = request.getParameter("tcurl");
         String[] fileUrl = tcurl.split("/");
         String path = fileUrl[0]+"//"+fileUrl[2]+fileName;
         System.out.println(path);
-        videoService.recordDone(path,userName);
+        Date date = new Date();
+        Video video = new Video();
+        video.setEndTime(date);
+        video.setFlag(0);
+        video.setVideoUrl(path);
+        video.setUserTel(userTel);
+        videoService.recordDone(video);
     }
 
-    @GetMapping("/live")
-    public List<Video> live(){
-        return videoService.live();
-    }
-
-    @GetMapping("/record")
-    public List<Video> record(){
-        return videoService.record();
-    }
 }
