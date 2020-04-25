@@ -2,154 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4753f691-2808-42eb-b64f-230ce927ccd4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../bear-app/components/infoList/infoList.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-app/components/infoList/infoList.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-app/pages/login/login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-app/pages/login/login.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-app/pages/me/me.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-app/pages/me/me.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/dev/.tmp/app-plus/common/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-app/unpackage/dist/dev/.tmp/app-plus/common/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/dev/.tmp/app-plus/common/vendor.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-app/unpackage/dist/dev/.tmp/app-plus/common/vendor.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/dev/.tmp/app-plus/components/infoList/infoList.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-app/unpackage/dist/dev/.tmp/app-plus/components/infoList/infoList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/dev/.tmp/app-plus/components/infoList/infoList.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-app/unpackage/dist/dev/.tmp/app-plus/components/infoList/infoList.wxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/dev/.tmp/app-plus/components/infoList/infoList.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-app/unpackage/dist/dev/.tmp/app-plus/components/infoList/infoList.wxss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/dev/.tmp/app-plus/pages/login/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-app/unpackage/dist/dev/.tmp/app-plus/pages/login/login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/dev/.tmp/app-plus/pages/me/info/info.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-app/unpackage/dist/dev/.tmp/app-plus/pages/me/info/info.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/dev/.tmp/app-plus/pages/me/me.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-app/unpackage/dist/dev/.tmp/app-plus/pages/me/me.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/dev/.tmp/app-plus/pages/me/me.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-app/unpackage/dist/dev/.tmp/app-plus/pages/me/me.wxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/dev/.tmp/app-plus/pages/me/me.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-app/unpackage/dist/dev/.tmp/app-plus/pages/me/me.wxss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/dev/.tmp/app-plus/pages/register/register.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-app/unpackage/dist/dev/.tmp/app-plus/pages/register/register.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/dev/app-plus/app-service.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-app/unpackage/dist/dev/app-plus/app-service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/dev/app-plus/app-view.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-app/unpackage/dist/dev/app-plus/app-view.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/dev/app-plus/components/infoList/infoList.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-app/unpackage/dist/dev/app-plus/components/infoList/infoList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/dev/app-plus/pages/live/live.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-app/unpackage/dist/dev/app-plus/pages/live/live.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/dev/app-plus/pages/me/me.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-app/unpackage/dist/dev/app-plus/pages/me/me.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_classic_1_2_3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_core_1_2_3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_classmate_1_5_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_10_3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_10_3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_10_3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_datatype_jackson_datatype_jdk8_2_10_3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_datatype_jackson_datatype_jsr310_2_10_3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_module_jackson_module_parameter_names_2_10_3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_jayway_jsonpath_json_path_2_4_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_vaadin_external_google_android_json_0_0_20131108_vaadin1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_zaxxer_HikariCP_3_4_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_activation_jakarta_activation_api_1_2_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_annotation_jakarta_annotation_api_1_3_5.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_validation_jakarta_validation_api_2_0_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_xml_bind_jakarta_xml_bind_api_2_3_3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_8_0_19.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_bytebuddy_byte_buddy_1_10_8.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_bytebuddy_byte_buddy_agent_1_10_8.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_minidev_accessors_smart_1_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_minidev_json_smart_2_3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_api_2_12_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_to_slf4j_2_12_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_core_9_0_33.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_el_9_0_33.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_websocket_9_0_33.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apiguardian_apiguardian_api_1_1_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_assertj_assertj_core_3_13_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_2_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_validator_hibernate_validator_6_0_18_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_logging_jboss_logging_3_4_1_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_5_5_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_api_5_5_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_engine_5_5_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_params_5_5_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_commons_1_5_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_engine_1_5_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mockito_mockito_core_3_1_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mockito_mockito_junit_jupiter_3_1_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_mybatis_3_5_4.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_mybatis_spring_2_0_4.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_spring_boot_mybatis_spring_boot_autoconfigure_2_1_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_spring_boot_mybatis_spring_boot_starter_2_1_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_objenesis_objenesis_2_6.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_opentest4j_opentest4j_1_2_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_ow2_asm_asm_5_0_4.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_projectlombok_lombok_1_18_12.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_skyscreamer_jsonassert_1_5_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_jul_to_slf4j_1_7_30.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_30.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_2_2_6_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_autoconfigure_2_2_6_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_devtools_2_2_6_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_2_2_6_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_jdbc_2_2_6_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_json_2_2_6_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_logging_2_2_6_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_test_2_2_6_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_tomcat_2_2_6_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_validation_2_2_6_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_web_2_2_6_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_2_2_6_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_autoconfigure_2_2_6_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_5_2_5_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_5_2_5_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_5_2_5_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_5_2_5_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_5_2_5_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jcl_5_2_5_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jdbc_5_2_5_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_test_5_2_5_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_tx_5_2_5_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_web_5_2_5_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_webmvc_5_2_5_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_xmlunit_xmlunit_core_2_6_4.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_yaml_snakeyaml_1_25.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bear-springboot.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/controller/AppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/controller/AppController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/controller/VideoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/controller/VideoController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/controller/WebController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/controller/WebController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/dao/AppMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/dao/AppMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/dao/AppMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/dao/AppMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/dao/VideoMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/dao/VideoMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/dao/VideoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/dao/VideoMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/dao/WebMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/dao/WebMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/dao/WebMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/dao/WebMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/entity/Video.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/entity/Video.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/service/AppService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/service/AppService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/service/VideoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/service/VideoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/service/WebService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/service/WebService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/service/impl/AppServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/service/impl/AppServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/service/impl/VideoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/service/impl/VideoServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/service/impl/WebServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/service/impl/WebServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/controller/AppController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/controller/AppController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/controller/VideoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/controller/VideoController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/controller/WebController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/dao/AppMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/dao/AppMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/dao/AppMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/dao/AppMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/dao/VideoMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/dao/VideoMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/dao/VideoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/dao/VideoMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/dao/WebMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/dao/WebMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/dao/WebMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/dao/WebMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/entity/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/entity/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/entity/Video.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/entity/Video.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/service/AppService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/service/AppService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/service/VideoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/service/VideoService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/service/WebService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/service/WebService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/service/impl/AppServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/service/impl/AppServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/service/impl/VideoServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/service/impl/VideoServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/service/impl/WebServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-vue/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-vue/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-vue/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-vue/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-vue/src/components/VideoPlayer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-vue/src/components/VideoPlayer.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-vue/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-vue/src/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-vue/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-vue/src/router/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-vue/src/views/home/Home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-vue/src/views/home/Home.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../bear-vue/src/views/live/Live.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-vue/src/views/live/Live.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-vue/src/views/login/Login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-vue/src/views/login/Login.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-vue/src/views/record/Record.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-vue/src/views/record/Record.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-vue/src/views/user/UserManage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-vue/src/views/user/UserManage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../config/nginx 1.7.11.3-Gryphon/logs/access.log" beforeDir="false" afterPath="$PROJECT_DIR$/../config/nginx 1.7.11.3-Gryphon/logs/access.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../config/nginx 1.7.11.3-Gryphon/logs/error.log" beforeDir="false" afterPath="$PROJECT_DIR$/../config/nginx 1.7.11.3-Gryphon/logs/error.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../config/nginx 1.7.11.3-Gryphon/logs/nginx.pid" beforeDir="false" afterPath="$PROJECT_DIR$/../config/nginx 1.7.11.3-Gryphon/logs/nginx.pid" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -173,7 +28,7 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="class" value="9" />
-          <entry key="html" value="1" />
+          <entry key="html" value="2" />
           <entry key="java" value="40" />
           <entry key="xml" value="7" />
           <entry key="yml" value="1" />
@@ -182,7 +37,7 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="9" />
-          <entry key="HTML" value="1" />
+          <entry key="HTML" value="2" />
           <entry key="JAVA" value="40" />
           <entry key="XML" value="7" />
           <entry key="YAML" value="1" />
@@ -190,15 +45,15 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="html" value="237" />
-          <entry key="java" value="1444" />
+          <entry key="html" value="306" />
+          <entry key="java" value="1454" />
           <entry key="xml" value="706" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="237" />
-          <entry key="JAVA" value="1444" />
+          <entry key="HTML" value="306" />
+          <entry key="JAVA" value="1454" />
           <entry key="SQL" value="3" />
           <entry key="XML" value="703" />
         </counts>
@@ -207,11 +62,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/controller/WebController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="128">
-              <caret line="84" selection-start-line="84" selection-end-line="84" />
+              <caret line="78" column="47" lean-forward="true" selection-start-line="78" selection-start-column="47" selection-end-line="78" selection-end-column="47" />
               <folding>
                 <element signature="method#findAll#0;class#WebController#0" />
                 <element signature="method#findByUserTel#0;class#WebController#0" />
@@ -258,8 +113,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/dao/WebMapper.xml">
           <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="230">
+              <caret line="43" lean-forward="true" selection-start-line="43" selection-end-line="43" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/service/impl/test.html">
+          <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="184">
-              <caret line="41" column="46" selection-start-line="41" selection-start-column="37" selection-end-line="41" selection-end-column="46" />
+              <caret line="8" column="8" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -306,6 +170,7 @@
         <option value="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/dao/WebMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/dao/WebMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/controller/WebController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/service/impl/test.html" />
       </list>
     </option>
   </component>
@@ -458,7 +323,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1587456999343" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1587787170422" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../mall" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -500,17 +365,18 @@
       <workItem from="1586920485935" duration="1352000" />
       <workItem from="1587000797653" duration="13007000" />
       <workItem from="1587384536331" duration="8587000" />
-      <workItem from="1587464329245" duration="15790000" />
+      <workItem from="1587464329245" duration="18835000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45510000" />
+    <option name="totallyTimeSpent" value="48555000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="2" width="1378" height="733" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21927163" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2936267" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -521,7 +387,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.43979934" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.30769232" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.1521739" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -549,30 +415,6 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/controller/WebController.java</url>
-          <line>84</line>
-          <properties />
-          <option name="timeStamp" value="21" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/controller/WebController.java</url>
-          <line>85</line>
-          <properties />
-          <option name="timeStamp" value="22" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/controller/WebController.java</url>
-          <line>86</line>
-          <properties />
-          <option name="timeStamp" value="24" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/resources/application.yml">
@@ -757,20 +599,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/dao/WebMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="21" column="48" selection-start-line="21" selection-start-column="48" selection-end-line="21" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/dao/WebMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="41" column="46" selection-start-line="41" selection-start-column="37" selection-end-line="41" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/mybatis/mybatis/3.5.4/mybatis-3.5.4.jar!/org/apache/ibatis/binding/MapperProxy.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="103">
@@ -805,13 +633,34 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/controller/WebController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="128">
-          <caret line="84" selection-start-line="84" selection-end-line="84" />
+          <caret line="78" column="47" lean-forward="true" selection-start-line="78" selection-start-column="47" selection-end-line="78" selection-end-column="47" />
           <folding>
             <element signature="method#findAll#0;class#WebController#0" />
             <element signature="method#findByUserTel#0;class#WebController#0" />
             <element signature="method#update#0;class#WebController#0" />
             <element signature="method#batchDeleteUsers#0;class#WebController#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/dao/WebMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="21" column="48" selection-start-line="21" selection-start-column="48" selection-end-line="21" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/dao/WebMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="43" lean-forward="true" selection-start-line="43" selection-end-line="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/service/impl/test.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="8" column="8" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="8" />
         </state>
       </provider>
     </entry>

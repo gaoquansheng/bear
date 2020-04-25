@@ -76,7 +76,7 @@ public class WebController {
         //这里封装一个video对象吧
         Video video = new Video();
         video.setFlag(Integer.parseInt(flag));
-        if (title != null){
+        if (title != null && !title.isEmpty()){
             video.setTitle(title);
         }
         System.out.println(dates);
