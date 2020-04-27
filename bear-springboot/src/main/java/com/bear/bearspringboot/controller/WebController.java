@@ -41,18 +41,17 @@ public class WebController {
     public RespBean save(@RequestBody User user){
         return webService.save(user);
     }
-
     @PutMapping("/users")
     public RespBean update(@RequestBody User user,@RequestParam("oldUserTel") String oldUserTel){
         System.out.println(oldUserTel);
         System.out.println(user);
         return webService.update(user,oldUserTel);
     }
-
     @DeleteMapping("/users/{userTel}")
     public RespBean deleteByUserTel(@PathVariable("userTel") String userTel){
         return webService.deleteByUserTel(userTel);
     }
+
     //通过主键(手机号)来批量删除用户
     @RequestMapping("/deleteUserList")
     public void batchDeleteUsers(@RequestParam("userTels") String userTels){
@@ -70,26 +69,30 @@ public class WebController {
         return webService.login(user);
     }
 
-    @GetMapping("/videos")
-    public List<Video> findAllVideos(@RequestParam("flag") String flag,@RequestParam(value = "title",required = false) String title,@RequestParam(value = "timeRange",required = false) String dates){
-        System.out.println(title);
-        //这里封装一个video对象吧
-        Video video = new Video();
-        video.setFlag(Integer.parseInt(flag));
-        if (title != null && !title.isEmpty()){
-            video.setTitle(title);
-        }
-        System.out.println(dates);
-        if (dates != null && !dates.isEmpty()){
-            try {
-                Date start = new SimpleDateFormat("yyyy-MM-dd").parse(dates.split(",")[0]);
-                Date end = new SimpleDateFormat("yyyy-MM-dd").parse(dates.split(",")[1]);
-                video.setStartTime(start);
-                video.setEndTime(end);
-            } catch (ParseException e) {
-                e.printStackTrace();
-            }
-        }
+    //这里为历史录播,返回title不为空的数据
+    @PostMapping("/videos")
+    public List<Video> findAllVideos(@RequestBody Video video){
+        //这里直接传递日期字符串
         return webService.findAllVideos(video);
+    }
+
+    //这里为最新录播,返回title为空的数据
+    @PostMapping("/latestVideos")
+    public List<Video> findLatestVideos(@RequestBody Video video){
+        //这里将日期进行处理
+        return webService.findLatestVideos(video);
+    }
+    //根据传递过来的Id修改标题
+    @GetMapping("/addTitle")
+    public void addTitleByIds(@RequestParam("ids") String ids, @RequestParam("title") String title){
+        String[] allId = ids.split(",");
+        System.out.println(Arrays.toString(allId));
+        System.out.println(title);
+        webService.addTitleById(allId,title);
+    }
+
+    @PostMapping("/liveVideos")
+    public List<Video> getLiveVideos(@RequestBody Video video){
+       return webService.getLiveVideos(video);
     }
 }

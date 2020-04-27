@@ -112,4 +112,20 @@ public class WebServiceImpl implements WebService {
         return webMapper.findAllVideos(video);
 
     }
+
+    @Override
+    public RespBean addTitleById(String[] ids, String title) {
+        webMapper.addTitleById(ids,title);
+        return null;
+    }
+
+    @Override
+    public List<Video> findLatestVideos(Video video) {
+        return webMapper.findLatestVideos(video);
+    }
+
+    @Override
+    public List<Video> getLiveVideos(Video video) {
+        return webMapper.getLiveVideos(video);
+    }
 }

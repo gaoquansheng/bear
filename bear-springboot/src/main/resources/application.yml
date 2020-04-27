@@ -9,5 +9,12 @@ spring:
 mybatis:
 #  mapper-locations: classpath:mapping/*.xml
   type-aliases-package: com.bear.bearspringboot.entity # 提取公共包名
+  #  设置打印SQL语句
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+
 server:
   port: 8080
+
+

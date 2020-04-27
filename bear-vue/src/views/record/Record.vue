@@ -1,45 +1,55 @@
 /* eslint-disable */
 <template>
   <div>
-      <el-row :gutter="10">
-        <el-col :span="8">
-          <el-date-picker
-            v-model="videoFilterFactors.timeRange"
-            type="daterange"
-            align="right"
-            unlink-panels
-            range-separator="至"
-            start-placeholder="开始日期"
-            end-placeholder="结束日期"
-            :picker-options="pickerOptions">
-          </el-date-picker>
-        </el-col>
-        <el-col :span="8">
-          <el-input v-model="videoFilterFactors.title" placeholder="请输入标题"></el-input>
-        </el-col>
-        <el-col :span="2">
-          <el-button type="success" @click="videoFilter">确定</el-button>
-        </el-col>
-      </el-row>
-    <el-row :gutter="20">
-      <el-col :span="8" v-for="(video, id) in recordVideoList" :key="id">
-        <VideoPlayer :options="{controls:true,autoplay:true,muted:true,height:'200px',sources:[{src:video.videoUrl,type:'rtmp/flv'}]}"></VideoPlayer>
-        <el-row>{{video.title}}</el-row>
-        <el-row>
-          <el-col :span="12">{{video.user.userName}}</el-col>
-          <el-col :span="12">{{video.startTime | timeFormat}}</el-col>
-        </el-row>
+    <el-row :gutter="10">
+      <el-col :span="8">
+        <el-date-picker
+          v-model="videoFilterFactors.timeRange"
+          type="daterange"
+          align="right"
+          unlink-panels
+          range-separator="至"
+          start-placeholder="开始日期"
+          end-placeholder="结束日期"
+          :picker-options="pickerOptions">
+        </el-date-picker>
+      </el-col>
+      <el-col :span="8">
+        <el-input v-model="videoFilterFactors.title" placeholder="请输入标题"></el-input>
+      </el-col>
+      <el-col :span="2">
+        <el-button type="success" @click="initVideos">确定</el-button>
+      </el-col>
+      <el-col :span="2" :offset="4">
+        <el-button type="success" :title="patten?'切换地图模式':'切换列表模式'"  icon="el-icon-s-operation" @click="patten = !patten"></el-button>
       </el-col>
     </el-row>
+      <!-- 列表模式 -->
+    <div v-if="patten">
+      <el-row :gutter="20">
+        <el-col :span="8" v-for="video in recordVideoList" :key="video.videoId">
+          <VideoPlayer :options="{controls:true,autoplay:true,muted:true,height:'200px',sources:[{src:video.videoUrl,type:'rtmp/flv'}]}"></VideoPlayer>
+          <VideoInfo :videoInfo="video"></VideoInfo>
+        </el-col>
+      </el-row>
+    </div>
+    <!-- 地图模式 -->
+    <div v-else>
+      <VideoMap :videoPoints="recordVideoList"></VideoMap>
+    </div>
   </div>
 </template>
 
 <script>
-import { getRequest } from "../../utils/api";
+//eslint-disable-next-line
+import { getRequest, postRequest } from "../../utils/api";
 import VideoPlayer from "@/components/VideoPlayer.vue";
+import VideoMap from "@/components/VideoMap.vue"
+import VideoInfo from "@/components/VideoInfo.vue";
 export default {
   data() {
     return {
+      patten: true,
       recordVideoList: [],
       //日期选择模块
       pickerOptions: {
@@ -77,48 +87,47 @@ export default {
     };
   },
   components: {
-    VideoPlayer
+    VideoPlayer,
+    VideoMap,
+    VideoInfo
   },
-  filters: {
-    timeFormat(time){
-      console.log(time);
-      var date = new Date(time);
-      return date.getFullYear()+"-"+(date.getMonth()+1)+"-"+date.getDate();
-      // return  '1';
-    }
-  },
+
   methods: {
-    videoFilter(){
-      console.log(this.videoFilterFactors.timeRange)
-      var _this = this;
-      var tmp = "&title="+this.videoFilterFactors.title+"&timeRange="+this.videoFilterFactors.timeRange;
-      getRequest("http://localhost:8080/web/videos?flag=0"+tmp).then(
-        resp => {
-          //这里遍历循环,
-          _this.recordVideoList = resp.data;
-          console.log(resp.data)
-        },
-        resp => {
-          console.log(resp.data);
-        }
-      );
-    },
     initVideos(){
       var _this = this;
-      getRequest("http://localhost:8080/web/videos?flag=0").then(
-        resp => {
-          _this.recordVideoList = resp.data;
-        },
-        resp => {
-          console.log(resp.data);
+      var video;
+      if(this.videoFilterFactors.timeRange == null || this.videoFilterFactors.timeRange == ""){
+        video = {
+          flag: 0,
+          title: this.videoFilterFactors.title
         }
-      );
+      }else{
+        video = {
+          flag: 0,
+          title: this.videoFilterFactors.title,
+          startTime: this.videoFilterFactors.timeRange[0],
+          endTime: this.videoFilterFactors.timeRange[1]
+        }
+      }
+      postRequest("http://localhost:8080/web/videos",video).then(
+        resp => {
+           _this.recordVideoList.splice(0,_this.recordVideoList.length);//重新赋值数组后会无法追踪数组
+          //直接将数组进行赋值就会使得vue无法跟踪数组吗?
+          //为什么修改数组之后没办法触发呢
+          //这里是因为数组的更新检测
+          for (let item of resp.data) {
+            //判断这一项原来的列表中有吗,如果有就跳过,没有就push进去
+            _this.recordVideoList.push(item)
+            
+          }
+        }
+      )
     }
   },
   mounted() {
     this.initVideos();
   }
-};
+}
 </script>
 
 <style>
@@ -127,4 +136,4 @@ export default {
     border-radius: 20px;
     margin-bottom: 20px;
   }
-  </style>
+</style>

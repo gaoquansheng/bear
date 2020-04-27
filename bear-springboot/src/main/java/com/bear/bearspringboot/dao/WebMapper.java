@@ -1,5 +1,6 @@
 package com.bear.bearspringboot.dao;
 
+import com.bear.bearspringboot.entity.RespBean;
 import com.bear.bearspringboot.entity.User;
 import com.bear.bearspringboot.entity.Video;
 import org.apache.ibatis.annotations.Mapper;
@@ -20,5 +21,7 @@ public interface WebMapper {
     public int isOldUserTel(User user);
     public int batchDeleteUsers(List<String> userTelList);
     public List<Video> findAllVideos(Video video);
-
+    public int addTitleById(String[] ids, String title);
+    public List<Video> findLatestVideos(Video video);
+    public List<Video> getLiveVideos(Video video);
 }

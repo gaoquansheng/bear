@@ -3,6 +3,23 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.bear.bearspringboot.dao.WebMapper">
 
+    <resultMap id="findAllVideos" type="Video">
+        <id property="videoId" column="videoId"></id>
+        <result column="title" property="title"></result>
+        <result column="userTel" property="userTel"></result>
+        <result column="url" property="url"></result>
+        <result column="lat" property="lat"></result>
+        <result column="lng" property="lng"></result>
+        <result column="startTime" property="startTime"></result>
+        <result column="endTime" property="endTime"></result>
+        <result column="flag" property="flag"></result>
+        <result column="videoUrl" property="videoUrl"></result>
+        <association property="user" javaType="com.bear.bearspringboot.entity.User">
+            <id column="userTel" property="userTel"></id>
+            <result property="userName" column="userName"></result>
+        </association>
+    </resultMap>
+
     <select id="findAll" parameterType="int" resultType="User">
         select * from users limit #{param2},#{param1}
     </select>
@@ -34,29 +51,34 @@
         </foreach>
     </delete>
     <select id="findAllVideos" resultMap="findAllVideos" parameterType="Video">
-        select * from video v left outer join users u on v.userTel = u.userTel where v.flag=#{flag}
-        <if test="title != null">
+        select * from video v left outer join users u on v.userTel = u.userTel where v.flag=#{flag} and v.title != ""
+        <if test="title != ''">
             and title like concat('%',#{title},'%')
         </if>
         <if test="startTime != null">
-            and (startTime between #{startTime} and #{endTime}) and (endTime between #{startTime} and #{endTime})
+            and startTime between #{startTime} and #{endTime}
         </if>
 
     </select>
-    <resultMap id="findAllVideos" type="Video">
-        <id property="videoId" column="videoId"></id>
-        <result column="title" property="title"></result>
-        <result column="userTel" property="userTel"></result>
-        <result column="url" property="url"></result>
-        <result column="lat" property="lat"></result>
-        <result column="lng" property="lng"></result>
-        <result column="startTime" property="startTime"></result>
-        <result column="endTime" property="endTime"></result>
-        <result column="flag" property="flag"></result>
-        <result column="videoUrl" property="videoUrl"></result>
-        <association property="user" javaType="com.bear.bearspringboot.entity.User">
-            <id column="userTel" property="userTel"></id>
-            <result property="userName" column="userName"></result>
-        </association>
-    </resultMap>
+
+    <select id="findLatestVideos" resultMap="findAllVideos" parameterType="Video">
+        select * from video v left outer join users u on v.userTel = u.userTel where v.title = "" and v.flag = #{flag}
+        <if test="startTime != null">
+            and v.startTime between #{startTime} and #{endTime}
+        </if>
+    </select>
+
+    <update id="addTitleById">
+        update video set title = #{param2} where videoId in
+        <foreach collection="param1" item="videoId" open="(" close=")" separator=",">
+            #{videoId}
+        </foreach>
+    </update>
+
+    <select id="getLiveVideos" parameterType="Video" resultMap="findAllVideos">
+        select * from video v left outer join users u on v.userTel = u.userTel where flag = #{flag}
+        <if test="title != ''and title != null">
+            and title = #{title}
+        </if>
+    </select>
 </mapper>

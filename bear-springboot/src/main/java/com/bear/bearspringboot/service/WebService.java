@@ -19,4 +19,7 @@ public interface WebService {
     public RespBean login(User user);
     public void batchDeleteUsers(List<String> userTelList);
     public List<Video> findAllVideos(Video video);
+    public RespBean addTitleById(String[] ids,String title);
+    public List<Video> findLatestVideos(Video video);
+    public List<Video> getLiveVideos(Video video);
 }
