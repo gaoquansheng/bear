@@ -34,19 +34,7 @@
           <VideoPlayer  :options="options"></VideoPlayer>
         </el-col>
         <el-col :span="12">
-          <el-row >
-            <el-col :span="12"><div><i class="el-icon-user-solid"></i>姓名:</div></el-col>
-            <el-col :span="12"><div v-text="selectVideo.user.userName"></div></el-col>
-            <el-col :span="12"><div><i class="el-icon-phone"></i>手机号:</div></el-col>
-            <el-col :span="12"><div v-text="selectVideo.userTel"></div></el-col>
-            <el-col :span="12"><div><i class="el-icon-add-location"></i>经度:</div></el-col>
-            <el-col :span="12"><div v-text="selectVideo.lat"></div></el-col>
-            <el-col :span="12"><div><i class="el-icon-add-location"></i>纬度:</div></el-col>
-            <el-col :span="12"><div v-text="selectVideo.lng"></div></el-col>
-            <!-- <el-col :span="12" :offset="6">
-              <el-button type="success" @click="videoDialog = true">{{videoType == "1"? "观看直播":"观看录播"}}</el-button>
-            </el-col> -->
-          </el-row>
+          <MapInfo :mapInfo="selectVideo"></MapInfo>
         </el-col>
       </el-row>
     </el-dialog>
@@ -58,6 +46,7 @@
 <script>
 // import { getRequest} from "../utils/api";
 import VideoPlayer from "@/components/VideoPlayer.vue";
+import MapInfo from "@/components/MapInfo.vue"
 export default {
   data(){
     return{
@@ -123,7 +112,8 @@ export default {
     this.$message.success("当前有"+this.videoLists.length+"个视频资源")
   },
   components:{
-    VideoPlayer
+    VideoPlayer,
+    MapInfo
   }
 }
 </script>

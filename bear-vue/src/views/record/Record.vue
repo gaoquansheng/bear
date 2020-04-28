@@ -26,9 +26,9 @@
     </el-row>
       <!-- 列表模式 -->
     <div v-if="patten">
-      <el-row :gutter="20">
-        <el-col :span="8" v-for="video in recordVideoList" :key="video.videoId">
-          <VideoPlayer :options="{controls:true,autoplay:true,muted:true,height:'200px',sources:[{src:video.videoUrl,type:'rtmp/flv'}]}"></VideoPlayer>
+      <el-row :gutter="40">
+        <el-col :span="6" v-for="video in recordVideoList" :key="video.videoId">
+          <VideoPlayer :options="{controls:true,autoplay:true,muted:true,width:'279px',sources:[{src:video.videoUrl,type:'rtmp/flv'}]}"></VideoPlayer>
           <VideoInfo :videoInfo="video"></VideoInfo>
         </el-col>
       </el-row>

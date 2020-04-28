@@ -14,10 +14,10 @@
     </el-row>
     <!-- 默认为列表模式 -->
     <div v-if="patten">
-      <el-row :gutter="20">
-        <el-col :span="8" v-for="video in liveVideoList" :key="video.videoId">
+      <el-row :gutter="10">
+        <el-col :span="6" v-for="video in liveVideoList" :key="video.videoId">
           <div class="dislike" @click="dislikeVideo(video,id)">x</div>
-          <VideoPlayer :options="{controls:true,autoplay:true,muted:true,width:'358px',sources:[{src:video.url,type:'rtmp/flv'}]}"></VideoPlayer>
+          <VideoPlayer :options="{controls:true,autoplay:true,muted:true,width:'279px',sources:[{src:video.url,type:'rtmp/flv'}]}"></VideoPlayer>
           <VideoInfo :videoInfo="video"></VideoInfo>
         </el-col>
       </el-row>

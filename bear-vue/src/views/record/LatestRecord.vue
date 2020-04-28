@@ -27,12 +27,12 @@
       </el-row>
       <!-- 这里是录播的列表模式 -->
       <div v-if="patten">
-        <el-row :gutter="20">
+        <el-row :gutter="10">
           <el-checkbox :indeterminate="isIndeterminate" v-model="checkAll" @change="handleCheckAllChange">全选</el-checkbox>
           <el-checkbox-group v-model="checkedVideoIds">
-            <el-col :span="8" v-for="video in recordVideoList" :key="video.videoId">
+            <el-col :span="6" :offset="id%3 == 0?0:2" v-for="(video,id) in recordVideoList" :key="video.videoId">
               <el-checkbox :label="video.videoId">
-                <VideoPlayer :options="{controls:true,autoplay:true,muted:true,width:'358px',sources:[{src:video.videoUrl,type:'rtmp/flv'}]}"></VideoPlayer>
+                <VideoPlayer :options="{controls:true,autoplay:true,muted:true,width:'279px',sources:[{src:video.videoUrl,type:'rtmp/flv'}]}"></VideoPlayer>
                 <VideoInfo :videoInfo="video"></VideoInfo>
               </el-checkbox>
             </el-col>
