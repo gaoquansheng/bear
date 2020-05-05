@@ -27,14 +27,16 @@
       </el-row>
       <!-- 这里是录播的列表模式 -->
       <div v-if="patten">
-        <el-row :gutter="10">
+        <el-row :gutter="20">
           <el-checkbox :indeterminate="isIndeterminate" v-model="checkAll" @change="handleCheckAllChange">全选</el-checkbox>
           <el-checkbox-group v-model="checkedVideoIds">
-            <el-col :span="6" :offset="id%3 == 0?0:2" v-for="(video,id) in recordVideoList" :key="video.videoId">
+            <el-col :span="6"  v-for="video in recordVideoList" :key="video.videoId">
               <el-checkbox :label="video.videoId">
-                <VideoPlayer :options="{controls:true,autoplay:true,muted:true,width:'279px',sources:[{src:video.videoUrl,type:'rtmp/flv'}]}"></VideoPlayer>
-                <VideoInfo :videoInfo="video"></VideoInfo>
+                <!-- 这里必须要有值,不然就会显示label中的值 -->
+                <div style="display:none">1</div>
               </el-checkbox>
+              <VideoPlayer :options="{controls:true,autoplay:true,muted:true,fluid:true,sources:[{src:video.videoUrl,type:'rtmp/flv'}]}"></VideoPlayer>
+              <VideoInfo :videoInfo="video"></VideoInfo>
             </el-col>
           </el-checkbox-group>
         </el-row>
@@ -126,7 +128,7 @@ export default {
       this.isIndeterminate = false;
     },
     addTitle(){
-      // console.log(this.checkedVideoIds)
+      console.log(this.checkedVideoIds)
       var _this = this;
       var ids = this.checkedVideoIds.join();
       console.log(ids);

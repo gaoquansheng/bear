@@ -49,6 +49,12 @@
           "usingComponents": {}
         },
         "nvue": true
+      },
+      "pages/startLive/startLive.html": {
+        "window": {
+          "usingComponents": {}
+        },
+        "nvue": true
       }
     },
     "entryPagePath": "pages/live/live"

@@ -28,7 +28,7 @@
     <div v-if="patten">
       <el-row :gutter="40">
         <el-col :span="6" v-for="video in recordVideoList" :key="video.videoId">
-          <VideoPlayer :options="{controls:true,autoplay:true,muted:true,width:'279px',sources:[{src:video.videoUrl,type:'rtmp/flv'}]}"></VideoPlayer>
+          <VideoPlayer :options="{controls:true,autoplay:true,muted:true,fluid:true,sources:[{src:video.videoUrl,type:'rtmp/flv'}]}"></VideoPlayer>
           <VideoInfo :videoInfo="video"></VideoInfo>
         </el-col>
       </el-row>

@@ -17,7 +17,7 @@
       <el-row :gutter="10">
         <el-col :span="6" v-for="video in liveVideoList" :key="video.videoId">
           <div class="dislike" @click="dislikeVideo(video,id)">x</div>
-          <VideoPlayer :options="{controls:true,autoplay:true,muted:true,width:'279px',sources:[{src:video.url,type:'rtmp/flv'}]}"></VideoPlayer>
+          <VideoPlayer :options="{controls:true,autoplay:true,muted:true,fluid:true,liveui: true,sources:[{src:video.url,type:'rtmp/flv'}]}"></VideoPlayer>
           <VideoInfo :videoInfo="video"></VideoInfo>
         </el-col>
       </el-row>

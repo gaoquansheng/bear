@@ -64,7 +64,7 @@ export default {
             controls: true,
             autoplay:true,
             muted: true,
-            height: "200px",
+            fluid:true,
             sources: [
               {
                 src: "",
