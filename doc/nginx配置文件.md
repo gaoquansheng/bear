@@ -1,8 +1,8 @@
 - centos安装配置nginx-rtmp参考网址:https://www.vultr.com/docs/setup-nginx-rtmp-on-centos-7
 - nginx.conf文件内容:
+```
       #user  nobody;
       worker_processes  1;
-
 
       events {
           worker_connections  1024;
@@ -62,4 +62,4 @@
           }
           }
       }
-
+```
