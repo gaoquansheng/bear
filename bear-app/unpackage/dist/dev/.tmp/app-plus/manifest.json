@@ -82,7 +82,7 @@
     "arguments": "{\"name\":\"\",\"path\":\"\",\"query\":\"\",\"id\":0}",
     "allowsInlineMediaPlayback": true,
     "safearea": {
-      "background": "#ffffff",
+      "background": "#333",
       "bottom": {
         "offset": "auto"
       }
@@ -95,6 +95,11 @@
       "nvue": {
         "flex-direction": "column"
       }
+    },
+    "secondwebview": {
+      "id": "1",
+      "launch_path": "__uniappview.html",
+      "kernel": "WKWebview"
     }
   }
 }

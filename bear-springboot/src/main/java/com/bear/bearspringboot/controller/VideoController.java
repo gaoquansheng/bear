@@ -26,6 +26,7 @@ public class VideoController {
     @RequestMapping("/publish")
     public void startLive(HttpServletRequest request) {
 //        传递&的时候需要用双引号裹起来
+        System.out.println("here");
         String userTel = request.getParameter("name");
         String tcurl = request.getParameter("tcurl");
         String url =tcurl+"/"+userTel;

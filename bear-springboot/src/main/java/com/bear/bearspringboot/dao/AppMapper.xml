@@ -5,16 +5,16 @@
 
 
     <select id="isOldUserTel" parameterType="String" resultType="int">
-        select count(*) from user where userTel = #{userTel}
+        select count(*) from users where userTel = #{userTel}
     </select>
     <insert id="register" parameterType="User">
-        insert into user (userName,userPwd,userTel,isAdmin) values (#{userName},#{userPwd},#{userTel},0)
+        insert into users (userName,userPwd,userTel,isAdmin) values (#{userName},#{userPwd},#{userTel},0)
     </insert>
 
     <select id="login" resultType="User" parameterType="User">
-        select * from user where userTel = #{userTel} and userPwd = #{userPwd}
+        select * from users where userTel = #{userTel} and userPwd = #{userPwd}
     </select>
     <update id="updateUserNameByUserTel" parameterType="User">
-        update user set userName = #{userName} where userTel = #{userTel}
+        update users set userName = #{userName} where userTel = #{userTel}
     </update>
 </mapper>

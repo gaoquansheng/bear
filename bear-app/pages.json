@@ -1,35 +1,32 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
-		
+		{
+		    "path" : "pages/login/login",
+		    "style" : {}
+		},
+		{
+		    "path" : "pages/me/index",
+		    "style" : {}
+		},
 	    {
             "path" : "pages/live/live",
             "style" : {}
-        }
-        
+        },
+		{
+			"path":"pages/live/beforeLive",
+			"style": {}
+		}
+ 
         ,{
-            "path" : "pages/me/me",
-            "style" : {}
-        }
-        
-        ,{
-            "path" : "pages/me/info/info",
-            "style" : {}
-        }
-        ,{
-            "path" : "components/infoList/infoList",
+            "path" : "pages/login/register",
             "style" : {}
         }
         ,{
-            "path" : "pages/login/login",
-            "style" : {}
-        }
-        
-        ,{
-            "path" : "pages/register/register",
+            "path" : "pages/login/forget",
             "style" : {}
         }
         ,{
-            "path" : "pages/startLive/startLive",
+            "path" : "pages/home/home",
             "style" : {}
         }
     ],
@@ -40,35 +37,52 @@
 		"navigationBarBackgroundColor": "#F8F8F8",
 		"backgroundColor": "#F8F8F8"
 	},
-	//应用是一个多 tab 应用，可以通过 tabBar 配置项指定 tab 栏的表现，以及 tab 切换时显示的对应页
-	"tabBar":{
-		        "color": "#7A7E83",
-		        "selectedColor": "#3cc51f",
-		        "borderStyle": "black",
-		        "backgroundColor": "#ffffff",
-		        "height": "50px",
-		        "fontSize": "10px",
-		        "iconWidth": "24px",
-		        "spacing": "3px",
-		        "list": [{
-		            "pagePath": "pages/live/live",
-		            "iconPath": "static/image/live.png",
-		            "selectedIconPath": "static/image/live_active.png",
-		            "text": "直播"
-		        }, {
-		            "pagePath": "pages/me/me",
-		            "iconPath": "static/image/me.png",
-		            "selectedIconPath": "static/image/me_active.png",
-		            "text": "我的"
-		        }],
-		        "midButton": {
-		            "width": "80px",
-		            "height": "50px",
-		            "text": "文字",
-		            // "iconPath": "static/image/midButton_iconPath.png",
-		            "iconWidth": "24px"
-		            // "backgroundImage": "static/image/midButton_backgroundImage.png"
-		        }
+	"tabBar": {
+		"borderStyle": "black",
+		"backgroundColor": "#333",
+		"color": "#8F8F94",
+		"selectedColor": "#f33e54",
+		"list": [{
+				"pagePath": "pages/home/home",
+				"iconPath": "static/image/tabbar/home.png",
+				"selectedIconPath": "static/image/tabbar/homeactive.png",
+				"text": "首页"
+			},
+			// {
+			// 	"pagePath": "pages/home/home",
+			// 	"iconPath": "static/image/tabbar/guanzhu.png",
+			// 	"selectedIconPath": "static/image/tabbar/guanzhuactive.png",
+			// 	"text": "关注"
+			// },
+			//#ifdef MP-WEIXIN
+			{
+				"pagePath": "pages/live/beforeLive",
+				"iconPath": "static/image/tabbar/add.png",
+				"selectedIconPath": "static/image/tabbar/addactive.png",
+				"text": "发布"
+			},
+			//#endif
+			//#ifndef MP-WEIXIN
+			{
+				"pagePath": "pages/live/beforeLive",
+				"iconPath": "static/image/tabbar/add.png",
+				"selectedIconPath": "static/image/tabbar/addactive.png",
+				"text": "直播"
+			},
+			//#endif
+			// {
+			// 	"pagePath": "pages/login/login",
+			// 	"iconPath": "static/image/tabbar/news.png",
+			// 	"selectedIconPath": "static/image/tabbar/newsactive.png",
+			// 	"text": "消息"
+			// },
+			{
+				"pagePath": "pages/me/index",
+				"iconPath": "static/image/tabbar/me.png",
+				"selectedIconPath": "static/image/tabbar/meactive.png",
+				"text": "我"
+			}
+		]
 	},
 	"condition" : { //模式配置，仅开发期间生效
 		"current": 0, //当前激活的模式(list 的索引项)
