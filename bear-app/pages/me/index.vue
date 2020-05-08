@@ -3,11 +3,11 @@
 		<view class="header" v-bind:class="{'status':isH5Plus}">
 			<view class="userinfo">
 				<view class="face">
-					<image :src="userinfo.face"></image>
+					<image :src="userInfo.face"></image>
 				</view>
 				<view class="info">
-					<view class="userName">{{userinfo.userName}}</view>
-					<view class="userTel">手机号:{{userinfo.userTel}}</view>
+					<view class="userName">{{userInfo.userName}}</view>
+					<view class="userTel">手机号:{{userInfo.userTel}}</view>
 				</view>
 			</view>
 			<view class="setting">
@@ -38,13 +38,13 @@
 	</view>
 </template>
 <script>
+	import {mapState} from 'vuex'
 	export default {
 		data() {
 			return {
 				//#ifdef APP-PLUS
 				isH5Plus: true,
 				//#endif
-				userinfo: {},
 				// orderTypeLise: [
 				// 	//name-标题 icon-图标 badge-角标
 				// 	{
@@ -114,15 +114,14 @@
 			//加载
 			this.init();
 		},
+		computed:mapState({
+			userInfo(state){
+				face: '../../static/image/face.jpeg',
+				userName: state.userName,
+				userTel: state.userTel
+			}
+		})
 		methods: {
-			init() {
-				//用户信息
-				this.userinfo = {
-					face: '../../static/image/face.jpeg',
-					userName: this.$store.state.userName,
-					userTel: this.$store.state.userTel
-				}
-			},
 			//根据点击的登录方式进行跳转
 			//用户点击列表项
 			toPage(list_i, li_i) {
