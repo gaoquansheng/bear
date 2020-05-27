@@ -15,7 +15,7 @@
     <!-- 默认为列表模式 -->
     <div v-if="patten">
       <el-row :gutter="10">
-        <el-col :span="6" v-for="video in liveVideoList" :key="video.videoId">
+        <el-col :span="6" v-for="(video,id) in liveVideoList" :key="video.videoId">
           <div class="dislike" @click="dislikeVideo(video,id)">x</div>
           <VideoPlayer :options="{controls:true,autoplay:true,muted:true,fluid:true,liveui: true,sources:[{src:video.url,type:'rtmp/flv'}]}"></VideoPlayer>
           <VideoInfo :videoInfo="video"></VideoInfo>
@@ -58,7 +58,7 @@ export default {
         flag: 1,
         title: this.title
       }
-      postRequest("http://localhost:8080/web/liveVideos",video).then(
+      postRequest("/web/liveVideos",video).then(
         resp => {
           //这里遍历循环,
           for (let item of resp.data) {

@@ -3,9 +3,12 @@ package com.bear.bearspringboot.service.impl;
 import com.bear.bearspringboot.dao.AppMapper;
 import com.bear.bearspringboot.entity.RespBean;
 import com.bear.bearspringboot.entity.User;
+import com.bear.bearspringboot.entity.Video;
 import com.bear.bearspringboot.service.AppService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class AppServiceImpl implements AppService {
@@ -39,5 +42,10 @@ public class AppServiceImpl implements AppService {
         }else{
             return new RespBean("修改失败",400);
         }
+    }
+
+    @Override
+    public List<Video> liveHistory(String userTel) {
+        return appMapper.liveHistory(userTel);
     }
 }

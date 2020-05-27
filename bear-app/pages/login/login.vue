@@ -64,7 +64,6 @@
 						key: "userInfo",
 						success(res){
 							if (res.data){
-								console.log(res.data);
 								uni.reLaunch({
 									url: "../me/index"
 								})
@@ -91,7 +90,7 @@
 					});
 					return;
 				}
-				if (this.userPwd.length < 5) {
+				if (this.userPwd.length < 6) {
 					uni.showToast({
 						icon: 'none',
 						position: 'bottom',
@@ -101,7 +100,7 @@
 				}
 				//登录成功之后将用户名存入缓存之中
 				uni.request({
-					url: "http://192.168.1.18:8080/app/login",
+					url: "http://192.168.0.104:8080/app/login",
 					dataType: "json",
 					method:"POST",
 					data:{
@@ -116,11 +115,18 @@
 								url:"../me/index"
 							})
 						}else{
+							uni.showToast({
+								position: "bottom",
+								title: "用户名或密码不正确"
+							})
 						}
 						
 					},
 					fail(res) {
-						console.log(网络错误)
+						uni.showToast({
+							position: "bottom",
+							title: "网络错误"
+						})
 					}
 				})
 				_this.isRotate = true

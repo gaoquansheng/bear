@@ -60,7 +60,7 @@ export default {
     submitClick() {
       var _this = this;
       this.loading = true;
-      postRequest("http://localhost:8080/web/login", _this.loginForm).then(
+      postRequest("/web/login", _this.loginForm).then(
         resp => {
           _this.loading = false;
           if (resp.data.statusCode == 200) {

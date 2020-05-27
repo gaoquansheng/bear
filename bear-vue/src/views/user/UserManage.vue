@@ -249,7 +249,7 @@ export default {
           //验证通过，这时将验证通过的信息传给后台
           _this.addUserDiaLog = false;
           // 1.将整个用户信息传递给后台
-          postRequest("http://localhost:8080/web/users", _this.addUserForm).then(
+          postRequest("/web/users", _this.addUserForm).then(
             resp => {
               //2.根据后台返回的信息进行输出
               if (resp.data.statusCode == 200) {
@@ -289,7 +289,7 @@ export default {
           _this.editUserDiaLog = false;
           //1.将整个用户信息传递给后台
           //判断用户数据是否发生了改变
-          putRequest("http://localhost:8080/web/users?oldUserTel="+_this.oldUserTel, _this.editUserForm).then(
+          putRequest("/web/users?oldUserTel="+_this.oldUserTel, _this.editUserForm).then(
             resp => {
               //2.根据后台返回的信息进行输出
               if (resp.data.statusCode == 200) {
@@ -324,7 +324,7 @@ export default {
       })
         .then(() => {
           //2.确定则通过用户id删除
-          deleteRequest("http://localhost:8080/web/users/" + row.userTel).then(
+          deleteRequest("/web/users/" + row.userTel).then(
             resp => {
               if (resp.data.statusCode == 200) {
                 _this.$message.success(resp.data.msg);
@@ -368,7 +368,7 @@ export default {
         .then(() => {
           //2.
           let userTels = _this.deleteUsers.map(item => item.userTel).join();
-          getRequest("http://localhost:8080/web/deleteUserList", { userTels: userTels }).then(
+          getRequest("/web/deleteUserList", { userTels: userTels }).then(
             () => {
               _this.$message({
                 type: "success",
@@ -391,7 +391,7 @@ export default {
     },
     loadingUsers(limit,offset){
       var _this = this;
-      var url = "http://localhost:8080/web/users?limit="+limit+"&offset="+offset
+      var url = "/web/users?limit="+limit+"&offset="+offset
       getRequest(url).then(
       resp => {
         _this.tableData = resp.data.users;

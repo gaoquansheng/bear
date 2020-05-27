@@ -132,7 +132,7 @@ export default {
       var _this = this;
       var ids = this.checkedVideoIds.join();
       console.log(ids);
-      getRequest("http://localhost:8080/web/addTitle?ids="+ids+"&title="+this.title).then(
+      getRequest("/web/addTitle?ids="+ids+"&title="+this.title).then(
         resp =>{
           console.log(resp);
           //这里成功之后刷新数据
@@ -159,7 +159,7 @@ export default {
         }
       }
       
-      postRequest("http://localhost:8080/web/latestVideos",video).then(
+      postRequest("/web/latestVideos",video).then(
         resp => {
           _this.recordVideoList.splice(0,_this.recordVideoList.length);//重新赋值数组后会无法追踪数组
           //直接将数组进行赋值就会使得vue无法跟踪数组吗?

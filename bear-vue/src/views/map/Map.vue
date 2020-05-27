@@ -123,7 +123,7 @@ export default {
     },
     initVideo(videoType){
       var _this = this;
-      getRequest("http://localhost:8080/web/videos/?flag="+videoType).then(
+      getRequest("/web/videos/?flag="+videoType).then(
         resp => {
         console.log(resp.data)
         _this.videoLists = resp.data;

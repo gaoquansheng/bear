@@ -22,9 +22,6 @@
 	import {mapState} from "vuex"
 	import uniPopup from "@/components/uni-popup/uni-popup.vue"
 	export default {
-		components:{
-			uniPopup
-		},
 		data() {
 			return {
 				width: '',
@@ -94,10 +91,10 @@
 						console.log(JSON.stringify(a));
 					}
 				});
-				let self = this;
+				let _this = this;
 				this.context.start({
 					success: a => {
-						self.markact = false;
+						_this.markact = false;
 						console.log('livePusher.start:' + JSON.stringify(a));
 					}
 				});

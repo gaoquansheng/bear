@@ -1,0 +1,61 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/me/index",
+    "pages/live/beforeLive",
+    "pages/login/register",
+    "pages/login/forget",
+    "pages/home/home"
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "borderStyle": "black",
+    "backgroundColor": "#333",
+    "color": "#8F8F94",
+    "selectedColor": "#f33e54",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "iconPath": "static/image/tabbar/home.png",
+        "selectedIconPath": "static/image/tabbar/homeactive.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/live/beforeLive",
+        "iconPath": "static/image/tabbar/add.png",
+        "selectedIconPath": "static/image/tabbar/addactive.png",
+        "text": "直播"
+      },
+      {
+        "pagePath": "pages/me/index",
+        "iconPath": "static/image/tabbar/me.png",
+        "selectedIconPath": "static/image/tabbar/meactive.png",
+        "text": "我"
+      }
+    ]
+  },
+  "nvue": {
+    "pages": {
+      "pages/live/live.html": {
+        "window": {
+          "usingComponents": {}
+        },
+        "nvue": true
+      }
+    }
+  },
+  "nvueCompiler": "uni-app",
+  "renderer": "auto",
+  "splashscreen": {
+    "alwaysShowBeforeRender": true,
+    "autoclose": false
+  },
+  "appname": "bear-app",
+  "compilerVersion": "2.3.3",
+  "usingComponents": {}
+}

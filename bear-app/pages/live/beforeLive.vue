@@ -3,18 +3,18 @@
 		<image class="logo" :class="{'active':active}" src="../../static/logo.png"  mode="aspectFit"></image>
 		<view class="tabbar-box-wrap">
 			<view class="tabbar-box">
-				<view class="tabbar-box-item" @click="goToPage('/pages/tabbar-3-detial/tabbar-3-release/tabbar-3-release')">
+				<!-- <view class="tabbar-box-item" @click="goToPage('/pages/tabbar-3-detial/tabbar-3-release/tabbar-3-release')">
 					<image class="box-image" src="../../static/image/release.png" mode="aspectFit"></image>
 					<text class="explain">发图文</text>
-				</view>
+				</view> -->
 				<view class="tabbar-box-item" @click="goToPage('/pages/live/live')">
 					<image class="box-image" src="../../static/image/video.png" mode="aspectFit"></image>
 					<text class="explain">开始直播</text>
 				</view>
-				<view class="tabbar-box-item" @click="goToPage('/pages/tabbar-3-detial/tabbar-3-qa/tabbar-3-qa')">
+				<!-- <view class="tabbar-box-item" @click="goToPage('/pages/tabbar-3-detial/tabbar-3-qa/tabbar-3-qa')">
 					<image class="box-image" src="../../static/image/qa.png" mode="aspectFit"></image>
 					<text class="explain">提问</text>
-				</view>
+				</view> -->
 			</view>
 		</view>
 	</view>

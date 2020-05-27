@@ -8,6 +8,9 @@
 		    "path" : "pages/me/index",
 		    "style" : {}
 		},
+		{
+			"path":"pages/me/liveHistory"
+		},
 	    {
             "path" : "pages/live/live",
             "style" : {}

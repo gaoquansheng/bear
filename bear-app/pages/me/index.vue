@@ -26,7 +26,7 @@
 		</view> -->
 		
 		<view class="list" v-for="(list,list_i) in severList" :key="list_i">
-			<view class="li" v-for="(li,li_i) in list" @tap="toPage(list_i,li_i)" v-bind:class="{'noborder':li_i==list.length-1}"
+			<view class="li" v-for="(li,li_i) in list" @tap="tmpFunc(li.func)"  v-bind:class="{'noborder':li_i==list.length-1}"
 			 hover-class="hover" :key="li.name">
 				<view class="icon">
 					<image :src="'../../static/image/sever/'+li.icon"></image>
@@ -35,6 +35,7 @@
 				<image class="to" src="../../static/image/to.png"></image>
 			</view>
 		</view>
+		<!-- <button @click="logout">退出登录</button> -->
 	</view>
 </template>
 <script>
@@ -66,47 +67,42 @@
 				// ],
 				severList: [
 					[{
-							name: '历史记录',
-							icon: 'point.png'
-						},
-						{
-							name: '优惠券',
-							icon: 'quan.png'
-						},
-						{
-							name: '红包',
-							icon: 'momey.png'
-						},
-						{
-							name: '任务',
-							icon: 'renw.png'
-						},
-					],
-					[{
-							name: '积分明细',
-							icon: 'mingxi.png'
-						},
-						{
-							name: '抽奖',
-							icon: 'choujiang.png'
-						},
-						{
-							name: '收货地址',
-							icon: 'addr.png'
-						},
-						{
-							name: '银行卡',
-							icon: 'bank.png'
-						},
-						{
-							name: '安全中心',
-							icon: 'security.png'
-						},
-						{
 							name: '退出登录',
-							icon: 'kefu.png'
+							icon: 'point.png',
+							func: "logout"
+						},
+						{
+							name: "历史记录",
+							icon: "quan.png",
+							func: "liveHistory"
 						}
-					]
+
+					],
+					// [{
+					// 		name: '积分明细',
+					// 		icon: 'mingxi.png'
+					// 	},
+					// 	{
+					// 		name: '抽奖',
+					// 		icon: 'choujiang.png'
+					// 	},
+					// 	{
+					// 		name: '收货地址',
+					// 		icon: 'addr.png'
+					// 	},
+					// 	{
+					// 		name: '银行卡',
+					// 		icon: 'bank.png'
+					// 	},
+					// 	{
+					// 		name: '安全中心',
+					// 		icon: 'security.png'
+					// 	},
+					// 	{
+					// 		name: '退出登录',
+					// 		icon: 'kefu.png'
+					// 	}
+					// ]
 				],
 			};
 		},
@@ -116,18 +112,31 @@
 		},
 		computed:mapState({
 			userInfo(state){
-				face: '../../static/image/face.jpeg',
-				userName: state.userName,
-				userTel: state.userTel
+				return {
+					face: '../../static/image/face.jpeg',
+					userName: state.userName,
+					userTel: state.userTel
+				}
 			}
-		})
+		}),
 		methods: {
-			//根据点击的登录方式进行跳转
-			//用户点击列表项
-			toPage(list_i, li_i) {
-				uni.showToast({
-					title: this.severList[list_i][li_i].name
-				});
+			tmpFunc(funcName){
+				if(funcName){
+					this[funcName]();
+				}
+			},
+			liveHistory(){
+				uni.navigateTo({
+					url: "liveHistory"
+				})
+			},
+			logout(){
+				uni.clearStorage({
+					key : "userInfo",
+				}),
+				uni.reLaunch({
+					url: "../login/login"
+				})
 			}
 		}
 	}

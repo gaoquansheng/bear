@@ -109,7 +109,7 @@ export default {
           endTime: this.videoFilterFactors.timeRange[1]
         }
       }
-      postRequest("http://localhost:8080/web/videos",video).then(
+      postRequest("/web/videos",video).then(
         resp => {
            _this.recordVideoList.splice(0,_this.recordVideoList.length);//重新赋值数组后会无法追踪数组
           //直接将数组进行赋值就会使得vue无法跟踪数组吗?
