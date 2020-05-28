@@ -2,6 +2,7 @@
   "pages": [
     "pages/login/login",
     "pages/me/index",
+    "pages/me/liveHistory",
     "pages/live/beforeLive",
     "pages/login/register",
     "pages/login/forget",

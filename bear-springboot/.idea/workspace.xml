@@ -3,70 +3,34 @@
   <component name="ChangeListManager">
     <list default="true" id="4753f691-2808-42eb-b64f-230ce927ccd4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../bear-app/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-app/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-app/pages.json" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-app/pages.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../bear-app/pages/live/beforeLive.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-app/pages/live/beforeLive.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-app/pages/live/live.nvue" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-app/pages/live/live.nvue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-app/pages/login/login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-app/pages/login/login.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-app/pages/login/register.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-app/pages/login/register.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-app/pages/me/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-app/pages/me/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/dev/.tmp/app-plus/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-app/unpackage/dist/dev/.tmp/app-plus/app.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/dev/.tmp/app-plus/common/vendor.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-app/unpackage/dist/dev/.tmp/app-plus/common/vendor.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/dev/.tmp/app-plus/components/watch-login/watch-button.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-app/unpackage/dist/dev/.tmp/app-plus/components/watch-login/watch-button.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/dev/.tmp/app-plus/components/watch-login/watch-input.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-app/unpackage/dist/dev/.tmp/app-plus/components/watch-login/watch-input.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/dev/.tmp/app-plus/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-app/unpackage/dist/dev/.tmp/app-plus/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/dev/.tmp/app-plus/pages/home/home.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-app/unpackage/dist/dev/.tmp/app-plus/pages/home/home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/dev/.tmp/app-plus/pages/live/beforeLive.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-app/unpackage/dist/dev/.tmp/app-plus/pages/live/beforeLive.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/dev/.tmp/app-plus/pages/live/beforeLive.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-app/unpackage/dist/dev/.tmp/app-plus/pages/live/beforeLive.wxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/dev/.tmp/app-plus/pages/login/forget.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-app/unpackage/dist/dev/.tmp/app-plus/pages/login/forget.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/dev/.tmp/app-plus/pages/login/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-app/unpackage/dist/dev/.tmp/app-plus/pages/login/login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/dev/.tmp/app-plus/pages/login/register.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-app/unpackage/dist/dev/.tmp/app-plus/pages/login/register.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/dev/.tmp/app-plus/pages/login/register.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-app/unpackage/dist/dev/.tmp/app-plus/pages/login/register.wxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/dev/.tmp/app-plus/pages/me/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-app/unpackage/dist/dev/.tmp/app-plus/pages/me/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/dev/.tmp/app-plus/pages/me/index.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-app/unpackage/dist/dev/.tmp/app-plus/pages/me/index.wxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/dev/app-plus/__uniappview.html" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-app/unpackage/dist/dev/app-plus/__uniappview.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/dev/app-plus/app-config.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-app/unpackage/dist/dev/app-plus/app-config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/dev/app-plus/app-service.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-app/unpackage/dist/dev/app-plus/app-service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/dev/app-plus/app-view.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-app/unpackage/dist/dev/app-plus/app-view.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/dev/app-plus/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-app/unpackage/dist/dev/app-plus/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/dev/app-plus/pages/live/live.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-app/unpackage/dist/dev/app-plus/pages/live/live.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/build/.tmp/app-plus/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-app/unpackage/dist/build/.tmp/app-plus/app.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/build/.tmp/app-plus/common/vendor.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-app/unpackage/dist/build/.tmp/app-plus/common/vendor.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/build/.tmp/app-plus/pages/login/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-app/unpackage/dist/build/.tmp/app-plus/pages/login/login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/build/.tmp/app-plus/pages/login/register.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-app/unpackage/dist/build/.tmp/app-plus/pages/login/register.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/build/.tmp/app-plus/pages/login/register.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-app/unpackage/dist/build/.tmp/app-plus/pages/login/register.wxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/build/.tmp/app-plus/pages/me/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-app/unpackage/dist/build/.tmp/app-plus/pages/me/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/build/app-plus/__uniappchooselocation.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/build/app-plus/__uniappes6.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-app/unpackage/dist/build/app-plus/__uniappes6.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/build/app-plus/__uniappmarker@3x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/build/app-plus/__uniappnvuecompiler.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/build/app-plus/__uniappopenlocation.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/build/app-plus/__uniapppicker.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/build/app-plus/__uniappscan.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/build/app-plus/__uniapptabbar.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/build/app-plus/__uniappview.html" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-app/unpackage/dist/build/app-plus/__uniappview.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/build/app-plus/app-config.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-app/unpackage/dist/build/app-plus/app-config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/build/app-plus/app-service.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-app/unpackage/dist/build/app-plus/app-service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/build/app-plus/app-view.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-app/unpackage/dist/build/app-plus/app-view.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/build/app-plus/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-app/unpackage/dist/build/app-plus/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/build/app-plus/pages/home/home.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/build/app-plus/pages/live/beforeLive.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/build/app-plus/pages/live/live.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-app/unpackage/dist/build/app-plus/pages/live/live.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/build/app-plus/pages/login/forget.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/build/app-plus/pages/login/login.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/build/app-plus/pages/login/register.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/build/app-plus/pages/me/index.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/controller/AppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/controller/AppController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/dao/AppMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/dao/AppMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/dao/AppMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/dao/AppMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/service/AppService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/service/AppService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/service/impl/AppServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/service/impl/AppServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/app.a30b42b5.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/app.318b52af.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/app.318b52af.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/chunk-vendors.34a4c76b.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/chunk-vendors.34a4c76b.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/BearSpringbootApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/BearSpringbootApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/controller/AppController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/controller/AppController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/controller/VideoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/controller/VideoController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/controller/WebController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/controller/WebController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/dao/AppMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/dao/AppMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/dao/AppMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/dao/AppMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/dao/VideoMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/dao/VideoMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/dao/WebMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/dao/WebMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/entity/RespBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/entity/RespBean.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/entity/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/entity/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/entity/Video.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/entity/Video.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/service/AppService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/service/AppService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/service/VideoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/service/VideoService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/service/WebService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/service/WebService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/service/impl/AppServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/service/impl/AppServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/service/impl/VideoServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/service/impl/VideoServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/service/impl/WebServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/service/impl/WebServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/bear/bearspringboot/BearSpringbootApplicationTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/bear/bearspringboot/BearSpringbootApplicationTests.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-vue/src/views/live/Live.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-vue/src/views/live/Live.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-vue/src/views/login/Login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-vue/src/views/login/Login.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-vue/src/views/map/Map.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-vue/src/views/map/Map.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-vue/src/views/record/LatestRecord.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-vue/src/views/record/LatestRecord.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-vue/src/views/record/Record.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-vue/src/views/record/Record.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-vue/src/views/user/UserManage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-vue/src/views/user/UserManage.vue" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -140,8 +104,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/controller/AppController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="26" column="1" selection-start-line="26" selection-start-column="1" selection-end-line="26" selection-end-column="1" />
+            <state relative-caret-position="327">
+              <caret line="35" column="26" lean-forward="true" selection-start-line="35" selection-start-column="26" selection-end-line="35" selection-end-column="26" />
               <folding>
                 <element signature="e#883#884#0" expanded="true" />
                 <element signature="e#937#938#0" expanded="true" />
@@ -283,7 +247,7 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds">
     <option name="x" value="-7" />
     <option name="y" value="2" />
     <option name="width" value="1378" />
@@ -318,7 +282,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1590546398906" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1590562844809" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../mall" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -369,17 +333,17 @@
       <workItem from="1588749168796" duration="6939000" />
       <workItem from="1588918106030" duration="8993000" />
       <workItem from="1590370549118" duration="1804000" />
-      <workItem from="1590542744005" duration="1203000" />
+      <workItem from="1590542744005" duration="2123000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="103542000" />
+    <option name="totallyTimeSpent" value="104462000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="2" width="1378" height="733" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19347496" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24886191" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -389,7 +353,7 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.23578595" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.23411371" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.49832776" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -590,8 +554,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/controller/AppController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="26" column="1" selection-start-line="26" selection-start-column="1" selection-end-line="26" selection-end-column="1" />
+        <state relative-caret-position="327">
+          <caret line="35" column="26" lean-forward="true" selection-start-line="35" selection-start-column="26" selection-end-line="35" selection-end-column="26" />
           <folding>
             <element signature="e#883#884#0" expanded="true" />
             <element signature="e#937#938#0" expanded="true" />

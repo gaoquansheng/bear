@@ -26,7 +26,7 @@
 			return {
 				width: '',
 				height: '',
-				url: 'rtmp://192.168.1.18:1935/live/',//这是推流地址
+				url: 'rtmp://39.102.80.119:1935/live/',//这是推流地址
 				context: null,
 				markact: true,
 				beauty: 0,

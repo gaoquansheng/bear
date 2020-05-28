@@ -78,7 +78,7 @@
 					userName: _this.userName
 				};
 				uni.request({
-					url: "http://192.168.0.104:8080/app/register",
+					url: "http://39.102.80.119:8080/app/register",
 					dataType: "json",
 					method:"POST",
 					data:user,

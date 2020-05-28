@@ -100,7 +100,7 @@
 				}
 				//登录成功之后将用户名存入缓存之中
 				uni.request({
-					url: "http://192.168.0.104:8080/app/login",
+					url: "http://39.102.80.119:8080/app/login",
 					dataType: "json",
 					method:"POST",
 					data:{
