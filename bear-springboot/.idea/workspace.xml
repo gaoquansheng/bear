@@ -2,35 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4753f691-2808-42eb-b64f-230ce927ccd4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../bear-app/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-app/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-app/pages/live/beforeLive.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-app/pages/live/beforeLive.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/build/.tmp/app-plus/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-app/unpackage/dist/build/.tmp/app-plus/app.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/build/.tmp/app-plus/common/vendor.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-app/unpackage/dist/build/.tmp/app-plus/common/vendor.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/build/.tmp/app-plus/pages/login/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-app/unpackage/dist/build/.tmp/app-plus/pages/login/login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/build/.tmp/app-plus/pages/login/register.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-app/unpackage/dist/build/.tmp/app-plus/pages/login/register.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/build/.tmp/app-plus/pages/login/register.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-app/unpackage/dist/build/.tmp/app-plus/pages/login/register.wxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/build/.tmp/app-plus/pages/me/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-app/unpackage/dist/build/.tmp/app-plus/pages/me/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/build/app-plus/__uniappchooselocation.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/build/app-plus/__uniappes6.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-app/unpackage/dist/build/app-plus/__uniappes6.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/build/app-plus/__uniappmarker@3x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/build/app-plus/__uniappnvuecompiler.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/build/app-plus/__uniappopenlocation.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/build/app-plus/__uniapppicker.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/build/app-plus/__uniappscan.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/build/app-plus/__uniapptabbar.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/build/app-plus/__uniappview.html" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-app/unpackage/dist/build/app-plus/__uniappview.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/build/app-plus/app-config.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-app/unpackage/dist/build/app-plus/app-config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/build/app-plus/app-service.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-app/unpackage/dist/build/app-plus/app-service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/build/app-plus/app-view.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-app/unpackage/dist/build/app-plus/app-view.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/build/app-plus/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-app/unpackage/dist/build/app-plus/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/build/app-plus/pages/home/home.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/build/app-plus/pages/live/beforeLive.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/build/app-plus/pages/live/live.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-app/unpackage/dist/build/app-plus/pages/live/live.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/build/app-plus/pages/login/forget.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/build/app-plus/pages/login/login.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/build/app-plus/pages/login/register.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/build/app-plus/pages/me/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/BearSpringbootApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/BearSpringbootApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -48,21 +21,21 @@
           <entry key="project.open.time.22" value="1" />
           <entry key="project.open.time.25" value="3" />
           <entry key="project.open.time.26" value="1" />
-          <entry key="project.open.time.28" value="1" />
+          <entry key="project.open.time.28" value="2" />
           <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.35" value="1" />
           <entry key="project.open.time.4" value="3" />
           <entry key="project.open.time.5" value="1" />
           <entry key="project.open.time.8" value="1" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="16" />
+          <entry key="project.opened" value="17" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="class" value="9" />
+          <entry key="class" value="10" />
           <entry key="html" value="5" />
-          <entry key="java" value="46" />
+          <entry key="java" value="47" />
           <entry key="md" value="1" />
           <entry key="sql" value="2" />
           <entry key="xml" value="11" />
@@ -71,9 +44,9 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CLASS" value="9" />
+          <entry key="CLASS" value="10" />
           <entry key="HTML" value="5" />
-          <entry key="JAVA" value="46" />
+          <entry key="JAVA" value="47" />
           <entry key="Markdown" value="1" />
           <entry key="SQL" value="2" />
           <entry key="XML" value="11" />
@@ -83,7 +56,7 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="html" value="789" />
-          <entry key="java" value="2452" />
+          <entry key="java" value="2491" />
           <entry key="xml" value="1356" />
           <entry key="yml" value="106" />
         </counts>
@@ -91,7 +64,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="HTML" value="789" />
-          <entry key="JAVA" value="2452" />
+          <entry key="JAVA" value="2491" />
           <entry key="SQL" value="10" />
           <entry key="XML" value="1346" />
           <entry key="YAML" value="106" />
@@ -101,11 +74,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/controller/AppController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="327">
-              <caret line="35" column="26" lean-forward="true" selection-start-line="35" selection-start-column="26" selection-end-line="35" selection-end-column="26" />
+            <state relative-caret-position="328">
+              <caret line="35" column="26" selection-start-line="35" selection-start-column="26" selection-end-line="35" selection-end-column="26" />
               <folding>
                 <element signature="e#883#884#0" expanded="true" />
                 <element signature="e#937#938#0" expanded="true" />
@@ -114,8 +87,18 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/BearSpringbootApplication.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="230">
+              <caret line="22" column="33" selection-start-line="22" selection-start-column="33" selection-end-line="22" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="414">
               <caret line="18" column="17" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
@@ -124,14 +107,13 @@
               </folding>
             </state>
           </provider>
-          <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/application.yml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="92">
-              <caret line="4" column="29" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
+              <caret line="4" column="23" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -222,6 +204,7 @@
         <option value="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/controller/AppController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/dao/AppMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/application.yml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/BearSpringbootApplication.java" />
       </list>
     </option>
   </component>
@@ -247,7 +230,7 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="1">
     <option name="x" value="-7" />
     <option name="y" value="2" />
     <option name="width" value="1378" />
@@ -260,6 +243,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -267,11 +251,62 @@
               <item name="bear-springboot" type="b2602c69:ProjectViewProjectNode" />
               <item name="bear-springboot" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="bear-springboot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bear-springboot" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bear-springboot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bear-springboot" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bear-springboot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bear-springboot" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bear-springboot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bear-springboot" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bear-springboot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bear-springboot" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="bear" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bear-springboot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bear-springboot" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="bear" type="462c0819:PsiDirectoryNode" />
+              <item name="bearspringboot" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bear-springboot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bear-springboot" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -334,16 +369,18 @@
       <workItem from="1588918106030" duration="8993000" />
       <workItem from="1590370549118" duration="1804000" />
       <workItem from="1590542744005" duration="2123000" />
+      <workItem from="1590735451542" duration="297000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="104462000" />
+    <option name="totallyTimeSpent" value="104759000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="2" width="1378" height="733" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24886191" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17905918" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -353,8 +390,8 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.23411371" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.49832776" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.23411371" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.17558528" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -370,7 +407,7 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="right" id="Maven Projects" order="5" visible="true" weight="0.18512899" />
+      <window_info anchor="right" id="Maven Projects" order="5" weight="0.18512899" />
       <window_info anchor="right" id="Database" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Theme Preview" order="8" />
@@ -384,13 +421,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/BearSpringbootApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="14" column="1" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/util/vue.html" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/entity/User.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -554,8 +584,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/controller/AppController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="327">
-          <caret line="35" column="26" lean-forward="true" selection-start-line="35" selection-start-column="26" selection-end-line="35" selection-end-column="26" />
+        <state relative-caret-position="328">
+          <caret line="35" column="26" selection-start-line="35" selection-start-column="26" selection-end-line="35" selection-end-column="26" />
           <folding>
             <element signature="e#883#884#0" expanded="true" />
             <element signature="e#937#938#0" expanded="true" />
@@ -564,20 +594,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="414">
           <caret line="18" column="17" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
           <folding>
             <element signature="n#dependencies#0;n#project#0;n#!!top" />
           </folding>
-        </state>
-      </provider>
-      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="4" column="29" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
         </state>
       </provider>
     </entry>
@@ -618,6 +641,27 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="115">
           <caret line="5" selection-start-line="5" selection-end-line="20" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot/2.2.6.RELEASE/spring-boot-2.2.6.RELEASE.jar!/org/springframework/boot/web/server/WebServerFactoryCustomizer.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="4" column="23" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/BearSpringbootApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="22" column="33" selection-start-line="22" selection-start-column="33" selection-end-line="22" selection-end-column="33" />
         </state>
       </provider>
     </entry>
