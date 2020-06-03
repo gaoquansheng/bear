@@ -5,12 +5,24 @@
 		    "style" : {}
 		},
 		{
+		    "path" : "pages/login/register",
+		    "style" : {}
+		},
+		{
+		    "path" : "pages/login/forget",
+		    "style" : {}
+		},
+		{
 		    "path" : "pages/me/index",
 		    "style" : {}
 		},
 		{
 			"path":"pages/me/liveHistory"
 		},
+		{
+            "path" : "pages/me/playVideos",
+            "style" : {}
+        },
 	    {
             "path" : "pages/live/live",
             "style" : {}
@@ -18,20 +30,12 @@
 		{
 			"path":"pages/live/beforeLive",
 			"style": {}
-		}
- 
-        ,{
-            "path" : "pages/login/register",
+		},
+		{
+            "path" : "pages/home/index",
             "style" : {}
         }
-        ,{
-            "path" : "pages/login/forget",
-            "style" : {}
-        }
-        ,{
-            "path" : "pages/home/home",
-            "style" : {}
-        }
+        
     ],
 	//设置应用的状态栏、导航条、标题、窗口背景色等
 	"globalStyle": {

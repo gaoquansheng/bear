@@ -1,5 +1,7 @@
 package com.bear.bearspringboot.entity;
 
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
 import java.util.Date;
@@ -13,7 +15,9 @@ public class Video {
     private String url;
     private String lat;
     private String lng;
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone="GMT+8")
     private Date startTime;
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone="GMT+8")
     private Date endTime;
     private int flag;
     private String videoUrl;

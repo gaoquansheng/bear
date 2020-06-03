@@ -20,7 +20,6 @@ public class BearSpringbootApplication {
     //解决vue项目刷新页面之后显示Whitelabel Error Page的问题
     @Bean
     public WebServerFactoryCustomizer<ConfigurableWebServerFactory> webServerFactoryCustomizer(){
-        System.out.println("我来刷新了");
         return factory -> {
             ErrorPage error404Page = new ErrorPage(HttpStatus.NOT_FOUND, "/index.html");
             factory.addErrorPages(error404Page);

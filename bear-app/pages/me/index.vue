@@ -108,7 +108,7 @@
 		},
 		onLoad() {
 			//加载
-			this.init();
+			// this.init();
 		},
 		computed:mapState({
 			userInfo(state){

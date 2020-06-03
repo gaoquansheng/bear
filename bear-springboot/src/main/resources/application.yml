@@ -2,7 +2,8 @@
 spring:
   datasource:
     username: root
-    password: aiqinmeng211318
+    # 本地密码aiqinmeng 远程密码aiqinmeng211318
+    password: aiqinmeng
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/bear?serverTimezone=CTT&useUnicode=true&characterEncoding=UTF-8
 
@@ -10,8 +11,8 @@ mybatis:
 #  mapper-locations: classpath:mapping/*.xml
   type-aliases-package: com.bear.bearspringboot.entity # 提取公共包名
   #  设置打印SQL语句
-  configuration:
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#  configuration:
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
 
 server:
