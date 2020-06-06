@@ -101,7 +101,7 @@
 				//登录成功之后将用户名存入缓存之中
 				uni.request({
 					//就算是本地测试也不能习惯性的写localhost要写ip
-					url: "http://192.168.1.23:8080/app/login",
+					url: "http://39.102.80.119:8080/app/login",
 					dataType: "json",
 					method:"POST",
 					data:{

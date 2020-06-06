@@ -20,6 +20,8 @@ public class WebController {
 
     @Autowired
     WebService webService;
+    @Autowired
+    HttpServletRequest request;
 
     @GetMapping("/users")
     public Map<String,Object> findAll(HttpServletRequest request){

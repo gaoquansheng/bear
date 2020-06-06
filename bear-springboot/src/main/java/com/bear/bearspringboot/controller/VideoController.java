@@ -3,6 +3,8 @@ package com.bear.bearspringboot.controller;
 
 import com.bear.bearspringboot.entity.Video;
 import com.bear.bearspringboot.service.VideoService;
+import com.bear.bearspringboot.service.WebService;
+import com.bear.bearspringboot.util.WebSocketServer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,11 +24,14 @@ public class VideoController {
     
     @Autowired
     VideoService videoService;
+    @Autowired
+    WebSocketServer webSocketServer;
+    @Autowired
+    WebService webService;
 
     @RequestMapping("/publish")
-    public void startLive(HttpServletRequest request) {
+    public void startLive(HttpServletRequest request) throws Exception{
 //        传递&的时候需要用双引号裹起来
-        System.out.println("here");
         String userTel = request.getParameter("name");
         String tcurl = request.getParameter("tcurl");
         String url =tcurl+"/"+userTel;
@@ -40,11 +45,16 @@ public class VideoController {
         video.setFlag(1);
         video.setStartTime(startTime);
         video.setUrl(url);
+        //通知前端来新的数据了,可以把这个video对象发过去
+        //这里可以利用userTel将所有的直播信息查出来
         videoService.startLive(video);
+        webSocketServer.sendMessage(webService.getLiveVideos(video).get(0));
+
     }
 
-    @RequestMapping("/record_done")
+    @RequestMapping("/record")
     public void recordDone(HttpServletRequest request){
+        System.out.println("结束了");
         String fileName = request.getParameter("path");
         String userTel = request.getParameter("name");
         String tcurl = request.getParameter("tcurl");

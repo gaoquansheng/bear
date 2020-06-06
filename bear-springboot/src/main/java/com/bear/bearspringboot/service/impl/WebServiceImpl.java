@@ -7,8 +7,13 @@ import com.bear.bearspringboot.entity.User;
 import com.bear.bearspringboot.entity.Video;
 import com.bear.bearspringboot.service.WebService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.web.servlet.server.Session;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -19,6 +24,10 @@ public class WebServiceImpl implements WebService {
     WebMapper webMapper;
     @Autowired
     AppMapper appMapper;
+    @Autowired
+    HttpServletRequest request;
+    @Autowired
+    HttpServletResponse response;
 
     @Override
     public List<User> findAll(int limit,int offset) {
@@ -95,6 +104,11 @@ public class WebServiceImpl implements WebService {
     @Override
     public RespBean login(User user) {
         if (webMapper.login(user) == 1){
+            HttpSession session = request.getSession();
+            session.setAttribute("userTel",user.getUserTel());
+            Cookie cookie = new Cookie("userTel",user.getUserTel());
+            response.addCookie(cookie);
+            session.setMaxInactiveInterval(600);
             return new RespBean("登录成功",200);
         }else{
             return new RespBean("账号或密码错误",400);

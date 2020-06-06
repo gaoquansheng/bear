@@ -26,7 +26,7 @@
 			return {
 				width: '',
 				height: '',
-				url: 'rtmp://192.168.1.23:1935/live/',//这是推流地址
+				url: 'rtmp://39.102.80.119:1935/live/',//这是推流地址
 				context: null,
 				markact: true,
 				beauty: 0,
@@ -46,7 +46,8 @@
 						image: "../../static/image/qiehuan.png",
 						func: "switchCamera"
 					}	
-				]
+				],
+				websocket: null
 			};
 		},
 		onLoad() {
@@ -68,12 +69,13 @@
 				let lat = state.lat;//这里获取经纬度
 				let lng = state.lng;
 				return this.url + userTel + "?lat=" + lat + "&lng=" + lng;
-			}
+			}	
 		}),
 		methods: {
 			tmpMethods(methodsName){
 				this[methodsName]();
 			},
+			//直播相关方法
 			openBeauty() {
 				if(this.beauty == 0){
 					this.beauty = 9;
@@ -96,25 +98,22 @@
 					success: a => {
 						_this.markact = false;
 						console.log('livePusher.start:' + JSON.stringify(a));
+						// _this.initWebSocket();
 					}
 				});
 			},
-			// stopPreview: function() {
-			// 	this.context.stopPreview({
-			// 		success: (a) => {
-			// 			console.log("livePusher.stopPreview:" + JSON.stringify(a));
-			// 		}
-			// 	});
-			// },
 			stopLive() {
+				let _this = this;
 				this.context.stop({
 					success: a => {
 						console.log(JSON.stringify(a));
+						_this.websocketClose();
+						uni.switchTab({
+							url:"beforeLive"
+						})
 					}
 				});
-				uni.switchTab({
-					url:"beforeLive"
-				})
+
 			},
 			switchCamera() {
 				this.context.switchCamera({
@@ -123,20 +122,47 @@
 					}
 				});
 			},
-			
-			//状态变化事件，detail = {code}
-			statechange(e) {
-				// console.log("statechange:" + JSON.stringify(e));
-			},
-			//网络状态通知，detail = {info}
-			netstatus(e) {
-				// console.log("netstatus:" + JSON.stringify(e));
-			},
-			//渲染错误事件，detail = {errMsg, errCode}
 			error(e) {
 				console.log("error:" + JSON.stringify(e));
-			}
-
+			},
+			//WebSocket相关方法
+			initWebSocket(){
+				let _this = this;
+				//建立websocket连接
+				this.websocket = uni.connectSocket({
+					url: "ws://39.102.80.119:8080/imserver/"+this.$store.state.userTel,
+					success:()=>{
+						console.log("连接成功");
+					},
+					fail:()=>{
+						console.log("连接失败");
+					}
+				});
+				this.websocket.onOpen(this.websocketOnOpen);
+				this.websocket.onMessage(this.websocketOnMessage);
+				this.websocket.onClose(this.websocketOnClose);
+				this.websocket.onError(this.websocketOnError);
+			},
+			websocketOnOpen(){
+				console.log("连接成功l hhh");
+			},
+			websocketOnMessage(res){
+				console.log("接受数据");
+				console.log(res);
+			},
+			websocketOnClose(){
+				console.log("断开连接");
+			},
+			websocketOnError(){
+				console.log("连接失败");
+				this.initWebSocket();
+			},
+			websocketSend(data){
+				this.websocket.send(data);
+			},
+			websocketClose(){
+				console.log("主动断开连接");
+			},
 		}
 	}
 </script>

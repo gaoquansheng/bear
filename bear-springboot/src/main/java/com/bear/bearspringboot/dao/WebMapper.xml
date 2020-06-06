@@ -80,5 +80,9 @@
         <if test="title != ''and title != null">
             and title = #{title}
         </if>
+        <if test="userTel != '' and userTel != null">
+            and v.userTel = #{userTel}
+        </if>
     </select>
+
 </mapper>

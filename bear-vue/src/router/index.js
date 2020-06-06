@@ -37,6 +37,7 @@ const routes = [
       }
     ]
   },
+
   {
     path: "/home",
     name: "录播管理",

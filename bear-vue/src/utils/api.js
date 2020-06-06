@@ -1,6 +1,7 @@
 import axios from "axios";
 
-let base = "";
+let base = "http://localhost:8080";
+axios.defaults.withCredentials = true; //设置跨域访问cookie和session不失效
 export const postRequest = (url, params) => {
   return axios({
     method: "post",

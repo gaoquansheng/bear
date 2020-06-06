@@ -23,7 +23,7 @@
 				//1.首先在刚进入页面的时候利用用户手机号取出来自己所有的历史直播数据
 				let _this = this
 				uni.request({
-						url: "http://192.168.1.23:8080/app/liveHistory/"+this.$store.state.userTel,
+						url: "http://39.102.80.119:8080/app/liveHistory/"+this.$store.state.userTel,
 						dataType: "json",
 						method:"GET",
 						success(res) {
