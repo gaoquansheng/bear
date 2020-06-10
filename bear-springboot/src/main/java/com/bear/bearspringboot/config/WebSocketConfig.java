@@ -1,4 +1,4 @@
-package com.bear.bearspringboot.util;
+package com.bear.bearspringboot.config;
 
 
 import org.springframework.context.annotation.Bean;

@@ -5,7 +5,7 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-
+//解决跨域访问session和cookie失效问题
 @WebFilter(urlPatterns = "/*", filterName = "CORSFilter")
 public class CORSFilter implements Filter {
 

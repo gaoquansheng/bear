@@ -4,10 +4,20 @@
 			<text class="mark-text">直播启动中...</text>
 		</view>
 		<view>
-			<live-pusher :beauty="beauty" :style="{width: width + 'px',height:height + 'px'}" id="livePusher" ref="livePusher" 
+			<live-pusher  :beauty="beauty" :style="{width: width + 'px',height:height + 'px'}" id="livePusher" ref="livePusher" 
 			:url="rtmpUrl" mode="FHD"   aspect="9:16" 
 			@statechange="statechange" @netstatus="netstatus" @error = "error"></live-pusher>
-			<!-- 这是功能按钮 -->
+			
+			<!-- 这是聊天室 -->
+			<view class="chat" >
+				<scroll-view :scroll-top="scrollTop" scroll-y="true" class="scroll-Y">
+					<view class="chat-list" v-for="(it,i) in chatList" :key='i'>
+						<text class="chat-username">用户{{it.sendUserTel}}：</text>
+						<text class="chat-usertext">{{it.message}}</text>
+					</view>
+				</scroll-view>
+			</view>
+			
 			<view :style="{width: width + 'px'}" class="but">
 				<view v-for="(item,id) of tabList" :key="id" class="meiyanbut" @click="tmpMethods(item.func)">
 					<image class="but-img" :src="item.image"  ></image>
@@ -26,8 +36,9 @@
 			return {
 				width: '',
 				height: '',
-				url: 'rtmp://39.102.80.119:1935/live/',//这是推流地址
+				url: 'rtmp://192.168.1.23:1935/live/',//这是推流地址
 				context: null,
+				context1: null,
 				markact: true,
 				beauty: 0,
 				tabList:[
@@ -47,7 +58,10 @@
 						func: "switchCamera"
 					}	
 				],
-				websocket: null
+				chatList:[],
+				scrollTop: 0,
+				websocket: null,
+				flag: false
 			};
 		},
 		onLoad() {
@@ -88,26 +102,30 @@
 			startLive() {
 				//开始推流之前要先调用一次停止，或关闭视频预览
 				//我测试关闭视频预览没成功,就先这样吧
+				let _this = this;
 				this.context.stop({
 					success: a => {
 						console.log(JSON.stringify(a));
+						
 					}
 				});
-				let _this = this;
 				this.context.start({
 					success: a => {
 						_this.markact = false;
 						console.log('livePusher.start:' + JSON.stringify(a));
-						// _this.initWebSocket();
+						// _this.context.switchCamera();
+						_this.initWebSocket();
 					}
 				});
+
+				
 			},
 			stopLive() {
 				let _this = this;
 				this.context.stop({
 					success: a => {
 						console.log(JSON.stringify(a));
-						_this.websocketClose();
+						_this.websocket.close();
 						uni.switchTab({
 							url:"beforeLive"
 						})
@@ -130,7 +148,7 @@
 				let _this = this;
 				//建立websocket连接
 				this.websocket = uni.connectSocket({
-					url: "ws://39.102.80.119:8080/imserver/"+this.$store.state.userTel,
+					url: "ws://192.168.1.23:8080/imserver/"+this.$store.state.userTel,
 					success:()=>{
 						console.log("连接成功");
 					},
@@ -148,21 +166,24 @@
 			},
 			websocketOnMessage(res){
 				console.log("接受数据");
-				console.log(res);
+				// console.log(res.data);
+				
+				this.chatList.push(JSON.parse(res.data));
+				console.log(this.chatList)
 			},
 			websocketOnClose(){
 				console.log("断开连接");
 			},
 			websocketOnError(){
 				console.log("连接失败");
-				this.initWebSocket();
+				// this.initWebSocket();
 			},
 			websocketSend(data){
 				this.websocket.send(data);
 			},
 			websocketClose(){
 				console.log("主动断开连接");
-			},
+			}
 		}
 	}
 </script>
@@ -246,5 +267,32 @@
 		color: white;
 		font-size: 16px;
 	}
-
+	
+	.chat-username{
+		font-size: 18px;
+		color: white;
+	}
+	.chat-usertext{
+		font-size: 16px;
+		color: white;
+	}
+	.chat-list{
+		margin-top: 5px;
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+		flex-direction: row;
+		background-color: rgba(0,0,0,.5);
+		padding: 5px 10px 5px 10px;
+		border-radius: 3px;
+	}
+	.scroll-Y{
+		height: 150px;
+		width: 250px;
+	}
+	.chat {
+		position: fixed;
+		z-index:10;
+		bottom: 80px;
+	}
 </style>

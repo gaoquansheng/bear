@@ -26,12 +26,14 @@
             :options="{controls:true,autoplay:true,muted:true,fluid:true,liveui: true,sources:[{src:video.url,type:'rtmp/flv'}]}"
           ></VideoPlayer>
           <VideoInfo :videoInfo="video"></VideoInfo>
+          <el-input placeholder="请输入消息" />
         </el-col>
       </el-row>
     </div>
     <div v-else>
       <VideoMap :videoPoints="liveVideoList"></VideoMap>
     </div>
+    <button @click="websocketsend">点击发送</button>
   </div>
 </template>
 
@@ -53,7 +55,7 @@ export default {
       patten: true, //true代表列表模式,false代表map模式
 
       websock: null,
-      websocketUrl: "ws://localhost:8080/imserver/15516392395"
+      websocketUrl: "ws://localhost:8080/imserver/15516392394"
     };
   },
   components: {
@@ -126,21 +128,31 @@ export default {
       this.initWebSocket();
     },
     websocketonmessage(e) {
-      //数据接收
+      //这里会接受两个数据,一个直播数据,一个交互信息
       console.log("接受数据");
-      console.log(e.data);
       let data = JSON.parse(e.data);
-      this.liveVideoList.push(data);
+      if (data.message != null){
+        //这里是消息
+        console.log(data)
+      }else {
+        //这里是直播
+        this.liveVideoList.push(data);
+      }
     },
 
     //两个方法
-    websocketsend(data) {
+    websocketsend() {
       //数据发送
-      this.websock.send(data);
+      let data = {
+        "sendUserTel":"15516392395",
+        "message": "111111111111",
+        "receivedUserTel": "15516392395",
+        "sendTime": new Date()
+      };
+      this.websock.send(JSON.stringify(data));
     },
     //eslint-ignore-next-line
     websocketclose() {
-      //关闭
       console.log("断开连接");
     }
   },
@@ -155,9 +167,6 @@ export default {
   },
   destroyed() {
     this.websock.close(); //离开路由之后断开websocket连接
-  },
-  beforeDestroy() {
-    clearInterval(this.timer);
   }
 };
 </script>

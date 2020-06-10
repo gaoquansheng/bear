@@ -50,7 +50,7 @@
 		"color": "#8F8F94",
 		"selectedColor": "#f33e54",
 		"list": [{
-				"pagePath": "pages/home/home",
+				"pagePath": "pages/home/index",
 				"iconPath": "static/image/tabbar/home.png",
 				"selectedIconPath": "static/image/tabbar/homeactive.png",
 				"text": "首页"
