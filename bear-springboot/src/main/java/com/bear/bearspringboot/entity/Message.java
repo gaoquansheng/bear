@@ -7,9 +7,8 @@ import java.util.Date;
 @Data
 public class Message {
 
-    private String sendUserTel;
+    private String userTel;
     private String message;
-    private String receivedUserTel;
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone="GMT+8")
     private Date sendTime;
 }

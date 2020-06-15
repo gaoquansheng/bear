@@ -29,7 +29,7 @@
     </insert>
 
     <select id="login" resultType="User" parameterType="User">
-        select * from users where userTel = #{userTel} and userPwd = #{userPwd}
+        select * from users where userTel = #{userTel} and userPwd = #{userPwd} and isAdmin = 0;
     </select>
     <update id="updateUserNameByUserTel" parameterType="User">
         update users set userName = #{userName} where userTel = #{userTel}

@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 
 
 
-@ServerEndpoint(value = "/imserver/{userTel}",encoders = {WebSocketEncoder.class},decoders = {WebSocketDecoder.class})
+@ServerEndpoint(value = "/webSocketServer/{userTel}",encoders = {WebSocketEncoder.class},decoders = {WebSocketDecoder.class})
 @Component
 public class WebSocketServer {
 
@@ -79,8 +79,11 @@ public class WebSocketServer {
     public void onMessage(Session session,Message message)throws Exception {
         System.out.println("接收到用户发来的消息:报文:"+message);
         //这里接受消息,然后发送
-        for (String userTel:message.getReceivedUserTel().split(",")){
-            webSocketMap.get(userTel).session.getBasicRemote().sendObject(message);
+//        for (String userTel:message.getReceivedUserTel().split(",")){
+////            webSocketMap.get(userTel).session.getBasicRemote().sendObject(message);
+////        }
+        for (Session s:session.getOpenSessions()){
+            s.getBasicRemote().sendObject(message);
         }
         //可以群发消息
         //消息保存到数据库、redis
@@ -114,36 +117,6 @@ public class WebSocketServer {
         }
     }
 
-    /**
-     * 对已经连接WebSocket的所有用户发送消息
-     */
-//    public void sendMessage(Object message) throws IOException {
-////        System.out.println(this.session);
-//        //
-//        for(String key: webSocketMap.keySet()){
-//            webSocketMap.get(key).session.getBasicRemote().sendText(JSON.toJSONString(message));
-//        }
-////        this.session.getBasicRemote().sendText(message);
-//    }
-
-    /**
-     * 对特定的一个用户发送消息
-     * */
-    public  void sendMessage(Message message) throws IOException, EncodeException {
-        //首先判断是发送给多人的还是特定的一个人的
-        //这里是发送给所有人
-//        if (message.getReceivedUserTel().equals("all")){
-//            for(String key: webSocketMap.keySet()){
-//                webSocketMap.get(key).session.getBasicRemote().sendObject(message);
-//            }
-//            //这里是发送给其他人
-//        }else {
-            for (String userTel:message.getReceivedUserTel().split(",")){
-                webSocketMap.get(userTel).session.getBasicRemote().sendObject(message);
-            }
-//        }
-
-    }
 
     public static synchronized int getOnlineCount() {
         return onlineCount;

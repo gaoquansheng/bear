@@ -62,7 +62,7 @@
     </select>
 
     <select id="findLatestVideos" resultMap="findAllVideos" parameterType="Video">
-        select * from video v left outer join users u on v.userTel = u.userTel where v.title = "" and v.flag = #{flag}
+        select * from video v left outer join users u on v.userTel = u.userTel where v.title is null and v.flag = #{flag}
         <if test="startTime != null">
             and v.startTime between #{startTime} and #{endTime}
         </if>

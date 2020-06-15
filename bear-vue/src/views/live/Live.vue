@@ -19,21 +19,27 @@
     </el-row>
     <!-- 默认为列表模式 -->
     <div v-if="patten">
-      <el-row :gutter="10">
-        <el-col :span="6" v-for="(video,id) in liveVideoList" :key="video.videoId">
-          <div class="dislike" @click="dislikeVideo(video,id)">x</div>
-          <VideoPlayer
-            :options="{controls:true,autoplay:true,muted:true,fluid:true,liveui: true,sources:[{src:video.url,type:'rtmp/flv'}]}"
-          ></VideoPlayer>
-          <VideoInfo :videoInfo="video"></VideoInfo>
-          <el-input placeholder="请输入消息" />
+      <el-row>
+        <el-col :span="18">
+          <el-row :gutter="10">
+            <el-col :span="8" v-for="(video,id) in liveVideoList" :key="video.videoId">
+              <div class="dislike" @click="dislikeVideo(video,id)">x</div>
+              <VideoPlayer
+                :options="{controls:true,autoplay:true,muted:true,fluid:true,liveui: true,sources:[{src:video.url,type:'rtmp/flv'}]}"
+              ></VideoPlayer>
+              <VideoInfo :videoInfo="video"></VideoInfo>
+            </el-col>
+          </el-row>
+        </el-col>
+        <el-col :span="5">
+               <!-- 这里放置一个聊天室 -->
+          <ChatRoom ref="chat" @sendMessage="websocketsend" :_chatList="chatList" @keyup.enter.native="enter"></ChatRoom>
         </el-col>
       </el-row>
     </div>
     <div v-else>
       <VideoMap :videoPoints="liveVideoList"></VideoMap>
     </div>
-    <button @click="websocketsend">点击发送</button>
   </div>
 </template>
 
@@ -42,6 +48,7 @@ import { postRequest } from "../../utils/api";
 import VideoPlayer from "@/components/VideoPlayer.vue";
 import VideoMap from "@/components/VideoMap.vue";
 import VideoInfo from "@/components/VideoInfo.vue";
+import ChatRoom from "@/components/ChatRoom.vue";
 export default {
   data() {
     return {
@@ -54,14 +61,16 @@ export default {
       title: "",
       patten: true, //true代表列表模式,false代表map模式
 
+      chatList: [],
       websock: null,
-      websocketUrl: "ws://localhost:8080/imserver/15516392394"
+      websocketUrl: "ws://39.102.80.119:8080/webSocketServer/"+this.$store.state.userTel
     };
   },
   components: {
     VideoPlayer,
     VideoMap,
-    VideoInfo
+    VideoInfo,
+    ChatRoom
   },
   methods: {
     initVideos() {
@@ -133,7 +142,7 @@ export default {
       let data = JSON.parse(e.data);
       if (data.message != null){
         //这里是消息
-        console.log(data)
+        this.chatList.push(data);
       }else {
         //这里是直播
         this.liveVideoList.push(data);
@@ -141,12 +150,11 @@ export default {
     },
 
     //两个方法
-    websocketsend() {
+    websocketsend(message) {
       //数据发送
       let data = {
-        "sendUserTel":"15516392395",
-        "message": "111111111111",
-        "receivedUserTel": "15516392395",
+        "userTel":this.$store.state.userTel,
+        "message": message,
         "sendTime": new Date()
       };
       this.websock.send(JSON.stringify(data));
@@ -154,6 +162,9 @@ export default {
     //eslint-ignore-next-line
     websocketclose() {
       console.log("断开连接");
+    },
+    enter(){
+      this.$refs.chat.sendMessage();
     }
   },
 
@@ -165,9 +176,11 @@ export default {
   created() {
     this.initWebSocket();
   },
+
   destroyed() {
     this.websock.close(); //离开路由之后断开websocket连接
   }
+
 };
 </script>
 
@@ -193,4 +206,5 @@ export default {
   background-color: red;
   color: white;
 }
+
 </style>

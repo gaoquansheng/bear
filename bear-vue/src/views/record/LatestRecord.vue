@@ -143,9 +143,9 @@ export default {
     },
     //获取最新录播的数据
     initVideos(){
-      var _this = this;
+      let _this = this;
       //这里判断一下日期
-      var video;
+      let video;
       console.log(this.videoFilterFactors.timeRange)
       if(this.videoFilterFactors.timeRange == null || this.videoFilterFactors.timeRange == ""){
         video = {

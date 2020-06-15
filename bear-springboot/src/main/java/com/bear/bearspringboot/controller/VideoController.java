@@ -48,7 +48,7 @@ public class VideoController {
         //通知前端来新的数据了,可以把这个video对象发过去
         //这里可以利用userTel将所有的直播信息查出来
         videoService.startLive(video);
-        webSocketServer.sendLiveVideo(webService.getLiveVideos(video).get(0));
+//        webSocketServer.sendLiveVideo(webService.getLiveVideos(video).get(0));
 
     }
 

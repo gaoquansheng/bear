@@ -12,7 +12,7 @@
 			<view class="chat" >
 				<scroll-view :scroll-top="scrollTop" scroll-y="true" class="scroll-Y">
 					<view class="chat-list" v-for="(it,i) in chatList" :key='i'>
-						<text class="chat-username">用户{{it.sendUserTel}}：</text>
+						<text class="chat-username">用户{{it.userTel}}：</text>
 						<text class="chat-usertext">{{it.message}}</text>
 					</view>
 				</scroll-view>
@@ -36,7 +36,7 @@
 			return {
 				width: '',
 				height: '',
-				url: 'rtmp://192.168.1.23:1935/live/',//这是推流地址
+				url: 'rtmp://39.102.80.119:1935/live/',//这是推流地址
 				context: null,
 				context1: null,
 				markact: true,
@@ -125,7 +125,7 @@
 				this.context.stop({
 					success: a => {
 						console.log(JSON.stringify(a));
-						_this.websocket.close();
+						// _this.websocket.close();
 						uni.switchTab({
 							url:"beforeLive"
 						})
@@ -148,7 +148,7 @@
 				let _this = this;
 				//建立websocket连接
 				this.websocket = uni.connectSocket({
-					url: "ws://192.168.1.23:8080/imserver/"+this.$store.state.userTel,
+					url: "ws://39.102.80.119:8080/webSocketServer/"+this.$store.state.userTel,
 					success:()=>{
 						console.log("连接成功");
 					},
