@@ -16,7 +16,7 @@ public interface WebService {
     public RespBean save(User user);
     public RespBean update(User user,String oldUserTel);
     public RespBean deleteByUserTel(String userTel);
-    public RespBean login(User user);
+    public User login(User user);
     public void batchDeleteUsers(List<String> userTelList);
     public List<Video> findAllVideos(Video video);
     public RespBean addTitleById(String[] ids,String title);

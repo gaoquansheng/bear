@@ -67,7 +67,7 @@ public class WebController {
 
     }
     @PostMapping("/login")
-    public RespBean login(@RequestBody User user){
+    public User login(@RequestBody User user){
         return webService.login(user);
     }
 

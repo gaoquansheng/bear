@@ -102,17 +102,8 @@ public class WebServiceImpl implements WebService {
     }
 
     @Override
-    public RespBean login(User user) {
-        if (webMapper.login(user) == 1){
-//            HttpSession session = request.getSession();
-//            session.setAttribute("userTel",user.getUserTel());
-//            Cookie cookie = new Cookie("userTel",user.getUserTel());
-//            response.addCookie(cookie);
-//            session.setMaxInactiveInterval(600);
-            return new RespBean("登录成功",200);
-        }else{
-            return new RespBean("账号或密码错误",400);
-        }
+    public User login(User user) {
+        return webMapper.login(user);
     }
 
     @Override

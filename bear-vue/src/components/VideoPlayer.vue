@@ -22,7 +22,7 @@ export default {
   },
   data() {
     return {
-      player: null,
+      player: null
     };
   },
   mounted() {
@@ -34,35 +34,38 @@ export default {
     }
   },
   methods: {
-    init(){
+    init() {
       this.player = videojs(
-      this.$refs.videoPlayer,
-      this.options
-      // function onPlayerReady() {
-      //   console.log("onPlayerReady", this);
-      // }
-    );
+        this.$refs.videoPlayer,
+        this.options
+        // function onPlayerReady() {
+        //   console.log("onPlayerReady", this);
+        // }
+      )
+    },
+    setCurrentTime(startTime,latestTime){
+      let seconds = this.getSeconds(startTime,latestTime);
+      
+      this.player.currentTime(seconds);
+    },
+    getSeconds(startTime,latestTime){
+      //这里先不管几月几号，先算小时一下的时间吧
+      let hour = latestTime.getHours() - startTime.getHours();
+      let min = latestTime.getMinutes() - startTime.getMinutes();
+      let sec = latestTime.getSeconds() - startTime.getSeconds();
+      return hour*3600 + min * 60 + sec;
     }
   }
 };
 </script>
 <style scoped>
 
-/* .time{
-  position: relative;
-  font-size: 30px;
-  top: 160px;
-} */
-.info{
-  /* width: 300px; */
-  /* background-color: red; */
-}
-.title{
+.title {
   text-align: left;
-  font-size:20px;
+  font-size: 20px;
 }
-.infoBody{
-  display:flex;
+.infoBody {
+  display: flex;
   flex-direction: row;
   justify-content: space-between;
   color: grey;

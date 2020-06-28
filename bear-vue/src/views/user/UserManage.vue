@@ -1,19 +1,19 @@
 /* eslint-disable */
 <template>
   <div>
-    <el-row >
+    <el-row>
       <el-col :span="3">
         <el-button type="success" @click="handleAddUser">添加用户</el-button>
       </el-col>
       <el-col :span="3">
         <el-button
-        type="danger"
-        @click="handleDeleteUsers"
-        :disabled="deleteUsers.length == 0"
-        >批量删除</el-button>
+          type="danger"
+          @click="handleDeleteUsers"
+          :disabled="deleteUsers.length == 0"
+          >批量删除</el-button
+        >
       </el-col>
     </el-row>
-      
 
     <!-- </div> -->
     <el-table
@@ -38,8 +38,8 @@
         :formatter="isAdmin"
       ></el-table-column>
       <el-table-column>
-        <template slot="header">
-          <el-input v-model="search" size="mini" placeholder="输入关键字搜索" />
+        <template slot="header" slot-scope="scope">
+          <el-input v-model="search" size="mini" :name="scope" placeholder="输入关键字搜索" />
         </template>
         <template slot-scope="scope">
           <el-button size="mini" @click="handleEdit(scope.$index, scope.row)"
@@ -55,14 +55,15 @@
       </el-table-column>
     </el-table>
     <el-pagination
-    background
-    layout="total, sizes, prev, pager, next, jumper"
-    :page-sizes="page.pageSizes"
-    :page-size="page.limit"
-    :total="page.total"
-    :current-page = "page.currentPage"
-    @current-change = "currentChange"
-    @size-change = "limitChange">
+      background
+      layout="total, sizes, prev, pager, next, jumper"
+      :page-sizes="page.pageSizes"
+      :page-size="page.limit"
+      :total="page.total"
+      :current-page="page.currentPage"
+      @current-change="currentChange"
+      @size-change="limitChange"
+    >
     </el-pagination>
 
     <el-dialog title="新增用户" :visible.sync="addUserDiaLog" width="30%">
@@ -85,10 +86,7 @@
           ></el-input>
         </el-form-item>
         <!-- 这为当上面选择为管理员用户的时候，不绑定prop属性，不然validate不通过 -->
-        <el-form-item
-          label="手机号"
-          prop="userTel"
-        >
+        <el-form-item label="手机号" prop="userTel">
           <el-input
             v-model="addUserForm.userTel"
             :disabled="addUserForm.isAdmin == ''"
@@ -193,10 +191,10 @@ export default {
       //分页部分
       page: {
         paginationFlag: false,
-        pageSizes: [6,10,20],
+        pageSizes: [6, 10, 20],
         total: 0,
-        limit: 6,    //limit
-        currentPage:1  //offset = (currentpage-1)*offset
+        limit: 6, //limit
+        currentPage: 1 //offset = (currentpage-1)*offset
       },
       search: "",
       deleteUsers: [],
@@ -242,7 +240,7 @@ export default {
     handleAddUser() {
       this.addUserDiaLog = true;
     },
-    addUser(formName) {  
+    addUser(formName) {
       var _this = this;
       this.$refs[formName].validate(valid => {
         if (valid) {
@@ -266,7 +264,7 @@ export default {
                   checkUserPwd: ""
                 };
                 //刷新页面
-                window.eventBus.$emit("userManage")
+                window.eventBus.$emit("userManage");
               } else if (resp.data.statusCode == 400) {
                 _this.$message.error(resp.data.msg);
               }
@@ -289,7 +287,10 @@ export default {
           _this.editUserDiaLog = false;
           //1.将整个用户信息传递给后台
           //判断用户数据是否发生了改变
-          putRequest("/web/users?oldUserTel="+_this.oldUserTel, _this.editUserForm).then(
+          putRequest(
+            "/web/users?oldUserTel=" + _this.oldUserTel,
+            _this.editUserForm
+          ).then(
             resp => {
               //2.根据后台返回的信息进行输出
               if (resp.data.statusCode == 200) {
@@ -298,10 +299,10 @@ export default {
                   type: "success"
                 });
                 //刷新页面
-                window.eventBus.$emit("userManage")
+                window.eventBus.$emit("userManage");
               } else if (resp.data.statusCode == 400) {
                 _this.$message.error(resp.data.msg);
-                window.eventBus.$emit("userManage")
+                window.eventBus.$emit("userManage");
               }
             },
             () => {
@@ -329,7 +330,7 @@ export default {
               if (resp.data.statusCode == 200) {
                 _this.$message.success(resp.data.msg);
                 //刷新页面
-                window.eventBus.$emit("userManage")
+                window.eventBus.$emit("userManage");
               } else {
                 _this.$message.error(resp.data.msg);
               }
@@ -389,43 +390,42 @@ export default {
           });
         });
     },
-    loadingUsers(limit,offset){
+    loadingUsers(limit, offset) {
       var _this = this;
-      var url = "/web/users?limit="+limit+"&offset="+offset
-      getRequest(url).then(
-      resp => {
+      var url = "/web/users?limit=" + limit + "&offset=" + offset;
+      getRequest(url).then(resp => {
         _this.tableData = resp.data.users;
         _this.page.total = resp.data.total;
-      })
-      },
-    limitChange(limit){
+      });
+    },
+    limitChange(limit) {
       this.page.limit = limit;
       //改变每页显示的数据后,重新获取数据
-      var offset = (this.page.currentPage - 1)*limit
-      this.loadingUsers(limit,offset);
+      var offset = (this.page.currentPage - 1) * limit;
+      this.loadingUsers(limit, offset);
     },
     //翻页,手动填写页码也会调用这里
-    currentChange(page){
+    currentChange(page) {
       this.page.currentPage = page;
-      var offset = (page-1)*this.page.limit;
-      this.loadingUsers(this.page.limit,offset);
-    },
+      var offset = (page - 1) * this.page.limit;
+      this.loadingUsers(this.page.limit, offset);
+    }
   },
   mounted() {
     var _this = this;
-    this.loadingUsers(this.page.limit,0);
-    window.eventBus.$on("userManage",() =>{
-      var offset = (_this.page.currentPage - 1)*_this.page.limit;
+    this.loadingUsers(this.page.limit, 0);
+    window.eventBus.$on("userManage", () => {
+      var offset = (_this.page.currentPage - 1) * _this.page.limit;
       console.log(_this.page.limit);
-      console.log(offset)
-      _this.loadingUsers(_this.page.limit,offset)
+      console.log(offset);
+      _this.loadingUsers(_this.page.limit, offset);
     });
   }
-}
+};
 </script>
 
 <style>
-.el-pagination{
-  margin-top:2px;
+.el-pagination {
+  margin-top: 2px;
 }
 </style>

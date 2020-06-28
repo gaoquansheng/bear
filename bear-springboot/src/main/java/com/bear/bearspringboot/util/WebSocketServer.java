@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 
 
 
-@ServerEndpoint(value = "/webSocketServer/{userTel}",encoders = {WebSocketEncoder.class},decoders = {WebSocketDecoder.class})
+@ServerEndpoint(value = "/webSocketServer/{userTel}",encoders = {WebSocketEncoder.class,VideoEncoder.class},decoders = {WebSocketDecoder.class})
 @Component
 public class WebSocketServer {
 
@@ -71,10 +71,7 @@ public class WebSocketServer {
         System.out.println("用户错误:"+this.userTel+",原因:"+error.getMessage());
         error.printStackTrace();
     }
-    /**
-     * 收到客户端消息后调用的方法
-     *
-     * @param message 客户端发送过来的消息*/
+
     @OnMessage
     public void onMessage(Session session,Message message)throws Exception {
         System.out.println("接收到用户发来的消息:报文:"+message);
@@ -110,9 +107,14 @@ public class WebSocketServer {
 
     //将新添加的直播信息发送给管理员用户
     public void sendLiveVideo(Video video){
-        // TODO: 2020/6/8 这里对所有的管理员用户发送video信息;
         for(String key: webSocketMap.keySet()){
-
+            try {
+                webSocketMap.get(key).session.getBasicRemote().sendObject(video);
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (EncodeException e) {
+                e.printStackTrace();
+            }
             //判断
         }
     }

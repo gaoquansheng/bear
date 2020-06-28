@@ -5,7 +5,7 @@ import Login from "../views/login/Login";
 import Home from "../views/home/Home";
 import Live from "../views/live/Live";
 import Record from "../views/record/Record";
-import LatestRecord from "../views/record/LatestRecord"
+import LatestRecord from "../views/record/LatestRecord";
 import UserManage from "../views/user/UserManage";
 // import Map from "../views/map/Map"
 
@@ -44,7 +44,6 @@ const routes = [
     component: Home,
     iconCls: "fa fa-file-text-o",
     children: [
-
       {
         path: "/latestrecord",
         name: "最新录播",

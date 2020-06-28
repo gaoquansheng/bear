@@ -63,8 +63,8 @@ export default {
       postRequest("/web/login", _this.loginForm).then(
         resp => {
           _this.loading = false;
-          if (resp.data.statusCode == 200) {
-            _this.$store.commit("login",_this.loginForm);
+          if (resp.data) {
+            _this.$store.commit("login",resp.data);
             _this.$router.replace({ path: "/home" });
           } else {
             _this.$alert("登录失败!", "失败!");

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-let base = "http://39.102.80.119:8080";
+let base = "http://localhost:8080";
 axios.defaults.withCredentials = true; //设置跨域访问cookie和session不失效
 export const postRequest = (url, params) => {
   return axios({
@@ -79,3 +79,14 @@ export const getRequest = (url, params) => {
     url: `${base}${url}`
   });
 };
+
+export const dateToString = () => {
+  let date = new Date();
+  const year = date.getFullYear();
+  let month = date.getMonth() + 1;
+  let day = date.getDate();
+  month = month > 9 ? month : ('0' + month);
+  day = day > 9 ? day : ('0' + day);
+  const dateTime = year + "-" + month + "-" + day + " ";
+  return dateTime;
+}

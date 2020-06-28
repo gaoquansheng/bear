@@ -11,24 +11,43 @@
           range-separator="至"
           start-placeholder="开始日期"
           end-placeholder="结束日期"
-          :picker-options="pickerOptions">
+          format="yyyy 年 MM 月 dd 日"
+          value-format="yyyy-MM-dd HH:mm:ss"
+          :picker-options="pickerOptions"
+        >
         </el-date-picker>
       </el-col>
       <el-col :span="8">
-        <el-input v-model="videoFilterFactors.title" placeholder="请输入标题"></el-input>
+        <el-input
+          v-model="videoFilterFactors.title"
+          placeholder="请输入标题"
+        ></el-input>
       </el-col>
       <el-col :span="2">
-        <el-button type="success" @click="initVideos">确定</el-button>
+        <el-button type="success" @click="initVideos">搜索</el-button>
       </el-col>
       <el-col :span="2" :offset="4">
-        <el-button type="success" :title="patten?'切换地图模式':'切换列表模式'"  icon="el-icon-s-operation" @click="patten = !patten"></el-button>
+        <el-button
+          type="success"
+          :title="patten ? '切换地图模式' : '切换列表模式'"
+          icon="el-icon-s-operation"
+          @click="patten = !patten"
+        ></el-button>
       </el-col>
     </el-row>
-      <!-- 列表模式 -->
+    <!-- 列表模式 -->
     <div v-if="patten">
       <el-row :gutter="40">
         <el-col :span="6" v-for="video in recordVideoList" :key="video.videoId">
-          <VideoPlayer :options="{controls:true,autoplay:true,muted:true,fluid:true,sources:[{src:video.videoUrl,type:'rtmp/flv'}]}"></VideoPlayer>
+          <VideoPlayer
+            :options="{
+              controls: true,
+              autoplay: true,
+              muted: true,
+              fluid: true,
+              sources: [{ src: video.videoUrl, type: 'rtmp/flv' }]
+            }"
+          ></VideoPlayer>
           <VideoInfo :videoInfo="video"></VideoInfo>
         </el-col>
       </el-row>
@@ -44,7 +63,7 @@
 //eslint-disable-next-line
 import { getRequest, postRequest } from "../../utils/api";
 import VideoPlayer from "@/components/VideoPlayer.vue";
-import VideoMap from "@/components/VideoMap.vue"
+import VideoMap from "@/components/VideoMap.vue";
 import VideoInfo from "@/components/VideoInfo.vue";
 export default {
   data() {
@@ -53,34 +72,38 @@ export default {
       recordVideoList: [],
       //日期选择模块
       pickerOptions: {
-        shortcuts: [{
-          text: '最近一周',
-          onClick(picker) {
-            const end = new Date();
-            const start = new Date();
-            start.setTime(start.getTime() - 3600 * 1000 * 24 * 7);
-            picker.$emit('pick', [start, end]);
+        shortcuts: [
+          {
+            text: "最近一周",
+            onClick(picker) {
+              const end = new Date();
+              const start = new Date();
+              start.setTime(start.getTime() - 3600 * 1000 * 24 * 7);
+              picker.$emit("pick", [start, end]);
+            }
+          },
+          {
+            text: "最近一个月",
+            onClick(picker) {
+              const end = new Date();
+              const start = new Date();
+              start.setTime(start.getTime() - 3600 * 1000 * 24 * 30);
+              picker.$emit("pick", [start, end]);
+            }
+          },
+          {
+            text: "最近三个月",
+            onClick(picker) {
+              const end = new Date();
+              const start = new Date();
+              start.setTime(start.getTime() - 3600 * 1000 * 24 * 90);
+              picker.$emit("pick", [start, end]);
+            }
           }
-          }, {
-          text: '最近一个月',
-          onClick(picker) {
-            const end = new Date();
-            const start = new Date();
-            start.setTime(start.getTime() - 3600 * 1000 * 24 * 30);
-            picker.$emit('pick', [start, end]);
-            }
-          }, {
-          text: '最近三个月',
-          onClick(picker) {
-            const end = new Date();
-            const start = new Date();
-            start.setTime(start.getTime() - 3600 * 1000 * 24 * 90);
-            picker.$emit('pick', [start, end]);
-            }
-          }]
-        },
-        //视频筛选条件对象
-      videoFilterFactors:{
+        ]
+      },
+      //视频筛选条件对象
+      videoFilterFactors: {
         timeRange: "",
         title: ""
       }
@@ -93,47 +116,46 @@ export default {
   },
 
   methods: {
-    initVideos(){
+    initVideos() {
       var _this = this;
       var video;
-      if(this.videoFilterFactors.timeRange == null || this.videoFilterFactors.timeRange == ""){
+      if (
+        this.videoFilterFactors.timeRange == null ||
+        this.videoFilterFactors.timeRange == ""
+      ) {
         video = {
           flag: 0,
           title: this.videoFilterFactors.title
-        }
-      }else{
+        };
+      } else {
         video = {
           flag: 0,
           title: this.videoFilterFactors.title,
           startTime: this.videoFilterFactors.timeRange[0],
           endTime: this.videoFilterFactors.timeRange[1]
-        }
+        };
       }
-      postRequest("/web/videos",video).then(
-        resp => {
-           _this.recordVideoList.splice(0,_this.recordVideoList.length);//重新赋值数组后会无法追踪数组
-          //直接将数组进行赋值就会使得vue无法跟踪数组吗?
-          //为什么修改数组之后没办法触发呢
-          //这里是因为数组的更新检测
-          for (let item of resp.data) {
-            //判断这一项原来的列表中有吗,如果有就跳过,没有就push进去
-            _this.recordVideoList.push(item)
-            
-          }
+      postRequest("/web/videos", video).then(resp => {
+        _this.recordVideoList.splice(0, _this.recordVideoList.length); //重新赋值数组后会无法追踪数组
+        //直接将数组进行赋值就会使得vue无法跟踪数组吗?
+        //为什么修改数组之后没办法触发呢
+        //这里是因为数组的更新检测
+        for (let item of resp.data) {
+          //判断这一项原来的列表中有吗,如果有就跳过,没有就push进去
+          _this.recordVideoList.push(item);
         }
-      )
+      });
     }
   },
   mounted() {
     this.initVideos();
   }
-}
+};
 </script>
 
 <style>
-
-  .el-col {
-    border-radius: 20px;
-    margin-bottom: 20px;
-  }
+.el-col {
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
 </style>

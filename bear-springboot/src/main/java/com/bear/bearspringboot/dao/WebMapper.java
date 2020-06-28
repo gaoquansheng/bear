@@ -17,7 +17,7 @@ public interface WebMapper {
     public int save(User user);
     public int update(User user, String oldUserTel);
     public int deleteByUserTel(String userTel);
-    public int login(User user);
+    public User login(User user);
     public int isOldUserTel(User user);
     public int batchDeleteUsers(List<String> userTelList);
     public List<Video> findAllVideos(Video video);

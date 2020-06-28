@@ -38,8 +38,8 @@
     <update id="update" >
         update users set userName = #{param1.userName},userPwd = #{param1.userPwd},isAdmin=#{param1.isAdmin},userTel= #{param1.userTel} where userTel = #{param2};
     </update>
-    <select id="login" parameterType="User" resultType="int">
-        select count(*) from users where userTel = #{userTel} and userPwd = #{userPwd} and isAdmin = 1;
+    <select id="login" parameterType="User" resultType="User">
+        select * from users where userTel = #{userTel} and userPwd = #{userPwd} and isAdmin = 1;
     </select>
     <select id="isOldUserTel" resultType="int" parameterType="User">
        select count(*) from users where userTel = #{userTel};

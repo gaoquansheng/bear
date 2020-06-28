@@ -2,7 +2,19 @@
 <template>
   <el-container class="home_container">
     <el-header>
-      <div class="home_title">灾情录播平台</div>
+      <div class="home_title">应急指挥演练辅助平台
+      </div>
+      <div class="userInfo">
+        <el-dropdown @command="handleCommand">
+          <span class="el-dropdown-link">
+            {{this.$store.state.userName}}<i class="el-icon-arrow-down el-icon--right"></i>
+          </span>
+          <el-dropdown-menu slot="dropdown">
+            <el-dropdown-item command="logout">退出登录</el-dropdown-item>
+          </el-dropdown-menu>
+        </el-dropdown>
+      </div>
+
     </el-header>
     <el-container>
       <el-aside width="200px">
@@ -43,13 +55,11 @@
           </template>
         </el-menu>
       </el-aside>
-      <el-container>
         <el-main>
           <router-view />
         </el-main>
-        <el-footer>Footer</el-footer>
-      </el-container>
     </el-container>
+    <el-footer>©防灾科技学院 应急管理学院</el-footer>
   </el-container>
 </template>
 
@@ -57,6 +67,15 @@
 export default {
   mounted() {
     // console.log(this.$router);
+  },
+  methods: {
+    handleCommand(command){
+      this[command]();
+    },
+    logout(){
+      this.$store.commit("logout");
+      this.$router.replace("/")
+    }
   }
 };
 </script>
@@ -99,5 +118,8 @@ export default {
   color: #333;
   text-align: center;
   line-height: 60px;
+}
+.el-dropdown {
+  color:#fff !important;
 }
 </style>

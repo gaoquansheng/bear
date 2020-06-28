@@ -6,34 +6,74 @@
         <el-input v-model="title" placeholder="请输入标题"></el-input>
       </el-col>
       <el-col :span="2">
-        <el-button type="success" @click="initVideos">确定</el-button>
+        <el-button type="success" @click="initVideos">搜索</el-button>
       </el-col>
-      <el-col :span="2" :offset="12">
+      <el-col :span="2">
         <el-button
           type="success"
-          :title="patten?'切换地图模式':'切换列表模式'"
+          :title="patten ? '切换地图模式' : '切换列表模式'"
           icon="el-icon-s-operation"
           @click="patten = !patten"
         ></el-button>
+      </el-col>
+      <el-col :span="6">
+        <el-select v-model="videoSpan" placeholder="请选择布局">
+        <el-option
+          v-for="item in options"
+          :key="item.value"
+          :label="item.label"
+          :value="item.value">
+        </el-option>
+      </el-select>
       </el-col>
     </el-row>
     <!-- 默认为列表模式 -->
     <div v-if="patten">
       <el-row>
         <el-col :span="18">
+
+          <el-checkbox :indeterminate="isIndeterminate" v-model="checkAll" @change="handleCheckAllChange">全选</el-checkbox>
+          <div style="margin: 15px 0;"></div>
+
           <el-row :gutter="10">
-            <el-col :span="8" v-for="(video,id) in liveVideoList" :key="video.videoId">
-              <div class="dislike" @click="dislikeVideo(video,id)">x</div>
-              <VideoPlayer
-                :options="{controls:true,autoplay:true,muted:true,fluid:true,liveui: true,sources:[{src:video.url,type:'rtmp/flv'}]}"
-              ></VideoPlayer>
-              <VideoInfo :videoInfo="video"></VideoInfo>
-            </el-col>
+            <el-checkbox-group v-model="checkedUserTels" @change="handleChange">
+
+            <draggable v-model="liveVideoList" class="list-group" :animation='200'>
+              <transition-group name='flip-list'>
+                <el-col
+                  :span="videoSpan"
+                  v-for="(video, id) in liveVideoList"
+                  :key="video.videoId"
+                >
+                  <div class="dislike" @click="dislikeVideo(video, id)">x</div>
+                  <VideoPlayer
+                    :options="{
+                      controls: true,
+                      autoplay: true,
+                      muted: true,
+                      fluid: true,
+                      liveui: true,
+                      sources: [{ src: video.url, type: 'rtmp/flv' }]
+                    }"
+                  ></VideoPlayer>
+                  <VideoInfo :videoInfo="video"></VideoInfo>
+                  <el-checkbox  :label="video.userTel">
+                    <div style="display:none"></div>
+                  </el-checkbox>
+                </el-col>
+              </transition-group>
+              </draggable>
+
+            </el-checkbox-group>
           </el-row>
         </el-col>
         <el-col :span="5">
-               <!-- 这里放置一个聊天室 -->
-          <ChatRoom ref="chat" @sendMessage="websocketsend" :_chatList="chatList" @keyup.enter.native="enter"></ChatRoom>
+          <ChatRoom
+            ref="chat"
+            :initUserTels="checkedUserTels_"
+            @liveVideo="getLiveVideo"
+            @keyup.enter.native="send"
+          ></ChatRoom>
         </el-col>
       </el-row>
     </div>
@@ -49,6 +89,7 @@ import VideoPlayer from "@/components/VideoPlayer.vue";
 import VideoMap from "@/components/VideoMap.vue";
 import VideoInfo from "@/components/VideoInfo.vue";
 import ChatRoom from "@/components/ChatRoom.vue";
+import draggable from "vuedraggable"
 export default {
   data() {
     return {
@@ -61,16 +102,38 @@ export default {
       title: "",
       patten: true, //true代表列表模式,false代表map模式
 
-      chatList: [],
-      websock: null,
-      websocketUrl: "ws://39.102.80.119:8080/webSocketServer/"+this.$store.state.userTel
+      checkedUserTels: [],
+      checkedUserTels_: [],
+      checkAll: false,
+      isIndeterminate: true,
+      options: [{
+          value: 12,
+          label: '每行显示2个'
+        }, {
+          value: 8,
+          label: '每行显示3个'
+        }, {
+          value: 6,
+          label: '每行显示4个'
+        }, {
+          value: 4,
+          label: '每行显示6个'
+        }, {
+          value: 3,
+          label: '每行显示8个'
+        }, {
+          value: 2,
+          label: '每行显示12个'
+        }],
+      videoSpan: 6 
     };
   },
   components: {
     VideoPlayer,
     VideoMap,
     VideoInfo,
-    ChatRoom
+    ChatRoom,
+    draggable
   },
   methods: {
     initVideos() {
@@ -117,55 +180,27 @@ export default {
       this.liveVideoList.splice(id, 1);
       this.dislikeVideoList.push(video);
     },
-
-    initWebSocket() {
-      //初始化weosocket
-      this.websock = new WebSocket(this.websocketUrl);
-      this.websock.onmessage = this.websocketonmessage;
-      this.websock.onopen = this.websocketonopen;
-      this.websock.onerror = this.websocketonerror;
-      this.websock.onclose = this.websocketclose;
+    getLiveVideo(data){
+      console.log(data);
+      this.liveVideoList.push(data);
     },
-    //下面这些是回调函数
-    websocketonopen() {
-      //连接建立之后执行send方法发送数据
-      console.log("连接成功");
-    },
-    websocketonerror() {
-      //连接建立失败重连
-      console.log("连接失败重新连接");
-      this.initWebSocket();
-    },
-    websocketonmessage(e) {
-      //这里会接受两个数据,一个直播数据,一个交互信息
-      console.log("接受数据");
-      let data = JSON.parse(e.data);
-      if (data.message != null){
-        //这里是消息
-        this.chatList.push(data);
-      }else {
-        //这里是直播
-        this.liveVideoList.push(data);
-      }
-    },
-
-    //两个方法
-    websocketsend(message) {
-      //数据发送
-      let data = {
-        "userTel":this.$store.state.userTel,
-        "message": message,
-        "sendTime": new Date()
-      };
-      this.websock.send(JSON.stringify(data));
-    },
-    //eslint-ignore-next-line
-    websocketclose() {
-      console.log("断开连接");
-    },
-    enter(){
+    send() {
       this.$refs.chat.sendMessage();
-    }
+    },
+    handleCheckAllChange(val) {
+        this.checkedUserTels = val ? this.liveVideoList.map(video =>video.userTel) : [];
+        this.isIndeterminate = false;
+        //因为elementui中checkbox绑定的值无法动态响应，即无法作为prop属性传递下去，所以用两外一个变量传递
+        this.checkedUserTels_.splice(0,this.checkedUserTels_.length)
+        this.checkedUserTels.forEach(userTel => this.checkedUserTels_.push(userTel));
+      },
+    handleChange(value) {
+        let checkedCount = value.length;
+        this.checkAll = checkedCount === this.liveVideoList.length;
+        this.isIndeterminate = checkedCount > 0 && checkedCount < this.liveVideoList.length;
+        this.checkedUserTels_.splice(0,this.checkedUserTels_.length);
+        this.checkedUserTels.forEach(userTel => this.checkedUserTels_.push(userTel));
+      }
   },
 
   mounted() {
@@ -173,13 +208,8 @@ export default {
     //放置一个定时器,
     // this.timer = setInterval(this.initVideos,10000)
   },
-  created() {
-    this.initWebSocket();
-  },
+ 
 
-  destroyed() {
-    this.websock.close(); //离开路由之后断开websocket连接
-  }
 
 };
 </script>
@@ -206,5 +236,4 @@ export default {
   background-color: red;
   color: white;
 }
-
 </style>
