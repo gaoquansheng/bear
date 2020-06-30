@@ -1,5 +1,5 @@
 <template>
-  <div class="videoPlayer">
+  <div class="videoPlayer" >
     <video ref="videoPlayer" class="video-js vjs-big-play-centered"></video>
     <!-- <div class="time">时间</div> -->
   </div>
@@ -25,6 +25,7 @@ export default {
       player: null
     };
   },
+
   mounted() {
     this.init();
   },
@@ -34,14 +35,18 @@ export default {
     }
   },
   methods: {
+    dis(){
+      this.player.dispose();
+    },
+    open(){
+      this.player.paly();
+    },
     init() {
+      // videojs.options.flash.swf = "https://cdn.bootcss.com/videojs-swf/5.4.1/video-js.swf";
       this.player = videojs(
         this.$refs.videoPlayer,
         this.options
-        // function onPlayerReady() {
-        //   console.log("onPlayerReady", this);
-        // }
-      )
+      );
     },
     setCurrentTime(startTime,latestTime){
       let seconds = this.getSeconds(startTime,latestTime);

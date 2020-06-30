@@ -1,6 +1,8 @@
 import axios from "axios";
 
 let base = "http://localhost:8080";
+// let base = "http://"
+
 axios.defaults.withCredentials = true; //设置跨域访问cookie和session不失效
 export const postRequest = (url, params) => {
   return axios({
@@ -63,16 +65,16 @@ export const getRequest = (url, params) => {
   return axios({
     method: "get",
     params: params,
-    // transformRequest: [
-    //   function(data) {
-    //     let ret = "";
-    //     for (let it in data) {
-    //       ret +=
-    //         encodeURIComponent(it) + "=" + encodeURIComponent(data[it]) + "&";
-    //     }
-    //     return ret;
-    //   }
-    // ],
+    transformRequest: [
+      function(data) {
+        let ret = "";
+        for (let it in data) {
+          ret +=
+            encodeURIComponent(it) + "=" + encodeURIComponent(data[it]) + "&";
+        }
+        return ret;
+      }
+    ],
     headers: {
       "Content-Type": "application/x-www-form-urlencoded"
     },

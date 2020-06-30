@@ -48,13 +48,14 @@
     </el-row>
     <!-- 这里是录播的列表模式 -->
     <div v-if="patten">
-      <el-row :gutter="20">
+      <el-row v-show="recordVideoList.length != 0" :gutter="20">
         <el-checkbox
           :indeterminate="isIndeterminate"
           v-model="checkAll"
           @change="handleCheckAllChange"
           >全选</el-checkbox>
         <el-checkbox-group v-model="checkedVideos">
+          <draggable :list="recordVideoList" class="list-group" :animation='200'>
           <el-col
             :span="6"
             v-for="video in recordVideoList"
@@ -77,6 +78,7 @@
               <div style="display:none">1</div>
             </el-checkbox>
           </el-col>
+          </draggable>
         </el-checkbox-group>
       </el-row>
     </div>
@@ -101,6 +103,7 @@ import { getRequest, postRequest,dateToString} from "../../utils/api";
 import VideoPlayer from "@/components/VideoPlayer.vue";
 import VideoMap from "@/components/VideoMap.vue";
 import VideoInfo from "@/components/VideoInfo.vue";
+import draggable from "vuedraggable"
 export default {
   data() {
     return {
@@ -143,9 +146,6 @@ export default {
           }
         ]
       },
-      //视频筛选条件对象
-
-      
       timeRange: ""
       
     };
@@ -153,7 +153,8 @@ export default {
   components: {
     VideoPlayer,
     VideoMap,
-    VideoInfo
+    VideoInfo,
+    draggable
   },
   methods: {
     handleCheckAllChange(val) {
@@ -164,11 +165,15 @@ export default {
       //eslint-disable-next-line
       let _this = this;
       let ids = this.checkedVideos.map(video => video.videoId).join();
-    
-      getRequest("/web/addTitle?ids=" + ids + "&title=" + this.title).then(
+      let data = {
+        ids: ids,
+        title: this.title
+      }
+      getRequest("/web/addTitle",data).then(
         resp => {
-          console.log(resp);
+          resp.data.statusCode == 200?this.$message({message:resp.data.msg,type:'success'}):this.$message({message:resp.data.msg,type:'error'});
           //这里成功之后刷新数据
+          _this.title = "";
           _this.initVideos();
         }
       );
@@ -184,20 +189,20 @@ export default {
         this.timeRange = [startTime,endTime];
       }
       let video = {
-          flag: 0,
           startTime: this.timeRange[0],
           endTime: this.timeRange[1]
         };
       postRequest("/web/latestVideos", video).then(
         resp => {
-          _this.recordVideoList.splice(0, _this.recordVideoList.length); //重新赋值数组后会无法追踪数组
+          _this.recordVideoList = resp.data;
+          // _this.recordVideoList.splice(0, _this.recordVideoList.length); //重新赋值数组后会无法追踪数组
           //直接将数组进行赋值就会使得vue无法跟踪数组吗?
           //为什么修改数组之后没办法触发呢
-          //这里是因为数组的更新检测
-          for (let item of resp.data) {
-            //判断这一项原来的列表中有吗,如果有就跳过,没有就push进去
-            _this.recordVideoList.push(item);
-          }
+          //这里是因为数组的更新检测 what fuck!
+          // for (let item of resp.data) {
+          //   //判断这一项原来的列表中有吗,如果有就跳过,没有就push进去
+          //   _this.recordVideoList.push(item);
+          // }
         },
         resp => {
           console.log(resp.data);

@@ -12,7 +12,7 @@
 			<view class="chat" >
 				<scroll-view :scroll-top="scrollTop" scroll-y="true" class="scroll-Y">
 					<view class="chat-list" v-for="(it,i) in chatList" :key='i'>
-						<text class="chat-username">用户{{it.userTel}}：</text>
+						<text class="chat-username">用户{{it.sendUserTel}}：</text>
 						<text class="chat-usertext">{{it.message}}</text>
 					</view>
 				</scroll-view>

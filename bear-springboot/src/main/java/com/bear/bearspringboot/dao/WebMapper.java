@@ -20,8 +20,8 @@ public interface WebMapper {
     public User login(User user);
     public int isOldUserTel(User user);
     public int batchDeleteUsers(List<String> userTelList);
-    public List<Video> findAllVideos(Video video);
+    public List<Video> getRecordVideos(Video video);
     public int addTitleById(String[] ids, String title);
-    public List<Video> findLatestVideos(Video video);
+    public List<Video> getLatestVideos(Video video);
     public List<Video> getLiveVideos(Video video);
 }

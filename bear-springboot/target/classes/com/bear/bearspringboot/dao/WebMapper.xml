@@ -3,7 +3,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.bear.bearspringboot.dao.WebMapper">
 
-    <resultMap id="findAllVideos" type="Video">
+    <resultMap id="videoInfo" type="Video">
         <id property="videoId" column="videoId"></id>
         <result column="title" property="title"></result>
         <result column="userTel" property="userTel"></result>
@@ -50,10 +50,10 @@
             #{userTel}
         </foreach>
     </delete>
-    <select id="findAllVideos" resultMap="findAllVideos" parameterType="Video">
-        select * from video v left outer join users u on v.userTel = u.userTel where v.flag=#{flag} and v.title != ""
-        <if test="title != ''">
-            and title like concat('%',#{title},'%')
+    <select id="getRecordVideos" resultMap="videoInfo" parameterType="Video">
+        select * from video v left outer join users u on v.userTel = u.userTel where v.flag=0 and (v.title != "" and v.title is not null)
+        <if test="title != '' and title != null">
+            and (v.title like concat('%',#{title},'%') or u.userName like concat('%',#{title},'%'))
         </if>
         <if test="startTime != null">
             and startTime between #{startTime} and #{endTime}
@@ -61,8 +61,8 @@
 
     </select>
 
-    <select id="findLatestVideos" resultMap="findAllVideos" parameterType="Video">
-        select * from video v left outer join users u on v.userTel = u.userTel where v.title is null and v.flag = #{flag}
+    <select id="getLatestVideos" resultMap="videoInfo" parameterType="Video">
+        select * from video v left outer join users u on v.userTel = u.userTel where (v.title is null or v.title = '') and v.flag = 0
         <if test="startTime != null">
             and v.startTime between #{startTime} and #{endTime}
         </if>
@@ -75,10 +75,10 @@
         </foreach>
     </update>
 
-    <select id="getLiveVideos" parameterType="Video" resultMap="findAllVideos">
-        select * from video v left outer join users u on v.userTel = u.userTel where flag = #{flag}
-        <if test="title != ''and title != null">
-            and title = #{title}
+    <select id="getLiveVideos" parameterType="Video" resultMap="videoInfo">
+        select * from video v left outer join users u on v.userTel = u.userTel where v.flag = 1
+        <if test="title != '' and title != null">
+            and (v.title like concat('%',#{title},'%') or u.userName like concat('%',#{title},'%'))
         </if>
         <if test="userTel != '' and userTel != null">
             and v.userTel = #{userTel}

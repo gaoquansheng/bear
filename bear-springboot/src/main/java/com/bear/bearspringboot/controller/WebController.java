@@ -73,28 +73,27 @@ public class WebController {
 
     //这里为历史录播,返回title不为空的数据
     @PostMapping("/videos")
-    public List<Video> findAllVideos(@RequestBody Video video){
+    public List<Video> getRecordVideos(@RequestBody Video video){
         //这里直接传递日期字符串
-        return webService.findAllVideos(video);
+        return webService.getRecordVideos(video);
     }
 
     //这里为最新录播,返回title为空的数据
     @PostMapping("/latestVideos")
-    public List<Video> findLatestVideos(@RequestBody Video video){
+    public List<Video> getLatestVideos(@RequestBody Video video){
         //这里将日期进行处理
-        return webService.findLatestVideos(video);
+        return webService.getLatestVideos(video);
     }
     //根据传递过来的Id修改标题
     @GetMapping("/addTitle")
-    public void addTitleByIds(@RequestParam("ids") String ids, @RequestParam("title") String title){
+    public RespBean addTitleByIds(@RequestParam("ids") String ids, @RequestParam("title") String title){
         String[] allId = ids.split(",");
-        System.out.println(Arrays.toString(allId));
-        System.out.println(title);
-        webService.addTitleById(allId,title);
+        return webService.addTitleById(allId,title);
+
     }
 
     @PostMapping("/liveVideos")
-    public List<Video> getLiveVideos(@RequestBody Video video){
+    public List<Video> getLiveVideos(@RequestBody(required = false) Video video){
        return webService.getLiveVideos(video);
     }
 }

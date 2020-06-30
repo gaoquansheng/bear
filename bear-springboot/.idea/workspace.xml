@@ -2,80 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4753f691-2808-42eb-b64f-230ce927ccd4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/bear-springboot.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/util/VideoEncoder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-app/pages/live/live.nvue" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-app/pages/live/live.nvue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-app/pages/login/login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-app/pages/login/login.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/dev/app-plus/__uniapppicker.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-app/unpackage/dist/dev/app-plus/__uniapppicker.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/dev/app-plus/__uniappquill.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-app/unpackage/dist/dev/app-plus/__uniappquill.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/dev/app-plus/__uniappview.html" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-app/unpackage/dist/dev/app-plus/__uniappview.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/dev/app-plus/app-config-service.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-app/unpackage/dist/dev/app-plus/app-config-service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/dev/app-plus/app-config.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-app/unpackage/dist/dev/app-plus/app-config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bear-app/pages/home/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-app/pages/home/index.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/dev/app-plus/app-service.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-app/unpackage/dist/dev/app-plus/app-service.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/dev/app-plus/app-view.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-app/unpackage/dist/dev/app-plus/app-view.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/dev/app-plus/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-app/unpackage/dist/dev/app-plus/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/dev/app-plus/pages/live/live.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-app/unpackage/dist/dev/app-plus/pages/live/live.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/dev/app-plus/view.umd.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-app/unpackage/dist/dev/app-plus/view.umd.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/controller/VideoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/controller/VideoController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/controller/WebController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/controller/WebController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/dao/WebMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/dao/WebMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/dao/WebMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/dao/WebMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/entity/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/entity/Message.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/entity/RespBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/entity/RespBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/entity/Video.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/entity/Video.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/service/WebService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/service/WebService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/service/impl/WebServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/service/impl/WebServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/util/CORSFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/util/CORSFilter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/util/WebSocketServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/util/WebSocketServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bear-springboot-0.0.1-SNAPSHOT.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/bear-springboot-0.0.1-SNAPSHOT.jar.original" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/BearSpringbootApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/BearSpringbootApplication.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/controller/VideoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/controller/VideoController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/controller/WebController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/controller/WebController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/dao/WebMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/dao/WebMapper.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/dao/WebMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/dao/WebMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/entity/Message.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/entity/Message.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/entity/RespBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/entity/RespBean.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/entity/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/entity/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/entity/Video.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/entity/Video.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/service/WebService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/service/WebService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/service/impl/WebServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/service/impl/WebServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/util/CORSFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/util/CORSFilter.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/util/WebSocketServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/util/WebSocketServer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/app.73281f10.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/app.73281f10.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/app.a05ebe54.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/app.a05ebe54.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-vue/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-vue/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-vue/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-vue/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-vue/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-vue/src/App.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../bear-vue/src/components/ChatRoom.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-vue/src/components/ChatRoom.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-vue/src/components/MapInfo.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-vue/src/components/MapInfo.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-vue/src/components/VideoInfo.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-vue/src/components/VideoInfo.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-vue/src/components/VideoMap.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-vue/src/components/VideoMap.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-vue/src/components/VideoPlayer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-vue/src/components/VideoPlayer.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-vue/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-vue/src/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-vue/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-vue/src/router/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-vue/src/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-vue/src/store/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../bear-vue/src/utils/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-vue/src/utils/api.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../bear-vue/src/views/home/Home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-vue/src/views/home/Home.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../bear-vue/src/views/live/Live.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-vue/src/views/live/Live.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../bear-vue/src/views/login/Login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-vue/src/views/login/Login.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-vue/src/views/map/Map.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-vue/src/views/map/Map.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../bear-vue/src/views/record/LatestRecord.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-vue/src/views/record/LatestRecord.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-vue/src/views/record/Record.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-vue/src/views/record/Record.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-vue/src/views/user/UserManage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-vue/src/views/user/UserManage.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,18 +40,6 @@
         <option value="Class" />
       </list>
     </option>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>getLiveVideos</find>
-      <find>sendMessage</find>
-      <find>session</find>
-      <find>userId</find>
-      <find>userTel</find>
-    </findStrings>
-    <replaceStrings>
-      <replace>userTel</replace>
-    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -205,7 +143,8 @@
       <workItem from="1593136550778" duration="913000" />
       <workItem from="1593147347978" duration="1578000" />
       <workItem from="1593150853672" duration="947000" />
-      <workItem from="1593169343797" duration="20663000" />
+      <workItem from="1593169343797" duration="25282000" />
+      <workItem from="1593390528631" duration="15884000" />
     </task>
     <servers />
   </component>
@@ -229,54 +168,54 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1593147485379" />
-    <state width="1865" height="220" key="GridCell.Tab.0.bottom" timestamp="1593322228646">
+    <state width="1865" height="247" key="GridCell.Tab.0.bottom" timestamp="1593443858446">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1865" height="220" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1593322228646" />
-    <state width="1865" height="220" key="GridCell.Tab.0.center" timestamp="1593322228645">
+    <state width="1865" height="247" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1593443858446" />
+    <state width="1865" height="247" key="GridCell.Tab.0.center" timestamp="1593443858446">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1865" height="220" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1593322228645" />
-    <state width="1865" height="220" key="GridCell.Tab.0.left" timestamp="1593322228645">
+    <state width="1865" height="247" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1593443858446" />
+    <state width="1865" height="247" key="GridCell.Tab.0.left" timestamp="1593443858446">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1865" height="220" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1593322228645" />
-    <state width="1865" height="220" key="GridCell.Tab.0.right" timestamp="1593322228645">
+    <state width="1865" height="247" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1593443858446" />
+    <state width="1865" height="247" key="GridCell.Tab.0.right" timestamp="1593443858446">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1865" height="220" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1593322228645" />
-    <state width="1865" height="220" key="GridCell.Tab.1.bottom" timestamp="1593322228562">
+    <state width="1865" height="247" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1593443858446" />
+    <state width="1865" height="244" key="GridCell.Tab.1.bottom" timestamp="1593443858435">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1865" height="220" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1593322228562" />
-    <state width="1865" height="220" key="GridCell.Tab.1.center" timestamp="1593322228562">
+    <state width="1865" height="244" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1593443858435" />
+    <state width="1865" height="244" key="GridCell.Tab.1.center" timestamp="1593443858435">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1865" height="220" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1593322228562" />
-    <state width="1865" height="220" key="GridCell.Tab.1.left" timestamp="1593322228562">
+    <state width="1865" height="244" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1593443858435" />
+    <state width="1865" height="244" key="GridCell.Tab.1.left" timestamp="1593443858435">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1865" height="220" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1593322228562" />
-    <state width="1865" height="220" key="GridCell.Tab.1.right" timestamp="1593322228562">
+    <state width="1865" height="244" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1593443858435" />
+    <state width="1865" height="244" key="GridCell.Tab.1.right" timestamp="1593443858435">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1865" height="220" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1593322228562" />
-    <state width="1865" height="220" key="GridCell.Tab.2.bottom" timestamp="1593322228562">
+    <state width="1865" height="244" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1593443858435" />
+    <state width="1865" height="244" key="GridCell.Tab.2.bottom" timestamp="1593443858435">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1865" height="220" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1593322228562" />
-    <state width="1865" height="220" key="GridCell.Tab.2.center" timestamp="1593322228562">
+    <state width="1865" height="244" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1593443858435" />
+    <state width="1865" height="244" key="GridCell.Tab.2.center" timestamp="1593443858435">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1865" height="220" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1593322228562" />
-    <state width="1865" height="220" key="GridCell.Tab.2.left" timestamp="1593322228562">
+    <state width="1865" height="244" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1593443858435" />
+    <state width="1865" height="244" key="GridCell.Tab.2.left" timestamp="1593443858435">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1865" height="220" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1593322228562" />
-    <state width="1865" height="220" key="GridCell.Tab.2.right" timestamp="1593322228562">
+    <state width="1865" height="244" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1593443858435" />
+    <state width="1865" height="244" key="GridCell.Tab.2.right" timestamp="1593443858435">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1865" height="220" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1593322228562" />
+    <state width="1865" height="244" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1593443858435" />
     <state x="461" y="0" key="SettingsEditor" timestamp="1593218344058">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

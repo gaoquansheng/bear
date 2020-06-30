@@ -1,7 +1,8 @@
-/* eslint-disable */
+
 <template>
   <el-form
     :rules="rules"
+    :model="loginForm"
     class="login-container"
     label-position="left"
     label-width="0px"
@@ -9,7 +10,7 @@
     ref="loginForm"
   >
     <h3 class="login_title">系统登录</h3>
-    <el-form-item prop="account">
+    <el-form-item prop="userTel">
       <el-input
         type="text"
         v-model="loginForm.userTel"
@@ -17,7 +18,7 @@
         placeholder="手机号"
       ></el-input>
     </el-form-item>
-    <el-form-item prop="checkPass">
+    <el-form-item prop="userPwd">
       <el-input
         type="password"
         v-model="loginForm.userPwd"
@@ -31,7 +32,7 @@
     <el-form-item style="width: 100%">
       <el-button
         type="primary"
-        @click.native.prevent="submitClick"
+        @click.native.prevent="submitClick('loginForm')"
         style="width: 100%"
         >登录</el-button
       >
@@ -44,9 +45,10 @@ import { postRequest } from "../../utils/api";
 export default {
   data() {
     return {
+      //elementui验证规则中rules中的键值必须与v-model中的键值一致
       rules: {
-        account: [{ required: true, message: "请输入用户名", trigger: "blur" }],
-        checkPass: [{ required: true, message: "请输入密码", trigger: "blur" }]
+        userTel: [{ required: true, message: "请输入手机号", trigger: "blur" }],
+        userPwd: [{ required: true, message: "请输入密码", trigger: "blur" }]
       },
       checked: true,
       loginForm: {
@@ -57,25 +59,32 @@ export default {
     };
   },
   methods: {
-    submitClick() {
-      var _this = this;
-      this.loading = true;
-      postRequest("/web/login", _this.loginForm).then(
-        resp => {
-          _this.loading = false;
-          if (resp.data) {
-            _this.$store.commit("login",resp.data);
-            _this.$router.replace({ path: "/home" });
-          } else {
-            _this.$alert("登录失败!", "失败!");
-          }
-        },
-        resp => {
-          console.log(resp);
-          _this.loading = false;
-          _this.$alert("找不到服务器⊙﹏⊙∥!", "失败!");
+    submitClick(formName) {
+      this.$refs[formName].validate((valid) => {    
+        if(valid){
+          let _this = this;
+          this.loading = true;
+          postRequest("/web/login", this.loginForm).then(
+            resp => {
+              _this.loading = false;         
+              if (resp.data) {
+                _this.$store.commit("login",resp.data);
+                _this.$router.replace({ path: "/home" });
+              } else {
+                _this.$alert("手机号或密码错误!", "失败!");
+              }
+            },
+            //eslint-disable-next-line
+            resp => {
+              _this.loading = false;
+              _this.$alert("找不到服务器⊙﹏⊙∥!", "失败!");
+            }
+          );
+        }else{
+          return false;
         }
-      );
+      })
+
     }
   }
 };

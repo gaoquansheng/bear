@@ -13,8 +13,8 @@
       </ul>
     </div>
     <div class="bottom">
-      <el-input v-model="message" placeholder="请输入信息" />
-      <el-button @click.native="sendMessage">发送</el-button>
+      <el-input v-model="message" @keyup.enter.native="websocketsend" placeholder="请输入信息" />
+      <el-button @click.native="websocketsend">发送</el-button>
     </div>
   </div>
 </template>
@@ -24,33 +24,21 @@ export default {
   data() {
     return {
       message: "",
-      userTelList: this.initUserTels,
       websock: null,
       chatList: [],
       websocketUrl:
       "ws://192.168.1.29:8080/webSocketServer/" + this.$store.state.userTel,
-      receivedUserTels: this.initUserTels
+      receivedUserTels: this.checkedUserTels
     };
   },
   props: {
     //接受信息的人员名单
-    initUserTels: {
+    checkedUserTels: {
       type: Array
     }
   },
   methods: {
-    sendMessage() {
-      console.log(this.userTelList);
-      
-      // if (this.message != "") {
-      //   if(this.userTelList.length == 0){
-      //     this.$message("请选择要发送的用户")
-      //   }else{
-      //     this.websock.websocketsend()
-      //     this.message = "";
-      //   }
-      // }
-    },
+
     initWebSocket() {
       //初始化weosocket
       this.websock = new WebSocket(this.websocketUrl);
@@ -83,15 +71,32 @@ export default {
     },
 
     //两个方法
-    websocketsend(message) {
-      //数据发送
-      let data = {
-        userTel: this.$store.state.userTel,
-        message: message,
+    websocketsend() {     
+      switch(this.websock.readyState){
+        case 0:
+          this.$message("正在连接中，请稍后重试");
+          return false;
+        case 2:
+          this.$message("连接正在关闭");
+          return false;
+        case 3:
+          this.$message("没有连接到服务器");
+          return false;
+      }
+      if(this.receivedUserTels.length == 0){
+        this.$message("请选择要发送的用户");
+      }else if(this.message == ""){
+        this.$message("请填写要发送的信息");
+      }else{
+        let data = {
+        sendUserTel: this.$store.state.userTel,
+        message: this.message,
         sendTime: new Date(),
-        receivedUserTels:this.receivedUserTels.join(",")
-      };
-      this.websock.send(JSON.stringify(data));
+        userTels:this.receivedUserTels.join(",")
+        };
+        this.websock.send(JSON.stringify(data));
+      }
+
     },
     //eslint-ignore-next-line
     websocketclose() {

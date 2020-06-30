@@ -112,25 +112,30 @@ public class WebServiceImpl implements WebService {
     }
 
     @Override
-    public List<Video> findAllVideos(Video video) {
+    public List<Video> getRecordVideos(Video video) {
         //通过返回的所有的手机号,匹配手机号对应的用户名
-        return webMapper.findAllVideos(video);
+
+        return webMapper.getRecordVideos(video);
 
     }
 
     @Override
     public RespBean addTitleById(String[] ids, String title) {
-        webMapper.addTitleById(ids,title);
-        return null;
-    }
+        if(webMapper.addTitleById(ids,title) == ids.length){
+            return new RespBean("添加成功",200);
+        }else{
+            return new RespBean("添加失败",400);
+        }
 
+    }
     @Override
-    public List<Video> findLatestVideos(Video video) {
-        return webMapper.findLatestVideos(video);
+    public List<Video> getLatestVideos(Video video) {
+        return webMapper.getLatestVideos(video);
     }
 
     @Override
     public List<Video> getLiveVideos(Video video) {
+        System.out.println(video.toString());
         return webMapper.getLiveVideos(video);
     }
 }

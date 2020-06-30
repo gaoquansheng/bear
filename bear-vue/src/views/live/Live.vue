@@ -2,11 +2,11 @@
 <template>
   <div>
     <el-row :gutter="10">
-      <el-col :span="8">
-        <el-input v-model="title" placeholder="请输入标题"></el-input>
+      <el-col :span="5">
+        <el-input v-model="title" @keyup.enter.native="getLiveVideos" placeholder="请输入标题或用户姓名"></el-input>
       </el-col>
       <el-col :span="2">
-        <el-button type="success" @click="initVideos">搜索</el-button>
+        <el-button type="success" @click="getLiveVideos">搜索</el-button>
       </el-col>
       <el-col :span="2">
         <el-button
@@ -16,7 +16,7 @@
           @click="patten = !patten"
         ></el-button>
       </el-col>
-      <el-col :span="6">
+      <el-col :span="4">
         <el-select v-model="videoSpan" placeholder="请选择布局">
         <el-option
           v-for="item in options"
@@ -29,17 +29,16 @@
     </el-row>
     <!-- 默认为列表模式 -->
     <div v-if="patten">
-      <el-row>
+      <el-row v-show="liveVideoList.length != 0">
         <el-col :span="18">
 
           <el-checkbox :indeterminate="isIndeterminate" v-model="checkAll" @change="handleCheckAllChange">全选</el-checkbox>
           <div style="margin: 15px 0;"></div>
 
-          <el-row :gutter="10">
+          <el-row :gutter="20">
             <el-checkbox-group v-model="checkedUserTels" @change="handleChange">
 
-            <draggable v-model="liveVideoList" class="list-group" :animation='200'>
-              <transition-group name='flip-list'>
+            <draggable v-model="liveVideoList" @start="testStart" @end="testEnd" class="list-group" :animation='200'>
                 <el-col
                   :span="videoSpan"
                   v-for="(video, id) in liveVideoList"
@@ -47,6 +46,7 @@
                 >
                   <div class="dislike" @click="dislikeVideo(video, id)">x</div>
                   <VideoPlayer
+                    :ref="'video'+video.videoId"
                     :options="{
                       controls: true,
                       autoplay: true,
@@ -61,18 +61,18 @@
                     <div style="display:none"></div>
                   </el-checkbox>
                 </el-col>
-              </transition-group>
               </draggable>
-
             </el-checkbox-group>
           </el-row>
+                      
+
         </el-col>
         <el-col :span="5">
           <ChatRoom
             ref="chat"
-            :initUserTels="checkedUserTels_"
-            @liveVideo="getLiveVideo"
-            @keyup.enter.native="send"
+            :checkedUserTels="checkedUserTels_"
+            @liveVideo="newLive"
+            
           ></ChatRoom>
         </el-col>
       </el-row>
@@ -136,38 +136,16 @@ export default {
     draggable
   },
   methods: {
-    initVideos() {
-      var _this = this;
-      var video = {
-        flag: 1,
+    getLiveVideos() {
+      let _this = this;
+      let video = {
         title: this.title
       };
-      postRequest("/web/liveVideos", video).then(
+      postRequest("/web/liveVideos",video).then(
+        //
         resp => {
-          //这里遍历循环,
-          for (let item of resp.data) {
-            //判断这一项原来的列表中有吗,如果有就跳过,没有就push进去
-            if (
-              JSON.stringify(_this.liveVideoList).indexOf(
-                JSON.stringify(item)
-              ) == -1 &&
-              JSON.stringify(_this.dislikeVideoList).indexOf(
-                JSON.stringify(item)
-              ) == -1
-            ) {
-              _this.liveVideoList.push(item);
-            }
-          }
-          //这里再来个for循环,删除不存在的视频
-          for (var i = 0; i < _this.liveVideoList.length; i++) {
-            if (
-              JSON.stringify(resp.data).indexOf(
-                JSON.stringify(_this.liveVideoList[i])
-              ) == -1
-            ) {
-              _this.liveVideoList.splice(i, 1);
-            }
-          }
+          //这里目前先这样做吧。没有加dislikevideoList的筛选条件。默认搜索就会充值dislikeVideoList
+          _this.liveVideoList = resp.data;
         },
         resp => {
           console.log(resp.data);
@@ -180,12 +158,8 @@ export default {
       this.liveVideoList.splice(id, 1);
       this.dislikeVideoList.push(video);
     },
-    getLiveVideo(data){
-      console.log(data);
-      this.liveVideoList.push(data);
-    },
-    send() {
-      this.$refs.chat.sendMessage();
+    newLive(video){
+      this.liveVideoList.push(video);
     },
     handleCheckAllChange(val) {
         this.checkedUserTels = val ? this.liveVideoList.map(video =>video.userTel) : [];
@@ -200,13 +174,21 @@ export default {
         this.isIndeterminate = checkedCount > 0 && checkedCount < this.liveVideoList.length;
         this.checkedUserTels_.splice(0,this.checkedUserTels_.length);
         this.checkedUserTels.forEach(userTel => this.checkedUserTels_.push(userTel));
-      }
+    },
+    testStart(el){
+      console.log(el);
+      
+      console.log("开始了");
+      this.$refs['video113'][0].dis()
+    },
+    testEnd(){
+      console.log("结束了");
+      // this.$refs['video113'][0].init();
+    }
   },
 
   mounted() {
-    this.initVideos();
-    //放置一个定时器,
-    // this.timer = setInterval(this.initVideos,10000)
+    this.getLiveVideos();
   },
  
 
@@ -233,7 +215,7 @@ export default {
   cursor: pointer;
 }
 .dislike:hover {
-  background-color: red;
+  background-color: gray;
   color: white;
 }
 </style>

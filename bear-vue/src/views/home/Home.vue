@@ -114,6 +114,9 @@ export default {
   display: inline;
 }
 .el-footer {
+  position: fixed;
+  bottom: 0px;
+  width:100%;
   background-color: #b3c0d1;
   color: #333;
   text-align: center;

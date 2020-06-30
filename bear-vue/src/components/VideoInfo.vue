@@ -24,6 +24,22 @@ export default {
       type: Object
     }
   },
+  // directives: {
+  //   drag(el){
+  //     // let _this = this;
+  //     el.onmousedown = function(){
+  //       document.onmousemove = function(){
+  //         console.log("移动了");
+  //         document.onmouseup = function(){
+  //         console.log("结束了");
+        
+  //         document.onmouseup = document.onmousemove = null
+  //       }
+  //       }
+
+  //     }
+  //   }
+  // },
   filters: {
     timeFormat(time) {
       var date = new Date(time);

@@ -2,7 +2,7 @@
 <template>
   <div>
     <el-row :gutter="10">
-      <el-col :span="8">
+      <el-col :span="6">
         <el-date-picker
           v-model="videoFilterFactors.timeRange"
           type="daterange"
@@ -17,7 +17,7 @@
         >
         </el-date-picker>
       </el-col>
-      <el-col :span="8">
+      <el-col :span="6">
         <el-input
           v-model="videoFilterFactors.title"
           placeholder="请输入标题"
@@ -26,7 +26,7 @@
       <el-col :span="2">
         <el-button type="success" @click="initVideos">搜索</el-button>
       </el-col>
-      <el-col :span="2" :offset="4">
+      <el-col :span="2" >
         <el-button
           type="success"
           :title="patten ? '切换地图模式' : '切换列表模式'"
@@ -117,33 +117,34 @@ export default {
 
   methods: {
     initVideos() {
-      var _this = this;
-      var video;
-      if (
-        this.videoFilterFactors.timeRange == null ||
-        this.videoFilterFactors.timeRange == ""
-      ) {
-        video = {
-          flag: 0,
-          title: this.videoFilterFactors.title
-        };
-      } else {
-        video = {
-          flag: 0,
-          title: this.videoFilterFactors.title,
-          startTime: this.videoFilterFactors.timeRange[0],
-          endTime: this.videoFilterFactors.timeRange[1]
-        };
-      }
+      let _this = this;
+      let video = {
+        title: this.videoFilterFactors.title,
+        startTime: this.videoFilterFactors.timeRange[0],
+        endTime: this.videoFilterFactors.timeRange[1]
+      };
+      console.log(video);
+      
+      // if (
+      //   this.videoFilterFactors.timeRange == null ||
+      //   this.videoFilterFactors.timeRange == ""
+      // ) {
+      //   video = {
+      //     flag: 0,
+      //     title: this.videoFilterFactors.title
+      //   };
+      // } else {
+      //   video = {
+      //     flag: 0,
+      //     title: this.videoFilterFactors.title,
+      //     startTime: this.videoFilterFactors.timeRange[0],
+      //     endTime: this.videoFilterFactors.timeRange[1]
+      //   };
+
+      // }
       postRequest("/web/videos", video).then(resp => {
-        _this.recordVideoList.splice(0, _this.recordVideoList.length); //重新赋值数组后会无法追踪数组
-        //直接将数组进行赋值就会使得vue无法跟踪数组吗?
-        //为什么修改数组之后没办法触发呢
-        //这里是因为数组的更新检测
-        for (let item of resp.data) {
-          //判断这一项原来的列表中有吗,如果有就跳过,没有就push进去
-          _this.recordVideoList.push(item);
-        }
+        _this.recordVideoList = resp.data;
+
       });
     }
   },

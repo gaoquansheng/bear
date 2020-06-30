@@ -76,32 +76,11 @@ public class WebSocketServer {
     public void onMessage(Session session,Message message)throws Exception {
         System.out.println("接收到用户发来的消息:报文:"+message);
         //这里接受消息,然后发送
-//        for (String userTel:message.getReceivedUserTel().split(",")){
-////            webSocketMap.get(userTel).session.getBasicRemote().sendObject(message);
-////        }
-        for (Session s:session.getOpenSessions()){
-            s.getBasicRemote().sendObject(message);
+        for (String userTel:message.getUserTels().split(",")){
+            webSocketMap.get(userTel).session.getBasicRemote().sendObject(message);
         }
-        //可以群发消息
-        //消息保存到数据库、redis
-//        if(StringUtils.isNotBlank(message)){
-//            try {
-//                //解析发送的报文
-//                JSONObject jsonObject = JSON.parseObject(message);
-//                //追加发送人(防止串改)
-//                jsonObject.put("fromuserTel",this.userTel);
-//                String touserTel=jsonObject.getString("touserTel");
-//                //传送给对应touserTel用户的websocket
-//                if(StringUtils.isNotBlank(touserTel)&&webSocketMap.containsKey(touserTel)){
-//                    webSocketMap.get(touserTel).sendMessage(jsonObject.toJSONString());
-//                }else{
-//                    System.out.println("请求的userTel:"+touserTel+"不在该服务器上");
-//                    //否则不在这个服务器上，发送到mysql或者redis
-//                }
-//            }catch (Exception e){
-//                e.printStackTrace();
-//            }
-//        }
+
+
     }
 
 
@@ -109,6 +88,7 @@ public class WebSocketServer {
     public void sendLiveVideo(Video video){
         for(String key: webSocketMap.keySet()){
             try {
+                //这里给全部的人发送的直播信息，应该要判断一下才行。
                 webSocketMap.get(key).session.getBasicRemote().sendObject(video);
             } catch (IOException e) {
                 e.printStackTrace();
