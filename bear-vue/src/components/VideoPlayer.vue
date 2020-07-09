@@ -1,6 +1,6 @@
 <template>
   <div class="videoPlayer" >
-    <video ref="videoPlayer" class="video-js vjs-big-play-centered"></video>
+    <video ref="videoPlayer" class="video-js vjs-time-control vjs-remaining-time vjs-big-play-centered"></video>
     <!-- <div class="time">时间</div> -->
   </div>
 </template>
@@ -43,10 +43,13 @@ export default {
     },
     init() {
       // videojs.options.flash.swf = "https://cdn.bootcss.com/videojs-swf/5.4.1/video-js.swf";
+      videojs.options.aspectRatio = "4:3"
       this.player = videojs(
         this.$refs.videoPlayer,
-        this.options
+        this.options,function(){
+        }
       );
+      
     },
     setCurrentTime(startTime,latestTime){
       let seconds = this.getSeconds(startTime,latestTime);
@@ -64,6 +67,8 @@ export default {
 };
 </script>
 <style scoped>
+.video-js .vjs-time-control{display:block;}
+.video-js .vjs-remaining-time{display: none;}
 
 .title {
   text-align: left;

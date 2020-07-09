@@ -50,7 +50,7 @@
                     :options="{
                       controls: true,
                       autoplay: true,
-                      muted: true,
+                      //muted: true,
                       fluid: true,
                       liveui: true,
                       sources: [{ src: video.url, type: 'rtmp/flv' }]
@@ -90,6 +90,7 @@ import VideoMap from "@/components/VideoMap.vue";
 import VideoInfo from "@/components/VideoInfo.vue";
 import ChatRoom from "@/components/ChatRoom.vue";
 import draggable from "vuedraggable"
+
 export default {
   data() {
     return {
@@ -186,9 +187,10 @@ export default {
       // this.$refs['video113'][0].init();
     }
   },
-
   mounted() {
     this.getLiveVideos();
+
+    
   },
  
 

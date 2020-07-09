@@ -52,25 +52,43 @@ public class VideoController {
 
     @RequestMapping("/record")
     public void recordDone(HttpServletRequest request){
-        System.out.println("结束了");
+
         String fileName = request.getParameter("path");
         String userTel = request.getParameter("name");
         String tcurl = request.getParameter("tcurl");
         String[] fileUrl = tcurl.split("/");
-        String path = fileUrl[0]+"//"+fileUrl[2]+fileName;
+
+        //这里调用yamdi对视频进行添加关键帧
+        String newFileName = metadataToVideo(fileName);
+        String path = fileUrl[0]+"//"+fileUrl[2]+newFileName;
         Date date = new Date();
         Video video = new Video();
         video.setEndTime(date);
         video.setFlag(0);
         video.setVideoUrl(path);
         video.setUserTel(userTel);
-        //遍历输出req中的所有属性和值
-        StringBuffer stringBuffer = new StringBuffer();
-        stringBuffer.append("C:\\Users\\GM\\Desktop\\yamdi-1.9-win32\\yamdi.exe -i");
-//        stringBuffer.append("yamdi -i");
-        stringBuffer.append(request.getParameter("path"));
-        stringBuffer.append("-o /vod/demo1.flv");
-//        String[] env = {"path=C:\\Users\\GM\\Desktop\\yamdi-1.9-win32"};
+
+        Enumeration paramNames = request.getParameterNames();
+        while (paramNames.hasMoreElements()) {
+            String paraName=(String)paramNames.nextElement();
+            System.out.println(paraName+": "+request.getParameter(paraName));
+        }
+        videoService.recordDone(video);
+    }
+
+    public static String metadataToVideo(String path){
+        //区分操作系统来进行不同的命令
+        String osName = System.getProperty("os.name");
+        StringBuilder stringBuffer = new StringBuilder();
+        if (osName.equals("Linux")){
+            stringBuffer.append("/bin/sh -c yamdi -i");
+        }else {
+            stringBuffer.append("cmd /c yamdi -i ");
+        }
+        stringBuffer.append(path);
+        stringBuffer.append(" -o ");
+        String newPath = path.split("\\.")[0]+"_."+path.split("\\.")[1];
+        stringBuffer.append(newPath);
         System.out.println(stringBuffer.toString());
         Runtime runtime = Runtime.getRuntime();
         try {
@@ -78,13 +96,7 @@ public class VideoController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-//        Enumeration paramNames = request.getParameterNames();
-//        while (paramNames.hasMoreElements()) {
-//            String paraName=(String)paramNames.nextElement();
-//            System.out.println(paraName+": "+request.getParameter(paraName));
-//        }
-        videoService.recordDone(video);
+        return newPath;
     }
 
 }

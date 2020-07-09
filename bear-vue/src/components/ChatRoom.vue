@@ -6,7 +6,8 @@
       <ul>
         <li v-for="(chat, index) in chatList" class="list-item" :key="index">
           <div class="userMessage">
-            <span>{{ chat.userTel }}:</span>
+            <span>{{ chat.sendUserTel }}:</span>
+            <span class="userTel" v-for="(userTel,inx) in chat.userTels.split(',')" :key="inx">@{{userTel}}</span>
             <span>{{ chat.message }}</span>
           </div>
         </li>
@@ -95,6 +96,8 @@ export default {
         userTels:this.receivedUserTels.join(",")
         };
         this.websock.send(JSON.stringify(data));
+        this.chatList.push(data);
+        this.message = "";
       }
 
     },
@@ -109,9 +112,14 @@ export default {
     ele.scrollTop = ele.scrollHeight;
   },
   created() {
+    if(sessionStorage.getItem("message")){    
+      this.chatList = JSON.parse(sessionStorage.getItem("message"));
+    }
     this.initWebSocket();
   },
   destroyed() {
+    //把聊天记录存储起来
+    sessionStorage.setItem("message",JSON.stringify(this.chatList))
     this.websock.close(); //离开路由之后断开websocket连接
   }
       
@@ -151,7 +159,13 @@ span:first-child {
   color: red;
   margin: 0 5px;
 }
-span:nth-child(2) {
+.userMessage .userTel {
+  background-color: #f6f8fa;
+  border-radius: 10%;
+  margin-right: 10px;
+  /* color: grey; */
+}
+span:last-child(3) {
   color: black;
 }
 .top {

@@ -65,9 +65,7 @@
 
 <script>
 export default {
-  mounted() {
-    // console.log(this.$router);
-  },
+
   methods: {
     handleCommand(command){
       this[command]();

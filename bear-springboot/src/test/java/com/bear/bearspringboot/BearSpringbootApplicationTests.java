@@ -9,10 +9,19 @@ import java.util.Arrays;
 class BearSpringbootApplicationTests {
 
     public static void main(String[] args) {
-        String test = "rtmp://localhost:1935/live";
-        String[] split = test.split("/");
-        System.out.println(Arrays.toString(split));
-        System.out.println(split[0]+"//"+split[2]);
+        String property = System.getProperty("os.name");
+        System.out.println(property);
+        StringBuffer buffer = new StringBuffer();
+        buffer.append("cmd /k");
+        buffer.append(" yamdi -i \\vod\\bear.flv");
+        buffer.append(" -o \\vod\\bear1.flv");
+
+        Runtime runtime = Runtime.getRuntime();
+        try {
+            runtime.exec(buffer.toString());
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
 }

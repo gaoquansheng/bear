@@ -2,30 +2,66 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4753f691-2808-42eb-b64f-230ce927ccd4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../bear-app/pages/home/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-app/pages/home/index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/dev/app-plus/app-service.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-app/unpackage/dist/dev/app-plus/app-service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-app/unpackage/dist/dev/app-plus/app-view.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-app/unpackage/dist/dev/app-plus/app-view.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/app.d01e7940.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/chunk-vendors.666a38da.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/app.8e4e78c0.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/app.8e4e78c0.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/chunk-vendors.c206dbec.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/chunk-vendors.c206dbec.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/controller/VideoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/controller/VideoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/controller/WebController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/controller/WebController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/dao/WebMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/dao/WebMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/dao/WebMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/dao/WebMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/service/WebService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/service/WebService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/service/impl/WebServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/service/impl/WebServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/util/WebSocketServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bear/bearspringboot/util/WebSocketServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/app.1b16bf75.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/chunk-vendors.22997d10.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/app.b1d0fe99.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/app.b1d0fe99.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/chunk-vendors.9214aefc.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/chunk-vendors.9214aefc.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/bear/bearspringboot/BearSpringbootApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/bear/bearspringboot/BearSpringbootApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bear-springboot-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/bear-springboot-0.0.1-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/bear-springboot-0.0.1-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/target/bear-springboot-0.0.1-SNAPSHOT.jar.original" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/BearSpringbootApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/BearSpringbootApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/config/WebSocketConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/config/WebSocketConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/controller/AppController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/controller/AppController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/controller/VideoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/controller/VideoController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/controller/WebController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/controller/WebController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/dao/AppMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/dao/AppMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/dao/VideoMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/dao/VideoMapper.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/dao/WebMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/dao/WebMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/dao/WebMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/dao/WebMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/entity/Message.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/entity/Message.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/entity/RespBean.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/entity/RespBean.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/entity/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/entity/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/entity/Video.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/entity/Video.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/service/AppService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/service/AppService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/service/VideoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/service/VideoService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/service/WebService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/service/WebService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/service/impl/AppServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/service/impl/AppServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/service/impl/VideoServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/service/impl/VideoServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/service/impl/WebServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/service/impl/WebServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/util/CORSFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/util/CORSFilter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/util/VideoEncoder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/util/VideoEncoder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/util/WebSocketDecoder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/util/WebSocketDecoder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/util/WebSocketEncoder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/util/WebSocketEncoder.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/util/WebSocketServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/bear/bearspringboot/util/WebSocketServer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/css/app.1b16bf75.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/css/chunk-vendors.22997d10.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/js/app.b1d0fe99.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/js/app.b1d0fe99.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/js/chunk-vendors.9214aefc.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/js/chunk-vendors.9214aefc.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/bear/bearspringboot/BearSpringbootApplicationTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/bear/bearspringboot/BearSpringbootApplicationTests.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../bear-vue/src/components/ChatRoom.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-vue/src/components/ChatRoom.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bear-vue/src/components/VideoPlayer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-vue/src/components/VideoPlayer.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../bear-vue/src/utils/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-vue/src/utils/api.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../bear-vue/src/views/home/Home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-vue/src/views/home/Home.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../bear-vue/src/views/live/Live.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-vue/src/views/live/Live.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bear-vue/src/views/login/Login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-vue/src/views/login/Login.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../bear-vue/src/views/record/LatestRecord.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-vue/src/views/record/LatestRecord.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bear-vue/src/views/record/Record.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../bear-vue/src/views/record/Record.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,7 +118,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1592209797589" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../VBlog-master/blogserver" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -91,7 +127,20 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.importing" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Spring Boot.BearSpringbootApplication">
+    <configuration name="BearSpringbootApplicationTests" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.bear.bearspringboot.BearSpringbootApplicationTests" />
+      <module name="bear-springboot" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.bear.bearspringboot.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="BearSpringbootApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="bear-springboot" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.bear.bearspringboot.BearSpringbootApplication" />
@@ -99,6 +148,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.BearSpringbootApplicationTests" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -145,6 +199,18 @@
       <workItem from="1593150853672" duration="947000" />
       <workItem from="1593169343797" duration="25282000" />
       <workItem from="1593390528631" duration="15884000" />
+      <workItem from="1593478185517" duration="3001000" />
+      <workItem from="1593500074704" duration="603000" />
+      <workItem from="1593504096394" duration="609000" />
+      <workItem from="1593655085088" duration="701000" />
+      <workItem from="1593667917229" duration="192000" />
+      <workItem from="1593706946021" duration="1886000" />
+      <workItem from="1593757503405" duration="3215000" />
+      <workItem from="1593834500231" duration="2413000" />
+      <workItem from="1593997563291" duration="7097000" />
+      <workItem from="1594082114720" duration="1167000" />
+      <workItem from="1594113226624" duration="96000" />
+      <workItem from="1594196930327" duration="2067000" />
     </task>
     <servers />
   </component>
@@ -160,69 +226,81 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="471" y="429" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1593321835550" />
-    <state x="693" y="364" width="534" height="324" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1593222198966">
+    <state x="693" y="364" width="534" height="324" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1593757743129">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="693" y="364" width="534" height="324" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1920.1040@0.0.1920.1040" timestamp="1593222198966" />
-    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1593147485379">
+    <state x="693" y="364" width="534" height="324" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1920.1040@0.0.1920.1040" timestamp="1593757743129" />
+    <state x="453" y="9" key="CommitChangelistDialog2" timestamp="1593668078826">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1593147485379" />
-    <state width="1865" height="247" key="GridCell.Tab.0.bottom" timestamp="1593443858446">
+    <state x="453" y="9" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1593668078826" />
+    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1594084316895">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1865" height="247" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1593443858446" />
-    <state width="1865" height="247" key="GridCell.Tab.0.center" timestamp="1593443858446">
+    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1594084316895" />
+    <state width="1865" height="252" key="GridCell.Tab.0.bottom" timestamp="1594196991959">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1865" height="247" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1593443858446" />
-    <state width="1865" height="247" key="GridCell.Tab.0.left" timestamp="1593443858446">
+    <state width="1865" height="252" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1594196991959" />
+    <state width="1865" height="252" key="GridCell.Tab.0.center" timestamp="1594196991959">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1865" height="247" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1593443858446" />
-    <state width="1865" height="247" key="GridCell.Tab.0.right" timestamp="1593443858446">
+    <state width="1865" height="252" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1594196991959" />
+    <state width="1865" height="252" key="GridCell.Tab.0.left" timestamp="1594196991959">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1865" height="247" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1593443858446" />
-    <state width="1865" height="244" key="GridCell.Tab.1.bottom" timestamp="1593443858435">
+    <state width="1865" height="252" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1594196991959" />
+    <state width="1865" height="252" key="GridCell.Tab.0.right" timestamp="1594196991959">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1865" height="244" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1593443858435" />
-    <state width="1865" height="244" key="GridCell.Tab.1.center" timestamp="1593443858435">
+    <state width="1865" height="252" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1594196991959" />
+    <state width="1865" height="252" key="GridCell.Tab.1.bottom" timestamp="1594084455090">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1865" height="244" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1593443858435" />
-    <state width="1865" height="244" key="GridCell.Tab.1.left" timestamp="1593443858435">
+    <state width="1865" height="252" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1594084455090" />
+    <state width="1865" height="252" key="GridCell.Tab.1.center" timestamp="1594084455089">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1865" height="244" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1593443858435" />
-    <state width="1865" height="244" key="GridCell.Tab.1.right" timestamp="1593443858435">
+    <state width="1865" height="252" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1594084455089" />
+    <state width="1865" height="252" key="GridCell.Tab.1.left" timestamp="1594084455089">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1865" height="244" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1593443858435" />
-    <state width="1865" height="244" key="GridCell.Tab.2.bottom" timestamp="1593443858435">
+    <state width="1865" height="252" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1594084455089" />
+    <state width="1865" height="252" key="GridCell.Tab.1.right" timestamp="1594084455090">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1865" height="244" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1593443858435" />
-    <state width="1865" height="244" key="GridCell.Tab.2.center" timestamp="1593443858435">
+    <state width="1865" height="252" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1594084455090" />
+    <state width="1865" height="252" key="GridCell.Tab.2.bottom" timestamp="1594084455090">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1865" height="244" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1593443858435" />
-    <state width="1865" height="244" key="GridCell.Tab.2.left" timestamp="1593443858435">
+    <state width="1865" height="252" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1594084455090" />
+    <state width="1865" height="252" key="GridCell.Tab.2.center" timestamp="1594084455090">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1865" height="244" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1593443858435" />
-    <state width="1865" height="244" key="GridCell.Tab.2.right" timestamp="1593443858435">
+    <state width="1865" height="252" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1594084455090" />
+    <state width="1865" height="252" key="GridCell.Tab.2.left" timestamp="1594084455090">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1865" height="244" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1593443858435" />
-    <state x="461" y="0" key="SettingsEditor" timestamp="1593218344058">
+    <state width="1865" height="252" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1594084455090" />
+    <state width="1865" height="252" key="GridCell.Tab.2.right" timestamp="1594084455090">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="461" y="0" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1593218344058" />
+    <state width="1865" height="252" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1594084455090" />
+    <state x="461" y="0" key="SettingsEditor" timestamp="1593478279203">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="461" y="0" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1593478279203" />
     <state x="747" y="390" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1593181114186">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="747" y="390" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1920.1040@0.0.1920.1040" timestamp="1593181114186" />
+    <state x="219" y="51" key="new project wizard" timestamp="1593752940101">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="219" y="51" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1593752940101" />
+    <state x="539" y="5" width="840" height="1034" key="search.everywhere.popup" timestamp="1594015857175">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="539" y="5" width="840" height="1034" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1594015857175" />
   </component>
 </project>

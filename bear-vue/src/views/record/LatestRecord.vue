@@ -104,6 +104,7 @@ import VideoPlayer from "@/components/VideoPlayer.vue";
 import VideoMap from "@/components/VideoMap.vue";
 import VideoInfo from "@/components/VideoInfo.vue";
 import draggable from "vuedraggable"
+
 export default {
   data() {
     return {

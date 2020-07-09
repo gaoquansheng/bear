@@ -38,13 +38,15 @@
     <!-- 列表模式 -->
     <div v-if="patten">
       <el-row :gutter="40">
-        <el-col :span="6" v-for="video in recordVideoList" :key="video.videoId">
+        <el-col ref="videoWidth" :span="6" v-for="video in recordVideoList" :key="video.videoId">
           <VideoPlayer
             :options="{
               controls: true,
               autoplay: true,
               muted: true,
-              fluid: true,
+              //fluid: true,
+              height: '300',
+              width: '400',
               sources: [{ src: video.videoUrl, type: 'rtmp/flv' }]
             }"
           ></VideoPlayer>
@@ -149,8 +151,12 @@ export default {
     }
   },
   mounted() {
+    //这个可以计算出来视频的宽度和高度
     this.initVideos();
-  }
+   
+    
+  },
+
 };
 </script>
 

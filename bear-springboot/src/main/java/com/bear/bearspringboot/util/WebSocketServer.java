@@ -77,7 +77,11 @@ public class WebSocketServer {
         System.out.println("接收到用户发来的消息:报文:"+message);
         //这里接受消息,然后发送
         for (String userTel:message.getUserTels().split(",")){
-            webSocketMap.get(userTel).session.getBasicRemote().sendObject(message);
+            if(webSocketMap.containsKey(userTel)){
+                webSocketMap.get(userTel).session.getBasicRemote().sendObject(message);
+            }else{
+                System.out.println("未连接");
+            }
         }
 
 

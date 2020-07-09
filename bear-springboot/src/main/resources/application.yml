@@ -2,7 +2,7 @@
 spring:
   datasource:
     username: root
-    # 本地密码aiqinmeng 远程密码aiqinmeng211318
+    # 本地密码aiqinmeng 远程密码aiqinmeng
     password: aiqinmeng
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/bear?serverTimezone=CTT&useUnicode=true&characterEncoding=UTF-8

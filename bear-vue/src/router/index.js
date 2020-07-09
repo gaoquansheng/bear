@@ -1,5 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
+// import store from "@/store/index.js"
 
 import Login from "../views/login/Login";
 import Home from "../views/home/Home";
@@ -89,5 +90,20 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes
 });
+// router.beforeEach((to,from,next) => {
+//   //首先判断访问的路径是不是登录页面，如果是就不加阻止，如果不是
+//   if(to.path == "/"){
+//     next();
+//   }else{
+//     if(store.state.userTel){
+//       console.log("已经登陆了");
+//       next();
+//     }else{
+//       next("/")
+//     }
+//   }
 
+
+
+// })
 export default router;
