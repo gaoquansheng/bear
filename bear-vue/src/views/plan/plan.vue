@@ -1,17 +1,11 @@
 <template>
   <div>
-    <el-row>
-      <el-col :span="4">
-         <el-button type="success" @click="addPlan">新增演练</el-button>
-      </el-col>
-      <el-col :span="4">
-         <el-button type="success" @click="addIndex">添加指标</el-button>
-      </el-col>
-      <el-col :span="4">
-         <el-button type="success">新增演练</el-button>
-      </el-col>
-      <el-col :span="4">
-         <el-button type="success">新增演练</el-button>
+    <el-row :gutter="10">
+      <el-col :span="1.5">
+         <el-button  
+          type="primary"
+          icon="el-icon-plus"
+          size="mini" @click="addPlan">新增演练</el-button>
       </el-col>
     </el-row>
 
@@ -20,10 +14,10 @@
       style="width: 100%"
       @selection-change="handleSelectionChange"
       >
-      <el-table-column
+      <!-- <el-table-column
         type="selection"
         width="55">
-      </el-table-column>
+      </el-table-column> -->
       <el-table-column
         prop="planName"
         label="演练名称"
@@ -40,8 +34,8 @@
       </el-table-column>
     </el-table>
 
-<el-dialog title="新增演练" :visible.sync="flag">
-  <el-form :model="planForm">
+<el-dialog title="新增演练" :visible.sync="flag" width="500px" append-to-body>
+  <el-form :model="planForm" label-width="80px">
     <el-form-item label="演练名称" >
       <el-input v-model="planForm.planName" autocomplete="off"></el-input>
     </el-form-item>
@@ -94,9 +88,6 @@ export default {
     addPlan(){
       this.flag = true;
       this.clearForm();
-    },
-    addIndex(){
-
     },
     submit(){
       //首先验证合法性

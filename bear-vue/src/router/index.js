@@ -9,6 +9,7 @@ import Record from "../views/record/Record";
 import LatestRecord from "../views/record/LatestRecord";
 import UserManage from "../views/user/UserManage";
 import Plan from "../views/plan/plan"
+import Index from "../views/plan/index"
 // import Map from "../views/map/Map"
 
 Vue.use(VueRouter);
@@ -60,8 +61,8 @@ const routes = [
   },
 
   {
-    path: "/plan",
-    name: "演练管理",
+    path: "/home",
+    name: "应急演练配置",
     component: Home,
     iconCls: "fa fa-file-text-o",
     children: [
@@ -69,6 +70,11 @@ const routes = [
         path: "/plan",
         name: "演练管理",
         component: Plan
+      },
+      {
+        path: "/index",
+        name: "指标管理",
+        component: Index
       }
     ]
   },
