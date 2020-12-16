@@ -102,11 +102,11 @@
 /******/
 /******/
 /******/ 		// mini-css-extract-plugin CSS loading
-/******/ 		var cssChunks = {"components/watch-login/watch-button":1,"components/watch-login/watch-input":1};
+/******/ 		var cssChunks = {"components/watch-login/watch-button":1,"components/watch-login/watch-input":1,"components/history":1};
 /******/ 		if(installedCssChunks[chunkId]) promises.push(installedCssChunks[chunkId]);
 /******/ 		else if(installedCssChunks[chunkId] !== 0 && cssChunks[chunkId]) {
 /******/ 			promises.push(installedCssChunks[chunkId] = new Promise(function(resolve, reject) {
-/******/ 				var href = "" + ({"components/watch-login/watch-button":"components/watch-login/watch-button","components/watch-login/watch-input":"components/watch-login/watch-input"}[chunkId]||chunkId) + ".wxss";
+/******/ 				var href = "" + ({"components/watch-login/watch-button":"components/watch-login/watch-button","components/watch-login/watch-input":"components/watch-login/watch-input","components/history":"components/history"}[chunkId]||chunkId) + ".wxss";
 /******/ 				var fullhref = __webpack_require__.p + href;
 /******/ 				var existingLinkTags = document.getElementsByTagName("link");
 /******/ 				for(var i = 0; i < existingLinkTags.length; i++) {

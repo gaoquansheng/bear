@@ -7,9 +7,9 @@ import lombok.Data;
 public class RespBean {
 
     private String msg;
-    private int statusCode;
+    private Integer statusCode;
 
-    public RespBean(String msg, int statusCode) {
+    public RespBean(String msg, Integer statusCode) {
         this.msg = msg;
         this.statusCode = statusCode;
     }
@@ -31,11 +31,11 @@ public class RespBean {
         this.msg = msg;
     }
 
-    public int getStatusCode() {
+    public Integer getStatusCode() {
         return statusCode;
     }
 
-    public void setStatusCode(int statusCode) {
+    public void setStatusCode(Integer statusCode) {
         this.statusCode = statusCode;
     }
 }

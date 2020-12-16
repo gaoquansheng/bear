@@ -46,63 +46,19 @@
 				//#ifdef APP-PLUS
 				isH5Plus: true,
 				//#endif
-				// orderTypeLise: [
-				// 	//name-标题 icon-图标 badge-角标
-				// 	{
-				// 		name: 'mobile',
-				// 		image: 'mobile.png',
-				// 	},
-				// 	{
-				// 		name: 'weibo',
-				// 		image: 'weibo.png',	
-				// 	},
-				// 	{
-				// 		name: 'weixin',
-				// 		image: 'weixin.png',						
-				// 	},
-				// 	{
-				// 		name: 'qq',
-				// 		image: 'QQ.png',	
-				// 	}
-				// ],
 				severList: [
 					[{
 							name: '退出登录',
 							icon: 'point.png',
 							func: "logout"
-						},
-						{
-							name: "历史记录",
-							icon: "quan.png",
-							func: "liveHistory"
 						}
+						// {
+						// 	name: "历史记录",
+						// 	icon: "quan.png",
+						// 	func: "liveHistory"
+						// }
 
 					],
-					// [{
-					// 		name: '积分明细',
-					// 		icon: 'mingxi.png'
-					// 	},
-					// 	{
-					// 		name: '抽奖',
-					// 		icon: 'choujiang.png'
-					// 	},
-					// 	{
-					// 		name: '收货地址',
-					// 		icon: 'addr.png'
-					// 	},
-					// 	{
-					// 		name: '银行卡',
-					// 		icon: 'bank.png'
-					// 	},
-					// 	{
-					// 		name: '安全中心',
-					// 		icon: 'security.png'
-					// 	},
-					// 	{
-					// 		name: '退出登录',
-					// 		icon: 'kefu.png'
-					// 	}
-					// ]
 				],
 			};
 		},

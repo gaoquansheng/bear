@@ -12,9 +12,9 @@ public class User {
     //频道名默认使用userTel
     private String userTel;
     private String userPwd;
-    private int isAdmin;
+    private Integer isAdmin;
 
-    public User(String userName, String userTel, String userPwd, int isAdmin) {
+    public User(String userName, String userTel, String userPwd, Integer isAdmin) {
         this.userName = userName;
         this.userTel = userTel;
         this.userPwd = userPwd;
@@ -56,11 +56,11 @@ public class User {
         this.userPwd = userPwd;
     }
 
-    public int getIsAdmin() {
+    public Integer getIsAdmin() {
         return isAdmin;
     }
 
-    public void setIsAdmin(int isAdmin) {
+    public void setIsAdmin(Integer isAdmin) {
         this.isAdmin = isAdmin;
     }
 }

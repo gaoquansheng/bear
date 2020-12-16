@@ -1,0 +1,11 @@
+
+._h3 {
+		text-align: center;
+}
+._hr {
+	margin: 10px;
+}
+._p {
+	text-indent: 2em;
+}
+

@@ -1,21 +1,16 @@
 package com.bear.bearspringboot.service.impl;
 
-import com.bear.bearspringboot.dao.AppMapper;
-import com.bear.bearspringboot.dao.WebMapper;
+import com.bear.bearspringboot.mapper.AppMapper;
+import com.bear.bearspringboot.mapper.WebMapper;
 import com.bear.bearspringboot.entity.RespBean;
 import com.bear.bearspringboot.entity.User;
 import com.bear.bearspringboot.entity.Video;
 import com.bear.bearspringboot.service.WebService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.web.servlet.server.Session;
 import org.springframework.stereotype.Service;
 
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.List;
 
 @Service

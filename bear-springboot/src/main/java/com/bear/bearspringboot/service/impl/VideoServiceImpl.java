@@ -1,12 +1,10 @@
 package com.bear.bearspringboot.service.impl;
 
-import com.bear.bearspringboot.dao.VideoMapper;
+import com.bear.bearspringboot.mapper.VideoMapper;
 import com.bear.bearspringboot.entity.Video;
 import com.bear.bearspringboot.service.VideoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 public class VideoServiceImpl implements VideoService {

@@ -37,6 +37,7 @@
 	import wInput from '../../components/watch-login/watch-input.vue' //input
 	import wButton from '../../components/watch-login/watch-button.vue' //button
 	//import uniPopup from '@/components/uni-popup/uni-popup.vue'
+	import request from "@/utils/request.js"
 	export default {
 		data() {
 			return {
@@ -99,10 +100,8 @@
 					return;
 				}
 				//登录成功之后将用户名存入缓存之中
-				uni.request({
-					
-					//就算是本地测试也不能习惯性的写localhost要写ip
-					url: "http://192.168.1.29:8080/app/login",
+				request({
+					url: "/app/login",
 					dataType: "json",
 					method:"POST",
 					data:{
@@ -131,6 +130,38 @@
 						})
 					}
 				})
+				// uni.request({
+					
+				// 	//就算是本地测试也不能习惯性的写localhost要写ip
+				// 	url: "http://172.17.71.62:8080/app/login",
+				// 	dataType: "json",
+				// 	method:"POST",
+				// 	data:{
+				// 		userTel: _this.userTel,
+				// 		userPwd: _this.userPwd
+				// 	},
+				// 	success(res) {
+				// 		//判断用户是否存在
+				// 		if (res.data != ""){
+				// 			_this.$store.commit("login",res.data);
+				// 			uni.reLaunch({
+				// 				url:"../me/index"
+				// 			})
+				// 		}else{
+				// 			uni.showToast({
+				// 				position: "bottom",
+				// 				title: "用户名或密码不正确"
+				// 			})
+				// 		}
+						
+				// 	},
+				// 	fail(res) {
+				// 		uni.showToast({
+				// 			position: "bottom",
+				// 			title: "网络错误"
+				// 		})
+				// 	}
+				// })
 				_this.isRotate = true
 				setTimeout(function() {
 					_this.isRotate = false

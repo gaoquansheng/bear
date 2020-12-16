@@ -8,7 +8,7 @@
 </template>
 
 <script>
-	import History from "../../components/history.vue"
+	import History from "@/components/history.vue"
 	export default {
 		data() {
 			return {
@@ -23,7 +23,7 @@
 				//1.首先在刚进入页面的时候利用用户手机号取出来自己所有的历史直播数据
 				let _this = this
 				uni.request({
-						url: "http://39.102.80.119:8080/app/liveHistory/"+this.$store.state.userTel,
+						url: "http://172.17.71.62:8080/app/liveHistory/"+this.$store.state.userTel,
 						dataType: "json",
 						method:"GET",
 						success(res) {

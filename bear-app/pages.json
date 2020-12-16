@@ -20,7 +20,7 @@
 			"path":"pages/me/liveHistory"
 		},
 		{
-            "path" : "pages/me/playVideos",
+            "path" : "pages/live/playVideos",
             "style" : {}
         },
 	    {
@@ -36,11 +36,15 @@
             "style" : {}
         }
         
+        ,{
+            "path" : "pages/live/record",
+            "style" : {}
+        }
     ],
 	//设置应用的状态栏、导航条、标题、窗口背景色等
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
-		"navigationBarTitleText": "uni-app",
+		"navigationBarTitleText": "测试系统",
 		"navigationBarBackgroundColor": "#F8F8F8",
 		"backgroundColor": "#F8F8F8"
 	},
@@ -73,8 +77,8 @@
 			{
 				"pagePath": "pages/live/beforeLive",
 				"iconPath": "static/image/tabbar/add.png",
-				"selectedIconPath": "static/image/tabbar/addactive.png",
-				"text": "直播"
+				"selectedIconPath": "static/image/tabbar/addactive.png"
+				// "text": ""
 			},
 			//#endif
 			// {

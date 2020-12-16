@@ -26,6 +26,7 @@
 		},
 		methods:{
 			playVideo(){
+				console.log(this.videoInfo)
 				uni.navigateTo({
 					url:"./playVideos?videoUrl="+this.video.videoUrl,
 					success(res) {
@@ -45,7 +46,7 @@
 	}
 </script>
 
-<style>
+<style scoped>
 	.main {
 		width: 100%;
 		height: 120rpx;

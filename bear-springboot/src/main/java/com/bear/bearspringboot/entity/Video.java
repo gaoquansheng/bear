@@ -19,12 +19,13 @@ public class Video {
     private Date startTime;
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone="GMT+8")
     private Date endTime;
-    private int flag;
+    private Integer flag;
     private String videoUrl;
-    private int videoId;
+    private Integer videoId;
     private User user;
+    private Integer planId;
 
-    public Video(String title, String userTel, String url, String lat, String lng, Date startTime, Date endTime, int flag, String videoUrl, int videoId, User user) {
+    public Video(String title, String userTel, String url, String lat, String lng, Date startTime, Date endTime, Integer flag, String videoUrl, Integer videoId, User user, Integer planId) {
         this.title = title;
         this.userTel = userTel;
         this.url = url;
@@ -36,6 +37,10 @@ public class Video {
         this.videoUrl = videoUrl;
         this.videoId = videoId;
         this.user = user;
+        this.planId = planId;
+    }
+
+    public Video() {
     }
 
     @Override
@@ -52,10 +57,10 @@ public class Video {
                 ", videoUrl='" + videoUrl + '\'' +
                 ", videoId=" + videoId +
                 ", user=" + user +
+                ", planId=" + planId +
                 '}';
     }
 
-    public Video(){}
     public String getTitle() {
         return title;
     }
@@ -112,11 +117,11 @@ public class Video {
         this.endTime = endTime;
     }
 
-    public int getFlag() {
+    public Integer getFlag() {
         return flag;
     }
 
-    public void setFlag(int flag) {
+    public void setFlag(Integer flag) {
         this.flag = flag;
     }
 
@@ -128,11 +133,11 @@ public class Video {
         this.videoUrl = videoUrl;
     }
 
-    public int getVideoId() {
+    public Integer getVideoId() {
         return videoId;
     }
 
-    public void setVideoId(int videoId) {
+    public void setVideoId(Integer videoId) {
         this.videoId = videoId;
     }
 
@@ -142,5 +147,13 @@ public class Video {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public Integer getPlanId() {
+        return planId;
+    }
+
+    public void setPlanId(Integer planId) {
+        this.planId = planId;
     }
 }

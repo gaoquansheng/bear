@@ -36,7 +36,8 @@
 			return {
 				width: '',
 				height: '',
-				url: 'rtmp://192.168.1.29:1935/live/',//这是推流地址
+				url: 'rtmp://172.17.71.24:1935/live/',//这是推流地址
+				websocketUrl: "ws://172.17.71.24:8080/webSocketServer/",
 				context: null,
 				context1: null,
 				markact: true,
@@ -148,7 +149,7 @@
 				let _this = this;
 				//建立websocket连接
 				this.websocket = uni.connectSocket({
-					url: "ws://192.168.1.29:8080/webSocketServer/"+this.$store.state.userTel,
+					url: this.websocketUrl+this.$store.state.userTel,
 					success:()=>{
 						console.log("连接成功");
 					},

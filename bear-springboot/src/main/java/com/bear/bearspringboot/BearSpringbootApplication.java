@@ -10,8 +10,13 @@ import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpStatus;
 
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.io.Reader;
+import java.io.Writer;
+
 @SpringBootApplication
-@MapperScan("com.bear.bearspringboot.dao")
+@MapperScan("com.bear.bearspringboot.mapper")
 @ServletComponentScan
 public class BearSpringbootApplication {
 
@@ -25,6 +30,7 @@ public class BearSpringbootApplication {
         return factory -> {
             ErrorPage error404Page = new ErrorPage(HttpStatus.NOT_FOUND, "/index.html");
             factory.addErrorPages(error404Page);
+
         };
     }
 

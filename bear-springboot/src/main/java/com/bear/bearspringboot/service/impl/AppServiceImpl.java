@@ -1,6 +1,6 @@
 package com.bear.bearspringboot.service.impl;
 
-import com.bear.bearspringboot.dao.AppMapper;
+import com.bear.bearspringboot.mapper.AppMapper;
 import com.bear.bearspringboot.entity.RespBean;
 import com.bear.bearspringboot.entity.User;
 import com.bear.bearspringboot.entity.Video;

@@ -1,16 +1,18 @@
 {
   "pages": [
     "pages/login/login",
-    "pages/me/index",
-    "pages/me/liveHistory",
-    "pages/live/beforeLive",
     "pages/login/register",
     "pages/login/forget",
-    "pages/home/home"
+    "pages/me/index",
+    "pages/me/liveHistory",
+    "pages/live/playVideos",
+    "pages/live/beforeLive",
+    "pages/home/index",
+    "pages/live/record"
   ],
   "window": {
     "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "uni-app",
+    "navigationBarTitleText": "测试系统",
     "navigationBarBackgroundColor": "#F8F8F8",
     "backgroundColor": "#F8F8F8"
   },
@@ -21,7 +23,7 @@
     "selectedColor": "#f33e54",
     "list": [
       {
-        "pagePath": "pages/home/home",
+        "pagePath": "pages/home/index",
         "iconPath": "static/image/tabbar/home.png",
         "selectedIconPath": "static/image/tabbar/homeactive.png",
         "text": "首页"
@@ -29,8 +31,7 @@
       {
         "pagePath": "pages/live/beforeLive",
         "iconPath": "static/image/tabbar/add.png",
-        "selectedIconPath": "static/image/tabbar/addactive.png",
-        "text": "直播"
+        "selectedIconPath": "static/image/tabbar/addactive.png"
       },
       {
         "pagePath": "pages/me/index",

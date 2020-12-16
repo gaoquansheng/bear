@@ -28,7 +28,7 @@ export default {
       websock: null,
       chatList: [],
       websocketUrl:
-      "ws://192.168.1.29:8080/webSocketServer/" + this.$store.state.userTel,
+      "ws://localhost:8080/webSocketServer/" + this.$store.state.userTel,
       receivedUserTels: this.checkedUserTels
     };
   },
