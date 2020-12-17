@@ -32,6 +32,28 @@ public class User {
                 '}';
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        User user = (User) o;
+
+        if (userName != null ? !userName.equals(user.userName) : user.userName != null) return false;
+        if (userTel != null ? !userTel.equals(user.userTel) : user.userTel != null) return false;
+        if (userPwd != null ? !userPwd.equals(user.userPwd) : user.userPwd != null) return false;
+        return isAdmin != null ? isAdmin.equals(user.isAdmin) : user.isAdmin == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = userName != null ? userName.hashCode() : 0;
+        result = 31 * result + (userTel != null ? userTel.hashCode() : 0);
+        result = 31 * result + (userPwd != null ? userPwd.hashCode() : 0);
+        result = 31 * result + (isAdmin != null ? isAdmin.hashCode() : 0);
+        return result;
+    }
+
     public String getUserName() {
         return userName;
     }

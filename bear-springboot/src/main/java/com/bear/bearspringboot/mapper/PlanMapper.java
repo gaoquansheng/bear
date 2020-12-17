@@ -10,7 +10,8 @@ import java.util.List;
 public interface PlanMapper {
 
     public int addPlan(Plan plan);
-    public int deletePlan(int planId);
+    public int deletePlanById(int planId);
     public int updatePlan(Plan plan);
     public List<Plan> getPlans();
+    Plan getPlanById(int planId);
 }

@@ -7,7 +7,7 @@
         insert into plan(planName,startTime,endTime) values (#{planName},#{startTime},#{endTime})
     </insert>
 
-    <delete id="deletePlan" parameterType="int">
+    <delete id="deletePlanById" parameterType="int">
         delete from plan where planId = #{planId}
     </delete>
 
@@ -19,4 +19,7 @@
         select planId,planName,startTime,endTime from plan;
     </select>
 
+    <select id="getPlanById" parameterType="int" resultType="Plan">
+        select planId,planName,startTime,endTime from plan where planId = #{planId}
+    </select>
 </mapper>

@@ -10,6 +10,7 @@ import LatestRecord from "../views/record/LatestRecord";
 import UserManage from "../views/user/UserManage";
 import Plan from "../views/plan/plan"
 import Index from "../views/plan/index"
+import Attachment from "../views/plan/attachment"
 // import Map from "../views/map/Map"
 
 Vue.use(VueRouter);
@@ -75,6 +76,11 @@ const routes = [
         path: "/index",
         name: "指标管理",
         component: Index
+      },
+      {
+        path: "/attachment",
+        name: "附件管理",
+        component: Attachment
       }
     ]
   },

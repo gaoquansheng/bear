@@ -22,8 +22,8 @@ public class PlanServiceImpl implements PlanService {
     }
 
     @Override
-    public RespBean deletePlan(int planId) {
-        planMapper.deletePlan(planId);
+    public RespBean deletePlanById(int planId) {
+        planMapper.deletePlanById(planId);
         return null;
     }
 
@@ -36,5 +36,10 @@ public class PlanServiceImpl implements PlanService {
     @Override
     public List<Plan> getPlans() {
         return planMapper.getPlans();
+    }
+
+    @Override
+    public Plan getPlanById(int planId) {
+        return planMapper.getPlanById(planId);
     }
 }

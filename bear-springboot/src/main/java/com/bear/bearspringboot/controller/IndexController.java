@@ -16,20 +16,24 @@ public class IndexController {
     @Autowired
     private IndexService indexService;
 
-    @PostMapping("/indexs")
+    @PostMapping("/indexes")
     public RespBean addIndex(@RequestBody Index index){
         return indexService.addIndex(index);
     }
-    @DeleteMapping("/indexs/{indexId}")
+    @DeleteMapping("/indexes/{indexId}")
     public RespBean deleteIndex(@PathVariable("indexId") int indexId){
         return indexService.deleteIndex(indexId);
     }
-    @PutMapping("/indexs")
+    @PutMapping("/indexes")
     public RespBean updateIndex(@RequestBody Index index){
         return indexService.updateIndex(index);
     }
-    @GetMapping("/indexs/{planId}")
-    public List<Index> getIndexs(@PathVariable("planId") int planId){
-        return indexService.getIndexs(planId);
+    @GetMapping("/indexes/{planId}")
+    public List<Index> getIndexes(@PathVariable("planId") int planId){
+        return indexService.getIndexes(planId);
+    }
+    @GetMapping("/indexes/indexId/{indexId}")
+    public Index getIndexById(@PathVariable("indexId") int indexId){
+        return indexService.getIndexById(indexId);
     }
 }

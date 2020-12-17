@@ -11,30 +11,48 @@
 
      <el-table
       :data="data"
-      style="width: 100%"
-      @selection-change="handleSelectionChange"
+      v-loading="loading"
       >
       <!-- <el-table-column
         type="selection"
         width="55">
       </el-table-column> -->
       <el-table-column
+        align="center"
         prop="planName"
         label="演练名称"
-        width="180">
+       >
       </el-table-column>
       <el-table-column
+        align="center"
         prop="startTime"
         label="开始时间"
         width="180">
       </el-table-column>
       <el-table-column
+        align="center"
         prop="endTime"
         label="结束时间">
       </el-table-column>
+      <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
+        <template slot-scope="scope">
+          <el-button
+            size="mini"
+            type="text"
+            icon="el-icon-edit"
+            @click="handleUpdate(scope.row)"
+          >修改</el-button>
+          <el-button
+            size="mini"
+            type="text"
+            icon="el-icon-delete"
+            @click="handleDelete(scope.row)"
+          >删除</el-button>
+        </template>
+      </el-table-column>
     </el-table>
 
-<el-dialog title="新增演练" :visible.sync="flag" width="500px" append-to-body>
+<el-dialog :title="title" :visible.sync="flag" width="500px" append-to-body>
   <el-form :model="planForm" label-width="80px">
     <el-form-item label="演练名称" >
       <el-input v-model="planForm.planName" autocomplete="off"></el-input>
@@ -72,7 +90,8 @@ export default {
       data: [],
       flag: false,
       planForm: {},
-      multipleSelection: []
+      loading: true,
+      title: ""
     }
   },
   mounted(){
@@ -80,26 +99,43 @@ export default {
   },
   methods:{
     getPlans(){
+      this.loading = true;
       getRequest("/plan/plans").then(res => {
         console.log(res.data);
         this.data = res.data;
+        this.loading = false;
       })
     },
     addPlan(){
-      this.flag = true;
+
       this.clearForm();
+      this.flag = true;
+      this.title = "新增应急演练"
     },
     submit(){
       //首先验证合法性
       //然后发送给后端
       console.log(this.planForm);
-      postRequest("/plan/plans",this.planForm).then(res =>{
-        console.log(res);
-        this.flag = false;
-      })
-    },
-    handleSelectionChange(val){
-       this.multipleSelection = val;
+      if(!this.planForm.planId){
+        postRequest("/plan/plans",this.planForm).then(res =>{
+          this.flag = false;
+          this.getPlans();
+          this.$message({
+          message: '新增成功',
+          type: 'success'
+        });
+        })
+      }else {
+        putRequest("/plan/plans",this.planForm).then(res =>{
+          this.flag = false;
+          this.getPlans();
+          this.$message({
+          message: '修改成功',
+          type: 'success'
+        });
+        })
+      }
+
     },
     clearForm(){
       this.planForm = {
@@ -107,6 +143,34 @@ export default {
         startTime: "",
         endTime: ""
       }
+    },
+    handleUpdate(row){
+      this.clearForm();
+      getRequest("/plan/plans/"+row.planId).then(res =>{
+        this.planForm = res.data;
+        this.flag = true;
+        this.title = "修改应急演练"
+      })
+    },
+    handleDelete(row){
+       this.$confirm(
+        '是否确认删除应急演练编号为"' + row.planId + '"的数据项?',
+        "警告",
+        {
+          confirmButtonText: "确定",
+          cancelButtonText: "取消",
+          type: "warning"
+        }
+      ).then(function(){
+        console.log("hello");
+        return deleteRequest("/plan/plans/"+row.planId)
+      }).then(()=> {
+        this.getPlans()
+        this.$message({
+          message: '删除成功',
+          type: 'success'
+        });
+      })
     }
   }
 }

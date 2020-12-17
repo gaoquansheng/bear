@@ -61,6 +61,44 @@ public class Video {
                 '}';
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Video video = (Video) o;
+
+        if (title != null ? !title.equals(video.title) : video.title != null) return false;
+        if (userTel != null ? !userTel.equals(video.userTel) : video.userTel != null) return false;
+        if (url != null ? !url.equals(video.url) : video.url != null) return false;
+        if (lat != null ? !lat.equals(video.lat) : video.lat != null) return false;
+        if (lng != null ? !lng.equals(video.lng) : video.lng != null) return false;
+        if (startTime != null ? !startTime.equals(video.startTime) : video.startTime != null) return false;
+        if (endTime != null ? !endTime.equals(video.endTime) : video.endTime != null) return false;
+        if (flag != null ? !flag.equals(video.flag) : video.flag != null) return false;
+        if (videoUrl != null ? !videoUrl.equals(video.videoUrl) : video.videoUrl != null) return false;
+        if (videoId != null ? !videoId.equals(video.videoId) : video.videoId != null) return false;
+        if (user != null ? !user.equals(video.user) : video.user != null) return false;
+        return planId != null ? planId.equals(video.planId) : video.planId == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = title != null ? title.hashCode() : 0;
+        result = 31 * result + (userTel != null ? userTel.hashCode() : 0);
+        result = 31 * result + (url != null ? url.hashCode() : 0);
+        result = 31 * result + (lat != null ? lat.hashCode() : 0);
+        result = 31 * result + (lng != null ? lng.hashCode() : 0);
+        result = 31 * result + (startTime != null ? startTime.hashCode() : 0);
+        result = 31 * result + (endTime != null ? endTime.hashCode() : 0);
+        result = 31 * result + (flag != null ? flag.hashCode() : 0);
+        result = 31 * result + (videoUrl != null ? videoUrl.hashCode() : 0);
+        result = 31 * result + (videoId != null ? videoId.hashCode() : 0);
+        result = 31 * result + (user != null ? user.hashCode() : 0);
+        result = 31 * result + (planId != null ? planId.hashCode() : 0);
+        return result;
+    }
+
     public String getTitle() {
         return title;
     }

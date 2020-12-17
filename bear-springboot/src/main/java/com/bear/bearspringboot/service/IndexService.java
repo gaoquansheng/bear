@@ -11,7 +11,9 @@ public interface IndexService {
 
     RespBean updateIndex(Index index);
 
-    List<Index> getIndexs( int planId);
+    List<Index> getIndexes( int planId);
 
     RespBean deleteIndex(int indexId);
+
+    Index getIndexById(int indexId);
 }

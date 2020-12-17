@@ -18,21 +18,30 @@ public class IndexServiceImpl implements IndexService {
 
     @Override
     public RespBean addIndex(Index index) {
-        return indexMapper.addIndex(index);
+        int lines = indexMapper.addIndex(index);
+        return null;
     }
 
     @Override
     public RespBean updateIndex(Index index) {
-        return indexMapper.updateIndex(index);
+
+       indexMapper.updateIndex(index);
+       return null;
     }
 
     @Override
-    public List<Index> getIndexs(int planId) {
-        return indexMapper.getIndexs(planId);
+    public List<Index> getIndexes(int planId) {
+        return indexMapper.getIndexes(planId);
     }
 
     @Override
     public RespBean deleteIndex(int indexId) {
-        return indexMapper.deleteIndex(indexId);
+        indexMapper.deleteIndex(indexId);
+        return null;
+    }
+
+    @Override
+    public Index getIndexById(int indexId) {
+        return indexMapper.getIndexById(indexId);
     }
 }

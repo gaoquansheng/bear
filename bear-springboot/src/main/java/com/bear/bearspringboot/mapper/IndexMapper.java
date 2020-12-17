@@ -9,11 +9,13 @@ import java.util.List;
 @Mapper
 public interface IndexMapper {
 
-    RespBean addIndex(Index index);
+    int addIndex(Index index);
 
-    RespBean updateIndex(Index index);
+    int updateIndex(Index index);
 
-    List<Index> getIndexs(int planId);
+    List<Index> getIndexes(int planId);
 
-    RespBean deleteIndex(int indexId);
+    int deleteIndex(int indexId);
+
+    Index getIndexById(int indexId);
 }

@@ -11,7 +11,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/plan")
-@CrossOrigin
 public class PlanController {
 
     @Autowired
@@ -22,8 +21,8 @@ public class PlanController {
         return planService.addPlan(plan);
     }
     @DeleteMapping("/plans/{planId}")
-    public RespBean deletePlan(@PathVariable("planId") int planId){
-        return planService.deletePlan(planId);
+    public RespBean deletePlanById(@PathVariable("planId") int planId){
+        return planService.deletePlanById(planId);
     }
     @PutMapping("/plans")
     public RespBean updatePlan(@RequestBody Plan plan){
@@ -32,6 +31,10 @@ public class PlanController {
     @GetMapping("/plans")
     public List<Plan> getPlans(){
         return planService.getPlans();
+    }
+    @GetMapping("/plans/{planId}")
+    public Plan getPlanById(@PathVariable("planId") int planId){
+        return planService.getPlanById(planId);
     }
 
 }
