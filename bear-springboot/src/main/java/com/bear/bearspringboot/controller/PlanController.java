@@ -33,4 +33,5 @@ public class PlanController {
     public List<Plan> getPlans(){
         return planService.getPlans();
     }
+
 }
