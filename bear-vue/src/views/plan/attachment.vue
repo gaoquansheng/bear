@@ -31,9 +31,7 @@
             ref="upload"
             class="upload-demo"
             :action="uploadUrl"
-            :on-change="handleChange"
             :on-success="uploadSuccess"
-            :file-list="fileList"
           >
             <el-button
               slot="trigger"
@@ -63,8 +61,8 @@ export default {
       title: "",
       flag: false,
       attachmentForm: {},
-      uploadUrl: "/attachment/upload",
-      fileList:[]
+      uploadUrl: "http://localhost:8080/attachment/upload",
+      // fileList:[]
     }
   },
   mounted(){
@@ -95,11 +93,11 @@ export default {
       uploadSuccess(){
 
       },
-      handleChange(files, fileList) {
-        if (fileList.length > 0) {
-          this.fileList = [fileList[fileList.length - 1]]; // 这一步，是 展示最后一次选择的csv文件
-        }
-    },
+    //   handleChange(files, fileList) {
+    //     if (fileList.length > 0) {
+    //       this.fileList = [fileList[fileList.length - 1]]; // 这一步，是 展示最后一次选择的csv文件
+    //     }
+    // },
   }
 }
 </script>

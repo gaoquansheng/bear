@@ -10,8 +10,11 @@ import org.springframework.web.multipart.MultipartFile;
 public class AttachmentController {
 
     @PostMapping("/upload")
-    public void upload(MultipartFile multipartFile){
-
+    public void upload(MultipartFile file){
+        System.out.println(file.getOriginalFilename());
+        //接收文件存储返回文件名
+        //首先获得文件的后缀名
+        
     }
 
     @PostMapping("/attachments")

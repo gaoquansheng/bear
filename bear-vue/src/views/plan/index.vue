@@ -3,7 +3,7 @@
     <el-row :gutter="10" class="mb8">
       <el-col :span="1.5">
         <el-select
-          @change="changePlan"
+          @change="getIndexes"
           v-model="queryParams.planId"
           size="small">
           <el-option
@@ -106,8 +106,7 @@
         <el-input v-model="indexForm.description" autocomplete="off"></el-input>
       </el-form-item>
       <el-form-item label="指标类型" >
-          <el-select 
-            @change="changeType" 
+          <el-select  
             v-model="indexForm.indexType"
             placeholder="请选择">
               <el-option
@@ -117,11 +116,19 @@
               </el-option>
           </el-select>
       </el-form-item>
-      <el-form-item label="最低分" v-if="indexForm.indexType ==='打分'">
+      <el-form-item label="最低分" v-if="indexForm.indexType ===indexTypeList[0].value">
           <el-input v-model="indexForm.minScore" placeholder="请输入最小分数"></el-input>
       </el-form-item>
-      <el-form-item label="最高分" v-if="indexForm.indexType ==='打分'">
+      <el-form-item label="最高分" v-if="indexForm.indexType ===indexTypeList[0].value">
           <el-input v-model="indexForm.maxScore" placeholder="请输入最大分数"></el-input>
+      </el-form-item>
+      <el-form-item label="选项" v-if="indexForm.indexType ===indexTypeList[1].value">
+        <el-checkbox-group v-model="checkList">
+          <el-checkbox label="优秀"></el-checkbox>
+          <el-checkbox label="良好"></el-checkbox>
+          <el-checkbox label="及格"></el-checkbox>
+          <el-checkbox label="不及格"></el-checkbox>
+        </el-checkbox-group>
       </el-form-item>
     </el-form>
     <div slot="footer" class="dialog-footer">
@@ -160,11 +167,11 @@ export default {
                     value: "打分" 
                 },
                 {
-                    value: "点评" 
-                },
-                {
                     value: "优良中差" 
                 },
+                {
+                    value: "评语" 
+                }
             ],
             indexEnabledList: [
                 {
@@ -176,7 +183,8 @@ export default {
                     value: false
                 }
             ],
-            title: ""
+            title: "",
+            checkList: []
         }
     },
     mounted(){
@@ -203,14 +211,19 @@ export default {
             this.title = "新增指标"
 
         },
-        changePlan(){
-
-        },
-        changeType(){
-
-        },
         submit(){
-          //这里判断类型是什么,先放在这里吧,这里有一个bug
+          //过滤指标选项的内容
+          if(this.indexForm.indexType == this.indexTypeList[1].value){
+            let options = this.checkList.join("_");
+            this.indexForm.options = options
+            this.indexForm.minScore = "";
+            this.indexForm.maxScore = "";
+          }
+          if(this.indexForm.indexType == this.indexTypeList[2].value){
+            this.indexForm.options = "";
+            this.indexForm.minScore = "";
+            this.indexForm.maxScore = "";
+          }
           if(!this.indexForm.planId){
             this.indexForm.planId = this.queryParams.planId;
             postRequest("/index/indexes",this.indexForm).then(res => {
@@ -232,7 +245,6 @@ export default {
               });   
             })
           }
-
         },
         clearForm(){
             this.indexForm = {
@@ -244,6 +256,7 @@ export default {
                 indexType: "",
                 options: ""
             }
+            this.checkList = [];
         },
         handleUpdate(row){
           this.clearForm();
