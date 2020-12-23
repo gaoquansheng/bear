@@ -22,4 +22,8 @@
     <select id="getPlanById" parameterType="int" resultType="Plan">
         select planId,planName,startTime,endTime from plan where planId = #{planId}
     </select>
+
+    <select id="getOpenPlans" resultType="Plan">
+        select planId,planName,startTime,endTime from plan where SYSDATE() between startTime and endTime
+    </select>
 </mapper>

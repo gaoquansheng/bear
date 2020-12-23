@@ -14,4 +14,6 @@ public interface PlanMapper {
     public int updatePlan(Plan plan);
     public List<Plan> getPlans();
     Plan getPlanById(int planId);
+
+    List<Plan> getOpenPlans();
 }

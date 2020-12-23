@@ -23,6 +23,11 @@
     <select id="findAll" parameterType="int" resultType="User">
         select * from users limit #{param2},#{param1}
     </select>
+
+    <select id="getAllUsers" resultType="User">
+        select * from users
+    </select>
+
     <select id="countUsers" resultType="int">
         select count(*) from users
     </select>

@@ -209,7 +209,6 @@ export default {
             this.clearForm()
             this.flag = true;
             this.title = "新增指标"
-
         },
         submit(){
           //过滤指标选项的内容
@@ -227,7 +226,6 @@ export default {
           if(!this.indexForm.planId){
             this.indexForm.planId = this.queryParams.planId;
             postRequest("/index/indexes",this.indexForm).then(res => {
-              console.log(res);
               this.flag = false;
               this.getIndexes();
               this.$message({

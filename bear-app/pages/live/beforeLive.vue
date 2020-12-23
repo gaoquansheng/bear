@@ -17,41 +17,73 @@
 				</view>
 			</view>
 		</view>
+		
+		<!-- <uni-popup ref="popup" type="dialog">
+		    <uni-popup-dialog type="input" message="成功消息" :duration="2000" :before-close="true"></uni-popup-dialog>
+		</uni-popup> -->
+		<uni-popup ref="popup" type="bottom">底部弹出 Popup</uni-popup>
 	</view>
+	
+
 </template> 
 
 <script>
-export default {
-	data() {
-		return {
-			active: false
-		};
-	},
-	onLoad() {},
-	onShow() {
-		// setTimeout(() => {
-		this.active = true;
-		// }, 500);
-	},
-	onHide() {
-		this.active = false;
-	},
-	methods: {
-		goToPage(url) {
-			if (!url) return;
-			if(url == '/pages/live/record'){
-				uni.navigateTo({
-					url
-				})
-			}else {
-				uni.reLaunch({
-					url
-				});
-			}
+	
+	import uniPopup from "@/components/uni-popup/uni-popup.vue"
+	import uniPopupDialog from '@/components/uni-popup/uni-popup-dialog.vue'
+	import request from "@/utils/request.js"
 
+	export default {
+		data() {
+			return {
+				active: false
+			};
+		},
+		components:{
+			uniPopup,      
+			uniPopupDialog
+		},
+		onLoad() {},
+		onShow() {
+			// setTimeout(() => {
+			this.active = true;
+			// }, 500);
+		},
+		onHide() {
+			this.active = false;
+		},
+		methods: {
+			async goToPage(url) {
+				if (!url) {
+					return;
+				}
+				//这里来判断一下是否有应急演练可以拍摄
+				await request({
+					url: "/plan/openPlans",
+					method: "GET",
+					dataType: "json",
+					success: (res) => {
+						console.log("here")
+					}
+				})
+				console.log("here2")
+				// if(url == '/pages/live/live') {
+				// 	//这里可以弹框
+				// 	this.$refs.popup.open()
+				// }
+				// if(url == '/pages/live/record') {
+				// 	uni.navigateTo({
+				// 		url
+				// 	})
+				// }else {
+				// 	uni.reLaunch({
+				// 		url
+				// 	});
+				// }
+
+			}
 		}
-	}
-};
+	};
 </script>
 
 <style lang="scss" scoped>

@@ -12,4 +12,6 @@ public interface PlanService {
     public RespBean updatePlan(Plan plan);
     public List<Plan> getPlans();
     Plan getPlanById(int planId);
+
+    List<Plan> getOpenPlans();
 }

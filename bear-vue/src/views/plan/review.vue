@@ -32,26 +32,15 @@
       >
       <el-table-column
         align="center"
-        prop="indexName"
+        prop="id"
         label="演练名称"
        >
       </el-table-column>
       <el-table-column
-        align="center"
+        align="userTel"
         prop="enabled"
         label="是否启用"
         >
-      </el-table-column>
-      <el-table-column
-        align="center"
-        prop="minScore"
-        label="最低分">
-      </el-table-column>
-      <el-table-column
-        align="center"
-        prop="maxScore"
-        label="最高分"
-       >
       </el-table-column>
       <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
         <template slot-scope="scope">
@@ -77,9 +66,9 @@
         <el-select v-model="checkUserList" multiple placeholder="请选择">
           <el-option
             v-for="item in userList"
-            :key="item.value"
-            :label="item.label"
-            :value="item.value">
+            :key="item.userTel"
+            :label="item.userName + '-' + item.userTel"
+            :value="item.userTel">
           </el-option>
         </el-select>
       </el-form-item>
@@ -113,6 +102,7 @@ export default {
   },
   mounted(){
     this.getPlan();
+    this.getUsers();
   },
   methods: {
     getPlan(){
@@ -123,12 +113,17 @@ export default {
       })
     },
     getUsers(){
-      getRequest("/web/users").then(res => {
+      getRequest("/web/allUsers").then(res => {
         console.log(res);
+        this.userList = res.data;
       })
     },
     getReviewers(){
-
+      this.loading = true;
+      getRequest("/reviewer/reviewers/"+this.queryParams.planId).then(res => {
+        this.data = res.data;
+        this.loading = false;
+      })
     },
     submit(){
 

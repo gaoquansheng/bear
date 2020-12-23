@@ -11,6 +11,6 @@ public class FileMappingConfig implements WebMvcConfigurer {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler(Constants.RESOURCE_PREFIX+"**")
-                .addResourceLocations("file:"+GraduationConfig.getUploadPath()+"/");
+                .addResourceLocations("file:"+GraduationConfig.getPath()+"/");
     }
 }

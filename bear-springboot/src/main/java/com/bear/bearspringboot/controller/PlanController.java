@@ -37,4 +37,10 @@ public class PlanController {
         return planService.getPlanById(planId);
     }
 
+    @GetMapping("/openPlans")
+    public List<Plan> getOPenPlans(){
+        return planService.getOpenPlans();
+    }
+
+
 }

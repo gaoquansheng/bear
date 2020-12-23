@@ -133,4 +133,9 @@ public class WebServiceImpl implements WebService {
         System.out.println(video.toString());
         return webMapper.getLiveVideos(video);
     }
+
+    @Override
+    public List<User> getAllUsers() {
+        return webMapper.getAllUsers();
+    }
 }

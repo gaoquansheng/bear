@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bear.bearspringboot.mapper.AttachmentMapper">
+
+    <insert id="addAttachment" parameterType="Attachment">
+        insert into attachment (planId, fileName, path) values (#{planId}, #{fileName}, #{path})
+    </insert>
+
+    <select id="getAttachmentsByPlanId" parameterType="int" resultType="Attachment">
+        select planId, attachmentId, fileName, path from attachment where planId = #{planId}
+    </select>
+
+    <delete id="deleteAttachmentById" parameterType="int">
+        delete from attachment where attachmentId = #{attachmentId}
+    </delete>
+
+    <select id="getAttachmentById" parameterType="int" resultType="Attachment">
+        select planId, attachmentId, fileName, path from attachment where attachmentId = #{attachmentId}
+    </select>
+</mapper>

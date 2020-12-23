@@ -20,4 +20,4 @@ server:
 
 
 graduation:
-  uploadPath: D:/graduation/uploadPath
+  path: D:/graduation/uploadPath

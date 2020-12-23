@@ -22,4 +22,6 @@ public interface WebService {
     public RespBean addTitleById(String[] ids,String title);
     public List<Video> getLatestVideos(Video video);
     public List<Video> getLiveVideos(Video video);
+
+    List<User> getAllUsers();
 }

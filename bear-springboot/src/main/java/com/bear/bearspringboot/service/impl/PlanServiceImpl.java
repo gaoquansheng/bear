@@ -42,4 +42,9 @@ public class PlanServiceImpl implements PlanService {
     public Plan getPlanById(int planId) {
         return planMapper.getPlanById(planId);
     }
+
+    @Override
+    public List<Plan> getOpenPlans() {
+        return planMapper.getOpenPlans();
+    }
 }

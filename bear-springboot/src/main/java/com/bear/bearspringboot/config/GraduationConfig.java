@@ -1,6 +1,7 @@
 package com.bear.bearspringboot.config;
 
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
@@ -8,13 +9,14 @@ import org.springframework.stereotype.Component;
 @ConfigurationProperties(prefix = "graduation")
 public class GraduationConfig {
 
-    private static String uploadPath;
+    @Value("")
+    private static String path;
 
-    public static String getUploadPath() {
-        return uploadPath;
+    public static String getPath() {
+        return path;
     }
 
-    public static void setUploadPath(String uploadPath) {
-        GraduationConfig.uploadPath = uploadPath;
+    public void setPath(String path) {
+        GraduationConfig.path = path;
     }
 }

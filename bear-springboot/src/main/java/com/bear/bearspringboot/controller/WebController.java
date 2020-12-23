@@ -23,6 +23,11 @@ public class WebController {
     @Autowired
     HttpServletRequest request;
 
+    @GetMapping("/allUsers")
+    public List<User> getAllUsers(){
+        return webService.getAllUsers();
+    }
+
     @GetMapping("/users")
     public Map<String,Object> findAll(HttpServletRequest request){
         String limit= request.getParameter("limit");
