@@ -24,6 +24,21 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
+.uni-list-cell-db.data-v-32f6e838 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
 .uni-popup-dialog.data-v-32f6e838 {
   width: 300px;
   border-radius: 15px;

@@ -5,7 +5,22 @@
 		</view>
 		<view class="uni-dialog-content">
 			<text class="uni-dialog-content-text" v-if="mode === 'base'">{{content}}</text>
-			<input v-else class="uni-dialog-input" v-model="val" type="text" :placeholder="placeholder" :focus="focus" >
+			<!-- <input v-else class="uni-dialog-input" v-model="val" type="text" :placeholder="placeholder" :focus="focus" > -->
+				<view v-else>
+					<input class="uni-dialog-input" type="text" :placeholder="placeholder" :focus="focus"/>
+					<br>
+					<view  class="uni-list-cell-db">
+						<view class="uni-list-cell-left">
+							预案: 
+						</view>
+						<picker @change="bindPickerChange" :value="index" :range="planList">
+							<view class="uni-input">{{planList[index].planName}}</view>
+						</picker>
+						
+					</view>
+				</view>
+
+			
 		</view>
 		<view class="uni-dialog-button-group">
 			<view class="uni-dialog-button" @click="close">
@@ -43,6 +58,10 @@
 	export default {
 		name: "uniPopupDialog",
 		props: {
+			plans: {
+				type: Array,
+				default: []
+			},
 			value: {
 				type: [String, Number],
 				default: ''
@@ -91,7 +110,9 @@
 			return {
 				dialogType: 'error',
 				focus: false,
-				val: ""
+				val: "",
+				index: 0,
+				planList: []
 			}
 		},
 		inject: ['popup'],
@@ -106,7 +127,11 @@
 			},
 			value(val) {
 				this.val = val
+			},
+			plans(val) {
+				this.planList = val;
 			}
+			
 		},
 		created() {
 			// 对话框遮罩不可点击
@@ -122,6 +147,10 @@
 			this.focus = true
 		},
 		methods: {
+			bindPickerChange: function(e) {
+				console.log('picker发送选择改变，携带值为', e.target.value)
+				this.index = e.target.value
+			},
 			/**
 			 * 点击确认按钮
 			 */
@@ -148,6 +177,11 @@
 </script>
 
 <style lang="scss" scoped>
+	.uni-list-cell-db {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+	}
 	.uni-popup-dialog {
 		width: 300px;
 		border-radius: 15px;

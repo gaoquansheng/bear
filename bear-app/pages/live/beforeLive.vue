@@ -18,10 +18,17 @@
 			</view>
 		</view>
 		
-		<!-- <uni-popup ref="popup" type="dialog">
-		    <uni-popup-dialog type="input" message="成功消息" :duration="2000" :before-close="true"></uni-popup-dialog>
-		</uni-popup> -->
-		<uni-popup ref="popup" type="bottom">底部弹出 Popup</uni-popup>
+		<uni-popup ref="popup" type="dialog">
+		    <uni-popup-dialog
+				mode="input"
+				title="测试标题"
+				:plans="plans"
+				@close="close" 
+				placeholder="请输入标题"
+				@confirm="confirm">	
+			</uni-popup-dialog>
+			
+		</uni-popup>
 	</view>
 	
 
@@ -36,7 +43,8 @@
 	export default {
 		data() {
 			return {
-				active: false
+				active: false,
+				plans: []
 			};
 		},
 		components:{
@@ -45,6 +53,7 @@
 		},
 		onLoad() {},
 		onShow() {
+			this.getPlans();
 			// setTimeout(() => {
 			this.active = true;
 			// }, 500);
@@ -53,24 +62,30 @@
 			this.active = false;
 		},
 		methods: {
-			async goToPage(url) {
-				if (!url) {
-					return;
-				}
+			getPlans(){
 				//这里来判断一下是否有应急演练可以拍摄
-				await request({
+				 request({
 					url: "/plan/openPlans",
 					method: "GET",
 					dataType: "json",
 					success: (res) => {
-						console.log("here")
+						this.plans = res.data;
 					}
 				})
-				console.log("here2")
-				// if(url == '/pages/live/live') {
-				// 	//这里可以弹框
-				// 	this.$refs.popup.open()
-				// }
+			},
+			goToPage(url) {
+				if (!url) {
+					return;
+				}
+				if(!this.plans.length){
+					//没有应急演练可以直播
+					return;
+				}
+				if(url == '/pages/live/live') {
+					//这里可以弹框
+					console.log("我要弹窗了")
+					this.$refs.popup.open()
+				}
 				// if(url == '/pages/live/record') {
 				// 	uni.navigateTo({
 				// 		url
@@ -81,6 +96,13 @@
 				// 	});
 				// }
 
+			},
+			close(){
+				console.log("我倒这里了")
+				this.$refs.popup.close();
+			},
+			confirm(){
+				
 			}
 		}
 	};
