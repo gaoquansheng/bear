@@ -4,9 +4,15 @@
 <mapper namespace="com.bear.bearspringboot.mapper.ReviewerMapper">
 
 
-    <select id="getReviewersByPlanId" parameterType="int" resultType="Attachment">
+    <select id="getReviewersByPlanId" parameterType="int" resultType="Reviewer">
         select planId, id, userTel from plan_reviewer where planId = #{planId}
     </select>
 
+    <insert id="addReviewers">
+        insert into plan_reviewer (planId, userTel) values (#{param1}, #{param2})
+    </insert>
 
+    <delete id="deleteReviewerById" parameterType="int">
+        delete from plan_reviewer where id = #{id}
+    </delete>
 </mapper>

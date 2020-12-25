@@ -1,8 +1,7 @@
-/* eslint-disable */
 <template>
   <el-container class="home_container">
     <el-header>
-      <div class="home_title">应急指挥演练辅助平台
+      <div class="home_title">应急演练辅助教学平台
       </div>
       <div class="userInfo">
         <el-dropdown @command="handleCommand">

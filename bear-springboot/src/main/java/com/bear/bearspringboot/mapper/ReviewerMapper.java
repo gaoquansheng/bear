@@ -8,4 +8,8 @@ import java.util.List;
 @Mapper
 public interface ReviewerMapper {
     public List<Reviewer> getReviewersByPlanId(int planId);
+
+    void addReviewers(Integer planId, String userTel);
+
+    void deleteReviewerById(int id);
 }

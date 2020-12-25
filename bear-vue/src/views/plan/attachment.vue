@@ -2,6 +2,9 @@
   <div>
     <el-row :gutter="10" class="mb8">
       <el-col :span="1.5">
+       选择预案:
+      </el-col>
+      <el-col :span="1.5">
         <el-select
           v-model="queryParams.planId"
           size="small">
@@ -20,7 +23,7 @@
           size="mini"
           @click="handleAdd"
           :disabled="!queryParams.planId"
-        >新增</el-button>
+        >新增附件</el-button>
       </el-col>
     </el-row>
 
@@ -50,12 +53,6 @@
           <el-button
             size="mini"
             type="text"
-            icon="el-icon-edit"
-            @click="handleUpdate(scope.row)"
-          >修改</el-button>
-          <el-button
-            size="mini"
-            type="text"
             icon="el-icon-delete"
             @click="handleDelete(scope.row)"
           >删除</el-button>
@@ -71,6 +68,7 @@
             class="upload-demo"
             :action="uploadUrl"
             :on-success="uploadSuccess"
+            :on-change="handleChange"
             :file-list="fileList"
           >
             <el-button
@@ -137,7 +135,8 @@ export default {
           fileName: "",
           planId: "",
           attachmentId: ""
-        }
+        };
+        this.fileList = [];
       },
       submit() {
         //判断是新增还是修改
@@ -169,16 +168,6 @@ export default {
           this.attachmentForm.fileName = res.fileName;
         }
       },
-      handleUpdate(row) {
-        this.clearForm();
-        getRequest("/attachment/attachments/attachmentId/"+row.attachmentId).then(res =>{
-          this.attachmentForm = res.data;
-          this.flag = true;
-          this.title = "修改附件"
-          //回显这里先放这里吧
-          // this.fileList.push(this.attachmentForm.fileName)
-        })
-      },
       handleDelete(row) {
         this.$confirm(
           '是否确认删除附件编号为"' + row.attachmentId + '"的数据项?',
@@ -198,12 +187,12 @@ export default {
             type: 'success'
           });
         }) 
-      }
-    //   handleChange(files, fileList) {
-    //     if (fileList.length > 0) {
-    //       this.fileList = [fileList[fileList.length - 1]]; // 这一步，是 展示最后一次选择的csv文件
-    //     }
-    // },
+      },
+      handleChange(files, fileList) {
+        if (fileList.length > 0) {
+          this.fileList = [fileList[fileList.length - 1]]; // 这一步，是 展示最后一次选择的csv文件
+        }
+    },
 
   }
 }

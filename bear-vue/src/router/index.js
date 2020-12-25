@@ -11,7 +11,7 @@ import UserManage from "../views/user/UserManage";
 import Plan from "../views/plan/plan"
 import Index from "../views/plan/index"
 import Attachment from "../views/plan/attachment"
-import Review from "../views/plan/review"
+import Reviewer from "../views/plan/reviewer"
 // import Map from "../views/map/Map"
 
 Vue.use(VueRouter);
@@ -79,9 +79,9 @@ const routes = [
         component: Index
       },
       {
-        path: "/review",
-        name: "评估管理",
-        component: Review
+        path: "/reviewer",
+        name: "评估人员管理",
+        component: Reviewer
       },
       {
         path: "/attachment",

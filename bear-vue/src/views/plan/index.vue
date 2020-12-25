@@ -2,6 +2,9 @@
   <div>
     <el-row :gutter="10" class="mb8">
       <el-col :span="1.5">
+       选择预案:
+      </el-col>
+      <el-col :span="1.5">
         <el-select
           @change="getIndexes"
           v-model="queryParams.planId"
@@ -21,7 +24,7 @@
           size="mini"
           @click="handleAdd"
           :disabled="!queryParams.planId"
-        >新增</el-button>
+        >新增指标</el-button>
       </el-col>
     </el-row>
 
@@ -115,21 +118,29 @@
               :value="indexType.value">
               </el-option>
           </el-select>
+          <template v-if="indexForm.indexType ===indexTypeList[1].value">
+            <el-button @click="addOption">新增</el-button>
+            <!-- <el-button @click="removeOption">删除</el-button> -->
+          </template>
       </el-form-item>
+
       <el-form-item label="最低分" v-if="indexForm.indexType ===indexTypeList[0].value">
           <el-input v-model="indexForm.minScore" placeholder="请输入最小分数"></el-input>
       </el-form-item>
       <el-form-item label="最高分" v-if="indexForm.indexType ===indexTypeList[0].value">
           <el-input v-model="indexForm.maxScore" placeholder="请输入最大分数"></el-input>
       </el-form-item>
-      <el-form-item label="选项" v-if="indexForm.indexType ===indexTypeList[1].value">
-        <el-checkbox-group v-model="checkList">
-          <el-checkbox label="优秀"></el-checkbox>
-          <el-checkbox label="良好"></el-checkbox>
-          <el-checkbox label="及格"></el-checkbox>
-          <el-checkbox label="不及格"></el-checkbox>
-        </el-checkbox-group>
-      </el-form-item>
+
+      <template v-if="indexForm.indexType ===indexTypeList[1].value">
+        <el-form-item
+            v-for="(option, index) in dynamicOptionList"
+            :label="'选项' + index"
+            :key="option.key">
+            <el-input v-model="option.value"></el-input>
+            
+            <el-button @click.prevent="removeOption(option)">删除</el-button>
+          </el-form-item>
+      </template>
     </el-form>
     <div slot="footer" class="dialog-footer">
       <el-button @click="flag = false">取 消</el-button>
@@ -167,7 +178,7 @@ export default {
                     value: "打分" 
                 },
                 {
-                    value: "优良中差" 
+                    value: "单选" 
                 },
                 {
                     value: "评语" 
@@ -184,7 +195,12 @@ export default {
                 }
             ],
             title: "",
-            checkList: []
+            checkList: [],
+            dynamicOptionList: [
+              {
+                value: ""
+              }
+            ]
         }
     },
     mounted(){
@@ -213,8 +229,11 @@ export default {
         submit(){
           //过滤指标选项的内容
           if(this.indexForm.indexType == this.indexTypeList[1].value){
-            let options = this.checkList.join("_");
-            this.indexForm.options = options
+            let tmp = []
+            this.dynamicOptionList.forEach(option => {
+              tmp.push(option.value);
+            });
+            this.indexForm.options = tmp.join("_")
             this.indexForm.minScore = "";
             this.indexForm.maxScore = "";
           }
@@ -262,7 +281,8 @@ export default {
             console.log(res);
             this.indexForm = res.data;
             this.flag = true;
-            this.title = "修改指标"
+            this.title = "修改指标";
+            this.checkList = this.indexForm.options.split("_");
           })
         },
         handleDelete(row){
@@ -287,6 +307,18 @@ export default {
         },
         enabledFormatter(row,column,value){
           return !value? "否":"是"
+        },
+        addOption(){
+          this.dynamicOptionList.push({
+            value: "",
+            key: Date.now()
+          })
+        },
+        removeOption(item) {
+          let index = this.dynamicOptionList.indexOf(item)
+          if (index !== -1) {
+            this.dynamicOptionList.splice(index, 1)
+          }
         }
     }
 }

@@ -1,7 +1,9 @@
 <template>
   <div>
-
     <el-row :gutter="10" class="mb8">
+      <el-col :span="1.5">
+       选择预案:
+      </el-col>
       <el-col :span="1.5">
         <el-select
           @change="getReviewers"
@@ -22,7 +24,7 @@
           size="mini"
           @click="handleAdd"
           :disabled="!queryParams.planId"
-        >新增</el-button>
+        >新增评估人员</el-button>
       </el-col>
     </el-row>
 
@@ -37,19 +39,13 @@
        >
       </el-table-column>
       <el-table-column
-        align="userTel"
-        prop="enabled"
-        label="是否启用"
+        align="center"
+        prop="userTel"
+        label="用户手机号"
         >
       </el-table-column>
       <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
         <template slot-scope="scope">
-          <el-button
-            size="mini"
-            type="text"
-            icon="el-icon-edit"
-            @click="handleUpdate(scope.row)"
-          >修改</el-button>
           <el-button
             size="mini"
             type="text"
@@ -126,7 +122,12 @@ export default {
       })
     },
     submit(){
-
+      let tmp = this.checkUserList.join("-");
+      this.reviewForm.userTel = tmp
+      postRequest("/reviewer/reviewers",this.reviewForm).then(res =>{
+        this.getReviewers();
+        this.flag = false;
+      })
     },
     handleAdd(){
       this.clearForm()
@@ -134,13 +135,30 @@ export default {
       this.title = "新增指标"
     },
     clearForm(){
-
+      this.reviewForm = {
+        planId: this.queryParams.planId,
+        userTel: ""
+      },
+      this.checkUserList = [];
     },
-    handleUpdate(){
-
-    },
-    handleDelete(){
-
+    handleDelete(row){
+      this.$confirm(
+        '是否确认删除评估人员编号为"' + row.id + '"的数据项?',
+        "警告",
+        {
+          confirmButtonText: "确定",
+          cancelButtonText: "取消",
+          type: "warning"
+        }
+      ).then(function(){
+        return deleteRequest("/reviewer/reviewers/"+row.id)
+      }).then(()=> {
+        this.getReviewers()
+        this.$message({
+          message: '删除成功',
+          type: 'success'
+        });
+      })
     }
   }
 }
