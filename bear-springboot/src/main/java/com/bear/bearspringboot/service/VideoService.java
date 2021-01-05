@@ -9,4 +9,5 @@ public interface VideoService {
     public void startLive(Video video);
     public void recordDone(Video video);
 
+    List<Video> getVideosByPlanId(int planId);
 }

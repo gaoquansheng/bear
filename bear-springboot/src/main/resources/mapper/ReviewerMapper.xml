@@ -4,8 +4,13 @@
 <mapper namespace="com.bear.bearspringboot.mapper.ReviewerMapper">
 
 
-    <select id="getReviewersByPlanId" parameterType="int" resultType="Reviewer">
+    <select id="getReviewersByPlanId" parameterType="Reviewer" resultType="Reviewer">
         select planId, id, userTel from plan_reviewer where planId = #{planId}
+    </select>
+
+    <select id="getPlansByUserTel" parameterType="String" resultType="com.bear.bearspringboot.entity.vo.ReviewerVo">
+        select id, pv.planId, userTel,p.planName from plan_reviewer pv LEFT JOIN plan p
+        on p.planId = pv.planId where userTel = #{userTel}
     </select>
 
     <insert id="addReviewers">

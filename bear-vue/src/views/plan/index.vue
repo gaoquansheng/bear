@@ -90,6 +90,14 @@
       </el-table-column>
     </el-table>
 
+    <pagination
+      v-show="total>0"
+      :total="total"
+      :page.sync="queryParams.pageNum"
+      :limit.sync="queryParams.pageSize"
+      @pagination="getIndexes"
+    />
+
   <el-dialog :title="title" :visible.sync="flag" width="500px" append-to-body>
     <el-form :model="indexForm" label-width="80px">
       <el-form-item label="指标名称" >
@@ -157,7 +165,9 @@ export default {
     data(){
         return {
             queryParams: {
-                planId: ""
+              pageNum: 1,
+              pageSize: 10,  
+              planId: ""
             },
             data: [],
             planList: "",
@@ -195,12 +205,12 @@ export default {
                 }
             ],
             title: "",
-            checkList: [],
             dynamicOptionList: [
               {
                 value: ""
               }
-            ]
+            ],
+            total: 0
         }
     },
     mounted(){
@@ -209,15 +219,16 @@ export default {
     methods: {
         getPlan(){
             getRequest("/plan/plans").then(res => {
-                this.planList = res.data;
-                this.queryParams.planId = res.data[0].planId
+                this.planList = res.rows;
+                this.queryParams.planId = res.rows[0].planId
                 this.getIndexes();
             })
         },
         getIndexes(){
           this.loading = true;
-          getRequest("/index/indexes/"+this.queryParams.planId).then(res => {
-            this.data = res.data;
+          getRequest("/index/indexes/",this.queryParams).then(res => {
+            this.data = res.rows;
+            this.total = res.total;
             this.loading = false;
           })
         },
@@ -273,16 +284,26 @@ export default {
                 indexType: "",
                 options: ""
             }
-            this.checkList = [];
+            this.dynamicOptionList =  [
+              {
+                value: ""
+              }
+            ];
         },
         handleUpdate(row){
           this.clearForm();
           getRequest("/index/indexes/indexId/"+row.indexId).then(res => {
-            console.log(res);
-            this.indexForm = res.data;
+            this.indexForm = res;
+            let tmp = res.options.split("_")
+            tmp.forEach(item => {
+              console.log(item);
+              this.dynamicOptionList.push({
+                key: Date.now(),
+                value: item
+              })
+            })
             this.flag = true;
             this.title = "修改指标";
-            this.checkList = this.indexForm.options.split("_");
           })
         },
         handleDelete(row){

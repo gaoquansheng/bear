@@ -138,7 +138,6 @@ export default {
   },
   methods: {
     getLiveVideos() {
-      let _this = this;
       let video = {
         title: this.title
       };
@@ -146,10 +145,10 @@ export default {
         //
         resp => {
           //这里目前先这样做吧。没有加dislikevideoList的筛选条件。默认搜索就会充值dislikeVideoList
-          _this.liveVideoList = resp.data;
+          this.liveVideoList = resp;
         },
         resp => {
-          console.log(resp.data);
+          console.log(resp);
         }
       );
     },

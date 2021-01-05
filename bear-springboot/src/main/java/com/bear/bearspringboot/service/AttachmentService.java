@@ -8,7 +8,7 @@ public interface AttachmentService {
 
     public void addAttachment(Attachment attachment);
 
-    List<Attachment> getAttachmentsByPlanId(int planId);
+    List<Attachment> getAttachments(Attachment attachment);
 
     void deleteAttachmentById(int attachmentId);
 

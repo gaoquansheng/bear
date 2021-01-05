@@ -6,6 +6,7 @@
       </el-col>
       <el-col :span="1.5">
         <el-select
+          @change="getAttachments"
           v-model="queryParams.planId"
           size="small">
           <el-option
@@ -60,6 +61,15 @@
       </el-table-column>
     </el-table>
 
+    <pagination
+      v-show="total>0"
+      :total="total"
+      :page.sync="queryParams.pageNum"
+      :limit.sync="queryParams.pageSize"
+      @pagination="getAttachments"
+    />
+
+
   <el-dialog :title="title" :visible.sync="flag" width="500px" append-to-body>
       <el-form :model="attachmentForm" label-width="80px">
         <el-form-item label="附件名称" >
@@ -95,7 +105,9 @@ export default {
   data(){
     return {
       queryParams: {
-          planId: ""
+        pageNum: 1,
+        pageSize: 10,
+        planId: ""
       },
       planList: "",
       title: "",
@@ -104,7 +116,8 @@ export default {
       uploadUrl: "http://localhost:8080/attachment/upload",
       fileList:[],
       data: [],
-      loading: true
+      loading: true,
+      total: 0
     }
   },
   mounted(){
@@ -113,14 +126,15 @@ export default {
   methods: {
       getPlan(){
         getRequest("/plan/plans").then(res => {
-            this.planList = res.data;
-            this.queryParams.planId = res.data[0].planId
+            this.planList = res.rows;
+            this.queryParams.planId = res.rows[0].planId
             this.getAttachments();
         })
       },
       getAttachments(){
-        getRequest("/attachment/attachments/"+this.queryParams.planId).then(res =>{
-          this.data = res.data;
+        getRequest("/attachment/attachments/",this.queryParams).then(res =>{
+          this.data = res.rows;
+          this.total = res.total;
           this.loading = false;
         })
       },

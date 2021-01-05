@@ -16,7 +16,7 @@
     </update>
 
     <select id="getPlans" resultType="Plan">
-        select planId,planName,startTime,endTime from plan;
+        select planId,planName,startTime,endTime from plan
     </select>
 
     <select id="getPlanById" parameterType="int" resultType="Plan">

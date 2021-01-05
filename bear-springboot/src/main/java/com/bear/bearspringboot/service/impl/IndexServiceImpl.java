@@ -30,8 +30,8 @@ public class IndexServiceImpl implements IndexService {
     }
 
     @Override
-    public List<Index> getIndexes(int planId) {
-        return indexMapper.getIndexes(planId);
+    public List<Index> getIndexes(Index index) {
+        return indexMapper.getIndexes(index);
     }
 
     @Override
@@ -44,4 +44,6 @@ public class IndexServiceImpl implements IndexService {
     public Index getIndexById(int indexId) {
         return indexMapper.getIndexById(indexId);
     }
+
+
 }

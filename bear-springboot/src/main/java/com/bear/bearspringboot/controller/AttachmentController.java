@@ -1,6 +1,8 @@
 package com.bear.bearspringboot.controller;
 
 
+import com.bear.bearspringboot.base.BaseController;
+import com.bear.bearspringboot.base.TableData;
 import com.bear.bearspringboot.config.Constants;
 import com.bear.bearspringboot.config.GraduationConfig;
 import com.bear.bearspringboot.entity.Attachment;
@@ -17,7 +19,7 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("/attachment")
-public class AttachmentController {
+public class AttachmentController extends BaseController {
 
     @Autowired
     AttachmentService attachmentService;
@@ -54,9 +56,11 @@ public class AttachmentController {
 
     }
 
-    @GetMapping("/attachments/{planId}")
-    public List<Attachment> getAttachmentsByPlanId(@PathVariable("planId") int planId){
-        return attachmentService.getAttachmentsByPlanId(planId);
+    @GetMapping("/attachments")
+    public TableData getAttachmentsByPlanId(Attachment attachment){
+        startPage();
+        List<Attachment> attachmentsByPlanId = attachmentService.getAttachments(attachment);
+        return getTableData(attachmentsByPlanId);
     }
 
     @GetMapping("/attachments/attachmentId/{attachmentId}")

@@ -10,7 +10,7 @@ import java.util.List;
 
 public interface WebService {
 
-    public List<User> findAll(int limit,int offset);
+    public List<User> findAll();
     public int countUsers();
     public User findByUserTel(String userTel);
     public RespBean save(User user);

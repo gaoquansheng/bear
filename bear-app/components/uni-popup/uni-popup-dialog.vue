@@ -5,15 +5,15 @@
 		</view>
 		<view class="uni-dialog-content">
 			<text class="uni-dialog-content-text" v-if="mode === 'base'">{{content}}</text>
-			<!-- <input v-else class="uni-dialog-input" v-model="val" type="text" :placeholder="placeholder" :focus="focus" > -->
+			<input v-else-if="mode === 'input'" class="uni-dialog-input" v-model="val" type="text" :placeholder="placeholder" :focus="focus" >
 				<view v-else>
-					<input class="uni-dialog-input" type="text" :placeholder="placeholder" :focus="focus"/>
+					<input class="uni-dialog-input" v-model="liveTitle" type="text" :placeholder="placeholder" :focus="focus"/>
 					<br>
 					<view  class="uni-list-cell-db">
 						<view class="uni-list-cell-left">
 							预案: 
 						</view>
-						<picker @change="bindPickerChange" :value="index" :range="planList">
+						<picker @change="bindPickerChange" :value="index" :range="planList"  :range-key="'planName'" >
 							<view class="uni-input">{{planList[index].planName}}</view>
 						</picker>
 						
@@ -112,7 +112,8 @@
 				focus: false,
 				val: "",
 				index: 0,
-				planList: []
+				planList: [],
+				liveTitle: ""
 			}
 		},
 		inject: ['popup'],
@@ -129,6 +130,7 @@
 				this.val = val
 			},
 			plans(val) {
+				console.log(val)
 				this.planList = val;
 			}
 			
@@ -155,10 +157,15 @@
 			 * 点击确认按钮
 			 */
 			onOk() {
+				let tmp = {};
+				tmp.title = this.liveTitle;
+				tmp.planId = this.planList[this.index].planId;
 				this.$emit('confirm', () => {
 					this.popup.close()
 					if (this.mode === 'input') this.val = this.value
-				}, this.mode === 'input' ? this.val : '')
+				}, 
+
+				this.mode === 'input' ? this.val : tmp)
 			},
 			/**
 			 * 点击取消按钮

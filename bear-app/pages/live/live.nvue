@@ -62,15 +62,19 @@
 				chatList:[],
 				scrollTop: 0,
 				websocket: null,
-				flag: false
+				flag: false,
+				planId: "",
+				title: ""
 			};
 		},
-		onLoad() {
+		onLoad(option) {
+			//获得上个页面传递的标题和planId
+			this.planId = option.planId;
+			this.title = option.title;			
 			//获取设备的宽度和高度,设置直播全屏
 			let res = uni.getSystemInfoSync()
 			this.width = res.windowWidth;
-			this.height = res.windowHeight;
-			
+			this.height = res.windowHeight;		
 		},
 		onReady() {
 			this.context = uni.createLivePusherContext('livePusher', this);
@@ -83,7 +87,7 @@
 				let userTel = state.userTel;
 				let lat = state.lat;//这里获取经纬度
 				let lng = state.lng;
-				return this.url + userTel + "?lat=" + lat + "&lng=" + lng;
+				return `${this.url}${userTel}?lat=${lat}&lng=${lng}&title=${this.title}&planId=${this.planId}`;
 			}	
 		}),
 		methods: {

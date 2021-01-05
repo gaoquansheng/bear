@@ -52,6 +52,14 @@
       </el-table-column>
     </el-table>
 
+    <pagination
+      v-show="total>0"
+      :total="total"
+      :page.sync="queryParams.pageNum"
+      :limit.sync="queryParams.pageSize"
+      @pagination="getPlans"
+    />
+
 <el-dialog :title="title" :visible.sync="flag" width="500px" append-to-body>
   <el-form :model="planForm" label-width="80px">
     <el-form-item label="演练名称" >
@@ -87,11 +95,16 @@ import { getRequest, postRequest,putRequest,deleteRequest } from "../../utils/ap
 export default {
   data(){
     return {
+      queryParams: {
+        pageNum: 1,
+        pageSize: 10
+      },
       data: [],
       flag: false,
       planForm: {},
       loading: true,
-      title: ""
+      title: "",
+      total: 0
     }
   },
   mounted(){
@@ -100,11 +113,14 @@ export default {
   methods:{
     getPlans(){
       this.loading = true;
-      getRequest("/plan/plans").then(res => {
-        console.log(res.data);
-        this.data = res.data;
+      getRequest("/plan/plans",this.queryParams).then(res => {
+        console.log(res);
+        this.data = res.rows;
+        this.total = res.total;
         this.loading = false;
-      })
+      },
+      
+      )
     },
     addPlan(){
 
@@ -147,7 +163,7 @@ export default {
     handleUpdate(row){
       this.clearForm();
       getRequest("/plan/plans/"+row.planId).then(res =>{
-        this.planForm = res.data;
+        this.planForm = res;
         this.flag = true;
         this.title = "修改应急演练"
       })

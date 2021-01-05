@@ -1,27 +1,33 @@
-package com.bear.bearspringboot.entity;
+package com.bear.bearspringboot.entity.vo;
 
-public class Reviewer {
+/**
+ * @author bear
+ * @date 2021-01-05 14:35
+ */
+public class ReviewerVo {
 
     private Integer id;
     private Integer planId;
     private String userTel;
+    private String planName;
 
+    public ReviewerVo() {
+    }
 
-    public Reviewer(Integer id, Integer planId, String userTel) {
+    public ReviewerVo(Integer id, Integer planId, String userTel, String planName) {
         this.id = id;
         this.planId = planId;
         this.userTel = userTel;
-    }
-
-    public Reviewer() {
+        this.planName = planName;
     }
 
     @Override
     public String toString() {
-        return "Reviewer{" +
+        return "ReviewerVo{" +
                 "id=" + id +
                 ", planId=" + planId +
                 ", userTel='" + userTel + '\'' +
+                ", planName='" + planName + '\'' +
                 '}';
     }
 
@@ -30,11 +36,12 @@ public class Reviewer {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Reviewer reviewer = (Reviewer) o;
+        ReviewerVo that = (ReviewerVo) o;
 
-        if (id != null ? !id.equals(reviewer.id) : reviewer.id != null) return false;
-        if (planId != null ? !planId.equals(reviewer.planId) : reviewer.planId != null) return false;
-        return userTel != null ? userTel.equals(reviewer.userTel) : reviewer.userTel == null;
+        if (id != null ? !id.equals(that.id) : that.id != null) return false;
+        if (planId != null ? !planId.equals(that.planId) : that.planId != null) return false;
+        if (userTel != null ? !userTel.equals(that.userTel) : that.userTel != null) return false;
+        return planName != null ? planName.equals(that.planName) : that.planName == null;
     }
 
     @Override
@@ -42,6 +49,7 @@ public class Reviewer {
         int result = id != null ? id.hashCode() : 0;
         result = 31 * result + (planId != null ? planId.hashCode() : 0);
         result = 31 * result + (userTel != null ? userTel.hashCode() : 0);
+        result = 31 * result + (planName != null ? planName.hashCode() : 0);
         return result;
     }
 
@@ -67,5 +75,13 @@ public class Reviewer {
 
     public void setUserTel(String userTel) {
         this.userTel = userTel;
+    }
+
+    public String getPlanName() {
+        return planName;
+    }
+
+    public void setPlanName(String planName) {
+        this.planName = planName;
     }
 }

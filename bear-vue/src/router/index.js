@@ -12,6 +12,7 @@ import Plan from "../views/plan/plan"
 import Index from "../views/plan/index"
 import Attachment from "../views/plan/attachment"
 import Reviewer from "../views/plan/reviewer"
+import Review from "../views/evaluation/index"
 // import Map from "../views/map/Map"
 
 Vue.use(VueRouter);
@@ -103,20 +104,20 @@ const routes = [
         component: UserManage
       }
     ]
+  },
+  {
+    path: "/home",
+
+    component: Home,
+    children: [
+      {
+        path: "/review",
+        name: "评估管理",
+        iconCls: "fa fa-user-o",
+        component: Review
+      }
+    ]
   }
-  // {
-  //   path: "/home",
-  //   // name: "用户管理",
-  //   component: Home,
-  //   children: [
-  //     {
-  //       path: "/map",
-  //       name: "地图管理",
-  //       iconCls: "fa fa-user-o",
-  //       component: Map
-  //     }
-  //   ]
-  // }
 ];
 
 const router = new VueRouter({

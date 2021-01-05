@@ -1,15 +1,15 @@
 package com.bear.bearspringboot.controller;
 
 
+import com.bear.bearspringboot.base.BaseController;
+import com.bear.bearspringboot.base.TableData;
+import com.bear.bearspringboot.entity.Plan;
 import com.bear.bearspringboot.entity.Video;
 import com.bear.bearspringboot.service.VideoService;
 import com.bear.bearspringboot.service.WebService;
 import com.bear.bearspringboot.util.WebSocketServer;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
@@ -18,8 +18,8 @@ import java.util.*;
 @RestController
 @RequestMapping("/video")
 @CrossOrigin
-public class VideoController {
-    
+public class VideoController extends BaseController {
+
     @Autowired
     VideoService videoService;
     @Autowired
@@ -35,6 +35,8 @@ public class VideoController {
         String url =tcurl+"/"+userTel;
         String lat = request.getParameter("lat");
         String lng = request.getParameter("lng");
+        String title = request.getParameter("title");
+        String planId = request.getParameter("planId");
         Date startTime = new Date();
         Video video = new Video();
         video.setUserTel(userTel);
@@ -43,6 +45,8 @@ public class VideoController {
         video.setFlag(1);
         video.setStartTime(startTime);
         video.setUrl(url);
+        video.setTitle(title);
+        video.setPlanId(Integer.parseInt(planId));
         //通知前端来新的数据了,可以把这个video对象发过去
         //这里可以利用userTel将所有的直播信息查出来
         videoService.startLive(video);
@@ -67,7 +71,7 @@ public class VideoController {
         video.setFlag(0);
         video.setVideoUrl(path);
         video.setUserTel(userTel);
-
+        System.out.println("here");
         Enumeration paramNames = request.getParameterNames();
         while (paramNames.hasMoreElements()) {
             String paraName=(String)paramNames.nextElement();
@@ -99,4 +103,10 @@ public class VideoController {
         return newPath;
     }
 
+    @GetMapping("/videos")
+    public TableData getVideosByPlanId(Plan plan) {
+        startPage();
+        List<Video> videos =  videoService.getVideosByPlanId(plan.getPlanId());
+        return getTableData(videos);
+    }
 }

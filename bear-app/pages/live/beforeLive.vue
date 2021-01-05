@@ -20,7 +20,7 @@
 		
 		<uni-popup ref="popup" type="dialog">
 		    <uni-popup-dialog
-				mode="input"
+				mode="bear"
 				title="测试标题"
 				:plans="plans"
 				@close="close" 
@@ -69,22 +69,28 @@
 					method: "GET",
 					dataType: "json",
 					success: (res) => {
-						this.plans = res.data;
+						this.plans = res.data.rows;
 					}
 				})
 			},
 			goToPage(url) {
+
 				if (!url) {
 					return;
 				}
 				if(!this.plans.length){
 					//没有应急演练可以直播
+					uni.showToast({
+						icon: 'none',
+						position: 'bottom',
+						title: '没有应急演练可以直播,请联系管理员'
+					});
 					return;
 				}
-				if(url == '/pages/live/live') {
+				if(url === '/pages/live/live') {
 					//这里可以弹框
-					console.log("我要弹窗了")
 					this.$refs.popup.open()
+					return;
 				}
 				// if(url == '/pages/live/record') {
 				// 	uni.navigateTo({
@@ -101,8 +107,12 @@
 				console.log("我倒这里了")
 				this.$refs.popup.close();
 			},
-			confirm(){
-				
+			confirm(done,value){
+				console.log(value);
+				this.$refs.popup.close();
+				uni.navigateTo({
+					url:`/pages/live/live?planId=${value.planId}&title=${value.title}`
+				})
 			}
 		}
 	};

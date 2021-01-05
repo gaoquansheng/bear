@@ -3,13 +3,16 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.bear.bearspringboot.mapper.VideoMapper">
     <insert id="startLive" parameterType="Video">
-        insert into video (userTel,url,lat,lng,startTime,flag) values (#{userTel},#{url},#{lat},#{lng},#{startTime},#{flag})
+        insert into video (userTel,url,lat,lng,startTime,flag,title,planId) values (#{userTel},#{url},#{lat},#{lng},#{startTime},#{flag},#{title},#{planId})
     </insert>
     <!--<update id="endLive" parameterType="String">-->
         <!--update video set flag = 0 where userName = #{userName} and flag = 1;-->
     <!--</update>-->
     <update id="recordDone" parameterType="Video">
-        update video set videoUrl = #{videoUrl},flag = #{flag},endTime=#{endTime} where userTel = #{userTel} and flag = 1;
+        update video set videoUrl = #{videoUrl},flag = #{flag},endTime=#{endTime} where userTel = #{userTel} and flag = 1
     </update>
 
+    <select id="getVideosByPlanId" parameterType="int" resultType="Video">
+        select userTel, title, url, lat, lng, startTime, flag, endTime, videoUrl, videoId, planId from video where planId = #{planId}
+    </select>
 </mapper>

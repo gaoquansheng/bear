@@ -7,7 +7,7 @@
         insert into attachment (planId, fileName, path) values (#{planId}, #{fileName}, #{path})
     </insert>
 
-    <select id="getAttachmentsByPlanId" parameterType="int" resultType="Attachment">
+    <select id="getAttachments" parameterType="Attachment" resultType="Attachment">
         select planId, attachmentId, fileName, path from attachment where planId = #{planId}
     </select>
 

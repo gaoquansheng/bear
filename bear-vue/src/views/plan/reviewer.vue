@@ -56,6 +56,14 @@
       </el-table-column>
     </el-table>
 
+    <pagination
+      v-show="total>0"
+      :total="total"
+      :page.sync="queryParams.pageNum"
+      :limit.sync="queryParams.pageSize"
+      @pagination="getReviewers"
+    />
+
   <el-dialog :title="title" :visible.sync="flag" width="500px" append-to-body>
     <el-form :model="reviewForm" label-width="80px">
       <el-form-item label="人员名称" >
@@ -84,6 +92,8 @@ export default {
   data(){
     return {
       queryParams: {
+        pageNum: 1,
+        pageSize: 10,
         planId: ""
       },
       planList: "",
@@ -93,7 +103,8 @@ export default {
       userList: [],
       data: [],
       loading: true,
-      checkUserList: []
+      checkUserList: [],
+      total: 0
     }
   },
   mounted(){
@@ -103,21 +114,22 @@ export default {
   methods: {
     getPlan(){
       getRequest("/plan/plans").then(res => {
-          this.planList = res.data;
-          this.queryParams.planId = res.data[0].planId
+          this.planList = res.rows;
+          this.queryParams.planId = res.rows[0].planId
           this.getReviewers();
       })
     },
     getUsers(){
       getRequest("/web/allUsers").then(res => {
         console.log(res);
-        this.userList = res.data;
+        this.userList = res;
       })
     },
     getReviewers(){
       this.loading = true;
-      getRequest("/reviewer/reviewers/"+this.queryParams.planId).then(res => {
-        this.data = res.data;
+      getRequest("/reviewer/reviewers/",this.queryParams).then(res => {
+        this.data = res.rows;
+        this.total = res.total;
         this.loading = false;
       })
     },

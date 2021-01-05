@@ -1,5 +1,7 @@
 package com.bear.bearspringboot.controller;
 
+import com.bear.bearspringboot.base.BaseController;
+import com.bear.bearspringboot.base.TableData;
 import com.bear.bearspringboot.entity.Index;
 import com.bear.bearspringboot.entity.Plan;
 import com.bear.bearspringboot.entity.RespBean;
@@ -11,7 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/index")
-public class IndexController {
+public class IndexController extends BaseController {
 
     @Autowired
     private IndexService indexService;
@@ -28,12 +30,15 @@ public class IndexController {
     public RespBean updateIndex(@RequestBody Index index){
         return indexService.updateIndex(index);
     }
-    @GetMapping("/indexes/{planId}")
-    public List<Index> getIndexes(@PathVariable("planId") int planId){
-        return indexService.getIndexes(planId);
+    @GetMapping("/indexes")
+    public TableData getIndexes(Index index){
+        startPage();
+        List<Index> indexes = indexService.getIndexes(index);
+        return getTableData(indexes);
     }
     @GetMapping("/indexes/indexId/{indexId}")
     public Index getIndexById(@PathVariable("indexId") int indexId){
         return indexService.getIndexById(indexId);
     }
-}
+
+

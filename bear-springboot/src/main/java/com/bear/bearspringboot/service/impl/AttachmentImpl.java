@@ -20,9 +20,10 @@ public class AttachmentImpl implements AttachmentService {
     }
 
     @Override
-    public List<Attachment> getAttachmentsByPlanId(int planId) {
-        return attachmentMapper.getAttachmentsByPlanId(planId);
+    public List<Attachment> getAttachments(Attachment attachment) {
+        return attachmentMapper.getAttachments(attachment);
     }
+
 
     @Override
     public void deleteAttachmentById(int attachmentId) {

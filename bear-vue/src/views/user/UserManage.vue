@@ -17,7 +17,7 @@
 
     <!-- </div> -->
     <el-table
-      :data="tableData"
+      :data="userList"
       stripe
       @selection-change="handleSelectionChange"
     >
@@ -54,17 +54,14 @@
         </template>
       </el-table-column>
     </el-table>
-    <el-pagination
-      background
-      layout="total, sizes, prev, pager, next, jumper"
-      :page-sizes="page.pageSizes"
-      :page-size="page.limit"
-      :total="page.total"
-      :current-page="page.currentPage"
-      @current-change="currentChange"
-      @size-change="limitChange"
-    >
-    </el-pagination>
+
+    <pagination
+      v-show="total>0"
+      :total="total"
+      :page.sync="queryParams.pageNum"
+      :limit.sync="queryParams.pageSize"
+      @pagination="getUsers"
+    />
 
     <el-dialog title="新增用户" :visible.sync="addUserDiaLog" width="30%">
       <el-form
@@ -188,13 +185,9 @@ export default {
       }
     };
     return {
-      //分页部分
-      page: {
-        paginationFlag: false,
-        pageSizes: [6, 10, 20],
-        total: 0,
-        limit: 6, //limit
-        currentPage: 1 //offset = (currentpage-1)*offset
+      queryParams: {
+        pageNum: 1,
+        pageSize: 10,  
       },
       search: "",
       deleteUsers: [],
@@ -224,10 +217,23 @@ export default {
         ]
       },
       // 返回对象数组
-      tableData: []
+      userList: [],
+      loading: false,
+      total: 0
     };
   },
+  mounted() {
+    this.getUsers()
+  },
   methods: {
+    getUsers() {
+      this.loading = true;
+      getRequest("/web/users").then(res => {
+        this.userList = res.data.rows;
+        this.total = res.data.total;
+        this.loading = false;
+      });
+    },
     handleSelectionChange(val) {
       this.deleteUsers = val;
     },
@@ -389,37 +395,8 @@ export default {
             message: "已取消删除"
           });
         });
-    },
-    loadingUsers(limit, offset) {
-      var _this = this;
-      var url = "/web/users?limit=" + limit + "&offset=" + offset;
-      getRequest(url).then(resp => {
-        _this.tableData = resp.data.users;
-        _this.page.total = resp.data.total;
-      });
-    },
-    limitChange(limit) {
-      this.page.limit = limit;
-      //改变每页显示的数据后,重新获取数据
-      var offset = (this.page.currentPage - 1) * limit;
-      this.loadingUsers(limit, offset);
-    },
-    //翻页,手动填写页码也会调用这里
-    currentChange(page) {
-      this.page.currentPage = page;
-      var offset = (page - 1) * this.page.limit;
-      this.loadingUsers(this.page.limit, offset);
     }
-  },
-  mounted() {
-    var _this = this;
-    this.loadingUsers(this.page.limit, 0);
-    window.eventBus.$on("userManage", () => {
-      var offset = (_this.page.currentPage - 1) * _this.page.limit;
-      console.log(_this.page.limit);
-      console.log(offset);
-      _this.loadingUsers(_this.page.limit, offset);
-    });
+
   }
 };
 </script>

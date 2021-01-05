@@ -3,7 +3,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.bear.bearspringboot.mapper.IndexMapper">
 
-    <select id="getIndexes" parameterType="int" resultType="Index">
+    <select id="getIndexes" parameterType="Index" resultType="Index">
       select indexId,indexName,enabled,description,minScore,maxScore,indexType,options,planId from `index` where planId = #{planId}
     </select>
 
@@ -24,4 +24,6 @@
     <delete id="deleteIndex" parameterType="int">
         delete from `index` where indexId = #{indexId}
     </delete>
+
+
 </mapper>

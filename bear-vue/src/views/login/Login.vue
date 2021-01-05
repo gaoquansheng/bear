@@ -62,22 +62,12 @@ export default {
     submitClick(formName) {
       this.$refs[formName].validate((valid) => {    
         if(valid){
-          let _this = this;
           this.loading = true;
-          postRequest("/web/login", this.loginForm).then(
-            resp => {
-              _this.loading = false;         
-              if (resp.data) {
-                _this.$store.commit("login",resp.data);
-                _this.$router.replace({ path: "/home" });
-              } else {
-                _this.$alert("手机号或密码错误!", "失败!");
-              }
-            },
-            //eslint-disable-next-line
-            resp => {
-              _this.loading = false;
-              _this.$alert("找不到服务器⊙﹏⊙∥!", "失败!");
+          postRequest("/web/login", this.loginForm).then(res => {
+            console.log(res);
+            this.loading = false;         
+            this.$store.commit("login",res);
+            this.$router.replace({ path: "/home" });
             }
           );
         }else{

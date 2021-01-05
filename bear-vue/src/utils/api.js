@@ -1,13 +1,44 @@
 import axios from "axios";
+import errorCode from "./errorCode"
 
 let base = "http://localhost:8080";
 // let base = "http://39.102.80.119:8080";
 
 axios.defaults.withCredentials = true; //设置跨域访问cookie和session不失效
+
+let service = axios.create({
+  baseURL:base,
+  timeout: 10000
+})
+
+service.interceptors.response.use(res => {
+  const code = res.data.code || 200;
+  const message = errorCode[code] || res.data.msg || errorCode["default"];
+  if(code != 200){
+    this.$message({
+      type: "error",
+      message: message
+    })
+    return Promise.reject(new Error(message))
+  }else {
+    return res.data;
+  }
+  },
+  error => {
+    console.log('err' + error)
+    // this.$message({
+    //   message: error.message,
+    //   type: 'error',
+    //   duration: 5 * 1000
+    // })
+    return Promise.reject(error)
+  }
+)
+
 export const postRequest = (url, params) => {
-  return axios({
+  return service({
     method: "post",
-    url: `${base}${url}`,
+    url: `${url}`,
     data: params,
     // transformRequest: [
     //   function(data) {
@@ -26,9 +57,9 @@ export const postRequest = (url, params) => {
   });
 };
 export const uploadFileRequest = (url, params) => {
-  return axios({
+  return service({
     method: "post",
-    url: `${base}${url}`,
+    url: `${url}`,
     data: params,
     headers: {
       "Content-Type": "multipart/form-data"
@@ -36,9 +67,9 @@ export const uploadFileRequest = (url, params) => {
   });
 };
 export const putRequest = (url, params) => {
-  return axios({
+  return service({
     method: "put",
-    url: `${base}${url}`,
+    url: `${url}`,
     data: params,
     // transformRequest: [
     //   function(data) {
@@ -56,13 +87,13 @@ export const putRequest = (url, params) => {
   });
 };
 export const deleteRequest = url => {
-  return axios({
+  return service({
     method: "delete",
-    url: `${base}${url}`
+    url: `${url}`
   });
 };
 export const getRequest = (url, params) => {
-  return axios({
+  return service({
     method: "get",
     params: params,
     transformRequest: [
@@ -78,7 +109,7 @@ export const getRequest = (url, params) => {
     headers: {
       "Content-Type": "application/x-www-form-urlencoded"
     },
-    url: `${base}${url}`
+    url: `${url}`
   });
 };
 

@@ -5,10 +5,10 @@ import com.bear.bearspringboot.entity.Video;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
-@Mapper
+
 public interface WebMapper {
 
-    public List<User> findAll(int limit,int offset);
+    public List<User> findAll();
     public int countUsers();
     public User findByUserTel(String userTel);
     public int save(User user);

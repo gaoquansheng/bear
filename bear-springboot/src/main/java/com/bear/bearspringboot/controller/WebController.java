@@ -1,6 +1,8 @@
 package com.bear.bearspringboot.controller;
 
 
+import com.bear.bearspringboot.base.BaseController;
+import com.bear.bearspringboot.base.TableData;
 import com.bear.bearspringboot.entity.RespBean;
 import com.bear.bearspringboot.entity.User;
 import com.bear.bearspringboot.entity.Video;
@@ -16,7 +18,7 @@ import java.util.*;
 @RestController
 @RequestMapping("/web")
 @CrossOrigin
-public class WebController {
+public class WebController extends BaseController {
 
     @Autowired
     WebService webService;
@@ -29,15 +31,10 @@ public class WebController {
     }
 
     @GetMapping("/users")
-    public Map<String,Object> findAll(HttpServletRequest request){
-        String limit= request.getParameter("limit");
-        String offset = request.getParameter("offset");
-        int total = webService.countUsers();
-        List<User> users = webService.findAll(Integer.parseInt(limit), Integer.parseInt(offset));
-        Map<String,Object> map = new HashMap<>();
-        map.put("users",users);
-        map.put("total",total);
-        return map;
+    public TableData findAll(){
+        startPage();
+        List<User> all = webService.findAll();
+        return getTableData(all);
     }
     @GetMapping("/users/{userTel}")
     public User findByUserTel(@PathVariable("userTel") String userTel){

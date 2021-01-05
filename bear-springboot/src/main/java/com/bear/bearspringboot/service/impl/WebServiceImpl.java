@@ -25,9 +25,9 @@ public class WebServiceImpl implements WebService {
     HttpServletResponse response;
 
     @Override
-    public List<User> findAll(int limit,int offset) {
+    public List<User> findAll() {
 
-        return webMapper.findAll(limit,offset);
+        return webMapper.findAll();
     }
     @Override
     public int countUsers(){
