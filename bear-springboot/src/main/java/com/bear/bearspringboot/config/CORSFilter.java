@@ -1,4 +1,4 @@
-package com.bear.bearspringboot.util;
+package com.bear.bearspringboot.config;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;

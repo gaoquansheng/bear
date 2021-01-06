@@ -145,7 +145,7 @@ export default {
 
       // }
       postRequest("/web/videos", video).then(resp => {
-        _this.recordVideoList = resp.data;
+        _this.recordVideoList = resp;
 
       });
     }

@@ -195,7 +195,8 @@ export default {
         };
       postRequest("/web/latestVideos", video).then(
         resp => {
-          _this.recordVideoList = resp.data;
+          console.log(resp);
+          _this.recordVideoList = resp;
           // _this.recordVideoList.splice(0, _this.recordVideoList.length); //重新赋值数组后会无法追踪数组
           //直接将数组进行赋值就会使得vue无法跟踪数组吗?
           //为什么修改数组之后没办法触发呢
@@ -206,7 +207,7 @@ export default {
           // }
         },
         resp => {
-          console.log(resp.data);
+          console.log(resp);
         }
       );
     },

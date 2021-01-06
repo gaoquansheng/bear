@@ -1,19 +1,18 @@
-package com.bear.bearspringboot.util;
+package com.bear.bearspringboot.config;
 
 import java.io.IOException;
 import java.util.concurrent.ConcurrentHashMap;
 import javax.websocket.*;
 import javax.websocket.server.PathParam;
 import javax.websocket.server.ServerEndpoint;
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
+
 import com.bear.bearspringboot.entity.Message;
 import com.bear.bearspringboot.entity.Video;
 import org.springframework.stereotype.Component;
 
 
 
-@ServerEndpoint(value = "/webSocketServer/{userTel}",encoders = {WebSocketEncoder.class,VideoEncoder.class},decoders = {WebSocketDecoder.class})
+@ServerEndpoint(value = "/webSocketServer/{userTel}",encoders = {WebSocketEncoder.class, VideoEncoder.class},decoders = {WebSocketDecoder.class})
 @Component
 public class WebSocketServer {
 

@@ -3,7 +3,6 @@ package com.bear.bearspringboot.controller;
 
 import com.bear.bearspringboot.base.BaseController;
 import com.bear.bearspringboot.base.TableData;
-import com.bear.bearspringboot.entity.RespBean;
 import com.bear.bearspringboot.entity.User;
 import com.bear.bearspringboot.entity.Video;
 import com.bear.bearspringboot.service.WebService;
@@ -11,8 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.*;
 
 @RestController

@@ -13,8 +13,8 @@ public class Video {
     private String title;
     private String userTel;
     private String url;
-    private String lat;
-    private String lng;
+    private Double lat;
+    private Double lng;
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone="GMT+8")
     private Date startTime;
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone="GMT+8")
@@ -25,7 +25,7 @@ public class Video {
     private User user;
     private Integer planId;
 
-    public Video(String title, String userTel, String url, String lat, String lng, Date startTime, Date endTime, Integer flag, String videoUrl, Integer videoId, User user, Integer planId) {
+    public Video(String title, String userTel, String url, Double lat, Double lng, Date startTime, Date endTime, Integer flag, String videoUrl, Integer videoId, User user, Integer planId) {
         this.title = title;
         this.userTel = userTel;
         this.url = url;
@@ -123,19 +123,19 @@ public class Video {
         this.url = url;
     }
 
-    public String getLat() {
+    public Double getLat() {
         return lat;
     }
 
-    public void setLat(String lat) {
+    public void setLat(Double lat) {
         this.lat = lat;
     }
 
-    public String getLng() {
+    public Double getLng() {
         return lng;
     }
 
-    public void setLng(String lng) {
+    public void setLng(Double lng) {
         this.lng = lng;
     }
 

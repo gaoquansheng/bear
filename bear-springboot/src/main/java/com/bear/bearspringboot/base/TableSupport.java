@@ -1,6 +1,5 @@
 package com.bear.bearspringboot.base;
 
-import com.bear.bearspringboot.entity.PageDomain;
 import com.bear.bearspringboot.util.ServletUtils;
 
 /**

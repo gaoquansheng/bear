@@ -1,4 +1,4 @@
-package com.bear.bearspringboot.entity;
+package com.bear.bearspringboot.base;
 
 /**
  * @author bear

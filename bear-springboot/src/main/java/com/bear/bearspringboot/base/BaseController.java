@@ -1,12 +1,8 @@
 package com.bear.bearspringboot.base;
 
-import com.bear.bearspringboot.entity.PageDomain;
-import com.bear.bearspringboot.util.ServletUtils;
-import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
@@ -34,7 +30,4 @@ public class BaseController {
         //响应分页数据
     }
 
-//    protected AjaxResult toAjax(int rows){
-//
-//    }
 }

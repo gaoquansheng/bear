@@ -1,8 +1,6 @@
 package com.bear.bearspringboot.service.impl;
 
 import com.bear.bearspringboot.entity.Index;
-import com.bear.bearspringboot.entity.Plan;
-import com.bear.bearspringboot.entity.RespBean;
 import com.bear.bearspringboot.mapper.IndexMapper;
 import com.bear.bearspringboot.service.IndexService;
 import org.springframework.beans.factory.annotation.Autowired;

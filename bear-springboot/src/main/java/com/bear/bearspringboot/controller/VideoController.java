@@ -7,7 +7,7 @@ import com.bear.bearspringboot.entity.Plan;
 import com.bear.bearspringboot.entity.Video;
 import com.bear.bearspringboot.service.VideoService;
 import com.bear.bearspringboot.service.WebService;
-import com.bear.bearspringboot.util.WebSocketServer;
+import com.bear.bearspringboot.config.WebSocketServer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -33,8 +33,8 @@ public class VideoController extends BaseController {
         String userTel = request.getParameter("name");
         String tcurl = request.getParameter("tcurl");
         String url =tcurl+"/"+userTel;
-        String lat = request.getParameter("lat");
-        String lng = request.getParameter("lng");
+        Double lat =Double.parseDouble(request.getParameter("lat"));
+        Double lng = Double.parseDouble(request.getParameter("lng"));
         String title = request.getParameter("title");
         String planId = request.getParameter("planId");
         Date startTime = new Date();
@@ -61,7 +61,7 @@ public class VideoController extends BaseController {
         String userTel = request.getParameter("name");
         String tcurl = request.getParameter("tcurl");
         String[] fileUrl = tcurl.split("/");
-
+// TODO: 2021/1/6 这里路径有点问题
         //这里调用yamdi对视频进行添加关键帧
         String newFileName = metadataToVideo(fileName);
         String path = fileUrl[0]+"//"+fileUrl[2]+newFileName;
@@ -71,7 +71,6 @@ public class VideoController extends BaseController {
         video.setFlag(0);
         video.setVideoUrl(path);
         video.setUserTel(userTel);
-        System.out.println("here");
         Enumeration paramNames = request.getParameterNames();
         while (paramNames.hasMoreElements()) {
             String paraName=(String)paramNames.nextElement();

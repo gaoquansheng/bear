@@ -18,6 +18,7 @@ public class Message {
         this.message = message;
         this.sendTime = sendTime;
         this.userTels = userTels;
+
     }
 
     @Override

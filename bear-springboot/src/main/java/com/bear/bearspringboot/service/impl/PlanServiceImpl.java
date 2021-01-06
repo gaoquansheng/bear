@@ -1,7 +1,6 @@
 package com.bear.bearspringboot.service.impl;
 
 import com.bear.bearspringboot.entity.Plan;
-import com.bear.bearspringboot.entity.RespBean;
 import com.bear.bearspringboot.mapper.PlanMapper;
 import com.bear.bearspringboot.service.PlanService;
 import org.springframework.beans.factory.annotation.Autowired;
