@@ -2,17 +2,18 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 // import store from "@/store/index.js"
 
-import Login from "../views/login/Login";
-import Home from "../views/home/Home";
-import Live from "../views/live/Live";
-import Record from "../views/record/Record";
-import LatestRecord from "../views/record/LatestRecord";
-import UserManage from "../views/user/UserManage";
-import Plan from "../views/plan/plan"
-import Index from "../views/plan/index"
-import Attachment from "../views/plan/attachment"
-import Reviewer from "../views/plan/reviewer"
-import Review from "../views/evaluation/index"
+import Login from "@/views/login/Login";
+import Home from "@/views/home/Home";
+import Live from "@/views/live/Live";
+import Record from "@/views/record/Record";
+import LatestRecord from "@/views/record/LatestRecord";
+import UserManage from "@/views/user/UserManage";
+import Plan from "@/views/plan/plan"
+import Attachment from "@/views/plan/attachment"
+import Reviewer from "@/views/evaluation/reviewer"
+import Review from "@/views/evaluation/index"
+import Target from "@/views/evaluation/target"
+
 // import Map from "../views/map/Map"
 
 Vue.use(VueRouter);
@@ -74,16 +75,7 @@ const routes = [
         name: "演练管理",
         component: Plan
       },
-      {
-        path: "/index",
-        name: "指标管理",
-        component: Index
-      },
-      {
-        path: "/reviewer",
-        name: "评估人员管理",
-        component: Reviewer
-      },
+
       {
         path: "/attachment",
         name: "附件管理",
@@ -107,9 +99,19 @@ const routes = [
   },
   {
     path: "/home",
-
+    name: "评估管理",
     component: Home,
     children: [
+      {
+        path: "/target",
+        name: "指标管理",
+        component: Target
+      },
+      {
+        path: "/reviewer",
+        name: "评估人员管理",
+        component: Reviewer
+      },
       {
         path: "/review",
         name: "评估管理",

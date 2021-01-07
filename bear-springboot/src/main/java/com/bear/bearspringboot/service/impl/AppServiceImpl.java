@@ -1,5 +1,6 @@
 package com.bear.bearspringboot.service.impl;
 
+import com.bear.bearspringboot.base.AjaxResult;
 import com.bear.bearspringboot.mapper.AppMapper;
 import com.bear.bearspringboot.entity.User;
 import com.bear.bearspringboot.entity.Video;
@@ -16,14 +17,14 @@ public class AppServiceImpl implements AppService {
     AppMapper appMapper;
 
     @Override
-    public RespBean register(User user) {
+    public AjaxResult register(User user) {
         if(appMapper.isOldUserTel(user.getUserTel()) == 1){
-            return new RespBean("手机号已注册",400);
+            return new AjaxResult(500,"手机号已注册");
         }else {
             if (appMapper.register(user) == 1){
-                return new RespBean("注册成功",200);
+                return new AjaxResult(200,"注册成功");
             }else {
-                return new RespBean("注册失败",400);
+                return new AjaxResult(500,"注册失败");
             }
         }
 
@@ -35,12 +36,8 @@ public class AppServiceImpl implements AppService {
     }
 
     @Override
-    public RespBean updateUserNameByUserTel(User user) {
-        if (appMapper.updateUserNameByUserTel(user) == 1){
-            return new RespBean("修改成功",200);
-        }else{
-            return new RespBean("修改失败",400);
-        }
+    public int updateUserNameByUserTel(User user) {
+        return appMapper.updateUserNameByUserTel(user);
     }
 
     @Override

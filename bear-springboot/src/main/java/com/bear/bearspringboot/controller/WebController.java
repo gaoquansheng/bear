@@ -1,6 +1,7 @@
 package com.bear.bearspringboot.controller;
 
 
+import com.bear.bearspringboot.base.AjaxResult;
 import com.bear.bearspringboot.base.BaseController;
 import com.bear.bearspringboot.base.TableData;
 import com.bear.bearspringboot.entity.User;
@@ -22,49 +23,6 @@ public class WebController extends BaseController {
     @Autowired
     HttpServletRequest request;
 
-    @GetMapping("/allUsers")
-    public List<User> getAllUsers(){
-        return webService.getAllUsers();
-    }
-
-    @GetMapping("/users")
-    public TableData findAll(){
-        startPage();
-        List<User> all = webService.findAll();
-        return getTableData(all);
-    }
-    @GetMapping("/users/{userTel}")
-    public User findByUserTel(@PathVariable("userTel") String userTel){
-        return webService.findByUserTel(userTel);
-
-    }
-    @PostMapping("/users")
-    public RespBean save(@RequestBody User user){
-        return webService.save(user);
-    }
-    @PutMapping("/users")
-    public RespBean update(@RequestBody User user,@RequestParam("oldUserTel") String oldUserTel){
-        System.out.println(oldUserTel);
-        System.out.println(user);
-        return webService.update(user,oldUserTel);
-    }
-    @DeleteMapping("/users/{userTel}")
-    public RespBean deleteByUserTel(@PathVariable("userTel") String userTel){
-        return webService.deleteByUserTel(userTel);
-    }
-
-    //通过主键(手机号)来批量删除用户
-    @RequestMapping("/deleteUserList")
-    public void batchDeleteUsers(@RequestParam("userTels") String userTels){
-        System.out.println(userTels);
-        String[] split = userTels.split(",");
-        List<String> userTelList = new LinkedList<>();
-        for (String i : split){
-            userTelList.add(i);
-        }
-        webService.batchDeleteUsers(userTelList);
-
-    }
     @PostMapping("/login")
     public User login(@RequestBody User user){
         return webService.login(user);
@@ -85,7 +43,7 @@ public class WebController extends BaseController {
     }
     //根据传递过来的Id修改标题
     @GetMapping("/addTitle")
-    public RespBean addTitleByIds(@RequestParam("ids") String ids, @RequestParam("title") String title){
+    public AjaxResult addTitleByIds(@RequestParam("ids") String ids, @RequestParam("title") String title){
         String[] allId = ids.split(",");
         return webService.addTitleById(allId,title);
 

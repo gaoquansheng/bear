@@ -6,11 +6,11 @@ import java.util.List;
 
 public interface AttachmentMapper {
 
-    public void addAttachment(Attachment attachment);
+    int addAttachment(Attachment attachment);
 
     List<Attachment> getAttachments(Attachment attachment);
 
-    void deleteAttachmentById(int attachmentId);
+    int deleteAttachmentById(int attachmentId);
 
     Attachment getAttachmentById(int attachmentId);
 }

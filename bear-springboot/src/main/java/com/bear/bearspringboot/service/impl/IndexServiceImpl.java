@@ -15,16 +15,14 @@ public class IndexServiceImpl implements IndexService {
     private IndexMapper indexMapper;
 
     @Override
-    public RespBean addIndex(Index index) {
-        int lines = indexMapper.addIndex(index);
-        return null;
+    public int addIndex(Index index) {
+        return indexMapper.addIndex(index);
+
     }
 
     @Override
-    public RespBean updateIndex(Index index) {
-
-       indexMapper.updateIndex(index);
-       return null;
+    public int updateIndex(Index index) {
+       return indexMapper.updateIndex(index);
     }
 
     @Override
@@ -33,9 +31,8 @@ public class IndexServiceImpl implements IndexService {
     }
 
     @Override
-    public RespBean deleteIndex(int indexId) {
-        indexMapper.deleteIndex(indexId);
-        return null;
+    public int deleteIndex(int indexId) {
+        return indexMapper.deleteIndex(indexId);
     }
 
     @Override

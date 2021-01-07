@@ -3,7 +3,7 @@
   <div>
     <el-row :gutter="10">
       <el-col :span="5">
-        <el-input v-model="title" @keyup.enter.native="getLiveVideos" placeholder="请输入标题或用户姓名"></el-input>
+        <el-input v-model="queryParams.title" @keyup.enter.native="getLiveVideos" placeholder="请输入标题或用户姓名"></el-input>
       </el-col>
       <el-col :span="2">
         <el-button type="success" @click="getLiveVideos">搜索</el-button>
@@ -97,12 +97,7 @@ export default {
       // 直播列表
       liveVideoList: [],
       dislikeVideoList: [],
-      //监听器
-      // timer: "",
-      //筛选的直播标题
-      title: "",
       patten: true, //true代表列表模式,false代表map模式
-
       checkedUserTels: [],
       checkedUserTels_: [],
       checkAll: false,
@@ -126,7 +121,10 @@ export default {
           value: 2,
           label: '每行显示12个'
         }],
-      videoSpan: 6 
+      videoSpan: 6 ,
+      queryParams: {
+        title: ""
+      }
     };
   },
   components: {

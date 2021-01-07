@@ -1,5 +1,6 @@
 package com.bear.bearspringboot.service.impl;
 
+import com.bear.bearspringboot.base.AjaxResult;
 import com.bear.bearspringboot.entity.Plan;
 import com.bear.bearspringboot.entity.Reviewer;
 import com.bear.bearspringboot.mapper.ReviewerMapper;
@@ -26,7 +27,7 @@ public class ReviewerServiceImpl implements ReviewerService {
 
     @Override
     @Transactional
-    public void addReviewers(Reviewer reviewer) {
+    public AjaxResult addReviewers(Reviewer reviewer) {
         List<Reviewer> reviewers = reviewerMapper.getReviewersByPlanId(reviewer);
         List<String> oldReviewers = new LinkedList<>();
         for (Reviewer item: reviewers){
@@ -42,11 +43,12 @@ public class ReviewerServiceImpl implements ReviewerService {
         for (String item : newReviewers){
             reviewerMapper.addReviewers(reviewer.getPlanId(),item);
         }
+        return AjaxResult.success();
     }
 
     @Override
-    public void deleteReviewerById(int id) {
-        reviewerMapper.deleteReviewerById(id);
+    public int deleteReviewerById(int id) {
+        return reviewerMapper.deleteReviewerById(id);
     }
 
     @Override

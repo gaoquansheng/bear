@@ -1,5 +1,6 @@
 package com.bear.bearspringboot.controller;
 
+import com.bear.bearspringboot.base.AjaxResult;
 import com.bear.bearspringboot.base.BaseController;
 import com.bear.bearspringboot.base.TableData;
 import com.bear.bearspringboot.entity.Index;
@@ -17,18 +18,18 @@ public class IndexController extends BaseController {
     private IndexService indexService;
 
     @PostMapping("/indexes")
-    public RespBean addIndex(@RequestBody Index index) {
-        return indexService.addIndex(index);
+    public AjaxResult addIndex(@RequestBody Index index) {
+        return toAjax(indexService.addIndex(index));
     }
 
     @DeleteMapping("/indexes/{indexId}")
-    public RespBean deleteIndex(@PathVariable("indexId") int indexId) {
-        return indexService.deleteIndex(indexId);
+    public AjaxResult deleteIndex(@PathVariable("indexId") int indexId) {
+        return toAjax(indexService.deleteIndex(indexId));
     }
 
     @PutMapping("/indexes")
-    public RespBean updateIndex(@RequestBody Index index) {
-        return indexService.updateIndex(index);
+    public AjaxResult updateIndex(@RequestBody Index index) {
+        return toAjax(indexService.updateIndex(index));
     }
 
     @GetMapping("/indexes")

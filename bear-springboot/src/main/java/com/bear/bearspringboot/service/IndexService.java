@@ -5,13 +5,13 @@ import com.bear.bearspringboot.entity.Index;
 import java.util.List;
 
 public interface IndexService {
-    RespBean addIndex(Index index);
+    int addIndex(Index index);
 
-    RespBean updateIndex(Index index);
+    int updateIndex(Index index);
 
     List<Index> getIndexes( Index index);
 
-    RespBean deleteIndex(int indexId);
+    int deleteIndex(int indexId);
 
     Index getIndexById(int indexId);
 

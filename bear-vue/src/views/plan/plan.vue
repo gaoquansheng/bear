@@ -123,7 +123,6 @@ export default {
       )
     },
     addPlan(){
-
       this.clearForm();
       this.flag = true;
       this.title = "新增应急演练"

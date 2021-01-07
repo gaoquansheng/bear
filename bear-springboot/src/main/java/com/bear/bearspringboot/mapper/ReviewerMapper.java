@@ -10,9 +10,9 @@ import java.util.List;
 public interface ReviewerMapper {
     List<Reviewer> getReviewersByPlanId(Reviewer reviewer);
 
-    void addReviewers(Integer planId, String userTel);
+    int addReviewers(Integer planId, String userTel);
 
-    void deleteReviewerById(int id);
+    int deleteReviewerById(int id);
 
     List<Reviewer> getPlansByUserTel(String userTel);
 }

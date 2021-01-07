@@ -2,7 +2,7 @@
   <div>
     <el-row :gutter="10" class="mb8">
       <el-col :span="1.5">
-       选择预案:
+       选择演练:
       </el-col>
       <el-col :span="1.5">
         <el-select

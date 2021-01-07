@@ -1,6 +1,8 @@
 package com.bear.bearspringboot.controller;
 
 
+import com.bear.bearspringboot.base.AjaxResult;
+import com.bear.bearspringboot.base.BaseController;
 import com.bear.bearspringboot.entity.User;
 import com.bear.bearspringboot.entity.Video;
 import com.bear.bearspringboot.service.AppService;
@@ -12,14 +14,14 @@ import java.util.List;
 @RestController
 @RequestMapping("/app")
 @CrossOrigin
-public class AppController {
+public class AppController extends BaseController {
 
 
     @Autowired
     AppService appService;
 
     @PostMapping("/register")
-    public RespBean register(@RequestBody User user){
+    public AjaxResult register(@RequestBody User user){
         return appService.register(user);
     }
 
@@ -33,7 +35,7 @@ public class AppController {
         return appService.liveHistory(userTel);
     }
     @PutMapping("/update")
-    public RespBean updateUserNameByUserTel(@RequestBody User user){
-        return appService.updateUserNameByUserTel(user);
+    public AjaxResult updateUserNameByUserTel(@RequestBody User user){
+        return toAjax(appService.updateUserNameByUserTel(user));
     }
 }

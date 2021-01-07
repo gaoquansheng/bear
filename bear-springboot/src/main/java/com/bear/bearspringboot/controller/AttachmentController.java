@@ -1,6 +1,7 @@
 package com.bear.bearspringboot.controller;
 
 
+import com.bear.bearspringboot.base.AjaxResult;
 import com.bear.bearspringboot.base.BaseController;
 import com.bear.bearspringboot.base.TableData;
 import com.bear.bearspringboot.config.Constants;
@@ -42,19 +43,16 @@ public class AttachmentController extends BaseController {
     }
 
     @PostMapping("/attachments")
-    public void addAttachment(@RequestBody Attachment attachment){
-        attachmentService.addAttachment(attachment);
+    public AjaxResult addAttachment(@RequestBody Attachment attachment){
+        return toAjax(attachmentService.addAttachment(attachment));
     }
 
     @DeleteMapping("/attachments/{attachmentId}")
-    public void deleteAttachmentById(@PathVariable("attachmentId") int attachmentId){
-        attachmentService.deleteAttachmentById(attachmentId);
+    public AjaxResult deleteAttachmentById(@PathVariable("attachmentId") int attachmentId){
+        return toAjax(attachmentService.deleteAttachmentById(attachmentId));
     }
 
-    @PutMapping("/attachments")
-    public void updateAttachment(@RequestBody Attachment attachment){
 
-    }
 
     @GetMapping("/attachments")
     public TableData getAttachmentsByPlanId(Attachment attachment){
@@ -64,8 +62,8 @@ public class AttachmentController extends BaseController {
     }
 
     @GetMapping("/attachments/attachmentId/{attachmentId}")
-    public Attachment getAttachmentById(@PathVariable("attachmentId") int attachmentId){
-        return attachmentService.getAttachmentById(attachmentId);
+    public AjaxResult getAttachmentById(@PathVariable("attachmentId") int attachmentId){
+        return AjaxResult.success(attachmentService.getAttachmentById(attachmentId));
     }
 
     public String getExt(String fileName){

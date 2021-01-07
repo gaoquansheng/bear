@@ -15,8 +15,8 @@ public class AttachmentImpl implements AttachmentService {
     AttachmentMapper attachmentMapper;
 
     @Override
-    public void addAttachment(Attachment attachment) {
-        attachmentMapper.addAttachment(attachment);
+    public int addAttachment(Attachment attachment) {
+        return attachmentMapper.addAttachment(attachment);
     }
 
     @Override
@@ -26,8 +26,8 @@ public class AttachmentImpl implements AttachmentService {
 
 
     @Override
-    public void deleteAttachmentById(int attachmentId) {
-        attachmentMapper.deleteAttachmentById(attachmentId);
+    public int deleteAttachmentById(int attachmentId) {
+        return attachmentMapper.deleteAttachmentById(attachmentId);
     }
 
     @Override

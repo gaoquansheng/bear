@@ -1,6 +1,7 @@
 package com.bear.bearspringboot.controller;
 
 
+import com.bear.bearspringboot.base.AjaxResult;
 import com.bear.bearspringboot.base.BaseController;
 import com.bear.bearspringboot.base.TableData;
 import com.bear.bearspringboot.entity.Plan;
@@ -32,12 +33,12 @@ public class ReviewerController extends BaseController {
     }
 
     @PostMapping("/reviewers")
-    public void addReviewers(@RequestBody Reviewer reviewer){
-        reviewerService.addReviewers(reviewer);
+    public AjaxResult addReviewers(@RequestBody Reviewer reviewer){
+        return reviewerService.addReviewers(reviewer);
     }
 
     @DeleteMapping("/reviewers/{id}")
-    public void deleteReviewerById(@PathVariable("id") int id){
-        reviewerService.deleteReviewerById(id);
+    public AjaxResult deleteReviewerById(@PathVariable("id") int id){
+        return toAjax(reviewerService.deleteReviewerById(id));
     }
 }

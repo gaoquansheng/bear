@@ -15,21 +15,19 @@ public class PlanServiceImpl implements PlanService {
     PlanMapper planMapper;
 
     @Override
-    public RespBean addPlan(Plan plan) {
-        planMapper.addPlan(plan);
-        return null;
+    public int addPlan(Plan plan) {
+        return planMapper.addPlan(plan);
     }
 
     @Override
-    public RespBean deletePlanById(int planId) {
-        planMapper.deletePlanById(planId);
-        return null;
+    public int deletePlanById(int planId) {
+        return planMapper.deletePlanById(planId);
+
     }
 
     @Override
-    public RespBean updatePlan(Plan plan) {
-        planMapper.updatePlan(plan);
-        return null;
+    public int updatePlan(Plan plan) {
+        return planMapper.updatePlan(plan);
     }
 
     @Override

@@ -32,29 +32,29 @@ public class AjaxResult  extends HashMap<String,Object> {
         }
     }
     //四个成功
-    public AjaxResult success(){
+    public static AjaxResult success(){
         return success("操作成功");
     }
-    public AjaxResult success(String msg){
+    public static AjaxResult success(String msg){
         return success(msg,null);
     }
-    public AjaxResult success(Object data){
+    public static AjaxResult success(Object data){
         return success("操作成功", data);
     }
-    public AjaxResult success(String msg, Object data){
+    public static AjaxResult success(String msg, Object data){
         return new AjaxResult(HttpStatus.SUCCESS, msg, data);
     }
     //四个失败
-    public AjaxResult error(){
+    public static AjaxResult error(){
         return error("操作失败");
     }
-    public AjaxResult error(String msg){
+    public static AjaxResult error(String msg){
         return error(msg, null);
     }
-    public AjaxResult error(String msg, Object data){
+    public static AjaxResult error(String msg, Object data){
         return new AjaxResult(HttpStatus.ERROR, msg, data);
     }
-    public AjaxResult error(int code, String msg){
+    public static AjaxResult error(int code, String msg){
         return new AjaxResult(code, msg, null);
     }
 }

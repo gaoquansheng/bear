@@ -1,6 +1,7 @@
 package com.bear.bearspringboot.controller;
 
 
+import com.bear.bearspringboot.base.AjaxResult;
 import com.bear.bearspringboot.base.BaseController;
 import com.bear.bearspringboot.base.TableData;
 import com.bear.bearspringboot.entity.Plan;
@@ -19,18 +20,18 @@ public class PlanController extends BaseController {
     PlanService planService;
 
     @PostMapping("/plans")
-    public RespBean addPlan(@RequestBody Plan plan){
-        return planService.addPlan(plan);
+    public AjaxResult addPlan(@RequestBody Plan plan){
+        return toAjax(planService.addPlan(plan));
     }
 
     @DeleteMapping("/plans/{planId}")
-    public RespBean deletePlanById(@PathVariable("planId") int planId){
-        return planService.deletePlanById(planId);
+    public AjaxResult deletePlanById(@PathVariable("planId") int planId){
+        return toAjax(planService.deletePlanById(planId));
     }
 
     @PutMapping("/plans")
-    public RespBean updatePlan(@RequestBody Plan plan){
-        return planService.updatePlan(plan);
+    public AjaxResult updatePlan(@RequestBody Plan plan){
+        return toAjax(planService.updatePlan(plan));
     }
 
     @GetMapping("/plans")
@@ -41,8 +42,8 @@ public class PlanController extends BaseController {
     }
 
     @GetMapping("/plans/{planId}")
-    public Plan getPlanById(@PathVariable("planId") int planId){
-        return planService.getPlanById(planId);
+    public AjaxResult getPlanById(@PathVariable("planId") int planId){
+        return AjaxResult.success(planService.getPlanById(planId));
     }
 
     @GetMapping("/openPlans")
