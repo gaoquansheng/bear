@@ -71,7 +71,8 @@
 
 <script>
 import { getRequest, postRequest } from "@/utils/api";
-
+import Vue from "vue"
+import { putRequest } from '../../utils/api';
 export default {
   data(){
     return {
@@ -87,7 +88,8 @@ export default {
       scoreForm: {},
       indexList: [],
       flag: false,
-      title: "评估"
+      title: "评估",
+
     }
   },
   mounted(){
@@ -99,6 +101,7 @@ export default {
         this.planList = res;
         this.queryParams.planId = res[0].planId;
         this.getIndexes();
+        
       })
     },
     getIndexes(){
@@ -107,12 +110,46 @@ export default {
         this.data = res.rows;
         this.total = res.total;
         this.loading = false;
+        this.getScores()
+      })
+    },
+    getScores(){
+      getRequest("/score/scores?planId="+this.queryParams.planId).then(res => {
+        for(let item of res.data) {
+          for(let tmp of this.data){
+
+            if(item.indexId === tmp.indexId){
+              // tmp.score = item.score;
+              Vue.set(tmp, "score", item.score)
+              Vue.set(tmp, "scoreId", item.scoreId)
+            }
+          }
+        }
+        console.log(this.data);
       })
     },
     handleUpdate(row){
-      postRequest("/score/scores", row).then(res => {
-        console.log(res);
-      })
+      console.log(row.scoreId);
+      if(!row.scoreId){
+        //就是新增
+        postRequest("/score/scores", row).then(res => {
+          this.$message({
+            type: "success",
+            message: res.msg
+          })
+          this.getIndexes();
+        })
+      }else {
+        //就是更新
+        putRequest("/score/scores", row).then(res =>{
+          this.$message({
+            type: "success",
+            message: res.msg
+          })
+          this.getIndexes();
+        })
+      }
+
     },
 
   }

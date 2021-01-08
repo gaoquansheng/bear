@@ -5,10 +5,9 @@ import com.bear.bearspringboot.base.BaseController;
 import com.bear.bearspringboot.entity.Score;
 import com.bear.bearspringboot.service.ScoreService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * @author bear
@@ -27,5 +26,17 @@ public class ScoreController extends BaseController {
     @PostMapping("/scores")
     public AjaxResult addScore(@RequestBody Score score){
         return toAjax(scoreService.addScore(score));
+    }
+
+    @PutMapping("/scores")
+    public AjaxResult updateScore(@RequestBody Score score){
+        return toAjax(scoreService.updateScore(score));
+    }
+
+    @GetMapping("/scores")
+    public AjaxResult getScores(Score score){
+        System.out.println(score);
+        List<Score> scores = scoreService.getScores(score);
+        return AjaxResult.success(scores);
     }
 }

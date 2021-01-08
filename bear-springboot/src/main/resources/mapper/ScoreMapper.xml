@@ -6,4 +6,12 @@
     <insert id="addScore" parameterType="Score">
         insert into score (planId, score, userTel, indexId, reviewTime) values (#{planId}, #{score}, #{userTel}, #{indexId}, #{reviewTime})
     </insert>
+
+    <select id="getScores" parameterType="Score" resultType="Score">
+        select score, indexId, scoreId from score where userTel = #{userTel} and planId = #{planId}
+    </select>
+
+    <update id="updateScore" parameterType="Score">
+        update score set score = #{score} where scoreId = #{scoreId}
+    </update>
 </mapper>
