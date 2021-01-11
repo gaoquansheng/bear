@@ -36,8 +36,8 @@
 			return {
 				width: '',
 				height: '',
-				url: 'rtmp://172.17.71.24:1935/live/',//这是推流地址
-				websocketUrl: "ws://172.17.71.24:8080/webSocketServer/",
+				url: 'rtmp://192.168.1.17:1935/live/',//这是推流地址
+				websocketUrl: "ws://192.168.1.17:8080/webSocketServer/",
 				context: null,
 				context1: null,
 				markact: true,

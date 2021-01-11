@@ -6,16 +6,12 @@
       <el-col :span="8">
         <el-date-picker
           v-model="timeRange"
-          type="daterange"
-          align="right"
-          unlink-panels
+          type="datetimerange"
           range-separator="至"
           start-placeholder="开始日期"
           end-placeholder="结束日期"
-          format="yyyy 年 MM 月 dd 日"
-          value-format="yyyy-MM-dd HH:mm:ss"
-          :picker-options="pickerOptions"
-        >
+          :default-time="['00:00:00','23:59:59']"
+          >
         </el-date-picker>
       </el-col>
       <el-col :span="2">
@@ -115,40 +111,7 @@ export default {
       checkAll: false,
       checkedVideos: [],
       recordVideoList: [],
-      //日期选择模块
-      pickerOptions: {
-        shortcuts: [
-          {
-            text: "最近一周",
-            onClick(picker) {
-              const end = new Date();
-              const start = new Date();
-              start.setTime(start.getTime() - 3600 * 1000 * 24 * 7);
-              picker.$emit("pick", [start, end]);
-            }
-          },
-          {
-            text: "最近一个月",
-            onClick(picker) {
-              const end = new Date();
-              const start = new Date();
-              start.setTime(start.getTime() - 3600 * 1000 * 24 * 30);
-              picker.$emit("pick", [start, end]);
-            }
-          },
-          {
-            text: "最近三个月",
-            onClick(picker) {
-              const end = new Date();
-              const start = new Date();
-              start.setTime(start.getTime() - 3600 * 1000 * 24 * 90);
-              picker.$emit("pick", [start, end]);
-            }
-          }
-        ]
-      },
       timeRange: ""
-      
     };
   },
   components: {
@@ -156,6 +119,9 @@ export default {
     VideoMap,
     VideoInfo,
     draggable
+  },  
+  mounted() {
+    this.initVideos();
   },
   methods: {
     handleCheckAllChange(val) {
@@ -227,9 +193,6 @@ export default {
       })
       return latestTime;
     }
-  },
-  mounted() {
-    this.initVideos();
   }
 };
 </script>

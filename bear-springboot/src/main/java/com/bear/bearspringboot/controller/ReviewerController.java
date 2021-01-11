@@ -20,6 +20,16 @@ public class ReviewerController extends BaseController {
     @Autowired
     ReviewerService reviewerService;
 
+    @PostMapping("/reviewers")
+    public AjaxResult addReviewers(@RequestBody Reviewer reviewer){
+        return reviewerService.addReviewers(reviewer);
+    }
+
+    @DeleteMapping("/reviewers/{id}")
+    public AjaxResult deleteReviewerById(@PathVariable("id") int id){
+        return toAjax(reviewerService.deleteReviewerById(id));
+    }
+
     @GetMapping("/reviewers")
     public TableData getReviewersByPlanId(Reviewer reviewer){
         startPage();
@@ -32,13 +42,7 @@ public class ReviewerController extends BaseController {
         return reviewerService.getPlansByUserTel("15516392395");
     }
 
-    @PostMapping("/reviewers")
-    public AjaxResult addReviewers(@RequestBody Reviewer reviewer){
-        return reviewerService.addReviewers(reviewer);
-    }
 
-    @DeleteMapping("/reviewers/{id}")
-    public AjaxResult deleteReviewerById(@PathVariable("id") int id){
-        return toAjax(reviewerService.deleteReviewerById(id));
-    }
+
+
 }

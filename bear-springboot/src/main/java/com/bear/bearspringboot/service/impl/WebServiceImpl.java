@@ -16,16 +16,9 @@ import java.util.List;
 
 @Service
 public class WebServiceImpl implements WebService {
+
     @Autowired
     WebMapper webMapper;
-    @Autowired
-    AppMapper appMapper;
-    @Autowired
-    HttpServletRequest request;
-    @Autowired
-    HttpServletResponse response;
-
-
 
     @Override
     public User login(User user) {
@@ -34,21 +27,9 @@ public class WebServiceImpl implements WebService {
 
     @Override
     public List<Video> getRecordVideos(Video video) {
-        //通过返回的所有的手机号,匹配手机号对应的用户名
-
         return webMapper.getRecordVideos(video);
-
     }
 
-    @Override
-    public AjaxResult addTitleById(String[] ids, String title) {
-        if(webMapper.addTitleById(ids,title) == ids.length){
-            return new AjaxResult(HttpStatus.SUCCESS,"添加成功");
-        }else{
-            return new AjaxResult(HttpStatus.ERROR,"添加失败");
-        }
-
-    }
     @Override
     public List<Video> getLatestVideos(Video video) {
         return webMapper.getLatestVideos(video);

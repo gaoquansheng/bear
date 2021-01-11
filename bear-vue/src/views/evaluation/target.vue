@@ -6,7 +6,7 @@
       </el-col>
       <el-col :span="1.5">
         <el-select
-          @change="getIndexes"
+          @change="getTargets"
           v-model="queryParams.planId"
           size="small">
           <el-option
@@ -34,7 +34,7 @@
       >
       <el-table-column
         align="center"
-        prop="indexName"
+        prop="targetName"
         label="指标名称"
        >
       </el-table-column>
@@ -64,7 +64,7 @@
       </el-table-column>
       <el-table-column
         align="center"
-        prop="indexType"
+        prop="targetType"
         label="指标类型">
       </el-table-column>
       <el-table-column
@@ -95,57 +95,55 @@
       :total="total"
       :page.sync="queryParams.pageNum"
       :limit.sync="queryParams.pageSize"
-      @pagination="getIndexes"
+      @pagination="getTargets"
     />
 
   <el-dialog :title="title" :visible.sync="flag" width="500px" append-to-body>
-    <el-form :model="indexForm" label-width="80px">
+    <el-form :model="targetForm" label-width="80px">
       <el-form-item label="指标名称" >
-        <el-input v-model="indexForm.indexName" autocomplete="off"></el-input>
+        <el-input v-model="targetForm.targetName" autocomplete="off"></el-input>
       </el-form-item>
       <el-form-item label="是否启用" >
-        <el-select v-model="indexForm.enabled" placeholder="请选择">
+        <el-select v-model="targetForm.enabled" placeholder="请选择">
               <el-option
-              v-for="indexEnabled in indexEnabledList"
-              :key="indexEnabled.value"
-              :label="indexEnabled.label"
-              :value="indexEnabled.value">
+              v-for="item in enabledList"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value">
               </el-option>
           </el-select>
       </el-form-item>
       <el-form-item label="演练描述" >
-        <el-input v-model="indexForm.description" autocomplete="off"></el-input>
+        <el-input v-model="targetForm.description" autocomplete="off"></el-input>
       </el-form-item>
       <el-form-item label="指标类型" >
           <el-select  
-            v-model="indexForm.indexType"
+            v-model="targetForm.targetType"
             placeholder="请选择">
               <el-option
-              v-for="indexType in indexTypeList"
-              :key="indexType.value"
-              :value="indexType.value">
+              v-for="item in targetTypeList"
+              :key="item.value"
+              :value="item.value">
               </el-option>
           </el-select>
-          <template v-if="indexForm.indexType ===indexTypeList[1].value">
+          <template v-if="targetForm.targetType ===targetTypeList[1].value">
             <el-button @click="addOption">新增</el-button>
-            <!-- <el-button @click="removeOption">删除</el-button> -->
           </template>
       </el-form-item>
 
-      <el-form-item label="最低分" v-if="indexForm.indexType ===indexTypeList[0].value">
-          <el-input v-model="indexForm.minScore" placeholder="请输入最小分数"></el-input>
+      <el-form-item label="最低分" v-if="targetForm.targetType ===targetTypeList[0].value">
+          <el-input v-model="targetForm.minScore" placeholder="请输入最小分数"></el-input>
       </el-form-item>
-      <el-form-item label="最高分" v-if="indexForm.indexType ===indexTypeList[0].value">
-          <el-input v-model="indexForm.maxScore" placeholder="请输入最大分数"></el-input>
+      <el-form-item label="最高分" v-if="targetForm.targetType ===targetTypeList[0].value">
+          <el-input v-model="targetForm.maxScore" placeholder="请输入最大分数"></el-input>
       </el-form-item>
 
-      <template v-if="indexForm.indexType ===indexTypeList[1].value">
+      <template v-if="targetForm.targetType ===targetTypeList[1].value">
         <el-form-item
             v-for="(option, index) in dynamicOptionList"
             :label="'选项' + index"
             :key="option.key">
             <el-input v-model="option.value"></el-input>
-            
             <el-button @click.prevent="removeOption(option)">删除</el-button>
           </el-form-item>
       </template>
@@ -173,17 +171,8 @@ export default {
             planList: "",
             flag: false,
             loading: true,
-            indexForm: {
-                indexName: "",
-                enabled: true,
-                minScore: "",
-                maxScore: "",
-                description: "",
-                indexType: "",
-                planId: "",
-                options: ""
-            },
-            indexTypeList: [
+            targetForm: {},
+            targetTypeList: [
                 {
                     value: "打分" 
                 },
@@ -194,7 +183,7 @@ export default {
                     value: "评语" 
                 }
             ],
-            indexEnabledList: [
+            enabledList: [
                 {
                     label: "是",
                     value: true
@@ -221,12 +210,12 @@ export default {
             getRequest("/plan/plans").then(res => {
                 this.planList = res.rows;
                 this.queryParams.planId = res.rows[0].planId
-                this.getIndexes();
+                this.getTargets();
             })
         },
-        getIndexes(){
+        getTargets(){
           this.loading = true;
-          getRequest("/index/indexes/",this.queryParams).then(res => {
+          getRequest("/target/targets/",this.queryParams).then(res => {
             this.data = res.rows;
             this.total = res.total;
             this.loading = false;
@@ -239,34 +228,34 @@ export default {
         },
         submit(){
           //过滤指标选项的内容
-          if(this.indexForm.indexType == this.indexTypeList[1].value){
+          if(this.targetForm.targetType == this.targetTypeList[1].value){
             let tmp = []
             this.dynamicOptionList.forEach(option => {
               tmp.push(option.value);
             });
-            this.indexForm.options = tmp.join("_")
-            this.indexForm.minScore = "";
-            this.indexForm.maxScore = "";
+            this.targetForm.options = tmp.join("_")
+            this.targetForm.minScore = "";
+            this.targetForm.maxScore = "";
           }
-          if(this.indexForm.indexType == this.indexTypeList[2].value){
-            this.indexForm.options = "";
-            this.indexForm.minScore = "";
-            this.indexForm.maxScore = "";
+          if(this.targetForm.targetType == this.targetTypeList[2].value){
+            this.targetForm.options = "";
+            this.targetForm.minScore = "";
+            this.targetForm.maxScore = "";
           }
-          if(!this.indexForm.planId){
-            this.indexForm.planId = this.queryParams.planId;
-            postRequest("/index/indexes",this.indexForm).then(res => {
+          if(!this.targetForm.planId){
+            this.targetForm.planId = this.queryParams.planId;
+            postRequest("/target/targets",this.targetForm).then(res => {
               this.flag = false;
-              this.getIndexes();
+              this.getTargets();
               this.$message({
                 message: '新增成功',
                 type: 'success'
               });
             })
           }else {
-            putRequest("/index/indexes",this.indexForm).then(res =>{
+            putRequest("/target/targets",this.targetForm).then(res =>{
               this.flag = false;
-              this.getIndexes();
+              this.getTargets();
               this.$message({
                 message: '修改成功',
                 type: 'success'
@@ -275,28 +264,24 @@ export default {
           }
         },
         clearForm(){
-            this.indexForm = {
-                indexName: "",
+            this.targetForm = {
+                targetName: "",
                 enabled: true,
                 minScore: "",
                 maxScore: "",
                 description: "",
-                indexType: "",
+                targetType: "",
                 options: ""
             }
             this.dynamicOptionList =  [
-              {
-                value: ""
-              }
             ];
         },
         handleUpdate(row){
           this.clearForm();
-          getRequest("/index/indexes/indexId/"+row.indexId).then(res => {
-            this.indexForm = res;
-            let tmp = res.options.split("_")
+          getRequest("/target/targets/"+row.targetId).then(res => {
+            this.targetForm = res.data;
+            let tmp = res.data.options.split("_")
             tmp.forEach(item => {
-              console.log(item);
               this.dynamicOptionList.push({
                 key: Date.now(),
                 value: item
@@ -308,7 +293,7 @@ export default {
         },
         handleDelete(row){
           this.$confirm(
-            '是否确认删除指标编号为"' + row.indexId + '"的数据项?',
+            '是否确认删除指标编号为"' + row.targetId + '"的数据项?',
             "警告",
             {
               confirmButtonText: "确定",
@@ -316,10 +301,9 @@ export default {
               type: "warning"
             }
           ).then(function(){
-            console.log("hello");
-            return deleteRequest("/index/indexes/"+row.indexId)
+            return deleteRequest("/target/targets/"+row.targetId)
           }).then(()=> {
-            this.getIndexes()
+            this.getTargets()
             this.$message({
               message: '删除成功',
               type: 'success'

@@ -1,5 +1,6 @@
 import axios from "axios";
 import errorCode from "./errorCode"
+import { Message } from 'element-ui';
 
 let base = "http://localhost:8080";
 // let base = "http://39.102.80.119:8080";
@@ -12,10 +13,11 @@ let service = axios.create({
 })
 
 service.interceptors.response.use(res => {
+  console.log(res);
   const code = res.data.code || 200;
   const message = errorCode[code] || res.data.msg || errorCode["default"];
   if(code != 200){
-    this.$message({
+    Message({
       type: "error",
       message: message
     })

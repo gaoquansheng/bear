@@ -35,7 +35,6 @@ public class ScoreController extends BaseController {
 
     @GetMapping("/scores")
     public AjaxResult getScores(Score score){
-        System.out.println(score);
         List<Score> scores = scoreService.getScores(score);
         return AjaxResult.success(scores);
     }

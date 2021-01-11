@@ -6,15 +6,15 @@ public class Score {
 
     private Integer scoreId;
     private Integer planId;
-    private Integer indexId;
+    private Integer targetId;
     private String score;
     private String userTel;
     private Date reviewTime;
 
-    public Score(Integer scoreId, Integer planId, Integer indexId, String score, String userTel, Date reviewTime) {
+    public Score(Integer scoreId, Integer planId, Integer targetId, String score, String userTel, Date reviewTime) {
         this.scoreId = scoreId;
         this.planId = planId;
-        this.indexId = indexId;
+        this.targetId = targetId;
         this.score = score;
         this.userTel = userTel;
         this.reviewTime = reviewTime;
@@ -28,7 +28,7 @@ public class Score {
         return "Score{" +
                 "scoreId=" + scoreId +
                 ", planId=" + planId +
-                ", indexId=" + indexId +
+                ", targetId=" + targetId +
                 ", score='" + score + '\'' +
                 ", userTel='" + userTel + '\'' +
                 ", time=" + reviewTime +
@@ -44,7 +44,7 @@ public class Score {
 
         if (scoreId != null ? !scoreId.equals(score1.scoreId) : score1.scoreId != null) return false;
         if (planId != null ? !planId.equals(score1.planId) : score1.planId != null) return false;
-        if (indexId != null ? !indexId.equals(score1.indexId) : score1.indexId != null) return false;
+        if (targetId != null ? !targetId.equals(score1.targetId) : score1.targetId != null) return false;
         if (score != null ? !score.equals(score1.score) : score1.score != null) return false;
         if (userTel != null ? !userTel.equals(score1.userTel) : score1.userTel != null) return false;
         return reviewTime != null ? reviewTime.equals(score1.reviewTime) : score1.reviewTime == null;
@@ -54,7 +54,7 @@ public class Score {
     public int hashCode() {
         int result = scoreId != null ? scoreId.hashCode() : 0;
         result = 31 * result + (planId != null ? planId.hashCode() : 0);
-        result = 31 * result + (indexId != null ? indexId.hashCode() : 0);
+        result = 31 * result + (targetId != null ? targetId.hashCode() : 0);
         result = 31 * result + (score != null ? score.hashCode() : 0);
         result = 31 * result + (userTel != null ? userTel.hashCode() : 0);
         result = 31 * result + (reviewTime != null ? reviewTime.hashCode() : 0);
@@ -77,12 +77,12 @@ public class Score {
         this.planId = planId;
     }
 
-    public Integer getIndexId() {
-        return indexId;
+    public Integer getTargetId() {
+        return targetId;
     }
 
-    public void setIndexId(Integer indexId) {
-        this.indexId = indexId;
+    public void setTargetId(Integer targetId) {
+        this.targetId = targetId;
     }
 
     public String getScore() {

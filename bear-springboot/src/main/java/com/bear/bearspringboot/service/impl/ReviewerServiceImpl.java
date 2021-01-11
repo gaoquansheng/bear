@@ -21,11 +21,6 @@ public class ReviewerServiceImpl implements ReviewerService {
     ReviewerMapper reviewerMapper;
 
     @Override
-    public List<Reviewer> getReviewersByPlanId(Reviewer reviewer) {
-        return reviewerMapper.getReviewersByPlanId(reviewer);
-    }
-
-    @Override
     @Transactional
     public AjaxResult addReviewers(Reviewer reviewer) {
         List<Reviewer> reviewers = reviewerMapper.getReviewersByPlanId(reviewer);
@@ -50,6 +45,15 @@ public class ReviewerServiceImpl implements ReviewerService {
     public int deleteReviewerById(int id) {
         return reviewerMapper.deleteReviewerById(id);
     }
+
+    @Override
+    public List<Reviewer> getReviewersByPlanId(Reviewer reviewer) {
+        return reviewerMapper.getReviewersByPlanId(reviewer);
+    }
+
+
+
+
 
     @Override
     public List<Reviewer> getPlansByUserTel(String userTel) {

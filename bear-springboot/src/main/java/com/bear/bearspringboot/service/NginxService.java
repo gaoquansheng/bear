@@ -4,7 +4,7 @@ import com.bear.bearspringboot.entity.Video;
 
 import java.util.List;
 
-public interface VideoService {
+public interface NginxService {
 
     public void startLive(Video video);
     public void recordDone(Video video);

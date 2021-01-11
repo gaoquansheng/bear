@@ -13,10 +13,6 @@
       :data="data"
       v-loading="loading"
       >
-      <!-- <el-table-column
-        type="selection"
-        width="55">
-      </el-table-column> -->
       <el-table-column
         align="center"
         prop="planName"
@@ -128,15 +124,12 @@ export default {
       this.title = "新增应急演练"
     },
     submit(){
-      //首先验证合法性
-      //然后发送给后端
-      console.log(this.planForm);
       if(!this.planForm.planId){
         postRequest("/plan/plans",this.planForm).then(res =>{
           this.flag = false;
           this.getPlans();
           this.$message({
-          message: '新增成功',
+          message: res.msg,
           type: 'success'
         });
         })
@@ -145,7 +138,7 @@ export default {
           this.flag = false;
           this.getPlans();
           this.$message({
-          message: '修改成功',
+          message: res.msg,
           type: 'success'
         });
         })
@@ -162,7 +155,7 @@ export default {
     handleUpdate(row){
       this.clearForm();
       getRequest("/plan/plans/"+row.planId).then(res =>{
-        this.planForm = res;
+        this.planForm = res.data;
         this.flag = true;
         this.title = "修改应急演练"
       })

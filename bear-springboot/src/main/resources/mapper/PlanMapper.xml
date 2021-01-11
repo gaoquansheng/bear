@@ -4,7 +4,7 @@
 <mapper namespace="com.bear.bearspringboot.mapper.PlanMapper">
 
     <insert id="addPlan" parameterType="Plan">
-        insert into plan(planName,startTime,endTime) values (#{planName},#{startTime},#{endTime})
+        insert into plan (planName, startTime, endTime) values (#{planName}, #{startTime}, #{endTime})
     </insert>
 
     <delete id="deletePlanById" parameterType="int">

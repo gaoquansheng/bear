@@ -7,16 +7,17 @@ import java.util.List;
 
 public interface UserService {
 
-    public AjaxResult addUser(User user);
+    public int addUser(User user);
 
-    public List<User> getUsers(User user);
-
+    public int deleteByUserTel(String userTel);
 
     public int batchDeleteUsers(List<String> userTelList);
 
-    List<User> getAllUsers();
-    public int countUsers();
+    public int update(User user);
+
+    public List<User> getUsers(User user);
+
     public User findByUserTel(String userTel);
-    public AjaxResult update(User user,String oldUserTel);
-    public AjaxResult deleteByUserTel(String userTel);
+
+
 }

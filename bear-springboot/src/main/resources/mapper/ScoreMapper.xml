@@ -4,14 +4,14 @@
 <mapper namespace="com.bear.bearspringboot.mapper.ScoreMapper">
 
     <insert id="addScore" parameterType="Score">
-        insert into score (planId, score, userTel, indexId, reviewTime) values (#{planId}, #{score}, #{userTel}, #{indexId}, #{reviewTime})
+        insert into score (planId, score, userTel, targetId, reviewTime) values (#{planId}, #{score}, #{userTel}, #{targetId}, #{reviewTime})
     </insert>
 
     <select id="getScores" parameterType="Score" resultType="Score">
-        select score, indexId, scoreId from score where userTel = #{userTel} and planId = #{planId}
+        select score, targetId, scoreId from score where userTel = #{userTel} and planId = #{planId}
     </select>
 
     <update id="updateScore" parameterType="Score">
-        update score set score = #{score} where scoreId = #{scoreId}
+        update score set score = #{score}, reviewTime = #{reviewTime}, userTel = #{userTel} where scoreId = #{scoreId}
     </update>
 </mapper>

@@ -6,7 +6,7 @@
       </el-col>
       <el-col :span="1.5">
         <el-select
-          @change="getIndexes"
+          @change="getTargets"
           v-model="queryParams.planId"
           size="small">
           <el-option
@@ -26,20 +26,20 @@
       >
       <el-table-column
         align="center"
-        prop="indexName"
+        prop="targetName"
         label="指标名称"
        >
       </el-table-column>
       <el-table-column
         align="center"
-        prop="indexType"
+        prop="targetType"
         label="指标类型"
        >
       </el-table-column>
       <el-table-column label="评估内容" align="center">
         <template slot-scope="scope">
-          <el-input v-if="scope.row.indexType == '打分'" v-model="scope.row.score"></el-input>
-          <el-input v-else-if="scope.row.indexType == '评语'" v-model="scope.row.score"></el-input>
+          <el-input v-if="scope.row.targetType == '打分'" v-model="scope.row.score"></el-input>
+          <el-input v-else-if="scope.row.targetType == '评语'" v-model="scope.row.score"></el-input>
           <el-select v-else v-model="scope.row.score">
             <el-option v-for="item in scope.row.options.split('_')" :key="item" :value="item"></el-option>
           </el-select>
@@ -62,7 +62,7 @@
       :total="total"
       :page.sync="queryParams.pageNum"
       :limit.sync="queryParams.pageSize"
-      @pagination="getIndexes"
+      @pagination="getTargets"
     />
 
 
@@ -86,10 +86,8 @@ export default {
       loading: false,
       data: [],
       scoreForm: {},
-      indexList: [],
       flag: false,
       title: "评估",
-
     }
   },
   mounted(){
@@ -100,13 +98,13 @@ export default {
       getRequest("/reviewer/plans").then(res => {
         this.planList = res;
         this.queryParams.planId = res[0].planId;
-        this.getIndexes();
+        this.getTargets();
         
       })
     },
-    getIndexes(){
+    getTargets(){
       this.loading = true;
-      getRequest("/index/indexes",this.queryParams).then(res =>{
+      getRequest("/target/targets",this.queryParams).then(res =>{
         this.data = res.rows;
         this.total = res.total;
         this.loading = false;
@@ -117,8 +115,7 @@ export default {
       getRequest("/score/scores?planId="+this.queryParams.planId).then(res => {
         for(let item of res.data) {
           for(let tmp of this.data){
-
-            if(item.indexId === tmp.indexId){
+            if(item.targetId === tmp.targetId){
               // tmp.score = item.score;
               Vue.set(tmp, "score", item.score)
               Vue.set(tmp, "scoreId", item.scoreId)
@@ -129,7 +126,6 @@ export default {
       })
     },
     handleUpdate(row){
-      console.log(row.scoreId);
       if(!row.scoreId){
         //就是新增
         postRequest("/score/scores", row).then(res => {
@@ -137,7 +133,7 @@ export default {
             type: "success",
             message: res.msg
           })
-          this.getIndexes();
+          this.getTargets();
         })
       }else {
         //就是更新
@@ -146,7 +142,7 @@ export default {
             type: "success",
             message: res.msg
           })
-          this.getIndexes();
+          this.getTargets();
         })
       }
 

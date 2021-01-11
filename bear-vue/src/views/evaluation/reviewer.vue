@@ -32,12 +32,12 @@
       :data="data"
       v-loading="loading"
       >
-      <el-table-column
+      <!-- <el-table-column
         align="center"
         prop="id"
         label="演练名称"
        >
-      </el-table-column>
+      </el-table-column> -->
       <el-table-column
         align="center"
         prop="userTel"
@@ -120,9 +120,9 @@ export default {
       })
     },
     getUsers(){
-      getRequest("/web/allUsers").then(res => {
+      getRequest("/user/users").then(res => {
         console.log(res);
-        this.userList = res;
+        this.userList = res.rows;
       })
     },
     getReviewers(){

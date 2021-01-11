@@ -11,7 +11,7 @@ import UserManage from "@/views/user/UserManage";
 import Plan from "@/views/plan/plan"
 import Attachment from "@/views/plan/attachment"
 import Reviewer from "@/views/evaluation/reviewer"
-import Review from "@/views/evaluation/index"
+import Evaluation from "@/views/evaluation/evaluation"
 import Target from "@/views/evaluation/target"
 
 // import Map from "../views/map/Map"
@@ -113,10 +113,10 @@ const routes = [
         component: Reviewer
       },
       {
-        path: "/review",
+        path: "/evaluation",
         name: "评估管理",
         iconCls: "fa fa-user-o",
-        component: Review
+        component: Evaluation
       }
     ]
   }

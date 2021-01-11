@@ -7,42 +7,39 @@
         insert into users (userName,userPwd,isAdmin,userTel) values (#{userName},#{userPwd},#{isAdmin},#{userTel})
     </insert>
 
-    <select id="getUsers" resultType="User" parameterType="User">
-        select userName, userTel, isAdmin from users
-        <where>
-            <if test="userName != null and userName != ''">
-                and userName = #{userName}
-            </if>
-            <if test="userTel != null and userTel != ''">
-                and userTel = #{userTel}
-            </if>
-            <if test="isAdmin != null and isAdmin != ''">
-                and isAdmin = #{isAdmin}
-            </if>
-        </where>
-    </select>
-
-    <select id="getAllUsers" resultType="User">
-        select * from users
-    </select>
-
-    <select id="countUsers" resultType="int">
-        select count(*) from users
-    </select>
-
-    <select id="findByUserTel" resultType="User" parameterType="String">
-        select * from users where userTel = #{userTel}
-    </select>
-
-
-
     <delete id="deleteByUserTel" parameterType="String">
         delete from users where userTel = #{userTel}
     </delete>
 
-    <update id="update" >
-        update users set userName = #{param1.userName},userPwd = #{param1.userPwd},isAdmin=#{param1.isAdmin},userTel= #{param1.userTel} where userTel = #{param2};
+    <delete id="batchDeleteUsers" parameterType="list">
+        delete from users where userTel in
+        <foreach collection="list" item="userTel" open="(" close=")" separator=",">
+            #{userTel}
+        </foreach>
+    </delete>
+
+    <update id="update" parameterType="User">
+        update users set userName = #{userName} where userTel = #{userTel};
     </update>
+
+    <select id="getUsers" resultType="User" parameterType="User">
+        select userName, userTel, isAdmin from users
+        <where>
+            <if test="userTel != null and userTel != ''">
+                and userTel = #{userTel}
+            </if>
+        </where>
+    </select>
+
+    <select id="findByUserTel" resultType="User" parameterType="String">
+        select userName, isAdmin, userTel from users where userTel = #{userTel}
+    </select>
+
+
+
+
+
+
 
     <select id="login" parameterType="User" resultType="User">
         select * from users where userTel = #{userTel} and userPwd = #{userPwd} and isAdmin = 1;
@@ -52,11 +49,6 @@
        select count(*) from users where userTel = #{userTel};
     </select>
 
-    <delete id="batchDeleteUsers" parameterType="list">
-        delete from users where userTel in
-        <foreach collection="list" item="userTel" open="(" close=")" separator=",">
-            #{userTel}
-        </foreach>
-    </delete>
+
 
 </mapper>

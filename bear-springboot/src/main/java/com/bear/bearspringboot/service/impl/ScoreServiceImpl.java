@@ -22,13 +22,11 @@ public class ScoreServiceImpl implements ScoreService {
     ScoreMapper scoreMapper;
 
     @Autowired
-    HttpServletRequest request;
-
-
+    HttpSession session;
 
     @Override
     public List<Score> getScores(Score score) {
-        HttpSession session = request.getSession();
+
         String userTel = (String) session.getAttribute("userTel");
         score.setUserTel(userTel);
         return scoreMapper.getScores(score);
@@ -37,12 +35,17 @@ public class ScoreServiceImpl implements ScoreService {
     @Override
     public int addScore(Score score) {
         //设置时间和评估人员
+        String userTel = (String) session.getAttribute("userTel");
+        score.setUserTel(userTel);
         score.setReviewTime(new Date());
         return scoreMapper.addScore(score);
     }
 
     @Override
     public int updateScore(Score score) {
+        String userTel = (String) session.getAttribute("userTel");
+        score.setUserTel(userTel);
+        score.setReviewTime(new Date());
         return scoreMapper.updateScore(score);
     }
 }

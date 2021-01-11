@@ -22,38 +22,26 @@ public class WebController extends BaseController {
     @Autowired
     WebService webService;
     @Autowired
-    HttpServletRequest request;
+    HttpSession session;
 
     @PostMapping("/login")
-    public User login(@RequestBody User user, HttpServletRequest request){
-        HttpSession session = request.getSession();
+    public User login(@RequestBody User user){
         session.setAttribute("userTel", user.getUserTel());
         return webService.login(user);
-    }
-
-    //这里为历史录播,返回title不为空的数据
-    @PostMapping("/videos")
-    public List<Video> getRecordVideos(@RequestBody Video video){
-        //这里直接传递日期字符串
-        return webService.getRecordVideos(video);
-    }
-
-    //这里为最新录播,返回title为空的数据
-    @PostMapping("/latestVideos")
-    public List<Video> getLatestVideos(@RequestBody Video video){
-        //这里将日期进行处理
-        return webService.getLatestVideos(video);
-    }
-    //根据传递过来的Id修改标题
-    @GetMapping("/addTitle")
-    public AjaxResult addTitleByIds(@RequestParam("ids") String ids, @RequestParam("title") String title){
-        String[] allId = ids.split(",");
-        return webService.addTitleById(allId,title);
-
     }
 
     @PostMapping("/liveVideos")
     public List<Video> getLiveVideos(@RequestBody(required = false) Video video){
        return webService.getLiveVideos(video);
+    }
+
+    @PostMapping("/videos")
+    public List<Video> getRecordVideos(@RequestBody Video video){
+        return webService.getRecordVideos(video);
+    }
+
+    @PostMapping("/latestVideos")
+    public List<Video> getLatestVideos(@RequestBody Video video){
+        return webService.getLatestVideos(video);
     }
 }

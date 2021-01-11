@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface AttachmentService {
 
-    public int addAttachment(Attachment attachment);
+    int addAttachment(Attachment attachment);
 
     List<Attachment> getAttachments(Attachment attachment);
 

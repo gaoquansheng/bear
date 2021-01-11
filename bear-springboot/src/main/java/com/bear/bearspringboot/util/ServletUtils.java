@@ -17,7 +17,6 @@ public class ServletUtils {
         return getRequest().getParameter(name);
     }
 
-
     public static HttpServletRequest getRequest(){
         return getRequestAttributes().getRequest();
     }

@@ -13,8 +13,8 @@
 						<view class="uni-list-cell-left">
 							预案: 
 						</view>
-						<picker @change="bindPickerChange" :value="index" :range="planList"  :range-key="'planName'" >
-							<view class="uni-input">{{planList[index].planName}}</view>
+						<picker @change="bindPickerChange" :value="index" :range="plans"  :range-key="'planName'" >
+							<view class="uni-input">{{plans[index].planName}}</view>
 						</picker>
 						
 					</view>
@@ -159,7 +159,7 @@
 			onOk() {
 				let tmp = {};
 				tmp.title = this.liveTitle;
-				tmp.planId = this.planList[this.index].planId;
+				tmp.planId = this.plans[this.index].planId;
 				this.$emit('confirm', () => {
 					this.popup.close()
 					if (this.mode === 'input') this.val = this.value

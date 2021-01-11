@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bear.bearspringboot.mapper.TargetMapper">
+
+    <select id="getTargets" parameterType="Target" resultType="Target">
+      select targetId, targetName, enabled, description, minScore, maxScore, targetType, options,
+      planId from `target` where planId = #{planId}
+    </select>
+
+    <insert id="addTarget" parameterType="Target">
+        insert into `target` (planId, targetName, enabled, description, minScore, maxScore, targetType, options) values
+        (#{planId}, #{targetName}, #{enabled}, #{description}, #{minScore}, #{maxScore}, #{targetType}, #{options})
+    </insert>
+
+    <select id="getTargetById" resultType="Target" parameterType="int">
+       select targetId, targetName, enabled, description, minScore, maxScore, targetType, options, planId from `target` where targetId = #{targetId}
+    </select>
+
+    <update id="updateTarget" parameterType="Target">
+        update `target` set targetName = #{targetName}, enabled = #{enabled}, description = #{description},
+        targetType = #{targetType}, minScore = #{minScore}, maxScore = #{maxScore}, options = #{options} where targetId = #{targetId}
+    </update>
+
+    <delete id="deleteTargetById" parameterType="int">
+        delete from `target` where targetId = #{targetId}
+    </delete>
+
+
+</mapper>

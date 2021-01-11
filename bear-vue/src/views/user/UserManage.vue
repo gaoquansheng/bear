@@ -65,20 +65,23 @@
         ref="userForm"
       >
         <el-form-item label="用户权限" label-width="80px">
-          <el-select placeholder="请选择用户身份" v-model="userForm.isAdmin">
-            <el-option v-for="item in isAdminList" :label="item.label" :value="item.value" :key="item.value"></el-option>           
+          <el-select placeholder="请选择用户身份" :disabled = "title == '编辑用户'" v-model.number="userForm.isAdmin">
+            <el-option v-for="item in isAdminList" 
+            
+            :label="item.label" 
+            :value="item.value" 
+            :key="item.value"></el-option>           
           </el-select>
         </el-form-item>
         <el-form-item label="姓名" label-width="80px" prop="userName">
           <el-input
             v-model="userForm.userName"
-            :disabled="userForm.isAdmin == ''"
           ></el-input>
         </el-form-item>
         <el-form-item label="手机号" label-width="80px" prop="userTel">
           <el-input
             v-model="userForm.userTel"
-            :disabled="userForm.isAdmin == ''"
+            :disabled="title == '编辑用户'"
           ></el-input>
         </el-form-item>
       </el-form>
@@ -100,41 +103,6 @@ import { deleteRequest } from "@/utils/api";
 import { putRequest } from "@/utils/api";
 export default {
   data() {
-    // let checkUserName = (rule, value, callback) => {
-    //   let reg = /^[\u4E00-\u9FA5]{2,4}$/;
-    //   if (!reg.test(value)) {
-    //     callback(new Error("姓名格式不正确"));
-    //   } else {
-    //     callback();
-    //   }
-    // };
-    // let checkUserTel = (rule, value, callback) => {
-    //   let reg = /^1[3-578]\d{9}$/;
-    //   if (!reg.test(value)) {
-    //     callback(new Error("请输入正确格式的手机号"));
-    //   } else {
-    //     callback();
-    //   }
-    // };
-    // let checkUserPwd = (rule, value, callback) => {
-    //   if (value === "") {
-    //     callback(new Error("请输入密码"));
-    //   } else {
-    //     if (this.userForm.userPwd !== "") {
-    //       this.$refs.userForm.validateField("checkUserPwd");
-    //     }
-    //     callback();
-    //   }
-    // };
-    // let validateUserPwd = (rule, value, callback) => {
-    //   if (value === "") {
-    //     callback(new Error("请再次输入密码"));
-    //   } else if (value !== this.userForm.userPwd) {
-    //     callback(new Error("两次输入密码不一致!"));
-    //   } else {
-    //     callback();
-    //   }
-    // };
     return {
       queryParams: {
         pageNum: 1,
@@ -145,13 +113,6 @@ export default {
       flag: false,
       oldUserTel: "",
       userTelShow: false,
-      // userFormRules: {
-      //   userName: [{ validator: checkUserName, trigger: "blur" }],
-      //   userTel: [{ validator: checkUserTel, trigger: "blur" }],
-      //   userPwd: [{ validator: checkUserPwd, trigger: "blur" }],
-      //   checkUserPwd: [{ validator: validateUserPwd, trigger: "blur" }]
-      // },
-      // 返回对象数组
       userList: [],
       loading: false,
       total: 0,
@@ -159,11 +120,11 @@ export default {
       isAdminList: [
         {
           label: "普通用户",
-          value: "0"
+          value: 0
         },
         {
           label: "管理员",
-          value: "1"
+          value: 1
         }
       ]
     };
@@ -178,9 +139,27 @@ export default {
       this.title = "添加用户"
     },
     submit() {
-      postRequest("/user/users", this.userForm).then(res => {
-        console.log(res);
-      });
+      if(this.title == "添加用户"){
+        postRequest("/user/users", this.userForm).then(res => {
+          this.flag = false;
+          this.getUsers();
+          console.log(res);
+          this.$message({
+          message: res.msg,
+          type: 'success'
+        });
+        });
+      }else if(this.title == "编辑用户"){
+        putRequest("/user/users",this.userForm).then(res => {
+          this.flag = false;
+          this.getUsers();
+          this.$message({
+            type: "success",
+            message: res.msg
+          })
+        })
+      }
+
     },
     getUsers() {
       this.loading = true;
@@ -194,10 +173,13 @@ export default {
       this.deleteUsers = val;
     },
     handleEdit(index, row) {
-      this.editUserDiaLog = true;
-      this.editUserForm = row;
-      this.oldUserTel = row.userTel;
-      // this.userTelShow = this.editUserForm.isAdmin == 0? true:false;
+      this.clearForm();
+      this.flag = true;
+      this.title = "编辑用户";
+      getRequest("/user/users/"+row.userTel).then(res => {
+        this.userForm = res.data;
+      })
+      //这里通过userTel去查询信息
     },
 
     editUser(formName) {
@@ -237,37 +219,28 @@ export default {
       });
     },
     handleDelete(index, row) {
-      var _this = this;
-      //1.弹出是否确定删除此用户的弹框
       this.$confirm("此操作将永久删除该用户, 是否继续?", "提示", {
         confirmButtonText: "确定",
         cancelButtonText: "取消",
         type: "warning"
       })
-        .then(() => {
-          //2.确定则通过用户id删除
-          deleteRequest("/user/users/" + row.userTel).then(
-            resp => {
-              if (resp.data.statusCode == 200) {
-                _this.$message.success(resp.data.msg);
-                //刷新页面
-                window.eventBus.$emit("userManage");
-              } else {
-                _this.$message.error(resp.data.msg);
-              }
-              //3.删除成功之后更新页面
-            },
-            () => {
-              _this.$message.error("网络出错");
-            }
-          );
-        })
-        .catch(() => {
-          _this.$message({
-            type: "info",
-            message: "已取消删除"
-          });
+      .then(() => {
+        deleteRequest("/user/users/" + row.userTel).then(
+          res => {
+            this.getUsers();
+            this.$message({
+              type: "success",
+              message: res.msg
+            })
+          }
+        );
+      })
+      .catch(() => {
+        this.$message({
+          type: "info",
+          message: "已取消删除"
         });
+      });
     },
     // eslint-disable-next-line
     isAdmin(row, column, cellValue, index) {
@@ -280,36 +253,29 @@ export default {
       }
     },
     handleDeleteUsers() {
-      var _this = this;
-      //1.弹出是否确定删除此用户的弹框
       this.$confirm("此操作将永久删除所选用户, 是否继续?", "提示", {
         confirmButtonText: "确定",
         cancelButtonText: "取消",
         type: "warning"
       })
-        .then(() => {
-          //2.
-          let userTels = _this.deleteUsers.map(item => item.userTel).join();
-          getRequest("/user/deleteUserList", { userTels: userTels }).then(
-            () => {
-              _this.$message({
-                type: "success",
-                message: "删除成功!"
-              });
-              //3.
-              window.eventBus.$emit("userManage");
-            },
-            () => {
-              _this.$message.error("网络出错");
-            }
-          );
-        })
-        .catch(() => {
-          _this.$message({
-            type: "info",
-            message: "已取消删除"
-          });
+      .then(() => {
+        let userTels = this.deleteUsers.map(item => item.userTel).join();
+        getRequest("/user/deleteUserList", { userTels: userTels }).then(
+          (res) => {
+            this.getUsers();
+            this.$message({
+              type: "success",
+              message: res.msg
+            });
+          }
+        );
+      })
+      .catch(() => {
+        this.$message({
+          type: "info",
+          message: "已取消删除"
         });
+      });
     },
     clearForm(){
       this.userForm = {

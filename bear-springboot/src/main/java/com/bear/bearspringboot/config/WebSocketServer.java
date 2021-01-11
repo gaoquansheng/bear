@@ -16,7 +16,6 @@ import org.springframework.stereotype.Component;
 @Component
 public class WebSocketServer {
 
-
     /**静态变量，用来记录当前在线连接数。应该把它设计成线程安全的。*/
     private static int onlineCount = 0;
     /**concurrent包的线程安全Set，用来存放每个客户端对应的MyWebSocket对象。*/
@@ -82,10 +81,7 @@ public class WebSocketServer {
                 System.out.println("未连接");
             }
         }
-
-
     }
-
 
     //将新添加的直播信息发送给管理员用户
     public void sendLiveVideo(Video video){
@@ -98,10 +94,8 @@ public class WebSocketServer {
             } catch (EncodeException e) {
                 e.printStackTrace();
             }
-            //判断
         }
     }
-
 
     public static synchronized int getOnlineCount() {
         return onlineCount;

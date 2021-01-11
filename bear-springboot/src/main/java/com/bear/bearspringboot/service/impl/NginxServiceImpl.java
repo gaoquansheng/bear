@@ -1,20 +1,20 @@
 package com.bear.bearspringboot.service.impl;
 
-import com.bear.bearspringboot.mapper.VideoMapper;
+import com.bear.bearspringboot.mapper.NginxMapper;
 import com.bear.bearspringboot.entity.Video;
-import com.bear.bearspringboot.service.VideoService;
+import com.bear.bearspringboot.service.NginxService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class VideoServiceImpl implements VideoService {
+public class NginxServiceImpl implements NginxService {
     @Autowired
-    VideoMapper videoMapper;
+    NginxMapper nginxMapper;
     @Override
     public void startLive(Video video) {
-        int line = videoMapper.startLive(video);
+        int line = nginxMapper.startLive(video);
         if (line == 1){
             System.out.println("插入成功");
         }else {
@@ -24,7 +24,7 @@ public class VideoServiceImpl implements VideoService {
 
     @Override
     public void recordDone(Video video) {
-        if (videoMapper.recordDone(video) == 1){
+        if (nginxMapper.recordDone(video) == 1){
             System.out.println("修改成功");
         }else {
             System.out.println("修改失败");
@@ -33,6 +33,6 @@ public class VideoServiceImpl implements VideoService {
 
     @Override
     public List<Video> getVideosByPlanId(int planId) {
-        return videoMapper.getVideosByPlanId(planId);
+        return nginxMapper.getVideosByPlanId(planId);
     }
 }

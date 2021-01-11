@@ -24,7 +24,6 @@ public class AttachmentImpl implements AttachmentService {
         return attachmentMapper.getAttachments(attachment);
     }
 
-
     @Override
     public int deleteAttachmentById(int attachmentId) {
         return attachmentMapper.deleteAttachmentById(attachmentId);

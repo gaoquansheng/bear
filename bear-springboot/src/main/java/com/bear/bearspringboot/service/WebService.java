@@ -11,9 +11,11 @@ public interface WebService {
 
 
     public User login(User user);
+
     public List<Video> getRecordVideos(Video video);
-    public AjaxResult addTitleById(String[] ids,String title);
+
     public List<Video> getLatestVideos(Video video);
+
     public List<Video> getLiveVideos(Video video);
 
 }

@@ -73,7 +73,6 @@ public class AttachmentController extends BaseController {
         int index = fileName.lastIndexOf('.');
         if (index == -1){
             //没有后缀名
-            System.out.println(fileName);
             return null;
         }
         return fileName.substring(index);

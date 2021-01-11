@@ -22,7 +22,6 @@ public class PlanServiceImpl implements PlanService {
     @Override
     public int deletePlanById(int planId) {
         return planMapper.deletePlanById(planId);
-
     }
 
     @Override

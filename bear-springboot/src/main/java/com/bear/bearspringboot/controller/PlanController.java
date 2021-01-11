@@ -47,9 +47,8 @@ public class PlanController extends BaseController {
     }
 
     @GetMapping("/openPlans")
-    public TableData getOPenPlans(Plan plan, HttpServletRequest request){
+    public TableData getOPenPlans(Plan plan){
         startPage();
-        System.out.println(plan);
         List<Plan> openPlans = planService.getOpenPlans();
         return getTableData(openPlans);
     }
