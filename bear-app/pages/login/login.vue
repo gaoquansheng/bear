@@ -110,6 +110,7 @@
 					},
 					success(res) {
 						//判断用户是否存在
+						console.log(res)
 						if (res.data != ""){
 							_this.$store.commit("login",res.data);
 							uni.reLaunch({

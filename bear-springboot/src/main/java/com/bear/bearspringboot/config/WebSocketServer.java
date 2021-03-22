@@ -7,7 +7,11 @@ import javax.websocket.server.PathParam;
 import javax.websocket.server.ServerEndpoint;
 
 import com.bear.bearspringboot.entity.Message;
+import com.bear.bearspringboot.entity.User;
 import com.bear.bearspringboot.entity.Video;
+import com.bear.bearspringboot.service.UserService;
+import com.bear.bearspringboot.service.impl.UserServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 
@@ -24,6 +28,13 @@ public class WebSocketServer {
     private Session session;
     /**接收userTel*/
     private String userTel="";
+
+    private static UserService userService;
+
+    @Autowired
+    public void setUserService(UserService userService){
+        WebSocketServer.userService = userService;
+    }
 
     /**
      * 连接建立成功调用的方法*/
@@ -73,6 +84,9 @@ public class WebSocketServer {
     @OnMessage
     public void onMessage(Session session,Message message)throws Exception {
         System.out.println("接收到用户发来的消息:报文:"+message);
+        User user = userService.findByUserTel(message.getSendUserTel());
+        System.out.println(user);
+        message.setSendUserName(user.getUserName());
         //这里接受消息,然后发送
         for (String userTel:message.getUserTels().split(",")){
             if(webSocketMap.containsKey(userTel)){

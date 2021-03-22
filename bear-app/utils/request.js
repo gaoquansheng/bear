@@ -1,4 +1,7 @@
-let baseUrl = "http://192.168.1.17:8080";
+let baseUrl = "http://192.168.1.11:8080";
+// let baseUrl = "http://211.71.233.52:80";
+
+// 211.71.233.52
 const request = function(options){
 	options.url = baseUrl + options.url;
 	return uni.request(options);

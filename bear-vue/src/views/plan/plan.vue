@@ -98,7 +98,7 @@ export default {
       data: [],
       flag: false,
       planForm: {},
-      loading: true,
+      loading: false,
       title: "",
       total: 0
     }

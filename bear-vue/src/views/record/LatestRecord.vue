@@ -57,17 +57,7 @@
             v-for="video in recordVideoList"
             :key="video.videoId"
           >
-          <!-- 模板字符串写法 -->
-            <VideoPlayer
-              :ref="`video${video.videoId}`"
-              :options="{
-                controls: true,
-                autoplay: true,
-                muted: true,
-                fluid: true,
-                sources: [{ src: video.videoUrl, type: 'rtmp/flv' }]
-              }"
-            ></VideoPlayer>
+          <flv-player ref="myvideo" :options="video" ></flv-player>
             <VideoInfo :videoInfo="video"></VideoInfo>
             <el-checkbox :label="video">
               <!-- 这里必须要有值,不然就会显示label中的值 -->
@@ -100,6 +90,7 @@ import VideoPlayer from "@/components/VideoPlayer.vue";
 import VideoMap from "@/components/VideoMap.vue";
 import VideoInfo from "@/components/VideoInfo.vue";
 import draggable from "vuedraggable"
+import FlvPlayer from "@/components/FlvPlayer.vue"
 
 export default {
   data() {
@@ -111,19 +102,22 @@ export default {
       checkAll: false,
       checkedVideos: [],
       recordVideoList: [],
-      timeRange: ""
+      timeRange: "",
+      playing: false
     };
   },
   components: {
     VideoPlayer,
     VideoMap,
     VideoInfo,
-    draggable
+    draggable,
+    FlvPlayer
   },  
   mounted() {
     this.initVideos();
   },
   methods: {
+
     handleCheckAllChange(val) {
       this.checkedVideos = val ? this.recordVideoList : [];
       this.isIndeterminate = false;
@@ -179,10 +173,15 @@ export default {
     },
     synVideos(){
       let latestTime = this.getLatestTime(this.checkedVideos);
-      this.checkedVideos.forEach(video => {
-        //这里的调用方式也是固定的需要一个索引[0]
-        this.$refs[`video${video.videoId}`][0].setCurrentTime(new Date(video.startTime),latestTime)
-      });
+      let videos = this.$refs['myvideo'];
+      videos.forEach(video => {
+        video.seek(latestTime);
+      })
+      //这里调用子组件的seek方法，
+      // this.checkedVideos.forEach(video => {
+      //   //这里的调用方式也是固定的需要一个索引[0]
+      //   this.$refs[`video${video.videoId}`][0].setCurrentTime(new Date(video.startTime),latestTime)
+      // });
     },
     getLatestTime(videos){
       let timeList = videos.map(video => {
@@ -192,7 +191,8 @@ export default {
         return time1>time2?time1:time2;
       })
       return latestTime;
-    }
+    },
+
   }
 };
 </script>

@@ -39,17 +39,7 @@
     <div v-if="patten">
       <el-row :gutter="40">
         <el-col ref="videoWidth" :span="6" v-for="video in recordVideoList" :key="video.videoId">
-          <VideoPlayer
-            :options="{
-              controls: true,
-              autoplay: true,
-              muted: true,
-              //fluid: true,
-              height: '300',
-              width: '400',
-              sources: [{ src: video.videoUrl, type: 'rtmp/flv' }]
-            }"
-          ></VideoPlayer>
+          <flv-player :options="video"></flv-player>
           <VideoInfo :videoInfo="video"></VideoInfo>
         </el-col>
       </el-row>
@@ -67,6 +57,8 @@ import { getRequest, postRequest } from "../../utils/api";
 import VideoPlayer from "@/components/VideoPlayer.vue";
 import VideoMap from "@/components/VideoMap.vue";
 import VideoInfo from "@/components/VideoInfo.vue";
+import FlvPlayer from "@/components/FlvPlayer.vue"
+
 export default {
   data() {
     return {
@@ -114,7 +106,8 @@ export default {
   components: {
     VideoPlayer,
     VideoMap,
-    VideoInfo
+    VideoInfo,
+    FlvPlayer
   },
 
   methods: {

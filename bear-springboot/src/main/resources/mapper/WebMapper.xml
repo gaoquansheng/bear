@@ -25,6 +25,9 @@
          and v.startTime between #{startTime} and #{endTime}
     </select>
 
+    <select id="login" parameterType="User" resultType="User">
+        select * from users where userTel = #{userTel} and userPwd = #{userPwd} and isAdmin = 1;
+    </select>
 
     <select id="getRecordVideos" resultMap="videoInfo" parameterType="Video">
         select * from video v left join users u on v.userTel = u.userTel where v.flag=0

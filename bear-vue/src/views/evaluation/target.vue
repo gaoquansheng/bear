@@ -170,7 +170,7 @@ export default {
             data: [],
             planList: "",
             flag: false,
-            loading: true,
+            loading: false,
             targetForm: {},
             targetTypeList: [
                 {

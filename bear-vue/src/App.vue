@@ -26,5 +26,7 @@ export default {
 html {
  font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
 }
-
+.el-form-item {
+  margin-bottom: 22px !important;
+}
 </style>

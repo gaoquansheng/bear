@@ -10,7 +10,7 @@ import java.util.List;
 public interface WebService {
 
 
-    public User login(User user);
+    public AjaxResult login(User user);
 
     public List<Video> getRecordVideos(Video video);
 

@@ -21,12 +21,10 @@ public class WebController extends BaseController {
 
     @Autowired
     WebService webService;
-    @Autowired
-    HttpSession session;
+
 
     @PostMapping("/login")
-    public User login(@RequestBody User user){
-        session.setAttribute("userTel", user.getUserTel());
+    public AjaxResult login(@RequestBody User user){
         return webService.login(user);
     }
 

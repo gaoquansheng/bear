@@ -14,6 +14,8 @@ import java.io.FileInputStream;
 import java.io.InputStream;
 import java.io.Reader;
 import java.io.Writer;
+import java.util.ArrayDeque;
+import java.util.Objects;
 
 @SpringBootApplication
 @MapperScan("com.bear.bearspringboot.mapper")
@@ -30,7 +32,6 @@ public class BearSpringbootApplication {
         return factory -> {
             ErrorPage error404Page = new ErrorPage(HttpStatus.NOT_FOUND, "/index.html");
             factory.addErrorPages(error404Page);
-
         };
     }
 

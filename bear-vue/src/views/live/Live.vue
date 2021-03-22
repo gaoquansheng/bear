@@ -38,7 +38,7 @@
           <el-row :gutter="20">
             <el-checkbox-group v-model="checkedUserTels" @change="handleChange">
 
-            <draggable v-model="liveVideoList" @start="testStart" @end="testEnd" class="list-group" :animation='200'>
+            <draggable v-model="liveVideoList" class="list-group" :animation='200'>
                 <el-col
                   :span="videoSpan"
                   v-for="(video, id) in liveVideoList"
@@ -49,11 +49,11 @@
                     :ref="'video'+video.videoId"
                     :options="{
                       controls: true,
-                      autoplay: true,
+                      //autoplay: true,
                       //muted: true,
                       fluid: true,
                       liveui: true,
-                      sources: [{ src: video.url, type: 'rtmp/flv' }]
+                      sources: [{ src: video.url, type: 'application/x-mpegURL' }]
                     }"
                   ></VideoPlayer>
                   <VideoInfo :videoInfo="video"></VideoInfo>
@@ -144,6 +144,7 @@ export default {
         resp => {
           //这里目前先这样做吧。没有加dislikevideoList的筛选条件。默认搜索就会充值dislikeVideoList
           this.liveVideoList = resp;
+          console.log(resp);
         },
         resp => {
           console.log(resp);
@@ -162,7 +163,7 @@ export default {
     handleCheckAllChange(val) {
         this.checkedUserTels = val ? this.liveVideoList.map(video =>video.userTel) : [];
         this.isIndeterminate = false;
-        //因为elementui中checkbox绑定的值无法动态响应，即无法作为prop属性传递下去，所以用两外一个变量传递
+        //因为elementui中checkbox绑定的值无法动态响应，即无法作为prop属性传递下去，所以用另外一个变量传递
         this.checkedUserTels_.splice(0,this.checkedUserTels_.length)
         this.checkedUserTels.forEach(userTel => this.checkedUserTels_.push(userTel));
       },
@@ -173,16 +174,7 @@ export default {
         this.checkedUserTels_.splice(0,this.checkedUserTels_.length);
         this.checkedUserTels.forEach(userTel => this.checkedUserTels_.push(userTel));
     },
-    testStart(el){
-      console.log(el);
-      
-      console.log("开始了");
-      this.$refs['video113'][0].dis()
-    },
-    testEnd(){
-      console.log("结束了");
-      // this.$refs['video113'][0].init();
-    }
+
   },
   mounted() {
     this.getLiveVideos();

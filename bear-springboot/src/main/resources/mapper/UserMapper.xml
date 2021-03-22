@@ -35,20 +35,4 @@
         select userName, isAdmin, userTel from users where userTel = #{userTel}
     </select>
 
-
-
-
-
-
-
-    <select id="login" parameterType="User" resultType="User">
-        select * from users where userTel = #{userTel} and userPwd = #{userPwd} and isAdmin = 1;
-    </select>
-
-    <select id="isOldUserTel" resultType="int" parameterType="User">
-       select count(*) from users where userTel = #{userTel};
-    </select>
-
-
-
 </mapper>

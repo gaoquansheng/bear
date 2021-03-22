@@ -1,71 +1,124 @@
 /*
  Navicat Premium Data Transfer
 
- Source Server         : bear
+ Source Server         : 师弟数据库
  Source Server Type    : MySQL
- Source Server Version : 80019
- Source Host           : localhost:3306
+ Source Server Version : 50729
+ Source Host           : 47.98.45.93:3306
  Source Schema         : bear
 
  Target Server Type    : MySQL
- Target Server Version : 80019
+ Target Server Version : 50729
  File Encoding         : 65001
 
- Date: 09/04/2020 11:20:55
+ Date: 21/01/2021 11:03:37
 */
 
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 
 -- ----------------------------
--- Table structure for user
+-- Table structure for attachment
 -- ----------------------------
-DROP TABLE IF EXISTS `user`;
-CREATE TABLE `user`  (
-  `userName` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '姓名',
-  `userPwd` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
-  `isAdmin` int(0) DEFAULT NULL,
-  `userTel` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
-  `userId` int(0) NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`userId`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 25 CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Dynamic;
+DROP TABLE IF EXISTS `attachment`;
+CREATE TABLE `attachment`  (
+  `attachmentId` int(100) NOT NULL AUTO_INCREMENT,
+  `fileName` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `path` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `planId` int(100) NULL DEFAULT NULL,
+  PRIMARY KEY (`attachmentId`) USING BTREE,
+  INDEX `planId`(`planId`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 13 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
--- Records of user
+-- Table structure for plan
 -- ----------------------------
-INSERT INTO `user` VALUES ('lisi', '211', 1, '', 16);
-INSERT INTO `user` VALUES ('mmgg', '123123', 0, '13423456789', 20);
-INSERT INTO `user` VALUES ('wangwu', '123123', 1, '', 21);
-INSERT INTO `user` VALUES ('wangba', '123123', 1, '', 22);
-INSERT INTO `user` VALUES ('yangzai', '123123', 0, '15523452345', 23);
-INSERT INTO `user` VALUES ('angzai', '123123', 1, '', 24);
+DROP TABLE IF EXISTS `plan`;
+CREATE TABLE `plan`  (
+  `planId` int(100) NOT NULL AUTO_INCREMENT,
+  `planName` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `startTime` datetime(0) NULL DEFAULT NULL,
+  `endTime` datetime(0) NULL DEFAULT NULL,
+  PRIMARY KEY (`planId`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 18 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Table structure for plan_reviewer
+-- ----------------------------
+DROP TABLE IF EXISTS `plan_reviewer`;
+CREATE TABLE `plan_reviewer`  (
+  `id` int(100) NOT NULL AUTO_INCREMENT,
+  `planId` int(100) NULL DEFAULT NULL,
+  `userTel` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE,
+  INDEX `planId`(`planId`) USING BTREE,
+  INDEX `judgeId`(`userTel`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 26 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Table structure for score
+-- ----------------------------
+DROP TABLE IF EXISTS `score`;
+CREATE TABLE `score`  (
+  `scoreId` int(100) NOT NULL AUTO_INCREMENT,
+  `planId` int(100) NULL DEFAULT NULL,
+  `score` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `userTel` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `reviewTime` datetime(0) NULL DEFAULT NULL,
+  `targetId` int(100) NULL DEFAULT NULL,
+  PRIMARY KEY (`scoreId`) USING BTREE,
+  INDEX `planId`(`planId`) USING BTREE,
+  INDEX `judgeId`(`userTel`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Table structure for target
+-- ----------------------------
+DROP TABLE IF EXISTS `target`;
+CREATE TABLE `target`  (
+  `targetId` int(100) NOT NULL AUTO_INCREMENT,
+  `targetName` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `enabled` bit(1) NULL DEFAULT NULL,
+  `minScore` int(10) NULL DEFAULT NULL,
+  `maxScore` int(10) NULL DEFAULT NULL,
+  `description` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `planId` int(100) NULL DEFAULT NULL,
+  `targetType` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `options` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  PRIMARY KEY (`targetId`) USING BTREE,
+  INDEX `planId`(`planId`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 15 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Table structure for users
+-- ----------------------------
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE `users`  (
+  `userName` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL COMMENT '姓名',
+  `userPwd` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `isAdmin` int(11) NULL DEFAULT NULL,
+  `userTel` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  PRIMARY KEY (`userTel`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for video
 -- ----------------------------
 DROP TABLE IF EXISTS `video`;
 CREATE TABLE `video`  (
-  `userName` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `title` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
-  `url` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
-  `lat` float(10, 0) DEFAULT NULL,
-  `lng` float(10, 0) DEFAULT NULL,
-  `startTime` datetime(0) DEFAULT NULL,
-  `flag` int(0) DEFAULT NULL,
-  `fileName` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Dynamic;
-
--- ----------------------------
--- Records of video
--- ----------------------------
-INSERT INTO `video` VALUES ('meng', NULL, 'rtmp://localhost:1935/live/meng', 24, 35, '2020-04-03 13:07:09', 0, 'rtmp://localhost:1935/vod/meng-1585890429.flv');
-INSERT INTO `video` VALUES ('meng', NULL, 'rtmp://localhost:1935/live/meng', 24, 35, '2020-04-03 13:07:09', 0, 'rtmp://localhost:1935/vod/meng-1585890687.flv');
-INSERT INTO `video` VALUES ('meng', NULL, 'rtmp://localhost:1935/live/meng', 24, 35, '2020-04-03 13:07:09', 0, 'rtmp://localhost:1935/vod/meng-1585890033.flv');
-INSERT INTO `video` VALUES ('meng', NULL, 'rtmp://localhost:1935/live/meng', 24, 35, '2020-04-03 13:07:09', 0, 'rtmp://localhost:1935/vod/meng-1585889920.flv');
-INSERT INTO `video` VALUES ('bear', NULL, 'rtmp://localhost:1935/live/bear', 12, 13, '2020-04-08 16:31:03', 0, '/vod/bear-1586334663.flv');
-INSERT INTO `video` VALUES ('bear', NULL, 'rtmp://localhost:1935/live/bear', 12, 13, '2020-04-08 16:32:28', 0, '/vod/bear-1586334748.flv');
-INSERT INTO `video` VALUES ('bear', NULL, 'rtmp://localhost:1935/live/bear', 12, 13, '2020-04-08 23:26:18', 0, '/vod/bear-1586359577.flv');
-INSERT INTO `video` VALUES ('lisi', NULL, 'rtmp://localhost:1935/live/lisi', 12, 13, '2020-04-08 23:28:43', 0, 'rtmp://localhost:1935/vod/lisi-1586359723.flv');
-INSERT INTO `video` VALUES ('lisi', NULL, 'rtmp://localhost:1935/live/lisi', 12, 13, '2020-04-09 11:09:54', 0, 'rtmp://localhost:1935/vod/lisi-1586401794.flv');
+  `userTel` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `title` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `url` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `lat` varchar(20) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `lng` varchar(20) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `startTime` datetime(0) NULL DEFAULT NULL,
+  `flag` int(11) NULL DEFAULT NULL,
+  `endTime` datetime(0) NULL DEFAULT NULL,
+  `videoUrl` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NULL DEFAULT NULL,
+  `videoId` int(11) NOT NULL AUTO_INCREMENT,
+  `planId` int(100) NULL DEFAULT NULL,
+  PRIMARY KEY (`videoId`) USING BTREE,
+  INDEX `planId`(`planId`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 51 CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Compact;
 
 SET FOREIGN_KEY_CHECKS = 1;

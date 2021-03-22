@@ -21,7 +21,7 @@
 		<uni-popup ref="popup" type="dialog">
 		    <uni-popup-dialog
 				mode="bear"
-				title="测试标题"
+				title="直播准备"
 				:plans="plans"
 				@close="close" 
 				placeholder="请输入标题"

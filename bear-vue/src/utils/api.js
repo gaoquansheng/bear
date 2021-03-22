@@ -2,8 +2,7 @@ import axios from "axios";
 import errorCode from "./errorCode"
 import { Message } from 'element-ui';
 
-let base = "http://localhost:8080";
-// let base = "http://39.102.80.119:8080";
+let base = process.env.VUE_APP_BASE_API;
 
 axios.defaults.withCredentials = true; //设置跨域访问cookie和session不失效
 
@@ -15,7 +14,7 @@ let service = axios.create({
 service.interceptors.response.use(res => {
   console.log(res);
   const code = res.data.code || 200;
-  const message = errorCode[code] || res.data.msg || errorCode["default"];
+  const message = res.data.msg || errorCode[code] || errorCode["default"];
   if(code != 200){
     Message({
       type: "error",
@@ -28,11 +27,11 @@ service.interceptors.response.use(res => {
   },
   error => {
     console.log('err' + error)
-    // this.$message({
-    //   message: error.message,
-    //   type: 'error',
-    //   duration: 5 * 1000
-    // })
+    this.$message({
+      message: error.message,
+      type: 'error',
+      duration: 5 * 1000
+    })
     return Promise.reject(error)
   }
 )

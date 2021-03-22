@@ -113,10 +113,10 @@ export default {
       title: "",
       flag: false,
       attachmentForm: {},
-      uploadUrl: "http://localhost:8080/attachment/upload",
+      uploadUrl: process.env.VUE_APP_BASE_API + "/attachment/upload",
       fileList:[],
       data: [],
-      loading: true,
+      loading: false,
       total: 0
     }
   },

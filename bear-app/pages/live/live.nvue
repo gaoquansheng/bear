@@ -6,13 +6,13 @@
 		<view>
 			<live-pusher  :beauty="beauty" :style="{width: width + 'px',height:height + 'px'}" id="livePusher" ref="livePusher" 
 			:url="rtmpUrl" mode="FHD"   aspect="9:16" 
-			@statechange="statechange" @netstatus="netstatus" @error = "error"></live-pusher>
+			@statechange="statechange"  @error = "error"></live-pusher>
 			
 			<!-- 这是聊天室 -->
 			<view class="chat" >
 				<scroll-view :scroll-top="scrollTop" scroll-y="true" class="scroll-Y">
 					<view class="chat-list" v-for="(it,i) in chatList" :key='i'>
-						<text class="chat-username">用户{{it.sendUserTel}}：</text>
+						<text class="chat-username">{{it.sendUserName}}：</text>
 						<text class="chat-usertext">{{it.message}}</text>
 					</view>
 				</scroll-view>
@@ -36,8 +36,10 @@
 			return {
 				width: '',
 				height: '',
-				url: 'rtmp://192.168.1.17:1935/live/',//这是推流地址
-				websocketUrl: "ws://192.168.1.17:8080/webSocketServer/",
+				url: 'rtmp://192.168.1.11:1935/hls/',//这是推流地址
+				// url: 'http://211.71.233.52:8080/hls/',//这是推流地址
+				websocketUrl: "ws://192.168.1.11:8080/webSocketServer/",
+				// websocketUrl: "ws://211.71.233.52:80/webSocketServer/",
 				context: null,
 				context1: null,
 				markact: true,
@@ -146,7 +148,13 @@
 				});
 			},
 			error(e) {
+				
+				console.log(e)
 				console.log("error:" + JSON.stringify(e));
+			},
+			statechange(e) {
+				console.log("网络变化");
+				console.log(e)
 			},
 			//WebSocket相关方法
 			initWebSocket(){
@@ -171,8 +179,7 @@
 			},
 			websocketOnMessage(res){
 				console.log("接受数据");
-				// console.log(res.data);
-				
+
 				this.chatList.push(JSON.parse(res.data));
 				console.log(this.chatList)
 			},

@@ -53,7 +53,7 @@ export default {
       checked: true,
       loginForm: {
         userTel: "15516392395",
-        userPwd: "123123"
+        userPwd: "123456"
       },
       loading: false
     };
@@ -66,8 +66,11 @@ export default {
           postRequest("/web/login", this.loginForm).then(res => {
             console.log(res);
             this.loading = false;         
-            this.$store.commit("login",res);
+            this.$store.commit("login",res.data);
             this.$router.replace({ path: "/home" });
+            },
+            error => {
+              this.loading = false;
             }
           );
         }else{

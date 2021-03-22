@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Service
@@ -20,9 +21,17 @@ public class WebServiceImpl implements WebService {
     @Autowired
     WebMapper webMapper;
 
+    @Autowired
+    HttpSession session;
+
     @Override
-    public User login(User user) {
-        return webMapper.login(user);
+    public AjaxResult login(User user) {
+        User login = webMapper.login(user);
+        if(login != null) {
+            session.setAttribute("userTel", user.getUserTel());
+            return AjaxResult.success(login);
+        }
+        return AjaxResult.error("用户名或密码错误");
     }
 
     @Override

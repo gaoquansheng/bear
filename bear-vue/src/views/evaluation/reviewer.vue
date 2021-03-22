@@ -102,7 +102,7 @@ export default {
       reviewForm: {},
       userList: [],
       data: [],
-      loading: true,
+      loading: false,
       checkUserList: [],
       total: 0
     }

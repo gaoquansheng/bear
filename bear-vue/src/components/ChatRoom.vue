@@ -6,7 +6,7 @@
       <ul>
         <li v-for="(chat, index) in chatList" class="list-item" :key="index">
           <div class="userMessage">
-            <span>{{ chat.sendUserTel }}:</span>
+            <span>{{ $store.state.userName }}:</span>
             <span class="userTel" v-for="(userTel,inx) in chat.userTels.split(',')" :key="inx">@{{userTel}}</span>
             <span>{{ chat.message }}</span>
           </div>
@@ -27,8 +27,7 @@ export default {
       message: "",
       websock: null,
       chatList: [],
-      websocketUrl:
-      "ws://localhost:8080/webSocketServer/" + this.$store.state.userTel,
+      websocketUrl: "ws://localhost:8080/webSocketServer/" + this.$store.state.userTel,
       receivedUserTels: this.checkedUserTels
     };
   },
@@ -41,6 +40,7 @@ export default {
   methods: {
 
     initWebSocket() {
+      console.log(process.env.VUE_APP_WS_API);
       //初始化weosocket
       this.websock = new WebSocket(this.websocketUrl);
       this.websock.onmessage = this.websocketonmessage;
@@ -59,12 +59,14 @@ export default {
       this.initWebSocket();
     },
     websocketonmessage(e) {
+      console.log("hhh");
       //这里会接受两个数据,一个直播数据,一个交互信息
       console.log("接受数据");
       let data = JSON.parse(e.data);
       if (data.message != null) {
         //这里是消息
         this.chatList.push(data);
+        console.log(this.chatList)
       } else {
         //这里是直播,发送出去，父组件接受这个时间
         this.$emit("liveVideo",data);
