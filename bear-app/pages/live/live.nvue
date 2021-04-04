@@ -36,9 +36,9 @@
 			return {
 				width: '',
 				height: '',
-				url: 'rtmp://192.168.1.11:1935/hls/',//这是推流地址
+				url: 'rtmp://192.168.43.163:1935/hls/',//这是推流地址
 				// url: 'http://211.71.233.52:8080/hls/',//这是推流地址
-				websocketUrl: "ws://192.168.1.11:8080/webSocketServer/",
+				websocketUrl: "ws://192.168.43.163:8080/webSocketServer/",
 				// websocketUrl: "ws://211.71.233.52:80/webSocketServer/",
 				context: null,
 				context1: null,
