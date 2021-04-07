@@ -36,10 +36,10 @@
 			return {
 				width: '',
 				height: '',
-				url: 'rtmp://192.168.43.163:1935/hls/',//这是推流地址
-				// url: 'http://211.71.233.52:8080/hls/',//这是推流地址
-				websocketUrl: "ws://192.168.43.163:8080/webSocketServer/",
-				// websocketUrl: "ws://211.71.233.52:80/webSocketServer/",
+				// url: 'rtmp://192.168.43.163:1935/hls/',//这是推流地址
+				url: 'http://211.71.233.52:8080/hls/',//这是推流地址
+				// websocketUrl: "ws://192.168.43.163:8080/webSocketServer/",
+				websocketUrl: "ws://211.71.233.52:80/webSocketServer/",
 				context: null,
 				context1: null,
 				markact: true,
@@ -175,27 +175,27 @@
 				this.websocket.onError(this.websocketOnError);
 			},
 			websocketOnOpen(){
-				console.log("连接成功l hhh");
+				console.log("WebSocket连接成功");
 			},
 			websocketOnMessage(res){
-				console.log("接受数据");
+				console.log("WebSocket接受数据");
 
 				this.chatList.push(JSON.parse(res.data));
 				console.log(this.chatList)
 			},
 			websocketOnClose(){
-				console.log("断开连接");
+				console.log("WebSocket断开连接");
 			},
 			websocketOnError(){
-				console.log("连接失败");
+				console.log("WebSocket连接失败");
 				// this.initWebSocket();
 			},
 			websocketSend(data){
 				this.websocket.send(data);
 			},
 			websocketClose(){
+				console.log("WebSocket主动断开连接");
 				this.websocket.close();
-				console.log("主动断开连接");
 			}
 		}
 	}

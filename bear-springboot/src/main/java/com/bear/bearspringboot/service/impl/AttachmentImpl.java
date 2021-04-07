@@ -6,6 +6,7 @@ import com.bear.bearspringboot.service.AttachmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Service
@@ -14,8 +15,13 @@ public class AttachmentImpl implements AttachmentService {
     @Autowired
     AttachmentMapper attachmentMapper;
 
+    @Autowired
+    HttpSession session;
+
     @Override
     public int addAttachment(Attachment attachment) {
+        String userTel =(String) session.getAttribute("userTel");
+        attachment.setUserTel(userTel);
         return attachmentMapper.addAttachment(attachment);
     }
 

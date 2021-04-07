@@ -40,6 +40,11 @@
       </el-table-column>
       <el-table-column
         align="center"
+        prop="userTel"
+        label="用户手机号">
+      </el-table-column>
+      <el-table-column
+        align="center"
         prop="enabled"
         label="是否启用"
         :formatter="enabledFormatter"

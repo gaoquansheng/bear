@@ -3,9 +3,7 @@ spring:
   datasource:
     username: root
     password: Passwd123!
-    #    password: 506LAB@CIDP_fzxy
     driver-class-name: com.mysql.cj.jdbc.Driver
-    #    url: jdbc:mysql://10.128.238.58:3306/bear?serverTimezone=CTT&useUnicode=true&characterEncoding=UTF-8
     url: jdbc:mysql://47.98.45.93:3306/bear?serverTimezone=CTT&useUnicode=true&characterEncoding=UTF-8
     #druid
     type: com.alibaba.druid.pool.DruidDataSource

@@ -4,7 +4,7 @@
 <mapper namespace="com.bear.bearspringboot.mapper.PlanMapper">
 
     <insert id="addPlan" parameterType="Plan">
-        insert into plan (planName, startTime, endTime) values (#{planName}, #{startTime}, #{endTime})
+        insert into plan (planName, startTime, endTime, userTel) values (#{planName}, #{startTime}, #{endTime}, #{userTel})
     </insert>
 
     <delete id="deletePlanById" parameterType="int">
@@ -12,18 +12,18 @@
     </delete>
 
     <update id="updatePlan" parameterType="Plan">
-        update plan set planName = #{planName},startTime = #{startTime},endTime = #{endTime} where planId = #{planId}
+        update plan set planName = #{planName},startTime = #{startTime},endTime = #{endTime}, userTel = #{userTel} where planId = #{planId}
     </update>
 
     <select id="getPlans" resultType="Plan">
-        select planId,planName,startTime,endTime from plan
+        select planId, planName, startTime, endTime, userTel from plan
     </select>
 
     <select id="getPlanById" parameterType="int" resultType="Plan">
-        select planId,planName,startTime,endTime from plan where planId = #{planId}
+        select planId,planName,startTime,endTime, userTel from plan where planId = #{planId}
     </select>
 
     <select id="getOpenPlans" resultType="Plan">
-        select planId,planName,startTime,endTime from plan where SYSDATE() between startTime and endTime
+        select planId,planName,startTime,endTime, userTel from plan where SYSDATE() between startTime and endTime
     </select>
 </mapper>

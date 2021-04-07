@@ -13,56 +13,40 @@ public class Target {
     private Integer planId;
     private String targetType;
     private String options;
+    private String userTel;
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+
         Target target = (Target) o;
-        return Objects.equals(targetId, target.targetId) &&
-                Objects.equals(targetName, target.targetName) &&
-                Objects.equals(enabled, target.enabled) &&
-                Objects.equals(minScore, target.minScore) &&
-                Objects.equals(maxScore, target.maxScore) &&
-                Objects.equals(description, target.description) &&
-                Objects.equals(planId, target.planId) &&
-                Objects.equals(targetType, target.targetType) &&
-                Objects.equals(options, target.options);
+
+        if (targetId != null ? !targetId.equals(target.targetId) : target.targetId != null) return false;
+        if (targetName != null ? !targetName.equals(target.targetName) : target.targetName != null) return false;
+        if (enabled != null ? !enabled.equals(target.enabled) : target.enabled != null) return false;
+        if (minScore != null ? !minScore.equals(target.minScore) : target.minScore != null) return false;
+        if (maxScore != null ? !maxScore.equals(target.maxScore) : target.maxScore != null) return false;
+        if (description != null ? !description.equals(target.description) : target.description != null) return false;
+        if (planId != null ? !planId.equals(target.planId) : target.planId != null) return false;
+        if (targetType != null ? !targetType.equals(target.targetType) : target.targetType != null) return false;
+        if (options != null ? !options.equals(target.options) : target.options != null) return false;
+        return userTel != null ? userTel.equals(target.userTel) : target.userTel == null;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(targetId, targetName, enabled, minScore, maxScore, description, planId, targetType, options);
-    }
-
-    @Override
-    public String toString() {
-        return "Target{" +
-                "targetId=" + targetId +
-                ", targetName='" + targetName + '\'' +
-                ", enabled=" + enabled +
-                ", minScore=" + minScore +
-                ", maxScore=" + maxScore +
-                ", description='" + description + '\'' +
-                ", planId=" + planId +
-                ", targetType='" + targetType + '\'' +
-                ", options='" + options + '\'' +
-                '}';
-    }
-
-    public Target() {
-    }
-
-    public Target(Integer targetId, String targetName, Boolean enabled, Integer minScore, Integer maxScore, String description, Integer planId, String targetType, String options) {
-        this.targetId = targetId;
-        this.targetName = targetName;
-        this.enabled = enabled;
-        this.minScore = minScore;
-        this.maxScore = maxScore;
-        this.description = description;
-        this.planId = planId;
-        this.targetType = targetType;
-        this.options = options;
+        int result = targetId != null ? targetId.hashCode() : 0;
+        result = 31 * result + (targetName != null ? targetName.hashCode() : 0);
+        result = 31 * result + (enabled != null ? enabled.hashCode() : 0);
+        result = 31 * result + (minScore != null ? minScore.hashCode() : 0);
+        result = 31 * result + (maxScore != null ? maxScore.hashCode() : 0);
+        result = 31 * result + (description != null ? description.hashCode() : 0);
+        result = 31 * result + (planId != null ? planId.hashCode() : 0);
+        result = 31 * result + (targetType != null ? targetType.hashCode() : 0);
+        result = 31 * result + (options != null ? options.hashCode() : 0);
+        result = 31 * result + (userTel != null ? userTel.hashCode() : 0);
+        return result;
     }
 
     public Integer getTargetId() {
@@ -135,5 +119,29 @@ public class Target {
 
     public void setOptions(String options) {
         this.options = options;
+    }
+
+    public String getUserTel() {
+        return userTel;
+    }
+
+    public void setUserTel(String userTel) {
+        this.userTel = userTel;
+    }
+
+    public Target() {
+    }
+
+    public Target(Integer targetId, String targetName, Boolean enabled, Integer minScore, Integer maxScore, String description, Integer planId, String targetType, String options, String userTel) {
+        this.targetId = targetId;
+        this.targetName = targetName;
+        this.enabled = enabled;
+        this.minScore = minScore;
+        this.maxScore = maxScore;
+        this.description = description;
+        this.planId = planId;
+        this.targetType = targetType;
+        this.options = options;
+        this.userTel = userTel;
     }
 }

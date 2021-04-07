@@ -5,21 +5,21 @@
 
     <select id="getTargets" parameterType="Target" resultType="Target">
       select targetId, targetName, enabled, description, minScore, maxScore, targetType, options,
-      planId from `target` where planId = #{planId}
+      planId, userTel from `target` where planId = #{planId}
     </select>
 
     <insert id="addTarget" parameterType="Target">
-        insert into `target` (planId, targetName, enabled, description, minScore, maxScore, targetType, options) values
-        (#{planId}, #{targetName}, #{enabled}, #{description}, #{minScore}, #{maxScore}, #{targetType}, #{options})
+        insert into `target` (planId, targetName, enabled, description, minScore, maxScore, targetType, options, userTel) values
+        (#{planId}, #{targetName}, #{enabled}, #{description}, #{minScore}, #{maxScore}, #{targetType}, #{options}, #{userTel})
     </insert>
 
     <select id="getTargetById" resultType="Target" parameterType="int">
-       select targetId, targetName, enabled, description, minScore, maxScore, targetType, options, planId from `target` where targetId = #{targetId}
+       select targetId, targetName, enabled, description, minScore, maxScore, targetType, options, planId, userTel from `target` where targetId = #{targetId}
     </select>
 
     <update id="updateTarget" parameterType="Target">
         update `target` set targetName = #{targetName}, enabled = #{enabled}, description = #{description},
-        targetType = #{targetType}, minScore = #{minScore}, maxScore = #{maxScore}, options = #{options} where targetId = #{targetId}
+        targetType = #{targetType}, minScore = #{minScore}, maxScore = #{maxScore}, options = #{options}, userTel = #{userTel} where targetId = #{targetId}
     </update>
 
     <delete id="deleteTargetById" parameterType="int">

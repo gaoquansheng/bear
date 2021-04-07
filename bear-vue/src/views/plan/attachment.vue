@@ -39,6 +39,11 @@
       </el-table-column>
       <el-table-column
         align="center"
+        prop="userTel"
+        label="用户手机号">
+      </el-table-column>
+      <el-table-column
+        align="center"
         prop="path"
         label="附件路径"
         >
@@ -148,7 +153,8 @@ export default {
           path: "",
           fileName: "",
           planId: "",
-          attachmentId: ""
+          attachmentId: "",
+          userTel: ""
         };
         this.fileList = [];
       },

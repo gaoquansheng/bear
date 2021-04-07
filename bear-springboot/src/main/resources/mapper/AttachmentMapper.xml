@@ -4,11 +4,11 @@
 <mapper namespace="com.bear.bearspringboot.mapper.AttachmentMapper">
 
     <insert id="addAttachment" parameterType="Attachment">
-        insert into attachment (planId, fileName, path) values (#{planId}, #{fileName}, #{path})
+        insert into attachment (planId, fileName, path, userTel) values (#{planId}, #{fileName}, #{path}, #{userTel})
     </insert>
 
     <select id="getAttachments" parameterType="Attachment" resultType="Attachment">
-        select planId, attachmentId, fileName, path from attachment where planId = #{planId}
+        select planId, attachmentId, fileName, path, userTel from attachment where planId = #{planId}
     </select>
 
     <delete id="deleteAttachmentById" parameterType="int">
@@ -16,6 +16,6 @@
     </delete>
 
     <select id="getAttachmentById" parameterType="int" resultType="Attachment">
-        select planId, attachmentId, fileName, path from attachment where attachmentId = #{attachmentId}
+        select planId, attachmentId, fileName, path, userTel from attachment where attachmentId = #{attachmentId}
     </select>
 </mapper>

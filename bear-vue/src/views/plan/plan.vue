@@ -21,6 +21,12 @@
       </el-table-column>
       <el-table-column
         align="center"
+        prop="userTel"
+        label="用户手机号"
+       >
+      </el-table-column>
+      <el-table-column
+        align="center"
         prop="startTime"
         label="开始时间"
         width="180">
@@ -149,7 +155,8 @@ export default {
       this.planForm = {
         planName: "",
         startTime: "",
-        endTime: ""
+        endTime: "",
+        userTel: ""
       }
     },
     handleUpdate(row){
