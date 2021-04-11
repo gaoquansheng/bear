@@ -118,7 +118,7 @@
               </el-option>
           </el-select>
       </el-form-item>
-      <el-form-item label="演练描述" >
+      <el-form-item label="指标描述" >
         <el-input v-model="targetForm.description" autocomplete="off"></el-input>
       </el-form-item>
       <el-form-item label="指标类型" >

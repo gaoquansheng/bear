@@ -27,7 +27,7 @@ export default {
       message: "",
       websock: null,
       chatList: [],
-      websocketUrl: "ws://localhost:8080/webSocketServer/" + this.$store.state.userTel,
+      websocketUrl: "ws://localhost:80/webSocketServer/" + this.$store.state.userTel,
       receivedUserTels: this.checkedUserTels
     };
   },
