@@ -37,11 +37,10 @@
 				width: '',
 				height: '',
 				url: 'rtmp://211.71.233.113:1935/hls/',//这是推流地址
-				// url: 'http://211.71.233.52:9880/hls/',//这是推流地址
+				// url: 'http://211.71.233.52:8080/hls/',//这是推流地址
 				// websocketUrl: "ws://192.168.43.163:8080/webSocketServer/",
 				websocketUrl: "ws://211.71.233.113:80/webSocketServer/",
 				context: null,
-				context1: null,
 				markact: true,
 				beauty: 0,
 				tabList:[

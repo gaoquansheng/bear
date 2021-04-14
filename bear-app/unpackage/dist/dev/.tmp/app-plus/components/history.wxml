@@ -1,1 +1,1 @@
-<view data-event-opts="{{[['tap',[['playVideo',['$event']]]]]}}" class="main data-v-5dc65266" bindtap="__e"><view class="title data-v-5dc65266">{{''+video.title+''}}</view><view class="time data-v-5dc65266">{{''+video.startTime+''}}</view></view>
+<view data-event-opts="{{[['tap',[['playVideo',['$event']]]]]}}" class="main data-v-35a9561a" bindtap="__e"><view class="title data-v-35a9561a">{{''+video.title+''}}</view><view class="time data-v-35a9561a">{{''+video.startTime+''}}</view></view>

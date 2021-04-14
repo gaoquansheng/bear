@@ -39,7 +39,7 @@ public class ReviewerController extends BaseController {
 
     @GetMapping("/plans")
     public List<Reviewer> getPlansByUserTel() {
-        return reviewerService.getPlansByUserTel("15516392395");
+        return reviewerService.getPlansByUserTel();
     }
 
 

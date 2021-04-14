@@ -1,8 +1,6 @@
 <template>
 	<view>
-		<History v-for="(item,index) in liveList" :key="index" :videoInfo="item">
-			<!-- <video :src="item.videoUrl" controls></video> -->
-			
+		<History v-for="(item,index) in liveList" :key="index" :videoInfo="item">			
 		</History>
 	</view>
 </template>
@@ -23,7 +21,7 @@
 				//1.首先在刚进入页面的时候利用用户手机号取出来自己所有的历史直播数据
 				let _this = this
 				uni.request({
-						url: "http://172.17.71.62:8080/app/liveHistory/"+this.$store.state.userTel,
+						url: "/app/liveHistory/"+this.$store.state.userTel,
 						dataType: "json",
 						method:"GET",
 						success(res) {

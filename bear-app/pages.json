@@ -16,9 +16,7 @@
 		    "path" : "pages/me/index",
 		    "style" : {}
 		},
-		{
-			"path":"pages/me/liveHistory"
-		},
+
 		{
             "path" : "pages/live/playVideos",
             "style" : {}

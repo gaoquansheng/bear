@@ -27,7 +27,7 @@ export default {
       message: "",
       websock: null,
       chatList: [],
-      websocketUrl: "ws://localhost:80/webSocketServer/" + this.$store.state.userTel,
+      websocketUrl: "ws://211.71.233.113:80/webSocketServer/" + this.$store.state.userTel,
       receivedUserTels: this.checkedUserTels
     };
   },
@@ -40,7 +40,7 @@ export default {
   methods: {
 
     initWebSocket() {
-      console.log(process.env.VUE_APP_WS_API);
+      console.log("初始化ws");
       //初始化weosocket
       this.websock = new WebSocket(this.websocketUrl);
       this.websock.onmessage = this.websocketonmessage;

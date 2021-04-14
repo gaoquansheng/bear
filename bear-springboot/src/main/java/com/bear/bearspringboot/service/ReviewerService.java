@@ -14,5 +14,5 @@ public interface ReviewerService {
 
     List<Reviewer> getReviewersByPlanId(Reviewer reviewer);
 
-    List<Reviewer> getPlansByUserTel(String userTel);
+    List<Reviewer> getPlansByUserTel();
 }

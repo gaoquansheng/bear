@@ -34,9 +34,9 @@ server:
 
 
 graduation:
-  path: E:/graduation/uploadPath
+  path: /usr/local/bear/uploadPath
   hlsExt: .m3u8
-  hlsPort: 9988
+  hlsPort: 8888
   hlsPre: http
 
 

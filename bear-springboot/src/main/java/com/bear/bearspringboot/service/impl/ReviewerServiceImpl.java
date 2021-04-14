@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
@@ -19,6 +20,8 @@ public class ReviewerServiceImpl implements ReviewerService {
 
     @Autowired
     ReviewerMapper reviewerMapper;
+    @Autowired
+    HttpSession session;
 
     @Override
     @Transactional
@@ -53,10 +56,9 @@ public class ReviewerServiceImpl implements ReviewerService {
 
 
 
-
-
     @Override
-    public List<Reviewer> getPlansByUserTel(String userTel) {
+    public List<Reviewer> getPlansByUserTel() {
+        String userTel =(String) session.getAttribute("userTel");
         return reviewerMapper.getPlansByUserTel(userTel);
     }
 }

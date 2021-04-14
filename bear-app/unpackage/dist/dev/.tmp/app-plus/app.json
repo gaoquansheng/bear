@@ -4,7 +4,6 @@
     "pages/login/register",
     "pages/login/forget",
     "pages/me/index",
-    "pages/me/liveHistory",
     "pages/live/playVideos",
     "pages/live/beforeLive",
     "pages/home/index",
@@ -12,7 +11,7 @@
   ],
   "window": {
     "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "测试系统",
+    "navigationBarTitleText": "应急演练辅助教学系统",
     "navigationBarBackgroundColor": "#F8F8F8",
     "backgroundColor": "#F8F8F8"
   },

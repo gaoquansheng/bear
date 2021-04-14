@@ -1,0 +1,2 @@
+setCssToHead(["wx-video { width: 100%; }\n",],undefined,{path:"./pages/live/playVideos.wxss"})();
+document.dispatchEvent(new CustomEvent("generateFuncReady", { detail: { generateFunc: $gwx('./pages/live/playVideos.wxml') } }));

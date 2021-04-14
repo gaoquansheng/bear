@@ -17,8 +17,8 @@
     </select>
 
     <select id="getPlansByUserTel" parameterType="String" resultType="com.bear.bearspringboot.entity.vo.ReviewerVo">
-        select id, pv.planId, userTel,p.planName from plan_reviewer pv LEFT JOIN plan p
-        on p.planId = pv.planId where userTel = #{userTel}
+        select id, pv.planId, pv.userTel,p.planName from plan_reviewer pv LEFT JOIN plan p
+        on p.planId = pv.planId where pv.userTel = #{userTel}
     </select>
 
 
