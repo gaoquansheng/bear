@@ -13,8 +13,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.*;
 
 @RestController
@@ -90,6 +92,7 @@ public class NginxController extends BaseController {
         nginxService.recordDone(video);
     }
 
+    //使用yamdi对原视频操作，添加原数据使得录播视频可以拖动进度条
     public static String metadataToVideo(String path) throws IOException, InterruptedException {
         //区分操作系统来进行不同的命令
         String osName = System.getProperty("os.name");
@@ -99,14 +102,18 @@ public class NginxController extends BaseController {
         }else {
             stringBuffer.append("cmd /c yamdi -i ");
         }
-
         stringBuffer.append(path);
         stringBuffer.append(" -o ");
         String newPath = path.split("\\.")[0]+"_."+path.split("\\.")[1];
-        stringBuffer.append(newPath);
-        System.out.println(stringBuffer.toString());
+        try {
+            stringBuffer.append(newPath);
+            System.out.println(stringBuffer.toString());
+            Process ps = Runtime.getRuntime().exec(stringBuffer.toString());
+        }catch (Exception e){
+            e.printStackTrace();
+        }
 
-        Runtime.getRuntime().exec(stringBuffer.toString());
+
         return newPath.split("/")[newPath.split("/").length - 1];
     }
 
