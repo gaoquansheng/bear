@@ -42,4 +42,9 @@ public class WebController extends BaseController {
     public List<Video> getLatestVideos(@RequestBody Video video){
         return webService.getLatestVideos(video);
     }
+
+    @GetMapping("/updatePwd/{pwd}/{newPwd}")
+    public void updatePwd(@PathVariable("pwd") String pwd, @PathVariable("newPwd") String newPwd){
+        webService.updatePwd(pwd, newPwd);
+    }
 }

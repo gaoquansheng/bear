@@ -57,12 +57,12 @@
             v-for="video in recordVideoList"
             :key="video.videoId"
           >
-          <!-- <flv-player ref="myvideo" :options="video" ></flv-player> -->
-          <video-player :options="{
+          <flv-player ref="myvideo" :options="video" ></flv-player>
+          <!-- <video-player :options="{
                       controls: true,
                       fluid: true,
                       sources: [{ src: video.url, type: 'application/x-mpegURL' }]
-                    }"></video-player>
+                    }"></video-player> -->
             <VideoInfo :videoInfo="video"></VideoInfo>
             <el-checkbox :label="video">
               <!-- 这里必须要有值,不然就会显示label中的值 -->
@@ -96,7 +96,6 @@ import VideoMap from "@/components/VideoMap.vue";
 import VideoInfo from "@/components/VideoInfo.vue";
 import draggable from "vuedraggable"
 import FlvPlayer from "@/components/FlvPlayer.vue"
-import VideoPlayer from '../../components/VideoPlayer.vue';
 
 export default {
   data() {
@@ -113,12 +112,11 @@ export default {
     };
   },
   components: {
-    VideoPlayer,
     VideoMap,
     VideoInfo,
     draggable,
     FlvPlayer
-    VideoPlayer
+    
   },  
   mounted() {
     this.initVideos();

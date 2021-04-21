@@ -20,6 +20,8 @@ Vue.use(ElementUI);
 window.eventBus = new Vue();
 Vue.config.productionTip = false;
 
+
+
 new Vue({
   router,
   store,

@@ -18,4 +18,5 @@ public interface WebService {
 
     public List<Video> getLiveVideos(Video video);
 
+    void updatePwd(String pwd, String newPwd);
 }

@@ -10,6 +10,7 @@
           </span>
           <el-dropdown-menu slot="dropdown">
             <el-dropdown-item command="logout">退出登录</el-dropdown-item>
+            <el-dropdown-item command="updatePwd">修改密码</el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
       </div>
@@ -59,12 +60,40 @@
         </el-main>
     </el-container>
     <el-footer>©防灾科技学院 应急管理学院</el-footer>
-  </el-container>
+
+    <el-dialog title="修改密码" :visible.sync="dialogFormVisible" width="30%">
+      <el-form :model="form"  label-width="80px">
+        <el-form-item label="旧密码">
+          <el-input v-model="form.pwd" autocomplete="off" show-password></el-input>
+        </el-form-item>
+        <el-form-item label="确认密码">
+          <el-input v-model="form.pwd1" autocomplete="off" show-password></el-input>
+        </el-form-item>
+        <el-form-item label="新密码">
+          <el-input v-model="form.newPwd" autocomplete="off" show-password></el-input>
+        </el-form-item> 
+      </el-form>
+      <div slot="footer" class="dialog-footer">
+        <el-button @click="dialogFormVisible = false">取 消</el-button>
+        <el-button type="primary" @click="submit">确 定</el-button>
+      </div>
+  </el-dialog>
+  </el-container>  
 </template>
 
 <script>
+import { getRequest } from "@/utils/api";
 export default {
-
+  data(){
+    return {
+      dialogFormVisible: false,
+      form: {
+        pwd: "",
+        pwd1: "",
+        newPwd: ""
+      }
+    }
+  },
   methods: {
     handleCommand(command){
       this[command]();
@@ -72,6 +101,33 @@ export default {
     logout(){
       this.$store.commit("logout");
       this.$router.replace("/")
+    },
+    updatePwd(){
+      console.log("修改密码咯");
+      //整个弹出框得了？
+      this.dialogFormVisible = true;
+    },
+    submit(){
+      //比对一下两次的旧密码
+      let flag = this.form.pwd == this.form.pwd1;
+      if(this.form.pwd == this.form.pwd1){
+        getRequest(`/web/updatePwd/${this.form.pwd}/${this.form.newPwd}`).then(res => {
+          this.dialogFormVisible = false;
+          this.resetForm();
+        })
+      }else{
+        this.$message({
+          type: "error",
+          message: "密码输入不一致，请重新输入"
+        })
+      }
+    },
+    resetForm(){
+      this.form = {
+        pwd: "",
+        pwd1: "",
+        newPwd: ""
+      }
     }
   }
 };

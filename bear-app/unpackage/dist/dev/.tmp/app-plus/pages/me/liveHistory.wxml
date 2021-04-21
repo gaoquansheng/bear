@@ -1,1 +1,0 @@
-<view><block wx:for="{{liveList}}" wx:for-item="item" wx:for-index="index" wx:key="index"><history vue-id="{{'1-'+index}}" videoInfo="{{item}}" bind:__l="__l"></history></block></view>

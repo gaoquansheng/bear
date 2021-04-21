@@ -29,6 +29,7 @@ public class WebServiceImpl implements WebService {
         User login = webMapper.login(user);
         if(login != null) {
             session.setAttribute("userTel", user.getUserTel());
+            session.setMaxInactiveInterval(120);//秒
             return AjaxResult.success(login);
         }
         return AjaxResult.error("用户名或密码错误");
@@ -49,5 +50,15 @@ public class WebServiceImpl implements WebService {
         return webMapper.getLiveVideos(video);
     }
 
-
+    @Override
+    public void updatePwd(String pwd, String newPwd) {
+        String userTel =(String) session.getAttribute("userTel");
+        User user = new User();
+        user.setUserTel(userTel);
+        user.setUserPwd(pwd);
+        User login = webMapper.login(user);
+        if(login != null){
+            webMapper.updatePwd(userTel, newPwd);
+        }
+    }
 }

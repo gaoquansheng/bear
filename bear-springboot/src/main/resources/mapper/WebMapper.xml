@@ -50,4 +50,7 @@
         </if>
     </select>
 
+    <update id="updatePwd">
+        update users set userPwd = #{newPwd} where userTel = #{userTel}
+    </update>
 </mapper>
