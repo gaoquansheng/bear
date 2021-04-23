@@ -26,7 +26,7 @@
     </select>
 
     <select id="login" parameterType="User" resultType="User">
-        select * from users where userTel = #{userTel} and userPwd = #{userPwd} and isAdmin = 1;
+        select * from users where userTel = #{userTel} and userPwd = #{userPwd} and isAdmin != 0;
     </select>
 
     <select id="getRecordVideos" resultMap="videoInfo" parameterType="Video">

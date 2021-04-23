@@ -42,7 +42,10 @@ const routes = [
         name: "直播管理",
         component: Live
       }
-    ]
+    ],
+    meta:{
+      role: [1,2]
+    }
   },
 
   {
@@ -61,7 +64,10 @@ const routes = [
         name: "历史录播",
         component: Record
       }
-    ]
+    ],
+    meta:{
+      role: [1,2]
+    }
   },
 
   {
@@ -81,7 +87,10 @@ const routes = [
         name: "附件管理",
         component: Attachment
       }
-    ]
+    ],
+    meta:{
+      role: [1]
+    }
   },
 
   {
@@ -95,7 +104,10 @@ const routes = [
         iconCls: "fa fa-user-o",
         component: UserManage
       }
-    ]
+    ],
+    meta:{
+      role: [1]
+    }
   },
   {
     path: "/home",
@@ -118,7 +130,10 @@ const routes = [
         iconCls: "fa fa-user-o",
         component: Evaluation
       }
-    ]
+    ],
+    meta:{
+      role: [1,2]
+    }
   }
 ];
 
@@ -127,20 +142,13 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes
 });
-// router.beforeEach((to,from,next) => {
-//   //首先判断访问的路径是不是登录页面，如果是就不加阻止，如果不是
-//   if(to.path == "/"){
-//     next();
-//   }else{
-//     if(store.state.userTel){
-//       console.log("已经登陆了");
-//       next();
-//     }else{
-//       next("/")
-//     }
-//   }
 
-
-
+// router.beforeEach((to, from, next) => {
+//   console.log("here");
+//   console.log(to);
+//   console.log(from);
+//   next();
 // })
+
+
 export default router;

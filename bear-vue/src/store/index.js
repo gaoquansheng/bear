@@ -6,12 +6,14 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     userTel: "",
-    userName: ""
+    userName: "",
+    isAdmin: ""
   },
   mutations: {
     login(state, payload) {
       state.userTel = payload.userTel;
       state.userName = payload.userName;
+      state.isAdmin = payload.isAdmin;
     },
     logout(state){
       state.userTel = "";

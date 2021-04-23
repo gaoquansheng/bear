@@ -125,6 +125,10 @@ export default {
         {
           label: "管理员",
           value: 1
+        },
+        {
+          label: "评价人员",
+          value: 2
         }
       ]
     };
@@ -248,8 +252,8 @@ export default {
         return "管理员";
       } else if (cellValue == "0") {
         return "普通用户";
-      } else {
-        return "无";
+      } else if(cellValue == "2"){
+        return "评价人员";
       }
     },
     handleDeleteUsers() {

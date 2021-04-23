@@ -9,8 +9,8 @@
             {{this.$store.state.userName}}<i class="el-icon-arrow-down el-icon--right"></i>
           </span>
           <el-dropdown-menu slot="dropdown">
-            <el-dropdown-item command="logout">退出登录</el-dropdown-item>
             <el-dropdown-item command="updatePwd">修改密码</el-dropdown-item>
+            <el-dropdown-item command="logout">退出登录</el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
       </div>
@@ -25,7 +25,7 @@
           router
         >
           <template v-for="(item, index) in this.$router.options.routes">
-            <template v-if="!item.hidden">
+            <template v-if="!item.hidden && item.meta.role.includes($store.state.isAdmin)">
               <el-submenu
                 :index="index + ''"
                 v-if="item.children.length > 1"
@@ -94,6 +94,7 @@ export default {
       }
     }
   },
+
   methods: {
     handleCommand(command){
       this[command]();
