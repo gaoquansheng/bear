@@ -1,5 +1,7 @@
+import { reject } from "core-js/fn/promise";
 import Vue from "vue";
 import Vuex from "vuex";
+import {login} from "@/api/user"
 
 Vue.use(Vuex);
 
@@ -18,8 +20,22 @@ export default new Vuex.Store({
     logout(state){
       state.userTel = "";
       state.userName = "";
+    },
+    SET_USERINFO(state, userInfo){
+
     }
   },
-  actions: {},
+  actions: {
+    login({commit}, userInfo){
+      return new Promise((resolve, reject) => {
+        login(userInfo).then(response => {
+          commit("SET_USERINFO", response);
+          resolve();
+        }).catch(error => {
+          reject(error);
+        })
+      })
+    }
+  },
   modules: {}
 });

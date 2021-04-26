@@ -63,16 +63,24 @@ export default {
       this.$refs[formName].validate((valid) => {    
         if(valid){
           this.loading = true;
-          postRequest("/web/login", this.loginForm).then(res => {
-            console.log(res);
-            this.loading = false;         
-            this.$store.commit("login",res.data);
-            this.$router.replace({ path: "/home" });
-            },
-            error => {
+          this.$store.dispatch("login", this.loginForm)
+            .then(() => {
+              this.$router.push({path: "/home"});
               this.loading = false;
-            }
-          );
+            })
+            .catch(() => {
+              this.loading = false;
+            })
+          // postRequest("/web/login", this.loginForm).then(res => {
+          //   console.log(res);
+          //   this.loading = false;         
+          //   this.$store.commit("login",res.data);
+          //   this.$router.replace({ path: "/home" });
+          //   },
+          //   error => {
+          //     this.loading = false;
+          //   }
+          // );
         }else{
           return false;
         }

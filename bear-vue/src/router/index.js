@@ -14,40 +14,39 @@ import Reviewer from "@/views/evaluation/reviewer"
 import Evaluation from "@/views/evaluation/evaluation"
 import Target from "@/views/evaluation/target"
 
-// import Map from "../views/map/Map"
-
 Vue.use(VueRouter);
 
-const routes = [
+const constantRoutes = [
   {
     path: "/",
     name: "登录",
     hidden: true,
-    component: Login
+    component: () =>import("@/views/login/Login")
   },
   {
-    path: "/home",
-    name: "",
+    path: "/404",
     hidden: true,
-    component: Home
+    component: () =>import("@/views/error-page/404")
   },
+  { path: '*', redirect: '/404', hidden: true }
+];
+
+export const asyncRoutes = [
   {
     path: "/home",
-    // name: "直播管理",
     component: Home,
     iconCls: "fa fa-file-text-o",
     children: [
       {
         path: "/live",
         name: "直播管理",
-        component: Live
+        component: () => import("@/views/live/Live")
       }
     ],
     meta:{
-      role: [1,2]
+      role: ["admin","reviewer"]
     }
   },
-
   {
     path: "/home",
     name: "录播管理",
@@ -57,16 +56,16 @@ const routes = [
       {
         path: "/latestrecord",
         name: "最新录播",
-        component: LatestRecord
+        component: () => import("@/views/record/LatestRecord")
       },
       {
         path: "/record",
         name: "历史录播",
-        component: Record
+        component: () => import("@/views/record/Record")
       }
     ],
     meta:{
-      role: [1,2]
+      role: ["admin","reviewer"]
     }
   },
 
@@ -79,34 +78,33 @@ const routes = [
       {
         path: "/plan",
         name: "演练管理",
-        component: Plan
+        component: () => import("@/views/plan/plan")
       },
 
       {
         path: "/attachment",
         name: "附件管理",
-        component: Attachment
+        component: () => import("@/views/plan/attachment")
       }
     ],
     meta:{
-      role: [1]
+      role: ["admin"]
     }
   },
 
   {
     path: "/home",
-    // name: "用户管理",
     component: Home,
     children: [
       {
         path: "/user",
         name: "用户管理",
         iconCls: "fa fa-user-o",
-        component: UserManage
+        component: () => import("@/views/user/UserManage")
       }
     ],
     meta:{
-      role: [1]
+      role: ["admin"]
     }
   },
   {
@@ -117,38 +115,30 @@ const routes = [
       {
         path: "/target",
         name: "指标管理",
-        component: Target
+        component: () => import("@/views/evaluation/target"),
+        meta: {role: ["admin"]}
       },
       {
         path: "/reviewer",
         name: "评估人员管理",
-        component: Reviewer
+        component: () => import("@/views/evaluation/reviewer"),
+        meta: {role: ["admin"]}
       },
       {
         path: "/evaluation",
         name: "评估管理",
         iconCls: "fa fa-user-o",
-        component: Evaluation
+        component: () => import("@/views/evaluation/evaluation"),
+        meta: {role: ["admin", "reviewer"]}
       }
-    ],
-    meta:{
-      role: [1,2]
-    }
+    ]
   }
-];
+]
 
 const router = new VueRouter({
   mode: "history",
   base: process.env.BASE_URL,
-  routes
+  constantRoutes
 });
-
-// router.beforeEach((to, from, next) => {
-//   console.log("here");
-//   console.log(to);
-//   console.log(from);
-//   next();
-// })
-
 
 export default router;
