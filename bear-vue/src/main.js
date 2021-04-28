@@ -6,7 +6,6 @@ import router from "./router";
 import store from "./store";
 import "./plugins/element.js";
 import BaiduMap from "vue-baidu-map";
-import "./permission"
 
 //全局组件挂载分页
 import Pagination from "./components/Pagination"

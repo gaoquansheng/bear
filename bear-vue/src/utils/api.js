@@ -1,6 +1,8 @@
 import axios from "axios";
 import errorCode from "./errorCode"
-import { Message } from 'element-ui';
+import { MessageBox, Message } from 'element-ui'
+import store from '@/store'
+
 
 let base = process.env.VUE_APP_BASE_API;
 
@@ -13,6 +15,20 @@ let service = axios.create({
 
 service.interceptors.response.use(res => {
   console.log(res);
+  if(res.data == "9999"){
+    console.log("失效了哈");
+    MessageBox.confirm('用户已失效，请重新登录', '提示', {
+      confirmButtonText: '确定',
+      cancelButtonText: '取消',
+      type: 'warning'
+    }).then(() => {
+      location.reload()
+      // store.dispatch('resetUserInfo').then(() => {
+      //   location.reload()
+      // })
+    })
+    return Promise.reject()
+  }
   const code = res.data.code || 200;
   const message = res.data.msg || errorCode[code] || errorCode["default"];
   if(code != 200){
@@ -26,8 +42,9 @@ service.interceptors.response.use(res => {
   }
   },
   error => {
-    console.log('err' + error)
-    this.$message({
+
+
+    Message({
       message: error.message,
       type: 'error',
       duration: 5 * 1000
@@ -124,3 +141,4 @@ export const dateToString = () => {
   const dateTime = year + "-" + month + "-" + day + " ";
   return dateTime;
 }
+export default service;

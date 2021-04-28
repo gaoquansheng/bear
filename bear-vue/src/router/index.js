@@ -1,6 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-// import store from "@/store/index.js"
+import store from "@/store/index.js"
 
 import Login from "@/views/login/Login";
 import Home from "@/views/home/Home";
@@ -16,7 +16,7 @@ import Target from "@/views/evaluation/target"
 
 Vue.use(VueRouter);
 
-const constantRoutes = [
+const routes = [
   {
     path: "/",
     name: "登录",
@@ -24,14 +24,18 @@ const constantRoutes = [
     component: () =>import("@/views/login/Login")
   },
   {
-    path: "/404",
+    path: "/home",
+    component: Home,
+    iconCls: "fa fa-file-text-o",
     hidden: true,
-    component: () =>import("@/views/error-page/404")
+    children: [
+      {
+        path: "/404",
+        component: () => import("@/views/error-page/404")
+      }
+    ],
   },
-  { path: '*', redirect: '/404', hidden: true }
-];
 
-export const asyncRoutes = [
   {
     path: "/home",
     component: Home,
@@ -40,7 +44,10 @@ export const asyncRoutes = [
       {
         path: "/live",
         name: "直播管理",
-        component: () => import("@/views/live/Live")
+        component: () => import("@/views/live/Live"),
+        meta:{
+          role: ["admin","reviewer"]
+        }
       }
     ],
     meta:{
@@ -56,19 +63,24 @@ export const asyncRoutes = [
       {
         path: "/latestrecord",
         name: "最新录播",
-        component: () => import("@/views/record/LatestRecord")
+        component: () => import("@/views/record/LatestRecord"),
+        meta:{
+          role: ["admin","reviewer"]
+        }
       },
       {
         path: "/record",
         name: "历史录播",
-        component: () => import("@/views/record/Record")
+        component: () => import("@/views/record/Record"),
+        meta:{
+          role: ["admin","reviewer"]
+        }
       }
     ],
     meta:{
       role: ["admin","reviewer"]
     }
   },
-
   {
     path: "/home",
     name: "应急演练配置",
@@ -78,20 +90,25 @@ export const asyncRoutes = [
       {
         path: "/plan",
         name: "演练管理",
-        component: () => import("@/views/plan/plan")
+        component: () => import("@/views/plan/plan"),
+        meta:{
+          role: ["admin"]
+        }
       },
 
       {
         path: "/attachment",
         name: "附件管理",
-        component: () => import("@/views/plan/attachment")
+        component: () => import("@/views/plan/attachment"),
+        meta:{
+          role: ["admin"]
+        }
       }
     ],
     meta:{
       role: ["admin"]
     }
   },
-
   {
     path: "/home",
     component: Home,
@@ -100,11 +117,30 @@ export const asyncRoutes = [
         path: "/user",
         name: "用户管理",
         iconCls: "fa fa-user-o",
-        component: () => import("@/views/user/UserManage")
+        component: () => import("@/views/user/UserManage"),
+        meta:{
+          role: ["admin"]
+        }
       }
     ],
     meta:{
       role: ["admin"]
+    }
+  },
+  {
+    path: "/home",
+    component: Home, 
+    children: [
+      {
+        path: "/evaluation",
+        name: "演练评价",
+        iconCls: "fa fa-user-o",
+        component: () => import("@/views/evaluation/evaluation"),
+  
+      }
+    ],
+    meta: {
+      role: ["admin", "reviewer"]
     }
   },
   {
@@ -123,22 +159,41 @@ export const asyncRoutes = [
         name: "评估人员管理",
         component: () => import("@/views/evaluation/reviewer"),
         meta: {role: ["admin"]}
-      },
-      {
-        path: "/evaluation",
-        name: "评估管理",
-        iconCls: "fa fa-user-o",
-        component: () => import("@/views/evaluation/evaluation"),
-        meta: {role: ["admin", "reviewer"]}
       }
-    ]
-  }
-]
+    ],
+    meta: {role: ["admin"]}
+  },
+  { path: '*', redirect: '/404', hidden: true }
+];
 
 const router = new VueRouter({
   mode: "history",
   base: process.env.BASE_URL,
-  constantRoutes
+  routes
 });
 
+let reviewer_list = ["/live", "/record", "/home", "/latestrecord", "/evaluation", "/404", "/"]
+let white_list = ["/"]
+router.beforeEach((to, from, next) => {
+  //首先判断是否已登录
+  console.log(store.state.role);
+  if(store.state.role != ""){
+    if(store.state.role == "admin"){
+      next();
+    }else{
+      if(reviewer_list.includes(to.path)){
+        next();
+      }else{
+        next("/404");
+      }
+    }
+  }else{
+    //没有登录则判断是否为白名单
+    if(white_list.includes(to.path)){
+      next();
+    }else{
+      next("/")
+    }
+  }
+})
 export default router;

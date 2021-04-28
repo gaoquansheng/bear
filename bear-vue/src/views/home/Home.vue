@@ -21,14 +21,15 @@
         <el-menu
           default-active="0"
           class="el-menu-vertical-demo"
-          style="background-color:  #ececec"
+          style="background-color: #ececec"
           router
         >
           <template v-for="(item, index) in this.$router.options.routes">
-            <template v-if="!item.hidden && item.meta.role.includes($store.state.isAdmin)">
+            <template v-if="!item.hidden && item.meta.role.includes($store.state.role)">
+
               <el-submenu
                 :index="index + ''"
-                v-if="item.children.length > 1"
+                v-if="item.children.length > 1 "
                 :key="index"
               >
                 <template slot="title">
@@ -42,6 +43,7 @@
                   >{{ child.name }}</el-menu-item
                 >
               </el-submenu>
+
               <template v-else>
                 <el-menu-item
                   :index="item.children[0].path"
@@ -51,6 +53,7 @@
                   <span slot="title">{{ item.children[0].name }}</span>
                 </el-menu-item>
               </template>
+              
             </template>
           </template>
         </el-menu>

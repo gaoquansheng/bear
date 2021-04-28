@@ -96,9 +96,12 @@ export default {
   methods: {
     getPlansByUserTel(){
       getRequest("/reviewer/plans").then(res => {
-        this.planList = res;
-        this.queryParams.planId = res[0].planId;
-        this.getTargets();
+        console.log(res);
+        if(res.length){
+          this.planList = res;
+          this.queryParams.planId = res[0].planId;
+          this.getTargets();
+        }
       })
     },
     getTargets(){
