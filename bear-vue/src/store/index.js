@@ -26,8 +26,10 @@ export default new Vuex.Store({
     login({commit}, userInfo){
       return new Promise((resolve, reject) => {
         login(userInfo).then(response => {
-          console.log(response);
-          commit("SET_USERINFO", response.data);
+          commit("SET_USERINFO", response);
+          //这里把用户信息也存入到sessionStorage中，没办法了。先这样
+          let role = response.isAdmin == 1? "admin":"reviewer";
+          sessionStorage.setItem("role", role)
           resolve();
         }).catch(error => {
           reject(error);

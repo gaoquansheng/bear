@@ -171,14 +171,16 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes
 });
-
+//评价人员权限表
 let reviewer_list = ["/live", "/record", "/home", "/latestrecord", "/evaluation", "/404", "/"]
+//白名单
 let white_list = ["/"]
 router.beforeEach((to, from, next) => {
-  //首先判断是否已登录
-  console.log(store.state.role);
-  if(store.state.role != ""){
-    if(store.state.role == "admin"){
+  console.log("=========="+store.state.role);
+  //这里先来通过sessionStorage判断吧。哈哈哈
+  let role = sessionStorage.getItem("role");
+  if(role != ""){
+    if(role == "admin"){
       next();
     }else{
       if(reviewer_list.includes(to.path)){

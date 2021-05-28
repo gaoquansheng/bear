@@ -65,6 +65,7 @@ export default {
           this.loading = true;
           this.$store.dispatch("login", this.loginForm)
             .then(() => {
+              console.log("helo");
               this.$router.push({path: "/home"});
               this.loading = false;
             })

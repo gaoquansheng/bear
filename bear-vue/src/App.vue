@@ -7,17 +7,16 @@
 <script>
 export default {
   name: "app",
-  created() {
+  beforeCreate() {
+    console.log("我来了");
     //首先在页面加载的时候判断是否有数据
     if(sessionStorage.getItem("store")){
-      console.log("hhhh");
       this.$store.replaceState(Object.assign({}, this.$store.state,JSON.parse(sessionStorage.getItem("store"))))
     }
-//what fuck 
-//这里sessionStorage的键竟然有要求，user就报错?
+    //what fuck 
+    //这里sessionStorage的键竟然有要求，user就报错?
     //在页面刷新之前将数据存储,
     window.addEventListener("beforeunload",() => {  
-      console.log(this.$store.state);
       sessionStorage.setItem("store",JSON.stringify(this.$store.state))
     })
   }

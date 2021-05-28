@@ -11,7 +11,7 @@
           size="small">
           <el-option
             v-for="plan in planList"
-            :key="plan.planId"
+            :key="plan.id"
             :label="plan.planName "
             :value="plan.planId"
           ></el-option>
@@ -148,8 +148,7 @@ export default {
         })
       }
 
-    },
-
+    }
   }
 }
 </script>

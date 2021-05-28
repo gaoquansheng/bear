@@ -59,7 +59,6 @@ export default {
       this.initWebSocket();
     },
     websocketonmessage(e) {
-      console.log("hhh");
       //这里会接受两个数据,一个直播数据,一个交互信息
       console.log("接受数据");
       let data = JSON.parse(e.data);
